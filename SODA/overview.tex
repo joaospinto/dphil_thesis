@@ -1,0 +1,237 @@
+\section{Overview of Main Results}
+\label{sec:overview}
+The main result of this paper is as follows:
+\begin{theorem}
+  The termination over the integers of simple linear loops of the form
+\begin{gather*}
+\mathsf{P1:}\  \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
+\textit{while} $B\boldsymbol{x} \geq \boldsymbol{c}$ \textit{do}
+$\boldsymbol{x}\leftarrow A\boldsymbol{x}+\boldsymbol{a}$}
+\end{gather*}
+is decidable using exponential space if $A$ is diagonalisable and
+using polynomial space if $A$ has dimension at most $4$.
+\label{thm:main}
+\end{theorem}
+In this section we give a high-level overview of the proof of Theorem~\ref{thm:main}.
+
+Let $f:\mathbb{R}^d\rightarrow \mathbb{R}^d$ be the affine function
+$f(\boldsymbol{x})=A\boldsymbol{x}+\boldsymbol a$ computed by the body
+of the while loop in \textsf{P1} and $P=\{ \boldsymbol{x} \in
+\mathbb{R}^d: B \boldsymbol{x}\geq \boldsymbol{c}\}$ the convex polytope
+corresponding to the loop guard.  We define the set of
+\emph{non-terminating points} to be
+\[ \mathit{NT} = \{ \boldsymbol{u}\in \mathbb{R}^d : \forall n \in
+\mathbb{N},\, f^n(\boldsymbol{u}) \in P \} \, .\] Following
+Braverman~\cite{Bra06}, we moreover define the set of \emph{eventually
+  non-terminating points} to be
+\[ \mathit{ENT} = \{ \boldsymbol{u}\in \mathbb{R}^d : \exists n \in
+\mathbb{N},\, f^n(\boldsymbol{u}) \in \mathit{NT} \} \, .\]
+It is easily seen from the above definitions that both \textit{NT} and
+\textit{ENT} are convex sets.
+
+By definition, \textsf{P1} is non-terminating on $\mathbb{Z}^d$ if
+and only if $\mathit{NT}$ contains an integer point.  It is moreover
+clear that $\mathit{NT}$ contains an integer point if and only if
+$\mathit{ENT}$ contains an integer point.
+
+%% It is immediate that the problem of termination on $\mathbb{Z}^d$ is
+%% \textbf{coNP}-hard.  Indeed, taking $f$ to be the identity function,
+%% loop \textsf{P1} is non-terminating on initial value $\boldsymbol{u}$
+%% if and only if $\boldsymbol{u}$ satisfies the loop guard.  Thus the
+%% non-termination problem subsumes the problem of
+%% whether a given polytope contains an integer point (i.e., integer
+%% programming), which is \textbf{NP}-hard.  By contrast, even though not
+%% stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding
+%% termination on $\mathbb{R}^d$ and $\mathbb{Q}^d$ can be done in
+%% polynomial time.  This observation relies on the facts that one can
+%% compute Jordan canonical forms of integer matrices and solve instances
+%% of linear programming problems with algebraic numbers in polynomial
+%% time~\cite{Cai94,AdlerB94}.
+
+Recall that a subset of $\mathbb{R}^d$ is said to be
+\emph{semi-algebraic} if it is a Boolean combination of sets of the
+form $\{ \boldsymbol{x} \in \mathbb{R}^d : p(\boldsymbol{x})\geq 0\}$,
+where $p$ is a polynomial with integer coefficients.  Equivalently the
+semi-algebraic sets are those definable by quantifier-free first-order
+formulas over the structure $(\mathbb{R},<,+,\cdot,0,1)$.  In fact,
+since the first-order theory of the reals admits quantifier
+elimination~\cite{Tar51}, the semi-algebraic sets are precisely the
+first-order definable sets.
+
+Define $W \subseteq \mathbb{R}^d$ to be a
+\emph{non-termination witness set} (or simply a witness set) if it
+satisfies the following two properties (where $\mathbb{A}$ denotes the
+set of algebraic numbers):
+\begin{itemize}
+\item[(i)] $W$ is convex and semi-algebraic;
+\item[(ii)] $W\cap \mathbb{A}^d=\mathit{ENT}\cap \mathbb{A}^d$.
+\end{itemize}
+
+The integer points in a witness set $W$ are precisely the integer
+points of \textit{ENT}, and so \textsf{P1} is non-terminating on
+$\mathbb{Z}^d$ precisely when $W$ contains an integer point.  Our
+approach to solving the termination problem consists in computing a
+witness set $W$ for a given program and then using the following
+theorem of Khachiyan and Porkolab~\cite{KhachiyanP97} to decide whether $W$
+contains an integer point.
+\begin{theorem}[Khachiyan and Porkolab]
+Let $W\subseteq\mathbb{R}^d$ be a convex semi-algebraic set defined by
+polynomials of degree at most $D$ and that can be represented in space
+$S$. In that case, if $W\cap\mathbb{Z}^d\neq\emptyset$, then $W$ must
+contain an integral point that can be represented in space
+$SD^{O(d^4)}$.
+\end{theorem}
+
+Our approach does not attempt to characterise the set \textit{ENT}
+directly, but rather uses the witness set $W$ as a proxy. However, our
+techniques do allow us to establish that
+$\overline{\mathit{ENT}}=\overline{W}$, which in particular implies
+that $\overline{\mathit{ENT}}$ is semi-algebraic, since the closure of
+a semi-algebraic set is semi-algebraic (see the Appendix for
+details). A natural question is whether the set $ENT$
+itself is semi-algebraic, which we leave as an open problem.
+
+We next describe some restrictions on linear loops that can
+be made without loss of generality and that will ease our upcoming
+analysis.
+
+We first reduce the problem of computing witness sets in the general
+case to the same problem in the homogeneous case.  Note that Program
+\textsf{P1} terminates on a given initial value $\boldsymbol{u}\in
+\mathbb{Z}^d$ if and only if the homogeneous program \textsf{P3} below
+terminates for the same value of $\boldsymbol{u}$:
+\begin{align*}
+\mathsf{P3:} \boldsymbol{x}\gets
+\begin{pmatrix} \boldsymbol{u}\\ 1\end{pmatrix} \mbox{\textit{while}} \begin{pmatrix}B &-\boldsymbol{c} \end{pmatrix}
+\boldsymbol{x} \geq 0 \mbox{ \textit{do} } \boldsymbol{x}\leftarrow
+\begin{pmatrix}A&\boldsymbol{a}\\ 0 & 1
+\end{pmatrix} \boldsymbol{x}
+\end{align*}
+
+Note that if $A$ is diagonalisable then all
+eigenvalues of
+$\begin{pmatrix}A&\boldsymbol{a}\\ 0 & 1
+\end{pmatrix}$ are simple, with the possible exception of the
+eigenvalue $1$.  (Recall that an eigenvalue is said to be simple if it
+has multiplicity one as a root of the minimal polynomial of $A$.)  Now
+if $W$ is a witness set for program \textsf{P3} then $\left\{
+  \boldsymbol{u} \in \mathbb{R}^d : \begin{pmatrix} \boldsymbol{u}\\
+    1\end{pmatrix} \in W \right\}$ is a witness set for \textsf{P1}.
+We conclude that, in order to settle the inhomogeneous case with a
+diagonalisable matrix, it suffices to compute a witness set in the
+case of a homogeneous linear loop \textsf{P2} in which the only
+repeated eigenvalues of the new matrix $A$ are positive and real.
+Likewise, to handle the inhomogeneous case for matrices of dimension
+at most $d$, it suffices to be able to compute witness sets in the
+homogeneous case for matrices of dimension at most $d+1$.%
+\footnote{Note that whilst Braverman~\cite{Bra06} shows how to decide
+  termination over the integers for homogeneous programs with
+  arbitrary update matrices, he does \emph{not} compute a witness set
+  for such programs---indeed this remains an open problem since it
+  would enable one to solve termination over the integers for
+  arbitrary inhomogeneous programs.}
+
+We can further simplify the homogeneous case by restricting to loop
+guards that comprise a single linear inequality.  To see this, first
+note that program \textsf{P2} above is eventually non-terminating on
+$\boldsymbol{u}$ if and only if for each row $\boldsymbol{b}^T$ of $B$
+program \textsf{P4} below is eventually non-terminating on
+$\boldsymbol{u}$:
+\begin{gather*}
+\mathsf{P4:}\ \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
+\textit{while} $\boldsymbol{b}^T\boldsymbol{x} \geq 0$ \textit{do} $\boldsymbol{x}\leftarrow A\boldsymbol{x}$.}
+\end{gather*}
+Noting that the finite intersection of convex semi-algebraic sets is
+again convex and semi-algebraic, we can compute a witness set
+for \textsf{P2} as the intersection of witness sets for each version
+of \textsf{P4}.
+
+The final simplification concerns the notion of
+non-degeneracy.  We say that matrix $A$ is \emph{degenerate} if it has
+distinct eigenvalues $\lambda_1 \neq \lambda_2$ whose quotient
+$\lambda_1/\lambda_2$ is a root of unity.
+
+Given an arbitrary matrix $A$, let $L$ be the least common multiple of all orders of quotients of distinct eigenvalues of $A$ which are roots
+of unity. It is known that $L=2^{O(d\sqrt{\log d})}$ \cite{BOOK}.  The
+eigenvalues of the matrix $A^L$ have the form $\lambda^L$ for
+$\lambda$ an eigenvalue of $A$, by the spectral mapping theorem.  It follows that
+$A^L$ is non-degenerate, since if $\lambda_1,\lambda_2$ are
+eigenvalues of $A$ such that $\lambda^L_1/\lambda^L_2$ is a root of
+unity then $\lambda_1/\lambda_2$ is a root of unity and hence
+$\lambda^L_1/\lambda^L_2=1$. Note that all eigenvectors of $A$ are still eigenvectors of $A^L$, thus $A^L$ will be diagonalisable whenever $A$ is.
+
+Now program \textsf{P4} is eventually non-terminating on
+$\boldsymbol{u}\in \mathbb{Z}^d$ if and only if program \textsf{P5}
+below is eventually non-terminating on the set
+$\{\boldsymbol{u},A\boldsymbol{u}, \ldots,A^{L-1}\boldsymbol{u}\}$:
+\begin{gather*}
+\mathsf{P5:}\ \mbox{$\boldsymbol{x}\gets \boldsymbol{v}$ ;
+\textit{while} $\boldsymbol b^T\boldsymbol{x} \geq 0$ \textit{do} $\boldsymbol{x}\leftarrow A^L\boldsymbol{x}$.}
+\end{gather*}
+Thus if $W$ is a witness set for \textsf{P5} then $\bigcap_{i=0}^{L-1}
+\{ \boldsymbol{u} \in \mathbb{Z}^d : A^i\boldsymbol{u} \in W\}$ is a witness set for
+\textsf{P4}.
+
+The main technical result of the paper is the following proposition:
+\begin{proposition}
+Given a homogeneous simple linear loop
+\begin{gather*}
+\mathsf{P4:}\ \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
+\textit{while} $\boldsymbol{b}^T\boldsymbol{x} \geq 0$ \textit{do} $\boldsymbol{x}\leftarrow A\boldsymbol{x}$,}
+\end{gather*}
+such that $A$ is non-degenerate and either $A$ has dimension at most
+$5$ or all complex eigenvalues of $A$ are simple,  we can compute a
+witness set for \textsf{P4} using exponential space if $A$ is diagonalisable and using polynomial space if $A$ has dimension at most $5$.
+\label{prop:main}
+\end{proposition}
+
+Bearing in mind that the transformation from $\mathsf{P1}$ to
+$\mathsf{P4}$ increases the dimension of $A$ by one and does not
+introduce repeated complex eigenvalues, it follows from
+Proposition~\ref{prop:main} that we can also compute witness sets for
+simple linear loops of the form \textsf{P1}
+under the assumptions of Theorem~\ref{thm:main}, and thus we obtain
+the decidability part of Theorem~\ref{thm:main}.  The
+exponential-space bound in Theorem~\ref{thm:main} is obtained by
+bounding the representation of the witness set in
+Proposition~\ref{prop:main} (see Section~\ref{sec:complexity}).
+
+In the rest of this section we give a brief summary of the proof of
+Proposition~\ref{prop:main}.
+
+To compute a witness set $W$ for \textsf{P4} we first partition the
+eigenvalues of the update matrix $A$ by grouping eigenvalues of equal
+modulus.  Correspondingly we write $\mathbb{R}^d$ as a direct sum
+$\mathbb{R}^d = V_1 \oplus \ldots \oplus V_m$, where each subspace
+$V_i$ is the sum of (generalised) eigenspaces of $A$ associated to
+eigenvalues of the same modulus.  Assume that $V_1$ corresponds to the
+eigenvalues of maximum modulus, $V_2$ the next greatest modulus,
+etc.  Then there are two main steps in the construction of $W$:
+\begin{enumerate}
+\item
+ By analysing multiplicative relationships among eigenvalues of the
+ same modulus, we show that for each subspace $V_i$ the set
+ $\mathit{ENT}\cap V_i$ of eventually non-terminating initial values
+ in $V_i$ is semi-algebraic.
+\item
+Given $\boldsymbol{v} \in \mathbb{R}^d$, we can write
+$\boldsymbol{v}=\boldsymbol{v}_1+\ldots+\boldsymbol{v}_m$, with
+$\boldsymbol{v}_i \in V_i$.  Using Theorem~\ref{thm:s-units} on
+$S$-units, we show that if all entries of $\boldsymbol{v}$ are
+algebraic numbers then the eventual non-termination of \textsf{P4} on
+$\boldsymbol{v}$ is a function of its eventual non-termination on each
+$\boldsymbol{v}_i$ separately.  More precisely we look for the first
+$\boldsymbol{v}_i$ such that the sequence $\langle
+\boldsymbol{b}^TA^n\boldsymbol{v}_i : n \in \mathbb{N}\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
+$\boldsymbol{v}$ if and only if it is eventually non-terminating on
+$\boldsymbol{v}_i$.
+\end{enumerate}
+
+The computability of a witness set $W$ easily follows from items 1 and
+2 above. Our techniques require that the update matrix in the
+original linear loop \textsf{P1} either be diagonalisable or have
+dimension at most $4$.  Eliminating these restrictions seems to
+require solving the Ultimate Positivity Problem for linear recurrence
+sequences of order greater than $5$, which in turn requires solving
+hard open problems in the theory of Diophantine approximation
+\cite{OW14:SODA}.

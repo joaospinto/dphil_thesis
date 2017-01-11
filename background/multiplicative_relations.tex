@@ -1,0 +1,106 @@
+%BEGIN SODA
+\section{Groups of Multiplicative Relations}
+\label{sec:mult}
+
+This section introduces some concepts concerning groups of
+multiplicative relations among algebraic numbers.  Here we will assume
+some basic notions from algebraic number theory and the first-order
+theory of reals.  We assume also a natural first-order interpretation of
+the field of complex numbers in the ordered field of real numbers (in
+which each complex number is encoded as a pair comprising its real and
+imaginary parts).  Under this interpretation we refer to sets of
+complex numbers as being semi-algebraic and first-order definable.
+Details of the relevant notions can be found in the Appendix.
+
+Let $\mathbb{T}=\lbrace z\in\mathbb{C}: \lvert z\rvert =1\rbrace$.  We
+define the \emph{$s$-dimensional torus} to be $\mathbb{T}^s$,
+considered as a group under componentwise multiplication.
+
+Given a tuple of algebraic numbers
+$\boldsymbol\lambda=(\lambda_1,\ldots,\lambda_s)$, in this section we
+consider how to effectively represent the \emph{orbit} $\{
+\boldsymbol\lambda^n : n \in \mathbb{N}\}$.  More
+precisely, we will give an algebraic representation of the topological
+closure of that orbit in $\mathbb{T}^s$.
+
+The \emph{group of multiplicative relations} of
+$\boldsymbol{\lambda}$, which is an additive subgroup of
+$\mathbb{Z}^s$, is defined as
+\begin{equation*}
+L(\boldsymbol{\lambda})=\lbrace \boldsymbol{v}\in \mathbb{Z}^s : \boldsymbol\lambda^{\boldsymbol v}=1 \rbrace \, ,
+\end{equation*}
+where $\boldsymbol\lambda^{\boldsymbol v}$ is defined to be
+$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\boldsymbol{v}\in \mathbb{Z}^s$, that is, exponentiation acts
+coordinatewise.
+
+Since $\mathbb{Z}^s$ is a free abelian group, its subgroups are also
+free.  In particular, $L(\boldsymbol\lambda)$ has a finite basis. The
+following powerful theorem of Masser~\cite{Mas88} gives bounds on the
+magnitude of the components of such a basis.
+
+\begin{theorem}[Masser]
+\label{masser}
+The free abelian group $L(\boldsymbol{\lambda})$ has a basis $\boldsymbol{v}_1,\cdots,\boldsymbol{v}_l\in\mathbb{Z}^s$ for which
+\[ \max\limits_{1\leq i\leq l,1\leq j\leq s} \lvert v_{i,j} \rvert \leq (D\log H)^{O(s^2)} \]
+where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_i$.
+\end{theorem}
+Membership of a tuple $\boldsymbol{v}\in \mathbb{Z}^s$ in
+$L(\boldsymbol{\lambda})$ can be computed in polynomial space, using a
+decision procedure for the existential theory of the reals.  In
+combination with Theorem~\ref{masser}, it follows that we can compute
+a basis for $L(\boldsymbol{\lambda})$ in polynomial space by
+brute-force search.
+
+Corresponding to $L(\boldsymbol{\lambda})$, we consider the following
+multiplicative subgroup of $\mathbb{T}^s$:
+\begin{equation*}
+T(\boldsymbol{\lambda})=\lbrace \boldsymbol \mu\in\mathbb{T}^s : \forall \boldsymbol v\in L(\boldsymbol\lambda),\,\boldsymbol\mu^{\boldsymbol v}=1\rbrace \, .
+\end{equation*}
+If $V$ is a basis of $L(\boldsymbol{\lambda})$ then we can
+equivalently characterise $T(\boldsymbol{\lambda})$ as $\{
+\boldsymbol{\mu} \in \mathbb{T}^s: \forall \boldsymbol{v}\in
+V,\,\,\boldsymbol\mu^{\boldsymbol v}=1\}$.  Crucially, this finitary
+characterisation allows us to represent $T(\boldsymbol\lambda)$ as a
+semi-algebraic set.
+
+We will use the following classical lemma of Kronecker on simultaneous
+Diophantine approximation, in order to show that the orbit $\lbrace
+\boldsymbol\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of
+$T(\boldsymbol{\lambda})$.
+
+\begin{lemma}
+  Let $\boldsymbol \theta,\boldsymbol \psi\in\mathbb{R}^s$. Suppose that for all $\boldsymbol v\in\mathbb{Z}^s$, if
+  $\boldsymbol v^T\boldsymbol \theta\in\mathbb{Z}$ then also
+  $\boldsymbol v^T\boldsymbol\psi\in\mathbb{Z}$, i.e., all integer
+  relations among the coordinates of $\boldsymbol \theta$ also hold
+  among those of $\boldsymbol\psi$ (modulo $\mathbb{Z}$). Then, for
+  each $\varepsilon>0$, there exist $\boldsymbol p\in\mathbb{Z}^s$ and
+  a non-negative integer $n$ such that
+\[ \| n\boldsymbol\theta - \boldsymbol p - \boldsymbol\psi \|_\infty \leq\varepsilon \, .\]
+\end{lemma}
+
+We now arrive at the main result of the section:
+
+\begin{theorem}
+\label{dense}
+Let $\boldsymbol{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \boldsymbol\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of $T(\boldsymbol{\lambda})$.
+\end{theorem}
+
+\begin{proof}
+  Let $\boldsymbol \theta\in\mathbb{R}^s$ be such that
+  $\boldsymbol\lambda=e^{2\pi i\boldsymbol\theta}$ (with
+  exponentiation operating coordinatewise). Notice that
+  $\boldsymbol\lambda^{\boldsymbol v}=1$ if and only if $\boldsymbol v^T
+  \boldsymbol\theta\in\mathbb{Z}$. If $\boldsymbol\mu\in
+  T(\boldsymbol{\lambda})$, we can likewise define
+  $\boldsymbol\psi\in\mathbb{R}^s$ to be such that
+  $\boldsymbol\mu=e^{2\pi i \boldsymbol\psi}$. Then the premisses of
+  Kronecker's lemma apply to $\boldsymbol \theta$ and $\boldsymbol
+  \psi$. Thus, given $\varepsilon>0$, there exist a non-negative
+  integer $n$ and $\boldsymbol p\in\mathbb{Z}^s$ such that $\|
+  n\boldsymbol \theta -\boldsymbol p-\boldsymbol \psi \|_\infty
+  \leq\varepsilon$. Whence
+\[ \| \boldsymbol\lambda^n-\boldsymbol\mu \|_\infty = \| e^{2\pi i(n\boldsymbol\theta-\boldsymbol p)}-e^{2\pi i \boldsymbol\psi} \|_\infty \leq \]
+\[ \| 2\pi (n\boldsymbol \theta -\boldsymbol p - \boldsymbol \psi) \|_\infty \leq 2\pi\varepsilon \, .\]
+\end{proof}
+%END SODA
