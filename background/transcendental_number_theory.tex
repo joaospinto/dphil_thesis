@@ -1,0 +1,40 @@
+%We will need the following results of Baker~\cite{Baker75}.
+%The first one, together with Masser's theorem, allows us
+%to eliminate all algebraic relations in the description of linear
+%forms in logarithms of algebraic numbers.
+
+Together with the following result, due to Alan Baker, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers. In particular, it also yields a method for comparing linear forms in logarithms of algebraic numbers: test whether their difference is zero and, if not, approximate it numerically to sufficient precision, so as to infer its sign. Note that the set of linear forms in logarithms of algebraic numbers is closed under addition and under multiplication by algebraic numbers, as well as under complex conjugation. See \cite{Baker75} and \cite{BakerPaper}.
+
+\begin{theorem}[Baker]
+Let $\alpha_{1}, \ldots, \alpha_{m} \in \overline{\mathbb{Q}} \setminus \lbrace 0 \rbrace$. If
+\begin{align*}
+\log(\alpha_{1}), \ldots, \log(\alpha_{m})
+\end{align*}
+are linearly independent over $\mathbb{Q}$, then
+\begin{align*}
+1, \log(\alpha_{1}), \ldots, \log(\alpha_{m})
+\end{align*}
+are linearly independent over $\overline{\mathbb{Q}}$.
+\end{theorem}
+
+%The next result essentially implies that one can effectively check
+%whether a linear form in logarithms of algebraic numbers equals
+%zero. Noting that the set of linear forms in logarithms of algebraic
+%numbers is closed under addition and multiplication by algebraic
+%numbers, it easily follows that one can effectively compare two linear
+%forms in logarithms of algebraic numbers. It is also closed under
+%complex conjugation. See \cite{Baker75} and \cite{BakerPaper}.
+
+%\begin{theorem}[Baker]
+%Let $\alpha_{1}, \ldots, \alpha_{m}$ be non-zero algebraic numbers with degrees at most $d$ and heights at most $A$. Further, let $\beta_{0}, \ldots, \beta_{m}$ be algebraic numbers with degrees at most $d$ and heights at most $B$, where $B \geq 2$. Write
+%\begin{align*}
+%\Lambda = \beta_{0} + \beta_{1} \log(\alpha_{1}) + \cdots + \beta_{m} \log(\alpha_{m}) .
+%\end{align*}
+%Then either $\Lambda = 0$ or $\lvert \Lambda \rvert > B^{-C}$, where $C$ is an effectively computable number depending only on $m$, $d$, $A$, and the chosen branch of the complex logarithm.
+%\end{theorem}
+
+The theorem below was proved by Ferdinand von Lindemann in 1882, and later generalised by Karl Weierstrass in what is now known as the Lindemann-Weierstrass theorem. As a historical note, this result was behind the first proof of transcendence of $\pi$, which immediately follows from it.
+
+\begin{theorem}[Lindemann]
+If $\alpha \in \overline{\mathbb{Q}} \setminus \lbrace 0 \rbrace$, then $e^{\alpha}$ is transcendental.
+\end{theorem}

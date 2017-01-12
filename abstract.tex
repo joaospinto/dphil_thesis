@@ -1,0 +1,58 @@
+\begin{abstract}
+
+%BEGIN SODA
+A fundamental problem in program verification concerns the
+termination of simple linear loops of the form:
+\begin{equation*}
+ \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
+\textit{while} $B\boldsymbol{x} \geq \boldsymbol{c}$ \textit{do}
+$\boldsymbol{x}\leftarrow A\boldsymbol{x}+\boldsymbol{a}$\,,}
+\end{equation*}
+where $\boldsymbol{x}$ is a vector of variables, $\boldsymbol{u}$,
+$\boldsymbol{a}$, and $\boldsymbol{c}$ are integer vectors, and $A$ and
+$B$ are integer matrices.  Assuming the matrix $A$ is diagonalisable,
+we give a decision procedure for the problem of whether, for all
+initial integer vectors $\boldsymbol u$, such a loop terminates.  The
+correctness of our algorithm relies on sophisticated tools from
+algebraic and analytic number theory, Diophantine geometry, and real
+algebraic geometry.
+
+To the best of our knowledge, this is the first substantial advance on
+a 10-year-old open problem of Tiwari~\cite{Tiw04} and
+Braverman~\cite{Bra06}.
+%END SODA
+
+%BEGIN LICS
+We consider a continuous analogue of \cite{MultiplicativeMatrixEquations}'s and \cite{ABC}'s problem of solving multiplicative matrix equations. Given $k+1$ square matrices $A_{1}, \ldots, A_{k}, C$, all of the same dimension, whose entries are real algebraic, we examine the problem of deciding whether there exist non-negative reals $t_{1}, \ldots, t_{k}$ such that
+\begin{align*}
+\prod \limits_{i=1}^{k} \exp(A_{i} t_{i}) = C .
+\end{align*}
+We show that this problem is undecidable in general, but decidable under the assumption that the matrices $A_{1}, \ldots, A_{k}$ commute. Our results have applications to reachability problems for linear hybrid automata.
+
+Our decidability proof relies on a number of theorems from algebraic and transcendental number theory, most notably those of Baker, Kronecker, Lindemann, and Masser, as well as some useful geometric and linear-algebraic results, including the Minkowski-Weyl theorem and a new (to the best of our knowledge) result about the uniqueness of strictly upper triangular matrix logarithms of upper unitriangular matrices. On the other hand, our undecidability result is shown by reduction from Hilbert's Tenth Problem.
+%END LICS
+
+%BEGIN HSCC
+The Polytope Escape Problem for continuous linear dynamical
+systems consists of deciding, given an affine function
+$f:\mathbb{R}^{d}\rightarrow \mathbb{R}^{d}$ and a convex polytope
+$\mathcal{P}\subseteq\mathbb{R}^d$ with rational descriptions,
+whether there exists an initial point
+$\boldsymbol{x}_0$ in $\mathcal{P}$ such that the trajectory of the unique
+solution to the differential equation
+\begin{equation*}
+\begin{displaystyle} \begin{cases}
+\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)) \\
+\boldsymbol{x}(0)=\boldsymbol{x}_{0}
+\end{cases} \end{displaystyle}
+\end{equation*}
+is entirely contained in $\mathcal{P}$.  We show that this problem is
+reducible in polynomial time to the decision version of linear
+programming with real algebraic coefficients.  The latter is a special
+case of the decision problem for the existential theory of real closed
+fields, which is known to lie between $\mathit{NP}$ and
+$\mathit{PSPACE}$.  Our algorithm makes use of spectral techniques and
+relies among others on tools from Diophantine approximation.
+%END HSCC
+
+\end{abstract}

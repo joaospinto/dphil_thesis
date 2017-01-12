@@ -1,0 +1,41 @@
+\section{Complexity Analysis}
+\label{sec:complexity}
+
+The purpose of this section is to justify our previous claims about
+the complexity of the algorithm presented in this paper. We do this by
+proving the following result.
+
+\begin{proposition}
+Our procedure requires space $\mathit{poly}(\log\max_{i,j}\lvert A_{ij}\rvert,d)^{\mathit{poly}(d)}$.
+\end{proposition}
+
+\begin{proof}
+There are three critical steps in our procedure for which a
+super-polynomial amount of space is required: when reducing to the
+case in which $A$ is non-degenerate, when performing quantifier
+elimination, and when testing whether the witness set $W$ intersects
+the integer lattice.
+
+The last of these steps runs in space $SD^{O(d^4)}$, where $S$ denotes
+the size of the representation of the quantifier-free formula defining
+the witness set $W$, $D$ denotes the maximum degree of the polynomials
+occurring in that formula, and $d$ denotes the dimension of the
+ambient space. Since $d$ remains fixed throughout the procedure (apart
+from an increase by $1$ in the reduction to the homogeneous case), it
+remains to show that $S$ and $D$ are bounded by an expression of the
+form $\mathit{poly}(\log\max_{i,j}\lvert
+A_{ij}\rvert,d)^{\mathit{poly}(d)}$.
+
+The reduction to the case in which $A$ is non-degenerate entails an
+increase by a factor of $\mathit{poly}(\log\max_{i,j}\lvert
+A_{ij}\rvert,d)^{\mathit{poly}(d)}$ in the size of the formula
+defining the witness set $W$, as the least common multiple of the
+orders of all ratios of eigenvalues of $A$ that are roots of unity is
+$L=2^{O(d\sqrt{\log d})}$ and $\log\max_{i,j}\lvert A^L_{ij}\rvert\leq
+\log (d^L\max_{i,j}\lvert A_{ij}\rvert^L)=L\log (d\max_{i,j}\lvert
+A_{ij}\rvert)$.
+
+It remains to show that the quantifier-free formula defining the witness set $W$ in the case where $A$ is non-degenerate takes space $\mathit{poly}(\log\max_{i,j}\lvert A_{ij}\rvert,d)^{\mathit{poly}(d)}$ and involves exclusively polynomials of degree $\mathit{poly}(\log\max_{i,j}\lvert A_{ij}\rvert,d)^{\mathit{poly}(d)}$.
+
+Let $D_0,H_0$ denote the maximum degree and height across all the eigenvalues of $A$, respectively. Then $D_0\leq d$ and $\log H_0\leq\log (d!\max_{i,j}\lvert A_{ij}\rvert^d)\leq d\log (d\max_{i,j}\lvert A_{ij}\rvert)$. Before performing quantifier elimination, the degree of any polynomial in the defining formula of the witness set $W$ is bounded by $(D_0\log H_0)^{O(d^2)}$, and the number of such polynomials is bounded by $O(d)$, by Masser's theorem. Finally, after applying quantifier elimination, we know that $D\leq(D_0\log H_0)^{O(d^3)}$ and that $S\leq d^{O(d^2)}(D_0\log H_0)^{O(d^4)}$, thanks to Theorem~\ref{thm:quant-elim}.
+\end{proof}

@@ -1,0 +1,309 @@
+\section{The Polytope Escape Problem}
+
+The Polytope Escape Problem for continuous linear dynamical systems
+consists of deciding, given an affine function
+$f:\mathbb{R}^{d}\rightarrow \mathbb{R}^{d}$ and a convex polytope
+$\mathcal{P}\subseteq\mathbb{R}^d$, whether there exists an initial point
+$\boldsymbol{x}_{0} \in \mathcal{P}$ for which the trajectory of the unique
+solution to the differential equation
+$\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)),\boldsymbol{x}(0)=\boldsymbol{x}_{0},
+t\geq 0$,
+is entirely contained in $\mathcal{P}$.  A starting point
+$\boldsymbol{x}_{0}\in\mathcal{P}$ is said to be \textbf{trapped} if
+the trajectory of the corresponding solution is contained in $\mathcal{P}$,
+and \textbf{eventually trapped} if the trajectory of the corresponding
+solution contains a trapped point. Therefore, the Polytope Escape
+Problem amounts to deciding whether a trapped point exists, which in
+turn is equivalent to deciding whether an eventually trapped point exists.
+
+The goal of this section is to prove the following result:
+
+\begin{theorem}
+  The Polytope Escape Problem is polynomial-time reducible to the
+  decision version of linear programming with algebraic coefficients.
+\end{theorem}
+
+A $d$-dimensional instance of the Polytope Escape Problem is a pair
+$(f,\mathcal{P})$, where $f:\mathbb{R}^{d}\rightarrow \mathbb{R}^{d}$
+is an affine function and $\mathcal{P}\subseteq\mathbb{R}^{d}$ is a
+convex polytope. In this formulation we assume that all numbers
+involved in the definition of $f$ and $\mathcal{P}$ are
+rational.\footnote{The assumption of rationality is required to
+  justify some of our complexity claims (e.g., Jordan Canonical Forms
+  are only known to be polynomial-time computable for matrices with
+  rational coordinates). Nevertheless, our procedure remains valid in
+  a more general setting, and in fact, the overall
+  $\exists \mathbb{R}$ complexity of our algorithm would not be
+  affected if one allowed real algebraic numbers when defining problem
+  instances.}
+
+An instance $(f,\mathcal{P})$ of the Polytope Escape Problem is said
+to be \textbf{homogeneous} if $f$ is a linear function and
+$\mathcal{P}$ is a convex polytope cone (in particular,
+$\boldsymbol{x}\in\mathcal{P},\alpha>0\Rightarrow \alpha\boldsymbol{x}
+\in\mathcal{P}$).
+%Moreover, an homogeneous instance of the Polytope Escape Problem is said to be \textbf{real} if all eigenvalues of $f$ are real.
+
+The restriction of the Polytope Escape Problem to homogeneous
+instances is called the homogeneous Polytope Escape Problem.
+
+\begin{lemma}
+  The Polytope Escape Problem is polynomial-time reducible to the
+  homogeneous Polytope Escape Problem.
+\end{lemma}
+
+\begin{proof}
+  Let $(f,\mathcal{P})$ be an instance of the Polytope Escape
+  Problem in $\mathbb{R}^{d}$, and write
+\begin{equation*}
+f(\boldsymbol{x})=A\boldsymbol{x}+\boldsymbol{a}\mbox{ and } \mathcal{P}=\lbrace\boldsymbol{x}\in\mathbb{R}^{d}: B_{1}\boldsymbol{x}>\boldsymbol{b}_{1} \wedge B_2\boldsymbol{x}\geq \boldsymbol{b}_{2}\rbrace \, .
+\end{equation*}
+Now define
+\begin{align*}
+& A'=\begin{pmatrix}A & \boldsymbol{a}\\ \boldsymbol{0}^T & 0\end{pmatrix},
+B_{1}'=\begin{pmatrix}B_{1} & -\boldsymbol{b}_{1} \\ \boldsymbol{0}^T & 1\end{pmatrix},
+B_{2}'=\begin{pmatrix}B_{2} & -\boldsymbol{b}_{2} \end{pmatrix} \, ,\\
+& \mathcal{P}'=
+\left\lbrace
+\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix} \in\mathbb{R}^{d+1}:B_{1}'\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix}
+  > \boldsymbol{0}
+  \wedge B_{2}'\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix} \geq \boldsymbol{0} \right\rbrace \, ,
+\intertext{and}
+& g\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix} = A'\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix} \, .
+\end{align*}
+Then $(g,\mathcal{P}')$ is a homogeneous instance
+of the Polytope Escape Problem.
+
+It is clear that $\boldsymbol{x}(t)$ satisfies the differential equation
+$\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t))$ if and only if
+$\begin{pmatrix}
+\boldsymbol{x}(t)\\1 \end{pmatrix}$ satisfies
+the differential equation
+$\begin{pmatrix}\dot{\boldsymbol{x}}\\
+\dot{y}
+\end{pmatrix} = g\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix}$.  In general,
+in any trajectory $\begin{pmatrix}\boldsymbol{x}\\y
+\end{pmatrix}$ that satisfies this last differential equation, the
+$y$-component must be constant.
+
+We claim that $(f,\mathcal{P})$ is a positive instance
+of the Polytope Escape Problem if and
+only if $(g,\mathcal{P}')$ is a positive instance.
+Indeed, if the point
+$\boldsymbol{x}_0 \in \mathbb{R}^d$ is trapped
+in $(f,\mathcal{P})$
+then the point $\begin{pmatrix}\boldsymbol{x}_0\\1
+\end{pmatrix}$ is trapped in $(g,\mathcal{P}')$.
+Conversely, suppose that $\begin{pmatrix}\boldsymbol{x}_0\\y_0
+\end{pmatrix}$ is trapped in  $(g,\mathcal{P}')$.  Then,
+since $B_{1}'\begin{pmatrix}\boldsymbol{x}_0\\y_0
+\end{pmatrix}
+> \boldsymbol{0}$,
+we must have $y_0>0$.  Scaling, it follows that
+$\begin{pmatrix} y_0^{-1}\boldsymbol{x}_0\\1
+\end{pmatrix}$ is also trapped in $(g,\mathcal{P}')$.  This implies
+that $y_0^{-1}\boldsymbol{x}_0$ is trapped in $(f,\mathcal{P})$.
+%
+%In fact, if $\boldsymbol{x}_{0}$ is
+%a trapped point for $(f,\mathcal{P})$, then $(\boldsymbol{x}_{0},1)$
+%will be a trapped point for $(A',\mathcal{P}')$. Conversely, if
+%$(\boldsymbol{x}_{0},c)$ is a trapped point for $(A',\mathcal{P}')$,
+%then $c^{-1}\boldsymbol{x}_{0}$ is a trapped point for
+%$(f,\mathcal{P})$. Note that $c>0$ must hold.
+\end{proof}
+
+We remind the reader that the unique solution to the differential equation $\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)),\boldsymbol{x}(0)=\boldsymbol{x}_{0},t\geq 0$, where $f(\boldsymbol{x})=A\boldsymbol{x}$, is given by
+$\boldsymbol{x}(t)=\exp(At)\boldsymbol{x}_{0} \, .$
+
+In this setting, the sets of trapped and eventually trapped points are, respectively:
+\begin{align*}
+\mathit{T}&=\lbrace \boldsymbol{x}_0\in\mathbb{R}^{d}: \forall t\geq 0, \exp(At)\boldsymbol{x}_{0} \in \mathcal{P}\rbrace\\
+\mathit{ET}&=\lbrace\boldsymbol{x}_{0}\in\mathbb{R}^{d}:\exists t\geq 0,\exp(At)\boldsymbol{x}_{0}\in\mathit{T}\rbrace
+\end{align*}
+
+Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\mathbb{R}^d$.
+
+\begin{lemma}
+  The homogeneous Polytope Escape Problem is polynomial-time
+  reducible to the decision version of linear programming with
+  algebraic coefficients.
+\end{lemma}
+
+\begin{proof}
+  % Given an homogeneous instance of the Polytope Escape Problem
+  % $(A,\mathcal{P})$, we can create an equivalent real homogeneous
+  % instance of the Polytope Escape Problem $(A',\mathcal{P}')$ by
+  % picking a basis
+  % $\mathcal{B}=\lbrace \boldsymbol{u}_{1},\ldots,\boldsymbol{u}_{k}
+  % \rbrace$
+  % of $\mathcal{V}^{r}$ and taking $A'$ to be the matrix
+  % representation of $A\vert_{\mathcal{V}^{r}}$ with respect to
+  % $\mathcal{B}$ and
+%\begin{align*}
+%\mathcal{P}'=\lbrace\boldsymbol{x}\in \mathbb{R}^{k} : \sum\limits_{i=1}^{k} x_{i}\boldsymbol{u}_{i}\in\mathcal{P}\rbrace
+%\end{align*}
+%which is still a cone.
+
+  Let
+  $\boldsymbol{x}_{0}=\boldsymbol{x}_{0}^{r}+\boldsymbol{x}_{0}^{c}$,
+  where $\boldsymbol{x}_{0}^{r}\in \mathcal{V}^{r}$ and
+  $\boldsymbol{x}_{0}^{c}\in \mathcal{V}^{c}$. We start by showing
+  that if $\boldsymbol{x}_{0}$ lies in the set $T$ of trapped points
+  then its component $\boldsymbol{x}_{0}^{r}$ in the real eigenspace
+  $\mathcal{V}^{r}$ lies in the set $\mathit{ET}$ of eventually
+  trapped points.
+Due to the
+fact that the intersection of finitely many convex polytopes is still
+a convex polytope, it suffices to prove this claim for the case when
+  $\mathcal{P}$ is defined by a single inequality---say
+  $\mathcal{P}=\lbrace \boldsymbol{x}\in\mathbb{R}^{d}:
+  \boldsymbol{b}^{T}\boldsymbol{x}\triangleright 0\rbrace$, where
+  $\triangleright$ is either $>$ or $\geq$.
+
+  We may assume that
+  $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}$ is not identically
+  zero, as in that case
+  $\boldsymbol{b}^{T} \exp(At)\boldsymbol{x}_{0} \equiv
+  \boldsymbol{b}^{T} \exp(At)\boldsymbol{x}_{0}^{r}$ and our claim
+  holds trivially.
+  Also, if $\boldsymbol{x}_{0}\in\mathit{T}$, it cannot hold that
+  $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r} \equiv 0$, since
+  $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}$ is negative
+  infinitely often by Proposition~\ref{liminfprop}.
+
+  Suppose that $\boldsymbol{x}_{0}\in\mathit{T}$ and let $(\rho,m)$
+  and $(\eta,j)$ be the dominant indices for
+  $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r}$ and
+  $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}$ respectively.
+Then by Proposition~\ref{prop:linear} we have
+\begin{gather}
+\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r} = \exp(\rho t)t^m (c
+  + o(1))
+\label{eq:real}
+\end{gather}
+ as $t \rightarrow \infty$, where $c$ is a non-zero real
+number.  We will show that $c>0$, from which it follows  that
+$\boldsymbol{x}_{0}^{r} \in \mathit{ET}$.
+
+%From this it follows that
+%\begin{equation*}
+%c=\lim\limits_{t\rightarrow \infty}
+%\frac{\boldsymbol{b}^{T}\exp(At)\boldsymbol{x}_{0}^{r}}{\exp(\rho t)
+%  t^{m}} \, .
+%\end{equation*}
+% From the fact that $(\rho,m)$ is dominant for
+% $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r}$, it follows that
+% $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r}
+
+% $c$ is the coefficient of the term $t^me^{\rho t}$ in
+% $\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r}$, and is therefore
+% non-zero.
+
+It must hold that $(\eta,j)\preceq (\rho,m)$.  Indeed, if $(\eta,j)\succ
+(\rho,m)$, then, as $t\rightarrow\infty$,
+\begin{align*}
+\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0} = \exp(\eta t)t^{j} \Bigg(
+\underbrace{\frac{\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}}{\exp(\eta t)t^{j}}}_{\mytag{($\star$)}{termA}} + o(1)\Bigg) ,
+\end{align*}
+%
+but the limit inferior of the term~\ref{termA} above is strictly
+negative by Proposition~\ref{liminfprop}, contradicting the fact that
+$\boldsymbol{x}_{0}\in\mathit{T}$.
+
+If $(\eta,j)=(\rho,m)$, then, as $t\rightarrow\infty$,
+\begin{align*}
+\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0} = \exp(\rho t)t^{m} \left( c + \frac{\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}}{\exp(\rho t)t^{m}} + o(1) \right) ,
+\end{align*}
+and by invoking Proposition~\ref{liminfprop} as above, it follows that
+$c > 0$.
+
+% from which we conclude that
+% $\boldsymbol{x}_{0}^{r}\in\mathit{ET}$, since, as
+% $t\rightarrow\infty$,
+% \begin{align*}
+% \boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{r} = \exp(\rho t)t^{m}
+%   \left( c +o(1) \right) \, .
+% \end{align*}
+Finally, if $(\eta,j)\prec (\rho,m)$, then, as $t\rightarrow\infty$,
+\begin{gather}\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^c =
+\exp(\rho t)t^{m} \cdot o(1) \, ,
+\label{eq:complex}
+\end{gather} and hence, by (\ref{eq:real}) and (\ref{eq:complex}), it
+follows that
+\begin{align*}
+\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0} = \exp(\rho t)t^{m} \left( c +o(1) \right) \, .
+\end{align*}
+From the fact that $\boldsymbol{x}_{0} \in T$ and that $c\neq 0$ we must have $c>0$.
+
+In all cases it holds that $c>0$ and hence
+$\boldsymbol{x}_{0}^{r}\in\mathit{ET}$.
+
+
+%\end{proof}
+%\begin{lemma}
+%The restriction of the Polytope Escape Problem to real homogeneous instances is decidable in polynomial time.
+%\end{lemma}
+%\begin{proof}
+
+%  Suppose we are given a real homogeneous instance of the Polytope
+%  Escape Problem $(A,\mathcal{P})$. We claim that, in this setting,
+%  the set $\mathit{ET}$ is a convex polytope that we can
+%  efficiently compute.
+
+
+
+Having argued that
+$\mathit{ET}\neq\emptyset$ iff $\mathit{ET}\cap
+\mathcal{V}^{r}\neq\emptyset$,
+we will now show that the set $\mathit{ET}\cap \mathcal{V}^{r}$ is a
+convex polytope that we can efficiently compute. As before, it
+suffices to prove this claim for the case when
+$\mathcal{P}=\lbrace \boldsymbol{x}\in\mathbb{R}^{d}:
+\boldsymbol{b}^{T}\boldsymbol{x}\triangleright 0\rbrace$
+(where $\triangleright$ is either $>$ or $\geq$).
+
+In what follows, we let $[K]$ denote the set $\lbrace 0,\ldots,K-1 \rbrace$. We can write
+\begin{align*}
+\boldsymbol{b}^{T}\exp(At)=\sum\limits_{(\eta,j)\in\sigma(A)\times
+  [\nu(A)]} \exp(\eta t)t^{j} \boldsymbol{u}_{(\eta,j)}^{T} \, ,
+\end{align*}
+where $\boldsymbol{u}_{(\eta,j)}^{T}$ is the vector of coefficients of
+$t^j\exp(\eta t)$ in $\boldsymbol{b}^{T}\exp(At)$.
+
+Note that if $\boldsymbol{x}\in\mathcal{V}^{r}$ and $(\eta,j)\in
+(\sigma(A)\setminus \mathbb{R})\times \mathbb{N}_{0}$, then
+$\boldsymbol{u}_{(\eta,j)}^{T}\boldsymbol{x}=0$, as
+$\boldsymbol{u}_{(\eta,j)}^{T}\boldsymbol{x}$ is the coefficient of $t^{j} \exp(\eta
+t)$ in $\boldsymbol{b}^{T}\exp(At) \boldsymbol{x}$, and $\mathcal{V}^{r}$ is
+invariant under $\exp(At)$. Moreover,
+%
+\begin{align*}
+\mathit{ET}\cap\mathcal{V}^{r}=(\mathcal{B}\cap\mathcal{C}) \cup
+\begin{cases}
+\lbrace \boldsymbol{0} \rbrace & \text{ if } \triangleright \text{ is } \geq \\
+\emptyset & \text{ if } \triangleright \text{ is } >
+\end{cases}
+%\mathit{ET}\cap\mathcal{V}^{r}=(\mathcal{B}\cap\mathcal{C})\cup\lbrace \boldsymbol{0}\mbox{ if }\triangleright\mbox{ is }\geq\mbox{ as opposed to }> \rbrace
+\end{align*}
+where
+\begin{align*}
+\mathcal{B}=&\bigcap\limits_{(\eta,j)\in (\sigma(A)\setminus \mathbb{R})\times [\nu(A)]} \lbrace \boldsymbol{x}\in\mathbb{R}^{d}: \boldsymbol{u}_{(\eta,j)}^{T} \boldsymbol{x}=0 \rbrace \\
+\mathcal{C}=&\bigcup\limits_{(\eta,j)\in(\sigma(A)\cap \mathbb{R})\times [\nu(A)]} \bigg[ \lbrace \boldsymbol{x}\in\mathbb{R}^{d}: \boldsymbol{u}_{(\eta,j)}^{T} \boldsymbol{x}>0 \rbrace \cap \\
+&\bigcap\limits_{(\rho,m)\succ (\eta,j)} \lbrace \boldsymbol{x}\in\mathbb{R}^{d}: \boldsymbol{u}_{(\rho,m)}^{T} \boldsymbol{x}=0 \rbrace \bigg]
+\end{align*}
+
+The set $\mathit{ET}\cap\mathcal{V}^{r}$ can be seen to be convex from
+the above characterisation. Alternatively, note that $\mathit{ET}$ can
+be shown to be convex from its definition and that $\mathcal{V}^{r}$
+is convex, therefore so must be their intersection. Thus
+$\mathit{ET}\cap\mathcal{V}^{r}$ must be a convex polytope whose
+definition possibly involves canonically-represented real algebraic
+numbers, and the Polytope Escape Problem reduces to testing this
+polytope for non-emptiness.
+\end{proof}

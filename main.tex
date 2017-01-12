@@ -1,8 +1,7 @@
 \documentclass[12pt]{ociamthesis}
 
-\usepackage{amssymb}
-
-%\include{macros}
+\include{packages}
+\include{macros}
 
 \title{Decidability Boundaries in\\[1ex] Linear Dynamical Systems}
 
@@ -34,9 +33,13 @@
 \end{romanpages}            % end roman page numbering
 
 %now include the files of latex for each of the chapters etc
-%\include{chapter1}
-%\include{chapter2}
-%\include{conclusions}
+\include{introduction}
+\include{background}
+\include{SODA_chapter}
+\include{LICS_chapter}
+%\include{chapterX}
+\include{open_problems}
+\include{conclusion}
 
 %now enable appendix numbering format and include any appendices
 %\appendix
@@ -44,10 +47,11 @@
 %\include{appendix2}
 
 %next line adds the Bibliography to the contents page
-%\addcontentsline{toc}{chapter}{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
 %uncomment next line to change bibliography name to references
 %\renewcommand{\bibname}{References}
-%\bibliography{refs}        %use a bibtex bibliography file refs.bib
-%\bibliographystyle{plain}  %use the plain bibliography style
+%\nocite{*}  % allows inclusion of non-cited sources; needed?
+\bibliography{refs}        %use a bibtex bibliography file refs.bib
+\bibliographystyle{plain}  %use the plain bibliography style
 
 \end{document}

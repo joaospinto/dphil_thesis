@@ -1,0 +1,27 @@
+\section{Fourier-Motzkin Elimination}
+
+Fourier-Motzkin elimination is a simple method for solving systems of
+inequalities. Historically, it was the first algorithm used in solving
+linear programming, before more efficient procedures such as the
+simplex algorithm were discovered. The procedure consists in isolating one
+variable at a time and matching all its lower and upper bounds. Note
+that this method preserves the set of solutions on the remaining
+variables, so a solution of the reduced system can always be extended
+to a solution of the original one.
+
+\begin{theorem}
+\label{thm:fme}
+  By using Fourier-Motzkin elimination, it is decidable whether a
+  given convex polyhedron
+  $\mathcal{P} = \lbrace \boldsymbol{x} \in \mathbb{R}^{n} : \pi
+  A\boldsymbol{x} < \boldsymbol{b} \rbrace$,
+  where the entries of $A$ are all real algebraic numbers and
+  those of $\boldsymbol{b}$ are real linear forms in logarithms of
+  algebraic numbers, is empty.  Moreover, if $\mathcal{P}$ is
+  non-empty one can effectively find a rational vector
+  $\boldsymbol{q} \in \mathcal{P}$.
+\end{theorem}
+
+\begin{proof}
+When using Fourier-Motzkin elimination, isolate each term $\pi x_{i}$, instead of just isolating the variable $x_{i}$. Note that the coefficients of the terms $\pi x_{i}$ will always be algebraic, and the loose constants will always be linear forms in logarithms of algebraic numbers, which are closed under multiplication by algebraic numbers, and which can be effectively compared by using Baker's Theorem.
+\end{proof}

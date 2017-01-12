@@ -1,6 +1,6 @@
 %BEGIN SODA
 
-\subsection{Algebraic Numbers}
+\section{Algebraic Number Theory}
 
 The purpose of this section is threefold: to introduce the main concepts in Algebraic Number Theory, necessary to understanding the hypothesis for the $S$-units theorem, stated below; to justify the application of the aforementioned result in lower-bounding the dominant terms of linear recurrence sequences; to explain how one can effectively manipulate algebraic numbers.
 
@@ -100,3 +100,105 @@ Let $\phi$ be Euler's totient function. Then $\phi(r)\geq\sqrt(r/2)$. Therefore,
 Therefore, in order to decide whether an algebraic number $\alpha$ of degree $n$ is a root of unity, we check whether it is a $r$-th root of unity, for each $r\leq 2n^2$. In order to test whether $\alpha$ is a $r$-th root of unity, it suffices to see whether $\mathit{gcd}(p_\alpha,x^r-1)=p_\alpha$, since we know that $x^r-1$ is the product of each $d$-th cyclotomic polynomial, with $d$ ranging over the divisors of $n$.
 
 %END SODA
+
+%BEGIN HSCC
+A number $\alpha \in \mathbb{C}$ is said to be \emph{algebraic} if
+there exists a non-zero polynomial $p \in \mathbb{Q}[x]$ for which
+$p(\alpha) = 0$. A complex number that is not algebraic is said to be
+\emph{transcendental}. The monic polynomial $p \in \mathbb{Q}[x]$ of
+smallest degree for which $p(\alpha) = 0$ is said to be the minimal
+polynomial of $\alpha$. The set of algebraic numbers, denoted by
+$\overline{\mathbb{Q}}$, forms a field. Note that the complex
+conjugate of an algebraic number is also algebraic, with the same
+minimal polynomial. It is possible to represent and manipulate
+algebraic numbers effectively, by storing their minimal polynomial and
+a sufficiently precise numerical approximation. An excellent course
+(and reference) in computational algebraic number theory can be found
+in \cite{Cohen}. Efficient algorithms for approximating algebraic
+numbers were presented in \cite{Pan}.
+
+\subsection{Computation with Algebraic Numbers}
+
+In this section, we briefly explain how one can represent and manipulate algebraic numbers efficiently.
+
+Any given algebraic number $\alpha$ can be represented as a tuple
+$(p,a,\varepsilon)$, where $p\in\mathbb{Q}[x]$ is its minimal
+polynomial, $a=a_1+a_2i$, with $a_1,a_2\in\mathbb{Q}$, is an
+approximation of $\alpha$, and $\varepsilon \in \mathbb{Q}$ is
+sufficiently small such that $\alpha$ is the unique root of $p$ within
+distance $\varepsilon$ of $a$.  This is referred to as the standard or
+canonical representation of an algebraic number.
+
+Let $f\in\mathbb{Z}[x]$ be a polynomial.  The following
+root-separation bound, due to Mignotte \cite{Mig82}, can be used to
+give a value of $\varepsilon$ such that any disk of radius
+$\varepsilon$ in the complex plane contains at most one root of $f$.
+\begin{proposition}
+Let $f\in\mathbb{Z}[x]$. If $\alpha_{1}$ and $\alpha_{2}$ are distinct roots of $f$, then
+\begin{align*}
+\lvert \alpha_{1}-\alpha_{2} \rvert > \frac{\sqrt{6}}{d^{(d+1)/2}H^{d-1}}
+\end{align*}
+where $d$ and $H$ are respectively the degree and height (maximum
+absolute value of the coefficients) of $f$.
+\end{proposition}
+It follows that in the canonical representation $(p,a,\varepsilon)$ of
+an algebraic number $\alpha$, where $p$ has degree $d$ and height $H$,
+we may choose $a_1,a_2,\epsilon$ to have bit length polynomial in $d$
+and $\log H$.
+
+Given canonical representations of two algebraic numbers $\alpha$ and
+$\beta$, one can compute canonical representations of $\alpha+\beta$,
+$\alpha\beta$, and $\alpha/\beta$, all in polynomial time.  More
+specifically, one can:
+\begin{itemize}
+\item factor an arbitrary polynomial with rational coefficients as a
+  product of irreducible polynomials in polynomial time using the LLL
+  algorithm, described in \cite{LenstraLenstraLovasz1982};
+\item compute an approximation of an arbitrary algebraic number
+  accurate up to polynomially many bits in polynomial time, due to the
+  work in~\cite{Pan97};
+\item use the sub-resultant algorithm (see Algorithm 3.3.7 in
+  \cite{Coh93}) and the two aforementioned procedures to compute
+  canonical representations of sums, differences, multiplications, and
+  quotient of two canonically represented algebraic numbers.
+\end{itemize}
+%END HSCC
+
+%BEGIN LICS
+\subsection{Lattices}
+
+Consider a non-zero matrix $K\in\overline{\mathbb{Q}}^{r\times d}$ and vector
+$\boldsymbol{k} \in \overline{\mathbb{Q}}^r$.  The following proposition shows
+how to compute a representation of the affine lattice
+$\{ \boldsymbol{x}\in\mathbb{Z}^d : K\boldsymbol{x} = \boldsymbol{k}
+\}$.
+Further information about lattices can be found in \cite{LatticeBook}
+and \cite{Cohen}.
+
+\begin{proposition}
+There exist $\boldsymbol{x}_{0} \in \mathbb{Z}^{d}$ and
+$M \in \mathbb{Z}^{d \times s}$, where $s < r$, such that
+\begin{align*}
+  \{ \boldsymbol{x}\in\mathbb{Z}^d : K\boldsymbol{x} =
+  \boldsymbol{k} \} =
+  \boldsymbol{x}_{0} + \{ M \boldsymbol{y} : \boldsymbol{y} \in \mathbb{Z}^s \} \, .
+\end{align*}
+\end{proposition}
+
+\begin{proof}
+  Let $\theta$ denote a primitive element of the number field
+  generated by the entries of $K$ and $\boldsymbol{k}$. Let the degree
+  of this extension, which equals the degree of $\theta$, be
+  $D$. Then for $\boldsymbol{x} \in \mathbb{Z}^d$ one can write
+\begin{align*}
+K \boldsymbol{x} = \boldsymbol{k} &\Leftrightarrow \left( \sum \limits_{i=0}^{D-1} N_{i} \theta^{i} \right) \boldsymbol{x} = \sum \limits_{i=0}^{D-1} \boldsymbol{k}_{i} \theta^{i} \\
+&\Leftrightarrow N_{i} \boldsymbol{x} = \boldsymbol{k}_{i}, \forall i \in \lbrace 0, \ldots, D-1 \rbrace ,
+\end{align*}
+for some integer matrices
+$N_{0}, \ldots, N_{D-1} \in \mathbb{Z}^{r \times d}$ and integer
+vectors
+$\boldsymbol{k}_{0}, \ldots, \boldsymbol{k}_{D-1} \in \mathbb{Z}^{r}$.
+The solution of each of these equations is clearly an affine lattice, and
+therefore so is their intersection.
+\end{proof}
+%END LICS

@@ -1,0 +1,131 @@
+%BEGIN SODA
+\section{Conclusion}
+
+%% Our techniques can actually be altered in order to solve another
+%% related problem. One may ask if, given a convex semi-algebraic set, an
+%% affine operator (under the same restrictions that we previously
+%% imposed), and a polytope, whether some integral point in that convex,
+%% semi-algebraic set will be such that its orbit by the affine operator
+%% will intersect the polytope infinitely often. These set-to-set
+%% reachibility problems remain largely unexplored. For example, it would
+%% be interesting to consider the version of this problem where we omit
+%% the requirement that this intersection holds infinitely often, but
+%% instead ask whether it holds at least once, even though this would
+%% probably involve some technology that was not needed in this paper,
+%% such as Baker's theorem \cite{BW93}. Moreover, we could use Baker's
+%% theorem in order to characterise, up to dimension $4$, the set of
+%% nonterminating points as a convex, closed, semi-algebraic set,
+%% partially solving the \textbf{EXPSPACE}-hard problem raised by
+%% Ben-Amram in \cite{BGM12}.
+
+%% As opposed to what happens with the problems of deciding termination
+%% over the reals and rationals, it seems to be hard to come up with a
+%% non-constructive procedure for deciding termination over the
+%% integers. Braverman conjectured in \cite{Bra06} that it would be
+%% necessary that one is able to decide pointwise termination in order to
+%% decide universal termination over the integers, but it seems unlikely
+%% that one can formally reduce one problem to the other.
+
+%% It is remarkable that, in some cases, solving the termination problem
+%% over the integers is much easier than solving its real and rational
+%% counterparts, namely when the polytope defined by the loop guard is
+%% bounded, in which case this problem reduces to that of finding a cycle
+%% in a graph.
+
+%% While the \textbf{NP}-hardness of this problem suggests that
+%% termination over the integers is intrinsically harder, the gap between
+%% this lower bound and our \textbf{EXPSPACE} upper bound is far from
+%% satisfactory.
+
+We have shown decidability of termination of simple linear loops over
+the integers under the assumption that the update matrix is
+diagonalisable, partially answering an open problem
+of~\cite{Tiw04,Bra06}.  As we have explained before, the termination
+problem on the same class of linear loops, but for fixed initial
+values, seems to have a different character and to be more difficult.
+In this respect it is interesting to note that there are other
+settings in which universal termination is an easier problem than
+pointwise termination. For example, universal termination of Petri
+nets (also known as \textit{structural boundedness}) is
+\textbf{PTIME}-decidable, but the pointwise termination problem is
+\textbf{EXPSPACE}-hard.
+
+A natural subject for further work is whether our techniques can be
+extended to non-diagonalisable matrices, or whether, as is the case
+for pointwise termination~\cite{OW14:SODA}, there are unavoidable
+number-theoretic obstacles to proving decidability.  We would also like
+to further study the computational complexity of the termination
+problem.  While there is a large gap between the \textbf{coNP} lower
+complexity bound mentioned in the Introduction and the exponential
+space upper bound of our procedure, this may be connected with the
+fact that our procedure computes a representation of the set of all
+integer eventually non-terminating points. Finally we would like to
+examine more carefully the question of whether the respective sets of
+terminating and non-terminating points are semi-algebraic.  Note that
+an \emph{effective} semi-algebraic characterisation of the set of
+terminating points would allow us to solve the termination problem
+over fixed initial values.
+
+%% We conjecture that deciding eventual termination for all integer
+%% points in a given convex semi-algebraic set is \textbf{EXPSPACE}-hard,
+%% as is the problem of deciding termination for all integer points in a
+%% given polytope \cite{BGM12}, but believe that better bounds on the
+%% universal termination problem over the integers should be possible to
+%% achieve.
+
+%% Finally, we conjecture that deciding arbitrary instances of this
+%% problem with non-diagonalisable update matrices in dimension at least
+%% $5$ should be hard, in a similar sense to the one described in
+%% \cite{OW14:SODA}.
+
+%END SODA
+
+%BEGIN LICS
+\section{Conclusion}
+
+We have shown that the Matrix-Exponential Problem is undecidable in
+general, but decidable when the matrices $A_{1}, \ldots, A_{k}$ commute.
+This is analogous to what was known for the discrete version
+of this problem, in which the matrix exponentials $e^{At}$ are
+replaced by matrix powers $A^n$.
+
+A natural variant of this problem is the following:
+\begin{definition}[Matrix-Exponential Semigroup Problem]
+  Given square matrices $A_{1}, \ldots, A_{k}$ and $C$, all of the
+  same dimension and all with real algebraic entries, is $C$ a member
+  of the matrix semigroup generated by
+\begin{align*}
+\lbrace \exp(A_{i} t_{i}) : t_{i} \geq 0 , i=1,\ldots,k \rbrace ?
+\end{align*}
+\end{definition}
+When the matrices $A_1,\ldots,A_k$ all commute, the above problem is
+equivalent to the Matrix-Exponential Problem, and therefore decidable. In the non-commutative case, the following result holds:
+\begin{theorem}
+The Matrix-Exponential Semigroup Problem is undecidable.
+\end{theorem}
+A proof will appear in a future journal version of this paper. This can be done by reduction from the Matrix-Exponential Problem, using a set of gadgets to force a desired order in the multiplication of the matrix exponentials.
+
+It would also be interesting to look at possibly decidable
+restrictions of the MEP/MESP, for example the case where $k=2$ with a
+non-commuting pair of matrices, which was shown to be decidable for
+the discrete analogue of this problem in \cite{MEHTP}. Bounding the dimension of the ambient vector space could also yield decidability, which has been partly accomplished in the discrete case in \cite{CK05}. Finally, upper bounding the complexity of our decision procedure for the commutative case would also be a worthwhile task.
+%END LICS
+
+%BEGIN HSCC
+We have shown that the Polytope Escape Problem for continuous-time
+linear dynamical systems is decidable, and in fact, polynomial-time
+reducible to the decision problem for the existential theory of real
+closed fields.  Given an instance of the problem $(f,\mathcal{P})$,
+with $f$ an affine map, our decision procedure involves analysing the real
+eigenstructure of the linear operator
+$g(\boldsymbol{x}):=f(\boldsymbol{x})-f(\boldsymbol{0})$. In fact, we
+showed that all complex eigenvalues could essentially be ignored for
+the purposes of deciding this problem.
+
+Interestingly, the seemingly closely related question of whether a
+given single trajectory of a linear dynamical system remains trapped
+within a given polytope, on the other hand, appears to be
+considerably more challenging and is not known to be decidable. In
+that instance, it seems that the influence of the complex
+eigenstructure cannot simply be discarded.
+%END HSCC

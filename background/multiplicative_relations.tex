@@ -104,3 +104,27 @@ Let $\boldsymbol{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \boldsymbol\l
 \[ \| 2\pi (n\boldsymbol \theta -\boldsymbol p - \boldsymbol \psi) \|_\infty \leq 2\pi\varepsilon \, .\]
 \end{proof}
 %END SODA
+
+%BEGIN HSCC
+Given a vector $\boldsymbol{\lambda} \in \overline{\mathbb{Q}}^{m}$, its \emph{group of multiplicative relations} is defined as
+\begin{align*}
+L(\boldsymbol{\lambda}) = \lbrace \boldsymbol{v} \in \mathbb{Z}^{m} : \boldsymbol{\lambda}^{\boldsymbol{v}} = 1 \rbrace .
+\end{align*}
+
+Moreover, letting $\log$ represent a fixed branch of the complex logarithm function, note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\mathbb{Q}$ if and only if
+\begin{align*}
+L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \boldsymbol{0} \rbrace .
+\end{align*}
+
+Being a subgroup of the free finitely generated abelian group $\mathbb{Z}^{m}$, the group $L(\boldsymbol{\lambda})$ is also free and admits a finite basis.
+
+The following theorem, due to David Masser, allows us to effectively determine $L(\boldsymbol{\lambda})$, and in particular decide whether it is equal to $\lbrace \boldsymbol{0} \rbrace$. This result can be found in \cite{Masser}.
+
+\begin{theorem}[Masser]
+The free abelian group $L(\boldsymbol{\lambda})$ has a basis $\boldsymbol{v}_{1}, \ldots, \boldsymbol{v}_{l} \in \mathbb{Z}^{m}$ for which
+\begin{align*}
+\max\limits_{1 \leq i \leq l, 1 \leq j \leq m} \lvert v_{i,j} \rvert \leq (D \log H)^{O(m^{2})}
+\end{align*}
+where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_{i}$.
+\end{theorem}
+%END HSCC

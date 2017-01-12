@@ -1,0 +1,132 @@
+%BEGIN HSCC
+\subsection{Jordan Canonical Forms}
+
+Let $A \in \mathbb{Q}^{d \times d}$ be a square matrix with rational
+entries.  The \textbf{minimal polynomial} of $A$ is the unique monic
+polynomial $m(x) \in \mathbb{Q}[x]$ of least degree such that
+$m(A)=0$.  By the Cayley-Hamilton Theorem the degree of $m$ is at most
+the dimension of $A$. The set $\sigma(A)$ of eigenvalues is the set of
+roots of $m$.  The \textbf{index} of an eigenvalue $\lambda$, denoted
+by $\nu(\lambda)$, is defined as its multiplicity as a root of $m$. We
+use $\nu(A)$ to denote $\max_{\lambda\in\sigma(A)} \nu(\lambda)$: the
+maximum index over all eigenvalues of $A$.  Given an eigenvalue
+$\lambda \in \sigma(A)$, we say that $\boldsymbol{v} \in \mathbb{C}^d$
+is a \textbf{generalised eigenvector} of $A$ if
+$\boldsymbol{v}\in \ker(A-\lambda I)^{k}$, for some $k\in\mathbb{N}$.
+
+We denote the subspace of $\mathbb{C}^d$ spanned by the set of
+generalised eigenvectors associated with some eigenvalue $\lambda$ by
+$\mathcal{V}_{\lambda}$. We denote the subspace of $\mathbb{C}^d$
+spanned by the set of generalised eigenvectors associated with some
+real eigenvalue by $\mathcal{V}^{r}$.  We likewise denote the subspace
+of $\mathbb{C}^d$ spanned by the set of generalised eigenvectors
+associated to eigenvalues with non-zero imaginary part by
+$\mathcal{V}^{c}$.
+
+It is well known that each vector $\boldsymbol{v}\in\mathbb{C}^{d}$
+can be written uniquely as
+$\boldsymbol{v}=\displaystyle{
+  \sum\limits_{\lambda\in\sigma(A)}\boldsymbol{v}_{\lambda}}$,
+where $\boldsymbol{v}_{\lambda}\in\mathcal{V}_{\lambda}$.
+It follows that $\boldsymbol{v}$ can also be uniquely written as
+$\boldsymbol{v}=\boldsymbol{v}^{r}+\boldsymbol{v}^{c}$, where
+$\boldsymbol{v}^{r} \in\mathcal{V}^{r}$ and
+$\boldsymbol{v}^{c} \in\mathcal{V}^{c}$.
+
+Moreover, we can write any matrix $A$ as $A=Q^{-1}JQ$ for some
+invertible matrix $Q$ and block diagonal Jordan matrix
+$J=diag(J_{1},\ldots,J_{N})$, with each block $J_{i}$ having the
+following form:
+
+\begin{equation*}
+\begin{pmatrix}
+\lambda	&&	1		&&	0		&&	\cdots	&&	0		\\
+0		&&	\lambda	&&	1		&&	\cdots	&&	0		\\
+\vdots	&&	\vdots	&&	\vdots	&&	\ddots	&&	\vdots	\\
+0		&&	0		&&	0		&&	\cdots	&&	1		\\
+0		&&	0		&&	0		&&	\cdots	&&	\lambda	\\
+\end{pmatrix}
+\end{equation*}
+
+Given a rational matrix $A$, its Jordan Normal Form $A=Q^{-1}JQ$ can be
+computed in polynomial time, as shown in \cite{Cai94}.
+
+Note that each vector $\boldsymbol{v}$ appearing as a column of the
+matrix $Q^{-1}$ is a generalised eigenvector. We also note that the
+index $\nu(\lambda)$ of some eigenvalue $\lambda$ corresponds to the
+dimension of the largest Jordan block associated with it.
+
+One can obtain a closed-form expression for powers of block diagonal
+Jordan matrices, and use this to get a closed-form expression for
+exponential block diagonal Jordan matrices. In fact, if $J_{i}$ is a
+$k\times k$ Jordan block associated with some eigenvalue $\lambda$,
+then
+\noindent
+%\resizebox{\linewidth}{!}{
+\begin{equation*}
+J_{i}^{n}=\begin{pmatrix}
+\lambda^{n}	&&	n\lambda^{n-1}	&&	{n\choose 2}\lambda^{n-1}	&&
+\cdots		&&	{n\choose k-1}\lambda^{n-k+1}				\\
+0			&&	\lambda^{n}		&&	n\lambda^{n-1}				&&
+\cdots		&&	{n\choose k-2}\lambda^{n-k+2}				\\
+\vdots	&&	\vdots	&&	\vdots	&&	\ddots	&&	\vdots			\\
+0		&&	0		&&	0		&&	\cdots	&&	n\lambda^{n-1}	\\
+0		&&	0		&&	0		&&	\cdots	&&	\lambda^{n}		\\
+\end{pmatrix}
+\end{equation*}
+%}
+
+\begin{equation*}
+\exp(J_{i}t)=\exp(\lambda t) \begin{pmatrix}
+1		&&	t		&&	\cdots	&&	\frac{t^{k-1}}{(k-1)!}	\\
+0		&&	1		&&	\cdots	&&	\frac{t^{k-2}}{(k-2)!}	\\
+\vdots	&&	\vdots	&&	\ddots	&&	\vdots						\\
+0		&&	0		&&	\cdots	&&	t							\\
+0		&&	0		&&	\cdots	&&	1							\\
+\end{pmatrix}
+\end{equation*}
+
+%SINGLE COLUMN
+%\begin{align*}
+%J_{i}^{n}&=\begin{pmatrix}
+%\lambda^{n}	&&	n\lambda^{n-1}	&&	{n\choose 2}\lambda^{n-1}	&&
+%\cdots		&&	{n\choose k-1}\lambda^{n-k+1}				\\
+%0			&&	\lambda^{n}		&&	n\lambda^{n-1}				&&
+%\cdots		&&	{n\choose k-2}\lambda^{n-k+2}				\\
+%\vdots	&&	\vdots	&&	\vdots	&&	\ddots	&&	\vdots			\\
+%0		&&	0		&&	0		&&	\cdots	&&	n\lambda^{n-1}	\\
+%0		&&	0		&&	0		&&	\cdots	&&	\lambda^{n}		\\
+%\end{pmatrix}
+%\quad\mbox{and} \\
+%\exp(J_{i}t)&=\exp(\lambda t) \begin{pmatrix}
+%1		&&	t		&&	\cdots	&&	\frac{t^{k-1}}{(k-1)!}	\\
+%0		&&	1		&&	\cdots	&&	\frac{t^{k-2}}{(k-2)!}	\\
+%\vdots	&&	\vdots	&&	\ddots	&&	\vdots						\\
+%0		&&	0		&&	\cdots	&&	t							\\
+%0		&&	0		&&	\cdots	&&	1							\\
+%\end{pmatrix}
+%\end{align*}
+
+In the above, ${n\choose j}$ is defined to be $0$ when $n<j$.
+
+\begin{proposition}
+  Let $\boldsymbol{v}$ lie in the generalised eigenspace
+  $\mathcal{V}_{\lambda}$ for some $\lambda \in \sigma(A)$.  Then
+  $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is a linear combination
+  of terms of the form $t^{n}\exp(\lambda t)$.
+\label{prop:linear}
+\end{proposition}
+% Every expression of the form
+%  $\boldsymbol{b}^{T}\exp(At)\boldsymbol{x}_{0}$ is a linear
+%  combination of terms of the form $t^{n}\exp(\lambda t)$, where
+%  $\lambda$ is an eigenvalue of $A$.
+
+\begin{proof}
+  Note that, if $A=Q^{-1}JQ$ and $J=diag(J_{1},\ldots,J_{N})$ is a
+  block diagonal Jordan matrix, then $\exp(At)=Q^{-1}\exp(Jt)Q$ and
+  $\exp(Jt)=diag(\exp(J_{1}t),\ldots,\exp(J_{N}t))$.
+The result follows by observing that $Q\boldsymbol{v}$ is zero in every component
+other than those pertaining the block corresponding to the eigenspace
+$\mathcal{V}_{\lambda}$.
+\end{proof}
+%END HSCC
