@@ -1,8 +1,8 @@
 \section{Algorithm for Universal Termination}
 Our goal in this section is to prove the following proposition, which
-is restated from Section~\ref{sec:overview}.  We have already shown in
-Section~\ref{sec:overview} that the main result of this paper,
-Theorem~\ref{thm:main}, then follows.
+is restated from \cref{sec:overview}.  We have already shown in
+\cref{sec:overview} that the main result of this paper,
+\cref{thm:main}, then follows.
 
 \begin{proposition}
 Given a homogeneous simple linear loop
@@ -15,9 +15,9 @@ witness set for \textsf{P4} using exponential space if all complex eigenvalues o
 \label{prop:main2}
 \end{proposition}
 
-% In Section~\ref{sec:overview} we showed that the main result of this
-% paper, Theorem~\ref{thm:main}, follows from
-% Proposition~\ref{prop:main}.  In this section our goal is to prove the
+% In \cref{sec:overview} we showed that the main result of this
+% paper, \cref{thm:main}, follows from
+% \cref{prop:main}.  In this section our goal is to prove the
 % latter result, that is, we give a procedure that computes a witness
 % set $W$ given a linear loop of the form
 % \begin{gather*}
@@ -139,7 +139,7 @@ The set $\mathit{ENT}_i$ is semi-algebraic for each $i\in \{1,\ldots,m\}$.
 \end{proposition}
 \begin{proof}
   We consider three (overlapping) cases.  Under the hypotheses of
-  Proposition~\ref{prop:main2} at least one of these cases will apply.
+  \cref{prop:main2} at least one of these cases will apply.
 
 \paragraph{Case I: $A$ has dimension at most $5$.}
 Assume that $A$ has dimension at most $5$.  The situations in which
@@ -247,7 +247,7 @@ is a subset of $\mathit{ENT}_i$.
 The case that $\boldsymbol{\alpha}_j^T\boldsymbol{u}=0$ for all
 $j=1,\ldots,t-1$ is more subtle since there is no single dominant term
 in (\ref{eq:exp-poly}); this is where we employ the results of
-Section~\ref{sec:mult} on multiplicative relations. In this case we
+\cref{sec:mult} on multiplicative relations. In this case we
 rewrite (\ref{eq:exp-poly}) as
 \begin{gather}
 \boldsymbol{b}^T A^n \boldsymbol{u} =
@@ -264,7 +264,7 @@ Defining $\boldsymbol\mu=(\lambda_1/\rho,\ldots,\lambda_s/\rho)$, we furthermore
 \label{eq:f2-exp}
 \end{gather}
 
-By Theorem~\ref{dense}, $\{ \boldsymbol\mu^n : n \in
+By \cref{dense}, $\{ \boldsymbol\mu^n : n \in
 \mathbb{N} \}$ is a dense subset of the torus $T(\boldsymbol{\mu})$.
 Thus the right-hand side of (\ref{eq:f2-exp}) is non-negative for
 every $n$ if and only if $f(\boldsymbol{z})^T\boldsymbol{u}\geq 0$ for
@@ -277,7 +277,7 @@ all $\boldsymbol{z}\in T(\boldsymbol{\mu})$.  It follows that
 \end{gather}
 is a subset of $\mathit{ENT}_i$.
 
-In Section~\ref{sec:mult} we observed that the set
+In \cref{sec:mult} we observed that the set
 $T(\boldsymbol{\mu})$ was (effectively) semi-algebraic.  It follows
 that we can express the condition $\forall \boldsymbol{z}\in
 T(\boldsymbol{\mu}),\, f(\boldsymbol{z})^T\boldsymbol{u}\geq 0$ in the
@@ -324,10 +324,10 @@ for all $n\geq d$.  Moreover, for each $j>i$ it is clear that
   $\rho_j\geq 0$ is the modulus of the eigenvalues in $S_j$.
 
   We now consider three cases, mirroring the proof of
-  Proposition~\ref{prop:semi-alg}.
+  \cref{prop:semi-alg}.
 
   The first case is that $A$ has dimension at most $5$.  As observed
-  in the proof of Proposition~\ref{prop:semi-alg}, all instances of
+  in the proof of \cref{prop:semi-alg}, all instances of
   this case that are not already covered by the second and third cases
   are such that $S_i$ contains all the eigenvalues of $A$, and hence
   $\boldsymbol{u}_i=\boldsymbol{u}$.  In this situation the proposition
@@ -379,10 +379,10 @@ W :=   \bigcup_{i=1}^m \{\boldsymbol{u}\in \mathbb{R}^d: \,
 
 From the fact that $\mathit{ZERO}_i$, $\mathit{ENT}_i$, and $V_i$ are
 semi-algebraic for $i=1,\ldots,m$, it is easy to see that $W$ is
-semi-algebraic.  It moreover follows from Proposition~\ref{prop:dominant}
+semi-algebraic.  It moreover follows from \cref{prop:dominant}
 that $W \cap \mathbb{A}^d = \mathit{ENT} \cap \mathbb{A}^d$.
 
-To conclude the proof of Proposition~\ref{prop:main2}, it
+To conclude the proof of \cref{prop:main2}, it
 remains to observe that the witness set $W$, like the actual set
 $\mathit{ENT}$ of eventually non-terminating points, is convex.
 \begin{proposition}
@@ -413,7 +413,7 @@ y_k,\boldsymbol z_k \in \mathit{ENT}_k$, and hence $\boldsymbol x_k
 $\boldsymbol{x}\in W$.
 \end{proof}
 
-This concludes the proof of Proposition~\ref{prop:main2}.
+This concludes the proof of \cref{prop:main2}.
 In the remaining part of this section we show that
 $\overline{\mathit{ENT}}=\overline{W}$.
 
@@ -429,7 +429,7 @@ The reverse inclusion, $\overline{ENT}\subseteq\overline{W}$, can be
 shown in similar fashion but this time using the fact that
 $\mathit{ENT}\cap\mathbb{A}^d$ is dense in $\mathit{ENT}$.  Our
 remaining goal is this last fact, which is established in
-Corollary~\ref{corl:dense} below.
+\cref{corl:dense} below.
 
 We have previously shown that a vector of algebraic numbers
 $\boldsymbol{u}\in (\mathbb{A}\cap\mathbb{R})^d$ is eventually
@@ -452,7 +452,7 @@ partial result of this nature for general vectors $\boldsymbol{u}\in
   Let $f$ and $\boldsymbol \mu$ be as in (\ref{eq:f-exp}), that is, so
   that $\boldsymbol b^T A^n \boldsymbol u_i=\rho_i^n f (\boldsymbol
   \mu^n)^T \boldsymbol u_i$. If $\boldsymbol u_i\not\in\mathit{ENT}$,
-  then there exists some constant $c<0$ and some $\boldsymbol z\in T(\boldsymbol \mu)$ such that $f(\boldsymbol z)^T \boldsymbol u_i=c$. Therefore, for any $\varepsilon>0$, $\boldsymbol b^T A^n \boldsymbol u_i<(c+\varepsilon)\rho_i^n$ holds for infinitely many $n$, due to Proposition~\ref{dense} and to continuity of $f$, and so $\boldsymbol u\not\in\mathit{ENT}$.
+  then there exists some constant $c<0$ and some $\boldsymbol z\in T(\boldsymbol \mu)$ such that $f(\boldsymbol z)^T \boldsymbol u_i=c$. Therefore, for any $\varepsilon>0$, $\boldsymbol b^T A^n \boldsymbol u_i<(c+\varepsilon)\rho_i^n$ holds for infinitely many $n$, due to \cref{dense} and to continuity of $f$, and so $\boldsymbol u\not\in\mathit{ENT}$.
 \end{proof}
 
 \begin{corollary}
@@ -477,7 +477,7 @@ $\mathit{ENT}\cap\mathbb{A}^d$ is dense in \textit{ENT}.
   Suppose now that $\boldsymbol u=\boldsymbol u_1+\cdots+\boldsymbol
   u_m$, where $\boldsymbol u_1\in V_1,\ldots,\boldsymbol u_m\in V_m$,
   with $\boldsymbol u_i$ the dominant component of $\boldsymbol u$. By
-  Proposition~\ref{prop:dom2}, $\boldsymbol u\in\mathit{ENT}$ implies
+  \cref{prop:dom2}, $\boldsymbol u\in\mathit{ENT}$ implies
   that $\boldsymbol u_i\in \mathit{ENT}$. Since $\mathit{ENT}\cap V_i$
   is semi-algebraic, we can pick $\boldsymbol v_i\in \mathit{ENT}\cap
   V_i\cap\mathbb{A}^d$ such that $\| \boldsymbol v_i -\boldsymbol u_i
@@ -489,7 +489,7 @@ $\mathit{ENT}\cap\mathbb{A}^d$ is dense in \textit{ENT}.
 
   Then, letting $\boldsymbol v=\boldsymbol v_1+\cdots+\boldsymbol v_m
   \in \mathbb{A}^d$, it follows that $\|\boldsymbol u-\boldsymbol
-  v\|<\varepsilon$.  Finally, by Proposition~\ref{prop:dominant} we
+  v\|<\varepsilon$.  Finally, by \cref{prop:dominant} we
   have $\boldsymbol v\in\mathit{ENT}$ since $\boldsymbol v_i$ is the
   dominant component of $\boldsymbol v$ and $\boldsymbol v_i \in
   \mathit{ENT}$ by construction.

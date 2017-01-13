@@ -12,7 +12,7 @@ is decidable using exponential space if $A$ is diagonalisable and
 using polynomial space if $A$ has dimension at most $4$.
 \label{thm:main}
 \end{theorem}
-In this section we give a high-level overview of the proof of Theorem~\ref{thm:main}.
+In this section we give a high-level overview of the proof of \cref{thm:main}.
 
 Let $f:\mathbb{R}^d\rightarrow \mathbb{R}^d$ be the affine function
 $f(\boldsymbol{x})=A\boldsymbol{x}+\boldsymbol a$ computed by the body
@@ -188,16 +188,16 @@ witness set for \textsf{P4} using exponential space if $A$ is diagonalisable and
 Bearing in mind that the transformation from $\mathsf{P1}$ to
 $\mathsf{P4}$ increases the dimension of $A$ by one and does not
 introduce repeated complex eigenvalues, it follows from
-Proposition~\ref{prop:main} that we can also compute witness sets for
+\cref{prop:main} that we can also compute witness sets for
 simple linear loops of the form \textsf{P1}
-under the assumptions of Theorem~\ref{thm:main}, and thus we obtain
-the decidability part of Theorem~\ref{thm:main}.  The
-exponential-space bound in Theorem~\ref{thm:main} is obtained by
+under the assumptions of \cref{thm:main}, and thus we obtain
+the decidability part of \cref{thm:main}.  The
+exponential-space bound in \cref{thm:main} is obtained by
 bounding the representation of the witness set in
-Proposition~\ref{prop:main} (see Section~\ref{sec:complexity}).
+\cref{prop:main} (see \cref{sec:complexity}).
 
 In the rest of this section we give a brief summary of the proof of
-Proposition~\ref{prop:main}.
+\cref{prop:main}.
 
 To compute a witness set $W$ for \textsf{P4} we first partition the
 eigenvalues of the update matrix $A$ by grouping eigenvalues of equal
@@ -216,7 +216,7 @@ etc.  Then there are two main steps in the construction of $W$:
 \item
 Given $\boldsymbol{v} \in \mathbb{R}^d$, we can write
 $\boldsymbol{v}=\boldsymbol{v}_1+\ldots+\boldsymbol{v}_m$, with
-$\boldsymbol{v}_i \in V_i$.  Using Theorem~\ref{thm:s-units} on
+$\boldsymbol{v}_i \in V_i$.  Using \cref{thm:s-units} on
 $S$-units, we show that if all entries of $\boldsymbol{v}$ are
 algebraic numbers then the eventual non-termination of \textsf{P4} on
 $\boldsymbol{v}$ is a function of its eventual non-termination on each

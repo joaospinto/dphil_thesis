@@ -14,7 +14,7 @@ logarithms of upper unitriangular matrices.
 \end{theorem}
 
 \begin{proof}
-  Consider an instance of the generalised MEP, as given in Definition~\ref{def:MEP},
+  Consider an instance of the generalised MEP, as given in \cref{def:MEP},
   with commuting $n\times n$ matrices $A_1,\ldots,A_k$ and target
   matrix $C$.
 
@@ -22,7 +22,7 @@ logarithms of upper unitriangular matrices.
   $P^{-1}A_iP$ is block diagonal, $i=1,\ldots,k$, with each block
   being moreover upper triangular.
 
-  By Theorem~\ref{subspace_decomposition} we can write $\mathbb{C}^n$
+  By \cref{subspace_decomposition} we can write $\mathbb{C}^n$
   as a direct sum of subspaces $\mathbb{C}^n = \oplus_{j=1}^b \mathcal{V}_j$
   such that for every subspace $\mathcal{V}_j$ and matrix $A_i$, $\mathcal{V}_j$ is an
   invariant subspace of $A_i$ on which $A_i$ has a single eigenvalue
@@ -36,7 +36,7 @@ logarithms of upper unitriangular matrices.
 
   Fixing $j\in\{1,\ldots,b\}$, note that the
   matrices $B_1^{(j)},\ldots,B_k^{(j)}$ all commute.  Thus we
-  may apply Theorem \ref{simultaneous-triangularisation} to obtain an
+  may apply \cref{simultaneous-triangularisation} to obtain an
   algebraic matrix $M_j$ such that each matrix $M_j^{-1} B^{(j)}_{i} M_j$
   is upper triangular, $i=1,\ldots,k$.  Thus we can write
   \[ M_j^{-1} B^{(j)}_{i} M_j = \lambda_i^{(j)}I + N_i^{(j)} \]
@@ -93,7 +93,7 @@ are all $1$, the equation system (\ref{eq:main2}) is equivalent to:
 \end{align*}
 for $j=1,\ldots,b$.
 
-Applying Theorem \ref{logarithm_uniqueness}, the
+Applying \cref{logarithm_uniqueness}, the
 above system can equivalently be written
 \begin{align*}
 \exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big)
@@ -128,7 +128,7 @@ Consider an instance of LEP, comprising a system of equations
 \label{eq:LEPinstance}
 \end{align}
 and polyhedron $\mathcal{P}\subseteq \mathbb{R}^{2k}$, as described in
-Definition~\ref{def:LEP}.
+\cref{def:LEP}.
 
 Throughout this proof, let $\log$ denote a fixed logarithm branch that
 is defined on all the numbers $c_j, \exp(d_j)$ appearing
@@ -184,7 +184,7 @@ ALIP is decidable.
 \end{theorem}
 
 \begin{proof}
-We are given a convex polyhedron $\mathcal{P}=\lbrace \boldsymbol{x} \in \mathbb{R}^{d} : \pi A \boldsymbol{x} \leq \boldsymbol{b} \rbrace$, where the coordinates $\boldsymbol{b}$ are linear forms in logarithms of algebraic numbers, and need to decide whether this polyhedron intersects $\mathbb{Z}^{d}$. Throughout this proof, $\log$ denotes the logarithm branch picked at the beginning of the proof of Theorem \ref{reference-for-log}. We start by eliminating linear dependencies between the logarithms appearing therein, using Masser's Theorem. For example, suppose that
+We are given a convex polyhedron $\mathcal{P}=\lbrace \boldsymbol{x} \in \mathbb{R}^{d} : \pi A \boldsymbol{x} \leq \boldsymbol{b} \rbrace$, where the coordinates $\boldsymbol{b}$ are linear forms in logarithms of algebraic numbers, and need to decide whether this polyhedron intersects $\mathbb{Z}^{d}$. Throughout this proof, $\log$ denotes the logarithm branch picked at the beginning of the proof of \cref{reference-for-log}. We start by eliminating linear dependencies between the logarithms appearing therein, using Masser's Theorem. For example, suppose that
 \begin{align*}
 b_{i} = r_{0} + r_{1} \log(s_{1}) + \cdots + r_{k} \log(s_{k}), r_{0}, r_{1}, s_{1}, \ldots, r_{k}, s_{k} \in \overline{\mathbb{Q}}.
 \end{align*}
@@ -201,7 +201,7 @@ K \boldsymbol{x} &= \boldsymbol{k} \quad &(\boldsymbol{k} \in \overline{\mathbb{
 M \boldsymbol{x} &< \boldsymbol{m} \quad &(\boldsymbol{m} \in \overline{\mathbb{Q}}^{d_{2}}) \\
 F \boldsymbol{x} &< \boldsymbol{f} \quad &(\boldsymbol{f} \in \mathbb{R} \setminus \overline{\mathbb{Q}}^{d_{3}})
 \end{align*}
-where $K,M,F$ are matrices with algebraic entries. Before proceeding, we eliminate all such empty polyhedra; note that emptiness can be decided via Fourier-Motzkin elimination, as shown in Theorem \ref{thm:fme}.
+where $K,M,F$ are matrices with algebraic entries. Before proceeding, we eliminate all such empty polyhedra; note that emptiness can be decided via Fourier-Motzkin elimination, as shown in \cref{thm:fme}.
 
 The idea of the next step is to reduce the dimension of all the problem instances at hand until we are left with a number of new instances with full-dimensional open convex polyhedra, of the same form as the original one, apart from the fact that all inequalities in their definitions will be strict. To do that, we use the equations $K \boldsymbol{x} = \boldsymbol{k}$ to eliminate variables: note that, whenever there is an integer solution,
 \begin{align*}

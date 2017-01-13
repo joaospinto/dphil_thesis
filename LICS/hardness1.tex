@@ -3,7 +3,7 @@
 In this section we show that the Matrix-Exponential Problem is
 undecidable in the case of non-commuting matrices.  We show
 undecidability for the most fundamental variant of the problem, as
-given in Definition~\ref{def:MEP}, in which the matrices have real
+given in \cref{def:MEP}, in which the matrices have real
 entries and the variables $t_i$ range over the non-negative reals.
 Recall that this problem is decidable in the commutative case by the
 results of the previous section.
@@ -33,7 +33,7 @@ real variables that appear in the statement of the problem.
 \end{definition}
 
 A class of constraints $\mathcal{E} \subseteq \mathcal{E}_{\pi\mathbb{Z}} \cup
-\mathcal{E}_{+}\cup \mathcal{E}_{\times}$ 
+\mathcal{E}_{+}\cup \mathcal{E}_{\times}$
 induces a generalisation of the MEP problem as follows:
 \begin{definition}[MEP with Constraints]
   Given a class of constraints
@@ -121,7 +121,7 @@ block-wise (as is clear from its power series definition):
 \begin{bmatrix}\prod_{i=1}^ke^{A_it_i}&0\\0&\prod_{i=1}^ke^{A_i't_i}\end{bmatrix}.\]
 \end{proof}
 
-We remark that in the statement of Proposition~\ref{prop:remark} the
+We remark that in the statement of \cref{prop:remark} the
 two matrix equations that are combined are over the same set of
 variables.  However, we can clearly combine any two matrix equations
 for which the common variables appear in the same order in the
@@ -146,8 +146,8 @@ always encode them using the matrix product equation.
   finite it suffices to show how to eliminate from $E$ each constraint
   in $\mathcal{E}_{\pi \mathbb{Z}}$.
 
-  Let $t_j\in\alpha+\beta\pi\mathbb{Z}$ be a constraint in $E$.  By definition 
-of  $\mathcal{E}_{\pi\mathbb{Z}}$ 
+  Let $t_j\in\alpha+\beta\pi\mathbb{Z}$ be a constraint in $E$.  By definition
+of  $\mathcal{E}_{\pi\mathbb{Z}}$
 we have
   that $\cos(2\alpha\beta^{-1}),\sin(2\alpha\beta^{-1})$ and
   $\beta\neq0$ are real algebraic.  Now define the following extra
@@ -170,7 +170,7 @@ e^{A'_j t_j}=C'
 \end{align*}
 Thus the additional matrix equation $e^{A_j't_j}=C'$ is equivalent to
 the constraint $t_j\in\alpha+\beta\pi\mathbb{Z}$.  Applying
-Proposition~\ref{prop:combine} we can thus eliminate this constraint.
+\cref{prop:combine} we can thus eliminate this constraint.
 \end{proof}
 
 \begin{proposition}
@@ -188,7 +188,7 @@ Proposition~\ref{prop:combine} we can thus eliminate this constraint.
   number of matrices and add new constraints from $\mathcal{E}_{+}$.
 
   Let $t_l=t_i t_j$ be an equation in $E$.  To eliminate this equation
-the first step is to introduce fresh  
+the first step is to introduce fresh
 variables $x,x',y,y',z$ and add the constraints
 \[ t_i=x,\, t_j=y,\, t_\ell = z,\]
 which are all in $\mathcal{E}_{+}$.  We now add a new matrix equation
@@ -220,13 +220,13 @@ B_3=&\begin{bmatrix}0&1&0\\0&0&0\\0&0&0\end{bmatrix} &&
 B_4=&\begin{bmatrix}0&0&0\\0&0&1\\0&0&0\end{bmatrix} \\
 B_5=&\begin{bmatrix}0&-1&0\\0&0&0\\0&0&0\end{bmatrix} &&
 \end{array}\]
-Thus the constraint $xy=z$ can be expressed as 
+Thus the constraint $xy=z$ can be expressed as
 \begin{gather}
 e^{B_1z} e^{B_2y'} e^{B_3x} e^{B_4y} e^{B_5z'} = I \, .
 \label{eq:fresh}
 \end{gather}
 
-Again, we can apply Proposition~\ref{prop:combine} to combine the
+Again, we can apply \cref{prop:combine} to combine the
 equation (\ref{eq:fresh}) with the matrix equation from the original
 problem instance and thus encode the constraint $x=yz$.
 
@@ -323,7 +323,7 @@ have:
 
 As we have seen previously, it is easy to encode $Q$ with constraints,
 in the sense that we can compute a finite set of constraints
-$E_Q \subseteq \mathcal{E}_{+}\cup\mathcal{E}_{\times}$ mentioning variables 
+$E_Q \subseteq \mathcal{E}_{+}\cup\mathcal{E}_{\times}$ mentioning variables
 $t_0,\ldots,t_m,\lambda$
 such that $E$ is
 satisfied if and only if $t_0=Q(t_1,\ldots,t_k,\lambda)$. Note that
