@@ -1,0 +1,134 @@
+\section{Decidability of controllability for continuous-time LTI systems when the set of controls is a linear subspace}
+
+\label{continuous-decidability}
+
+Given two matrices $A \in \mathbb{R}^{n \times n}$ and $B \in \mathbb{R}^{n \times d}$, consider the following differential equation:
+\begin{equation}
+\label{continuous-lti}
+\dot{\boldsymbol{x}}(t) = A \boldsymbol{x}(t) + B \boldsymbol{u}(t) .
+\end{equation}
+The \emph{continuous point-to-point controllability problem for linear time-invariant (LTI) systems} amounts to deciding whether, given initial and target points $s,t \in \mathbb{R}^{n}$, there exists a real $T\geq 0$ and a measurable function $\boldsymbol{u}(t) : [0,T] \rightarrow \mathbb{R}^{d}$ such that the unique solution to \cref{continuous-lti} starting at $\boldsymbol{x}(0) = \boldsymbol{s}$ satisfies $\boldsymbol{x}(T) = \boldsymbol{t}$.
+
+We will show that this problem is decidable in polynomial time, by reduction from the Continuous Orbit Problem. The \emph{Continuous Orbit Problem} consists of deciding whether, given initial and target points $\boldsymbol{s}, \boldsymbol{t} \in \mathbb{R}^{n}$ and a matrix $A \in \mathbb{R}^{n \times n}$, the unique solution $\boldsymbol{x}(t) = \exp(A t) \boldsymbol{s}$ of the differential equation
+\begin{equation}
+\begin{cases}
+\dot{\boldsymbol{x}}(t) = A \boldsymbol{x}(t) \\
+\boldsymbol{x}(0) = \boldsymbol{s}
+\end{cases}
+\end{equation}
+ever hits $\boldsymbol{t}$. This problem was shown to be decidable in polynomial time in~\cite{ContinuousSkolem1, ContinuousSkolem2}.
+
+Before proceeding, we prove a few simple definitions and preliminary results.
+
+\begin{lemma}
+\label{closed-form-solution}
+The solution to \cref{continuous-lti} is given by
+\begin{equation*}
+\boldsymbol{x}(t) = \exp(At) \left( \boldsymbol{x}(0) + \int_{0}^{t} \exp(-Ay) B \boldsymbol{u}(y) \, dy \right).
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Let $\boldsymbol{z}(t) = \exp(-At) \boldsymbol{x}(t)$. Then
+\begin{align*}
+\dot{\boldsymbol{z}}(t) &= -A \boldsymbol{z}(t) + \exp(-At) \dot{\boldsymbol{x}}(t) \\
+&= -A \exp(At) \boldsymbol{x}(t) + \exp(-At) A \boldsymbol{x}(t) + \exp(-At) B \boldsymbol{u}(t) \\
+&= \exp(-At) B \boldsymbol{u}(t) \\
+\Rightarrow \boldsymbol{x}(t) &= \exp(At) \boldsymbol{z}(t) = \exp(At) \left( \boldsymbol{x}(0) + \int_{0}^{t} \exp(-Ay) B \boldsymbol{u}(y) \, dy \right) .
+\end{align*}
+\end{proof}
+
+\begin{lemma}
+\label{integral-invariance}
+Let $\mathcal{V}$ be a vector subspace of $\mathbb{R}^{n}$ and $f : \mathbb{R}^{+}_{0} \rightarrow \mathcal{V}$ be a measurable function. Then, for any $t \geq 0$, $\int_{0}^{t} f(y) dy \in \mathcal{V}$.
+\end{lemma}
+
+\begin{proof}
+Let $\boldsymbol{r} \in \mathcal{V}^{\perp}$. Then
+\begin{equation*}
+\boldsymbol{r}^{T} \int_{0}^{t} f(y) \, dy = \int_{0}^{t} \boldsymbol{r}^{T} f(y) \, dy = \int_{0}^{t} 0 \, dy = 0
+\end{equation*}
+and therefore $\int_{0}^{t} f(y) dy \in (\mathcal{V}^{\perp})^{\perp} = \mathcal{V}$.
+\end{proof}
+
+The matrix
+\begin{equation}
+C= \begin{pmatrix} B && AB && A^{2} B && \cdots && A^{n-1}B \end{pmatrix}
+\end{equation}
+is called the controllability matrix for the LTI system defined in \cref{continuous-lti}. We will denote its image by $\Im(C)$.
+
+\begin{lemma}
+\label{orthogonality-equivalence}
+The following are equivalent:
+\begin{enumerate}
+\item $\boldsymbol{r} \in \Im(C)^{\perp}$.
+\item $\boldsymbol{r}^{T} \exp(-Ay) B$ is identically zero on $[0,\infty)$.
+\item There exists $T>0$ for which $\boldsymbol{r}^{T} \exp(-Ay) B$ is identically zero on $[0,T]$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+We show that $(1) \Rightarrow (2)$ and that $(3) \Rightarrow (1)$. It is trivial that $(2) \Rightarrow (3)$.
+By the Cayley-Hamilton Theorem, $\boldsymbol{r} \in \Im(C)^{\perp} \Rightarrow \boldsymbol{r}^{T} A^{k} B = 0$ for any $k \geq 0$. The first implication follows from the power series definition of matrix exponentials. For the second implication, note that if $f(y) \triangleq \boldsymbol{r}^{T} \exp(-Ay) B$ is identically zero on $[0,T]$ then $0 = f^{(k)} (0) = \boldsymbol{r}^{T} (-A)^{k} B$.
+\end{proof}
+
+\begin{proposition}
+For any $T \geq 0$ and $\boldsymbol{v} \in \Im(C)$, there exists a piecewise constant function $\boldsymbol{u} : [0, T] \rightarrow \mathbb{R}^{d}$ such that
+\begin{equation}
+\label{control-existence}
+\int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy = \boldsymbol{v}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let $\mathcal{H}$ denote the space of piecewise constant functions mapping $[0,T]$ to $\mathbb{R}^{d}$, and consider the function $g : \mathcal{H} \rightarrow \mathcal{V}$ defined by
+\begin{equation*}
+g(\boldsymbol{u}) = \int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy.
+\end{equation*}
+It is clear from \cref{integral-invariance} and from \cref{orthogonality-equivalence} that $\Im(g) \subseteq \Im(C)$. To show the converse containment, let $\boldsymbol{r} \in \Im(g)^{\perp}$. Then, for all $\boldsymbol{u} : [0,T] \rightarrow \mathbb{R}^{d}$,
+\begin{equation*}
+0 = \boldsymbol{r}^{T} \int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy = \int_{0}^{T} \boldsymbol{r}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy
+\end{equation*}
+and therefore $\boldsymbol{r}^{T} \exp(-Ay) B$ must by identically zero on $[0,T]$, due to the arbitrarity of $\boldsymbol{u}$. Thus, we can conclude from \cref{orthogonality-equivalence} that $\boldsymbol{r} \in \Im(C)^{\perp}$, which implies that $\Im(g)^{\perp} \subseteq \Im(C)^{\perp}$, due to the arbitrarity of $\boldsymbol{r}$, implying that $\Im(g) = \Im(C)$.
+\end{proof}
+
+We can finally prove the main result of this section.
+
+\begin{theorem}
+The continuous point-to-point controllability problem for LTI systems reduces to the continuous orbit problem in polynomial time.
+\end{theorem}
+
+\begin{proof}
+Consider the quotient vector space $\mathbb{R}^{n} / \Im(C)$. Noting that $\Im(C)$ is invariant under $A$, $A$ induces a well-defined linear operator on $\mathbb{R}^{n} / \Im(C)$. We claim that $\boldsymbol{t} + \Im(C)$ is in the orbit of $\boldsymbol{s} + \Im(C)$ by $A$ if and only if we can control \cref{continuous-lti} from $\boldsymbol{s}$ to $\boldsymbol{t}$.
+
+If we can control \cref{continuous-lti} from $\boldsymbol{s}$ to $\boldsymbol{t}$ then, due to \cref{closed-form-solution}, there exists $T>0$ such that
+\begin{equation*}
+\boldsymbol{t} = \boldsymbol{x}(T) = \exp(A T) \left( \boldsymbol{s} + \int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy \right)
+\end{equation*}
+for some control function $\boldsymbol{u} : [0,T] \rightarrow \mathbb{R}^{d}$, so
+\begin{equation*}
+\boldsymbol{t} + \Im(C) = \exp(A T) (\boldsymbol{s} + \Im(C)),
+\end{equation*}
+as
+\begin{equation*}
+\int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy \in \Im(C)
+\end{equation*}
+due to \cref{integral-invariance}.
+
+On the other hand, suppose that $\boldsymbol{t} + \Im(C)$ is in the orbit of $\boldsymbol{s} + \Im(C)$ by $A$. Then, there exist $T>0$ and $\boldsymbol{v}_{1}, \boldsymbol{v}_{2} \in \Im(C)$ such that
+\begin{equation*}
+\boldsymbol{t} + \boldsymbol{v}_{2} = \exp(At) \left( \boldsymbol{s} + \boldsymbol{v}_{1} \right).
+\end{equation*}
+
+Due to \cref{control-existence}, there exists a control function $\boldsymbol{u} : [0,T] \rightarrow \mathbb{R}^{d}$ such that
+\begin{equation*}
+\int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy = \boldsymbol{v}_{1} - \exp(-A T) \boldsymbol{v}_{2}
+\end{equation*}
+and so
+\begin{align*}
+\boldsymbol{x}(T) &= \exp(A T) \left( \boldsymbol{s} + \int_{0}^{T} \exp(-Ay) B \boldsymbol{u}(y) \, dy \right) \\
+&= \exp(A T) \left( \boldsymbol{s} + \boldsymbol{v}_{1} - \exp(-A T) \boldsymbol{v}_{2} \right) \\
+&= \exp(A T) \left( \boldsymbol{s} + \boldsymbol{v}_{1} \right) - \boldsymbol{v}_{2} = \boldsymbol{t} .
+\end{align*}
+
+\end{proof}

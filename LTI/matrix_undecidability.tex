@@ -1,0 +1,136 @@
+\section{Some undecidable matrix problems}
+
+\label{matrix-undecidability}
+
+Given $k+1$ invertible matrices $A_{1}, \ldots, A_{k},C \in \mathbb{Q}^{d \times d}$, the \emph{generalized matrix powering problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
+\begin{equation*}
+\prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C.
+\end{equation*}
+
+\begin{theorem}
+The generalized matrix powering problem for invertible matrices is undecidable.
+\end{theorem}
+
+\begin{proof}
+We will show this result by reducing from Hilbert's Tenth Problem. Given a polynomial $p \in \mathbb{Z}[n_{1}, \ldots, n_{k}]$, it is easy to express $p(n_{1}, \ldots, n_{k})$ as a conjunction of relations of the following form (noting that we may need to introduce new variables):
+\begin{itemize}
+\item $z = k$, where $k \in \mathbb{Z}$
+\item $z = x+y$
+\item $z = xy$.
+\end{itemize}
+We start by showing how to encode each of these as an instance of the generalized matrix powering problem for invertible matrices.
+Firstly, note that
+\begin{equation*}
+z = k \Leftrightarrow
+\begin{pmatrix}
+    1 & 1 \\
+    0 & 1
+\end{pmatrix}^{z} =
+\begin{pmatrix}
+    1 & k \\
+    0 & 1
+\end{pmatrix}.
+\end{equation*}
+Secondly, note that
+\begin{equation*}
+    z = x + y \Leftrightarrow
+\begin{pmatrix}
+    1 & 1 \\
+    0 & 1
+\end{pmatrix}^{x}
+\begin{pmatrix}
+    1 & 1 \\
+    0 & 1
+\end{pmatrix}^{y}
+\begin{pmatrix}
+    1 & -1 \\
+    0 & 1
+\end{pmatrix}^{z} =
+\begin{pmatrix}
+    1 & 0 \\
+    0 & 1
+\end{pmatrix}.
+\end{equation*}
+Thirdly, note that
+\begin{equation*}
+    z = xy \Leftrightarrow
+    \exists x',y' \in \mathbb{Z},
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix} =
+    \begin{pmatrix}
+        1 & x-x' & z-xy \\
+        0 & 1 & y-y' \\
+        0 & 0 & 1
+    \end{pmatrix}
+\end{equation*}
+and that the latter matrix is just equal to
+\begin{equation*}
+    \begin{pmatrix}
+        1 & 0 & -1 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}^{z}
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & -1 \\
+        0 & 0 & 1
+    \end{pmatrix}^{y'}
+    \begin{pmatrix}
+        1 & 1 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}^{x}
+    \begin{pmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 1 \\
+        0 & 0 & 1
+    \end{pmatrix}^{y}
+    \begin{pmatrix}
+        1 & -1 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}^{x'}.
+\end{equation*}
+Finally, conjunction can be achieved by making use of separate matrix blocks:
+\begin{equation*}
+    \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C \wedge \prod\limits_{i=1}^{k} B_{i}^{n_{i}} = D \Leftrightarrow
+    \prod\limits_{i=1}^{k} \begin{pmatrix}A_{i} & 0 \\ 0 & B_{i}\end{pmatrix}^{n_{i}} = \begin{pmatrix}C & 0 \\ 0 & D\end{pmatrix}.
+\end{equation*}
+\end{proof}
+
+\begin{definition}
+Given invertible matrices $A_{1}, \ldots, A_{k} \in \mathbb{Q}^{d \times d}$ and two non-zero vectors $\boldsymbol{x}, \boldsymbol{y} \in \mathbb{Q}^{d}$, the \emph{vector reachability problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
+\begin{equation*}
+\prod\limits_{i=1}^{k}A_{i}^{n_{i}} \boldsymbol{x} = \boldsymbol{y}.
+\end{equation*}
+\end{definition}
+
+\begin{theorem}
+The vector reachability problem for invertible matrices is undecidable.
+\end{theorem}
+
+\begin{proof}
+This can be shown by reduction from the generalised matrix powering problem for invertible matrices. In particular, given invertible matrices $A_{1}, \ldots, A_{k}, B \in \mathbb{Q}^{d \times d}$, letting $\boldsymbol{b}_{1}, \ldots, \boldsymbol{b}_{d}$ denote the columns of $B$, and letting $\boldsymbol{e}_{1}, \ldots, \boldsymbol{e}_{d}$ denote the canonical basis of $R^{d}$, the result follows from the fact that
+    \begin{equation*}
+        \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = B \Leftrightarrow
+        \prod\limits_{i=1}^{k}
+        \begin{pmatrix}
+            A_{i} & \cdots & 0 \\
+            \vdots& \ddots & \vdots \\
+            0 & \cdots & A_{i}
+        \end{pmatrix}^{n_{i}}
+        \begin{pmatrix}
+            \boldsymbol{e}_{1} \\
+            \vdots \\
+            \boldsymbol{e}_{d}
+        \end{pmatrix} =
+        \begin{pmatrix}
+            \boldsymbol{b}_{1} \\
+            \vdots \\
+            \boldsymbol{b}_{d}
+        \end{pmatrix}.
+    \end{equation*}
+\end{proof}

@@ -119,11 +119,11 @@ that $y_0^{-1}\boldsymbol{x}_0$ is trapped in $(f,\mathcal{P})$.
 \end{proof}
 
 We remind the reader that the unique solution to the differential equation $\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)),\boldsymbol{x}(0)=\boldsymbol{x}_{0},t\geq 0$, where $f(\boldsymbol{x})=A\boldsymbol{x}$, is given by
-$\boldsymbol{x}(t)=\exp(At)\boldsymbol{x}_{0} \, .$
+$\boldsymbol{x}(t)=\exp(At)\boldsymbol{x}_{0}$.
 
 In this setting, the sets of trapped and eventually trapped points are, respectively:
 \begin{align*}
-\mathit{T}&=\lbrace \boldsymbol{x}_0\in\mathbb{R}^{d}: \forall t\geq 0, \exp(At)\boldsymbol{x}_{0} \in \mathcal{P}\rbrace\\
+\mathit{T}&=\lbrace \boldsymbol{x}_0\in\mathbb{R}^{d}: \forall t\geq 0, \exp(At)\boldsymbol{x}_{0} \in \mathcal{P}\rbrace \\
 \mathit{ET}&=\lbrace\boldsymbol{x}_{0}\in\mathbb{R}^{d}:\exists t\geq 0,\exp(At)\boldsymbol{x}_{0}\in\mathit{T}\rbrace
 \end{align*}
 
@@ -209,12 +209,12 @@ It must hold that $(\eta,j)\preceq (\rho,m)$.  Indeed, if $(\eta,j)\succ
 (\rho,m)$, then, as $t\rightarrow\infty$,
 \begin{align*}
 \boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0} = \exp(\eta t)t^{j} \Bigg(
-\underbrace{\frac{\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}}{\exp(\eta t)t^{j}}}_{\mytag{($\star$)}{termA}} + o(1)\Bigg) ,
+\underbrace{\frac{\boldsymbol{b}^{T} \exp(At) \boldsymbol{x}_{0}^{c}}{\exp(\eta t)t^{j}}}_{\mytag{termA}} + o(1)\Bigg) ,
 \end{align*}
 %
-but the limit inferior of the term~\ref{termA} above is strictly
-negative by Proposition~\ref{liminfprop}, contradicting the fact that
-$\boldsymbol{x}_{0}\in\mathit{T}$.
+but the limit inferior of the \cref{termA} above is strictly
+negative by Proposition~\ref{liminfprop},
+contradicting the fact that $\boldsymbol{x}_{0}\in\mathit{T}$.
 
 If $(\eta,j)=(\rho,m)$, then, as $t\rightarrow\infty$,
 \begin{align*}

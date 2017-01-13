@@ -1,3 +1,5 @@
+\section{Analysis}
+
 \subsection{Laurent polynomials}
 
 A multivariate \textbf{Laurent polynomial} is a polynomial in positive
@@ -59,7 +61,7 @@ $(x_1^*,\ldots,x_s^*) \in [0,2\pi]^{s}$ such that
 $g(\phi(x_1^*),\ldots,\phi(x_s^*))<0$.
 
 By assumption, $\theta_1,\ldots,\theta_s,1$ are linearly
-independent over $\mathbb{Q}$.  By Corollary~\ref{corl:kronecker} it
+independent over $\mathbb{Q}$.  By \cref{corl:kronecker} it
 follows that
 \[ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in
   \mathbb{N} \} \] is dense in $\mathbb{T}^s$ and hence has
@@ -73,13 +75,12 @@ which proves the result.
 \end{proof}
 
 Note that this proof could be made constructive by using an effective
-version of Kronecker's Theorem, as studied in
-\cite{ConstructiveKronecker1} and \cite{ConstructiveKronecker2},
+version of Kronecker's Theorem, as studied in~\cite{ConstructiveKronecker1} and~\cite{ConstructiveKronecker2},
 although we do not make use of this fact in the present paper.
 
 The following consequence of Proposition~\ref{first} will be key to
 proving decidability of the problem at hand. It is a continuous-time
-analogue of Lemma 4 in \cite{Bra06}.
+analogue of Lemma 4 in~\cite{Bra06}.
 
 \begin{proposition}
 \label{liminf}
@@ -112,11 +113,10 @@ N\theta_{j}= \left( m  +\sum\limits_{i=1}^{k} n_{i}\theta_{i}\right) \, ,
 where $m,n_{1},\ldots,n_{k}$ are integers that depend on $j$, whilst
 $N$ does not depend on $j$.  It follows that for all $j\geq k+1$ and
 $t \in \mathbb{R}$,
-\begin{eqnarray*}
-\phi(N\theta_{j}t) & = & \phi(m t) \cdot
-\prod\limits_{i=1}^{k} \phi( n_i \theta_{i} t) \\
-&=& \phi(t)^m \cdot \prod\limits_{i=1}^{k} \phi( \theta_{i} t)^{n_i}  \, .
-\end{eqnarray*}
+\begin{align*}
+\phi(N\theta_{j}t) &= \phi(m t) \cdot \prod\limits_{i=1}^{k} \phi( n_i \theta_{i} t) \\
+&= \phi(t)^m \cdot \prod\limits_{i=1}^{k} \phi( \theta_{i} t)^{n_i}  \, .
+\end{align*}
 In other words, for $j=1,\ldots,s$, $\phi(N\theta_j t)$ can be written
 as a product of positive and negative powers of the terms
 $\phi(t), \phi(\theta_1 t),\ldots,\phi(\theta_k t)$.
@@ -187,16 +187,13 @@ and from uniqueness of the above decomposition.
 %
 \end{proof}
 
-\begin{proposition}\label{liminfprop}
-  Consider a function of the form
-  $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where
-  $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with
-  $(\rho,m)\in\mathbb{R}\times \mathbb{N}_{0}$ dominant.
- If $h(t)\not\equiv 0$, then we have
-\begin{align*}
+\begin{proposition}
+\label{liminfprop}
+Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\mathbb{R}\times \mathbb{N}_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
+\begin{equation*}
 -\infty<\liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho
   t)t^{m}}<0 \, .
-\end{align*}
+\end{equation*}
 \end{proposition}
 
 \begin{proof}
@@ -208,8 +205,8 @@ and from uniqueness of the above decomposition.
   \eta+i\theta \in\sigma(A) \rbrace$. By abuse of notation, we also
   use $\boldsymbol{\theta}_{\eta}$ to refer to the vector whose
   coordinates are exactly the members of this set, ordered in an
-  increasing way. We note that, due to Proposition \ref{conj-relation}
-  and Proposition~\ref{prop:linear}, the
+  increasing way. We note that, due to \cref{conj-relation}
+  and \cref{prop:linear}, the
   following holds:
 
 \begin{align*}
@@ -227,7 +224,7 @@ Note that
 \equiv 0 \rbrace \, .
 \end{equation*}
 
-The result then follows from Proposition~\ref{liminf} and the fact
+The result then follows from \cref{liminf} and the fact
 that
 \begin{align*}
 \liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho t)t^{m}}=
