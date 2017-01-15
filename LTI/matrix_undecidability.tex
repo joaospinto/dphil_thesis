@@ -2,7 +2,7 @@
 
 \label{matrix-undecidability}
 
-Given $k+1$ invertible matrices $A_{1}, \ldots, A_{k},C \in \mathbb{Q}^{d \times d}$, the \emph{generalized matrix powering problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
+Given $k+1$ invertible matrices $A_{1}, \ldots, A_{k},C \in \Rationals^{d \times d}$, the \emph{generalized matrix powering problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
 \begin{equation*}
 \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C.
 \end{equation*}
@@ -102,9 +102,9 @@ Finally, conjunction can be achieved by making use of separate matrix blocks:
 \end{proof}
 
 \begin{definition}
-Given invertible matrices $A_{1}, \ldots, A_{k} \in \mathbb{Q}^{d \times d}$ and two non-zero vectors $\boldsymbol{x}, \boldsymbol{y} \in \mathbb{Q}^{d}$, the \emph{vector reachability problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
+Given invertible matrices $A_{1}, \ldots, A_{k} \in \Rationals^{d \times d}$ and two non-zero vectors $\myvector{x}, \myvector{y} \in \Rationals^{d}$, the \emph{vector reachability problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z}$ such that
 \begin{equation*}
-\prod\limits_{i=1}^{k}A_{i}^{n_{i}} \boldsymbol{x} = \boldsymbol{y}.
+\prod\limits_{i=1}^{k}A_{i}^{n_{i}} \myvector{x} = \myvector{y}.
 \end{equation*}
 \end{definition}
 
@@ -113,7 +113,7 @@ The vector reachability problem for invertible matrices is undecidable.
 \end{theorem}
 
 \begin{proof}
-This can be shown by reduction from the generalised matrix powering problem for invertible matrices. In particular, given invertible matrices $A_{1}, \ldots, A_{k}, B \in \mathbb{Q}^{d \times d}$, letting $\boldsymbol{b}_{1}, \ldots, \boldsymbol{b}_{d}$ denote the columns of $B$, and letting $\boldsymbol{e}_{1}, \ldots, \boldsymbol{e}_{d}$ denote the canonical basis of $R^{d}$, the result follows from the fact that
+This can be shown by reduction from the generalised matrix powering problem for invertible matrices. In particular, given invertible matrices $A_{1}, \ldots, A_{k}, B \in \Rationals^{d \times d}$, letting $\myvector{b}_{1}, \ldots, \myvector{b}_{d}$ denote the columns of $B$, and letting $\myvector{e}_{1}, \ldots, \myvector{e}_{d}$ denote the canonical basis of $R^{d}$, the result follows from the fact that
     \begin{equation*}
         \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = B \Leftrightarrow
         \prod\limits_{i=1}^{k}
@@ -123,14 +123,14 @@ This can be shown by reduction from the generalised matrix powering problem for 
             0 & \cdots & A_{i}
         \end{pmatrix}^{n_{i}}
         \begin{pmatrix}
-            \boldsymbol{e}_{1} \\
+            \myvector{e}_{1} \\
             \vdots \\
-            \boldsymbol{e}_{d}
+            \myvector{e}_{d}
         \end{pmatrix} =
         \begin{pmatrix}
-            \boldsymbol{b}_{1} \\
+            \myvector{b}_{1} \\
             \vdots \\
-            \boldsymbol{b}_{d}
+            \myvector{b}_{d}
         \end{pmatrix}.
     \end{equation*}
 \end{proof}

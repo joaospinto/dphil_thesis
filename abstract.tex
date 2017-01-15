@@ -4,15 +4,15 @@
 A fundamental problem in program verification concerns the
 termination of simple linear loops of the form:
 \begin{equation*}
- \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
-\textit{while} $B\boldsymbol{x} \geq \boldsymbol{c}$ \textit{do}
-$\boldsymbol{x}\leftarrow A\boldsymbol{x}+\boldsymbol{a}$\,,}
+ \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\textit{while} $B\myvector{x} \geq \myvector{c}$ \textit{do}
+$\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$\,,}
 \end{equation*}
-where $\boldsymbol{x}$ is a vector of variables, $\boldsymbol{u}$,
-$\boldsymbol{a}$, and $\boldsymbol{c}$ are integer vectors, and $A$ and
+where $\myvector{x}$ is a vector of variables, $\myvector{u}$,
+$\myvector{a}$, and $\myvector{c}$ are integer vectors, and $A$ and
 $B$ are integer matrices.  Assuming the matrix $A$ is diagonalisable,
 we give a decision procedure for the problem of whether, for all
-initial integer vectors $\boldsymbol u$, such a loop terminates.  The
+initial integer vectors $\myvector u$, such a loop terminates.  The
 correctness of our algorithm relies on sophisticated tools from
 algebraic and analytic number theory, Diophantine geometry, and real
 algebraic geometry.
@@ -35,15 +35,15 @@ Our decidability proof relies on a number of theorems from algebraic and transce
 %BEGIN HSCC
 The Polytope Escape Problem for continuous linear dynamical
 systems consists of deciding, given an affine function
-$f:\mathbb{R}^{d}\rightarrow \mathbb{R}^{d}$ and a convex polytope
-$\mathcal{P}\subseteq\mathbb{R}^d$ with rational descriptions,
+$f:\Reals^{d}\rightarrow \Reals^{d}$ and a convex polytope
+$\mathcal{P}\subseteq\Reals^d$ with rational descriptions,
 whether there exists an initial point
-$\boldsymbol{x}_0$ in $\mathcal{P}$ such that the trajectory of the unique
+$\myvector{x}_0$ in $\mathcal{P}$ such that the trajectory of the unique
 solution to the differential equation
 \begin{equation*}
 \begin{displaystyle} \begin{cases}
-\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)) \\
-\boldsymbol{x}(0)=\boldsymbol{x}_{0}
+\dot{\myvector{x}}(t)=f(\myvector{x}(t)) \\
+\myvector{x}(0)=\myvector{x}_{0}
 \end{cases} \end{displaystyle}
 \end{equation*}
 is entirely contained in $\mathcal{P}$.  We show that this problem is

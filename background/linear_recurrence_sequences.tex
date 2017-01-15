@@ -1,0 +1,36 @@
+\subsection{Linear Recurrence Sequences}
+
+\subsubsection{Lower-bounding simple linear recurrence sequences}
+
+We are interested in lower-bounding expressions of the form
+\begin{equation}
+\label{eq:sum}
+u_n=\sum\limits_{j=1}^s\alpha_j\lambda_j^n
+\end{equation}
+where the $\alpha_j$ are algebraic-integer constants and $\lambda_1,\ldots,\lambda_s$ have the same absolute value $\rho$. Any such sequence must in fact be a simple linear recurrence sequence with algebraic coefficients and characteristic roots $\lambda_1,\ldots,\lambda_s$, as explained in Section 1.1.6 of \cite{BOOK}.
+
+In order to make use of this result, it is important to understand the set
+\begin{equation}
+\lbrace n\in\mathbb{N}: \exists I\subseteq \lbrace 1,\ldots,s\rbrace, \sum\limits_{j\in I}\alpha_j\lambda_j^n=0\rbrace
+\label{eq:genzeros}
+\end{equation}
+
+The following well-known theorem characterises the set of zeros of
+linear recurrence sequences. In particular, it gives us a sufficient
+condition for guaranteeing that the set of zeros of a non-identically
+zero linear recurrence sequence is finite. Namely, it suffices that the sequence is non-degenerate, that is, that no ratio of two of its characteristic roots is a root of unit.
+
+\begin{theorem}[Skolem-Mahler-Lech]
+Let $u_n=\sum\limits_{j=1}^l \alpha_j\lambda_j^n$ be a linear recurrence sequence. The set $\lbrace n\in\mathbb{N}: u_n=0\rbrace$ is always a union of a finite set and finitely many arithmetic progressions. Moreover, if $u_n$ is non-degenerate, this set is actually finite.
+\end{theorem}
+
+Therefore, it follows from the Skolem-Mahler-Lech theorem that if $u_n$ is non-degenerate  then (\ref{eq:genzeros}) must be finite, assuming without loss of generality that $\sum\limits_{j\in I}\alpha_j\lambda_j^n$ is never eventually zero.
+
+We can now apply the $S$-units theorem in order to get a lower bound on (\ref{eq:sum}) that holds for all but finitely many $n$, by letting $K$ be the splitting field of the characteristic polynomial of $u_n$, $S$ be the set of prime ideals of the ring of integers of $K$ that appear in the factorisation of each of the algebraic integers $\alpha_j$ and $\lambda_j$, and $x_j=\alpha_j\lambda_j^n$ for each $j$, making (\ref{eq:sum}) a sum of $S$-units.
+
+In the notation of the theorem, we have $Y=\Omega(\rho^n)$. If $\Lambda$ is an upper bound on the absolute value of the Galois conjugates of each $\lambda_j$ (that is, each $\sigma_i(\lambda_j)$), then $Z=O(\Lambda^n)$. Thus, for any $\varepsilon>0$, we know that
+\begin{align*}
+\sum\limits_{j=1}^s\alpha_j\lambda_j^n &=\Omega(YZ^{-\varepsilon})=
+\Omega\left(\rho^n\Lambda^{-n\varepsilon}\right)
+\end{align*}
+Finally, we note that by picking $\varepsilon$ to be sufficiently small we can get $\rho\Lambda^{-\varepsilon}$ arbitrarily close to $\rho$.

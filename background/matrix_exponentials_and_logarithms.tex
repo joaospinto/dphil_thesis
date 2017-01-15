@@ -1,10 +1,10 @@
 \subsection{Matrix exponentials}
 
-Given a matrix $A \in \mathbb{C}^{n \times n}$, its exponential is defined as
+Given a matrix $A \in \Complex^{n \times n}$, its exponential is defined as
 \begin{align*}
 \exp(A) = \sum \limits_{i=0}^{\infty} \frac{A^{i}}{i!} .
 \end{align*}
-The series above always converges, and so the exponential of a matrix is always well defined. The standard way of computing $\exp(A)$ is by finding $P \in \mathit{GL}_{n}(\mathbb{C})$ such that $J=P^{-1}AP$ is in Jordan Canonical Form, and by using the fact that $\exp(A) = P \exp(J) P^{-1}$, where $\exp(J)$ is easy to compute. When $A \in \overline{\mathbb{Q}}^{n \times n}$, $P$ can be taken to be in $GL_{n}(\overline{\mathbb{Q}})$; note that
+The series above always converges, and so the exponential of a matrix is always well defined. The standard way of computing $\exp(A)$ is by finding $P \in \mathit{GL}_{n}(\Complex)$ such that $J=P^{-1}AP$ is in Jordan Canonical Form, and by using the fact that $\exp(A) = P \exp(J) P^{-1}$, where $\exp(J)$ is easy to compute. When $A \in \Algebraics^{n \times n}$, $P$ can be taken to be in $GL_{n}(\Algebraics)$; note that
 
 \begin{align*}
 \mbox{if } J &= \begin{pmatrix}
@@ -34,8 +34,8 @@ The matrix $B$ is said to be a logarithm of the matrix $A$ if $\exp(B) = A$. It 
 A matrix is said to be unitriangular if it is triangular and all its diagonal entries equal $1$. Crucially, the following uniqueness result holds:
 
 \begin{theorem}
-\label{logarithm_uniqueness}
-Given an upper unitriangular matrix $M \in \mathbb{C}^{n \times n}$, there exists a unique strictly upper triangular matrix $L$ such that $\exp(L)=M$. Moreover, the entries of $L$ lie in the number field $\mathbb{Q}(M_{i,j}: 1 \leq i,j \leq n)$.
+\label{thm:log_uniqueness}
+Given an upper unitriangular matrix $M \in \Complex^{n \times n}$, there exists a unique strictly upper triangular matrix $L$ such that $\exp(L)=M$. Moreover, the entries of $L$ lie in the number field $\Rationals(M_{i,j}: 1 \leq i,j \leq n)$.
 \end{theorem}
 
 \begin{proof}

@@ -1,37 +1,37 @@
 %BEGIN HSCC
 \subsection{Jordan Canonical Forms}
 
-Let $A \in \mathbb{Q}^{d \times d}$ be a square matrix with rational
+Let $A \in \Rationals^{d \times d}$ be a square matrix with rational
 entries.  The \textbf{minimal polynomial} of $A$ is the unique monic
-polynomial $m(x) \in \mathbb{Q}[x]$ of least degree such that
+polynomial $m(x) \in \Rationals[x]$ of least degree such that
 $m(A)=0$.  By the Cayley-Hamilton Theorem the degree of $m$ is at most
 the dimension of $A$. The set $\sigma(A)$ of eigenvalues is the set of
 roots of $m$.  The \textbf{index} of an eigenvalue $\lambda$, denoted
 by $\nu(\lambda)$, is defined as its multiplicity as a root of $m$. We
 use $\nu(A)$ to denote $\max_{\lambda\in\sigma(A)} \nu(\lambda)$: the
 maximum index over all eigenvalues of $A$.  Given an eigenvalue
-$\lambda \in \sigma(A)$, we say that $\boldsymbol{v} \in \mathbb{C}^d$
+$\lambda \in \sigma(A)$, we say that $\myvector{v} \in \Complex^d$
 is a \textbf{generalised eigenvector} of $A$ if
-$\boldsymbol{v}\in \ker(A-\lambda I)^{k}$, for some $k\in\mathbb{N}$.
+$\myvector{v}\in \ker(A-\lambda I)^{k}$, for some $k\in\mathbb{N}$.
 
-We denote the subspace of $\mathbb{C}^d$ spanned by the set of
+We denote the subspace of $\Complex^d$ spanned by the set of
 generalised eigenvectors associated with some eigenvalue $\lambda$ by
-$\mathcal{V}_{\lambda}$. We denote the subspace of $\mathbb{C}^d$
+$\mathcal{V}_{\lambda}$. We denote the subspace of $\Complex^d$
 spanned by the set of generalised eigenvectors associated with some
 real eigenvalue by $\mathcal{V}^{r}$.  We likewise denote the subspace
-of $\mathbb{C}^d$ spanned by the set of generalised eigenvectors
+of $\Complex^d$ spanned by the set of generalised eigenvectors
 associated to eigenvalues with non-zero imaginary part by
 $\mathcal{V}^{c}$.
 
-It is well known that each vector $\boldsymbol{v}\in\mathbb{C}^{d}$
+It is well known that each vector $\myvector{v}\in\Complex^{d}$
 can be written uniquely as
-$\boldsymbol{v}=\displaystyle{
-  \sum\limits_{\lambda\in\sigma(A)}\boldsymbol{v}_{\lambda}}$,
-where $\boldsymbol{v}_{\lambda}\in\mathcal{V}_{\lambda}$.
-It follows that $\boldsymbol{v}$ can also be uniquely written as
-$\boldsymbol{v}=\boldsymbol{v}^{r}+\boldsymbol{v}^{c}$, where
-$\boldsymbol{v}^{r} \in\mathcal{V}^{r}$ and
-$\boldsymbol{v}^{c} \in\mathcal{V}^{c}$.
+$\myvector{v}=\displaystyle{
+  \sum\limits_{\lambda\in\sigma(A)}\myvector{v}_{\lambda}}$,
+where $\myvector{v}_{\lambda}\in\mathcal{V}_{\lambda}$.
+It follows that $\myvector{v}$ can also be uniquely written as
+$\myvector{v}=\myvector{v}^{r}+\myvector{v}^{c}$, where
+$\myvector{v}^{r} \in\mathcal{V}^{r}$ and
+$\myvector{v}^{c} \in\mathcal{V}^{c}$.
 
 Moreover, we can write any matrix $A$ as $A=Q^{-1}JQ$ for some
 invertible matrix $Q$ and block diagonal Jordan matrix
@@ -51,7 +51,7 @@ following form:
 Given a rational matrix $A$, its Jordan Normal Form $A=Q^{-1}JQ$ can be
 computed in polynomial time, as shown in \cite{Cai94}.
 
-Note that each vector $\boldsymbol{v}$ appearing as a column of the
+Note that each vector $\myvector{v}$ appearing as a column of the
 matrix $Q^{-1}$ is a generalised eigenvector. We also note that the
 index $\nu(\lambda)$ of some eigenvalue $\lambda$ corresponds to the
 dimension of the largest Jordan block associated with it.
@@ -110,14 +110,14 @@ J_{i}^{n}=\begin{pmatrix}
 In the above, ${n\choose j}$ is defined to be $0$ when $n<j$.
 
 \begin{proposition}
-  Let $\boldsymbol{v}$ lie in the generalised eigenspace
+  Let $\myvector{v}$ lie in the generalised eigenspace
   $\mathcal{V}_{\lambda}$ for some $\lambda \in \sigma(A)$.  Then
-  $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is a linear combination
+  $\myvector{b}^{T}\exp(At)\myvector{v}$ is a linear combination
   of terms of the form $t^{n}\exp(\lambda t)$.
 \label{prop:linear}
 \end{proposition}
 % Every expression of the form
-%  $\boldsymbol{b}^{T}\exp(At)\boldsymbol{x}_{0}$ is a linear
+%  $\myvector{b}^{T}\exp(At)\myvector{x}_{0}$ is a linear
 %  combination of terms of the form $t^{n}\exp(\lambda t)$, where
 %  $\lambda$ is an eigenvalue of $A$.
 
@@ -125,7 +125,7 @@ In the above, ${n\choose j}$ is defined to be $0$ when $n<j$.
   Note that, if $A=Q^{-1}JQ$ and $J=diag(J_{1},\ldots,J_{N})$ is a
   block diagonal Jordan matrix, then $\exp(At)=Q^{-1}\exp(Jt)Q$ and
   $\exp(Jt)=diag(\exp(J_{1}t),\ldots,\exp(J_{N}t))$.
-The result follows by observing that $Q\boldsymbol{v}$ is zero in every component
+The result follows by observing that $Q\myvector{v}$ is zero in every component
 other than those pertaining the block corresponding to the eigenspace
 $\mathcal{V}_{\lambda}$.
 \end{proof}

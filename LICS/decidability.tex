@@ -22,8 +22,8 @@ logarithms of upper unitriangular matrices.
   $P^{-1}A_iP$ is block diagonal, $i=1,\ldots,k$, with each block
   being moreover upper triangular.
 
-  By \cref{subspace_decomposition} we can write $\mathbb{C}^n$
-  as a direct sum of subspaces $\mathbb{C}^n = \oplus_{j=1}^b \mathcal{V}_j$
+  By \cref{subspace_decomposition} we can write $\Complex^n$
+  as a direct sum of subspaces $\Complex^n = \oplus_{j=1}^b \mathcal{V}_j$
   such that for every subspace $\mathcal{V}_j$ and matrix $A_i$, $\mathcal{V}_j$ is an
   invariant subspace of $A_i$ on which $A_i$ has a single eigenvalue
   $\lambda_i^{(j)}$.
@@ -93,7 +93,7 @@ are all $1$, the equation system (\ref{eq:main2}) is equivalent to:
 \end{align*}
 for $j=1,\ldots,b$.
 
-Applying \cref{logarithm_uniqueness}, the
+Applying \cref{thm:log_uniqueness}, the
 above system can equivalently be written
 \begin{align*}
 \exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big)
@@ -127,7 +127,7 @@ Consider an instance of LEP, comprising a system of equations
 \quad j=1,\ldots,b,
 \label{eq:LEPinstance}
 \end{align}
-and polyhedron $\mathcal{P}\subseteq \mathbb{R}^{2k}$, as described in
+and polyhedron $\mathcal{P}\subseteq \Reals^{2k}$, as described in
 \cref{def:LEP}.
 
 Throughout this proof, let $\log$ denote a fixed logarithm branch that
@@ -144,35 +144,35 @@ where $n_j \in \mathbb{Z}$.
 
 The system of equations (\ref{eq:logs}) can be written in matrix form as
 \begin{align*}
-A \boldsymbol{t} \in \boldsymbol{d}+\log(\boldsymbol{c}) +
+A \myvector{t} \in \myvector{d}+\log(\myvector{c}) +
 2i\pi \mathbb{Z}^b \, ,
 \end{align*}
 where $A$ is the $b\times k$ matrix with $A_{j,\ell} = \lambda_\ell^{(j)}$ and $\log$
 is applied pointwise to vectors.
-Now, defining the convex polyhedron $\mathcal{Q}\subseteq \mathbb{R}^{2b}$ by
+Now, defining the convex polyhedron $\mathcal{Q}\subseteq \Reals^{2b}$ by
 \begin{align*}
-\mathcal{Q} = \lbrace &(\Re(A\boldsymbol{y}), \Im(A\boldsymbol{y})) :
-\boldsymbol{y}\in\mathbb{C}^k, (\Re(\boldsymbol{y}), \Im(\boldsymbol{y})) \in \mathcal{P} \rbrace \, ,
+\mathcal{Q} = \lbrace &(\Re(A\myvector{y}), \Im(A\myvector{y})) :
+\myvector{y}\in\Complex^k, (\Re(\myvector{y}), \Im(\myvector{y})) \in \mathcal{P} \rbrace \, ,
 \end{align*}
 it suffices to decide whether the affine lattice
-$\boldsymbol{d} + \log(\boldsymbol{c})+ 2i\pi  \mathbb{Z}^b$
+$\myvector{d} + \log(\myvector{c})+ 2i\pi  \mathbb{Z}^b$
 intersects
-$\lbrace \boldsymbol{x} \in \mathbb{C}^b : (\Re(\boldsymbol{x}),
-\Im(\boldsymbol{x})) \in \mathcal{Q} \rbrace$.
+$\lbrace \myvector{x} \in \Complex^b : (\Re(\myvector{x}),
+\Im(\myvector{x})) \in \mathcal{Q} \rbrace$.
 
-Define $f:\mathbb{R}^b \rightarrow \mathbb{C}^b$ by
-$f(\boldsymbol{v})= \boldsymbol{d} + \log(\boldsymbol{c}) +
-2i\pi \boldsymbol{v}$,
-and define a convex polyhedron $\mathcal{T}\subseteq \mathbb{R}^b$ by
-\[\mathcal{T}=\{ \boldsymbol{v}\in\mathbb{R}^b : (\Re(f(\boldsymbol{v})),
-\Im (f(\boldsymbol{v}))) \in \mathcal{Q} \} \, . \]
+Define $f:\Reals^b \rightarrow \Complex^b$ by
+$f(\myvector{v})= \myvector{d} + \log(\myvector{c}) +
+2i\pi \myvector{v}$,
+and define a convex polyhedron $\mathcal{T}\subseteq \Reals^b$ by
+\[\mathcal{T}=\{ \myvector{v}\in\Reals^b : (\Re(f(\myvector{v})),
+\Im (f(\myvector{v}))) \in \mathcal{Q} \} \, . \]
 
 The problem then amounts to deciding whether the convex polyhedron
 $\mathcal{T}$ intersects contains an integer point. Crucially, the
 description of the convex polyhedron $\mathcal{T}$ is of the form
-$\pi B\boldsymbol{x} \leq \boldsymbol{b}$, for some matrix $B$ and
-vector $\boldsymbol{b}$ such that the entries of $B$ are real
-algebraic and the components of $\boldsymbol{b}$ are real linear forms
+$\pi B\myvector{x} \leq \myvector{b}$, for some matrix $B$ and
+vector $\myvector{b}$ such that the entries of $B$ are real
+algebraic and the components of $\myvector{b}$ are real linear forms
 in logarithms of algebraic numbers.  But this is the form of an
 instance of ALIP.
 \end{proof}
@@ -184,71 +184,71 @@ ALIP is decidable.
 \end{theorem}
 
 \begin{proof}
-We are given a convex polyhedron $\mathcal{P}=\lbrace \boldsymbol{x} \in \mathbb{R}^{d} : \pi A \boldsymbol{x} \leq \boldsymbol{b} \rbrace$, where the coordinates $\boldsymbol{b}$ are linear forms in logarithms of algebraic numbers, and need to decide whether this polyhedron intersects $\mathbb{Z}^{d}$. Throughout this proof, $\log$ denotes the logarithm branch picked at the beginning of the proof of \cref{reference-for-log}. We start by eliminating linear dependencies between the logarithms appearing therein, using Masser's Theorem. For example, suppose that
+We are given a convex polyhedron $\mathcal{P}=\lbrace \myvector{x} \in \Reals^{d} : \pi A \myvector{x} \leq \myvector{b} \rbrace$, where the coordinates $\myvector{b}$ are linear forms in logarithms of algebraic numbers, and need to decide whether this polyhedron intersects $\mathbb{Z}^{d}$. Throughout this proof, $\log$ denotes the logarithm branch picked at the beginning of the proof of \cref{reference-for-log}. We start by eliminating linear dependencies between the logarithms appearing therein, using Masser's Theorem. For example, suppose that
 \begin{align*}
-b_{i} = r_{0} + r_{1} \log(s_{1}) + \cdots + r_{k} \log(s_{k}), r_{0}, r_{1}, s_{1}, \ldots, r_{k}, s_{k} \in \overline{\mathbb{Q}}.
+b_{i} = r_{0} + r_{1} \log(s_{1}) + \cdots + r_{k} \log(s_{k}), r_{0}, r_{1}, s_{1}, \ldots, r_{k}, s_{k} \in \Algebraics.
 \end{align*}
 Due to Baker's theorem, there exists a non-trivial linear relation with algebraic coefficients amongs $\log(-1), \log(s_{1}), \ldots, \log(s_{k})$ if and only if there is one with integer coefficients. But such relations can be computed, since
 \begin{align*}
 &n_{0} \log(-1) + n_{1} \log(s_{1}) + \cdots + n_{k} \log(s_{k}) = 0 \Leftrightarrow \\
 &(-1)^{n_{0}} s_{1}^{n_{1}} \cdots s_{k}^{n_{k}} = 1
 \end{align*}
-and since the group of multiplicative relations $L(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever it contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \overline{\mathbb{Q}}$, and transcendental otherwise.
+and since the group of multiplicative relations $L(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever it contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \Algebraics$, and transcendental otherwise.
 
-Now, when $\boldsymbol{x} \in \mathbb{Z}^{d}$, $A \boldsymbol{x}$ is a vector with algebraic coefficients, so whenever $b_{i} / \pi$ is transcendental we may alter $\mathcal{P}$ by replacing $\leq$ by $<$ in the $i$-th inequality, preserving its intersection with $\mathbb{Z}^{d}$. On the other hand, whenever $b_{i} / \pi$ is algebraic, we split our problem into two: in the first one, $\mathcal{P}$ is altered to force equality on the $i$-th constraint (that is, replacing $\leq$ by $=$), and in the second we force strict inequality (that is, replacing $\leq$ by $<$). We do this for all $i$, so that no $\leq$ is left in any problem instance, leaving us with finitely many polyhedra, each defined by equations of the form
+Now, when $\myvector{x} \in \mathbb{Z}^{d}$, $A \myvector{x}$ is a vector with algebraic coefficients, so whenever $b_{i} / \pi$ is transcendental we may alter $\mathcal{P}$ by replacing $\leq$ by $<$ in the $i$-th inequality, preserving its intersection with $\mathbb{Z}^{d}$. On the other hand, whenever $b_{i} / \pi$ is algebraic, we split our problem into two: in the first one, $\mathcal{P}$ is altered to force equality on the $i$-th constraint (that is, replacing $\leq$ by $=$), and in the second we force strict inequality (that is, replacing $\leq$ by $<$). We do this for all $i$, so that no $\leq$ is left in any problem instance, leaving us with finitely many polyhedra, each defined by equations of the form
 \begin{align*}
-K \boldsymbol{x} &= \boldsymbol{k} \quad &(\boldsymbol{k} \in \overline{\mathbb{Q}}^{d_{1}}) \\
-M \boldsymbol{x} &< \boldsymbol{m} \quad &(\boldsymbol{m} \in \overline{\mathbb{Q}}^{d_{2}}) \\
-F \boldsymbol{x} &< \boldsymbol{f} \quad &(\boldsymbol{f} \in \mathbb{R} \setminus \overline{\mathbb{Q}}^{d_{3}})
+K \myvector{x} &= \myvector{k} \quad &(\myvector{k} \in \Algebraics^{d_{1}}) \\
+M \myvector{x} &< \myvector{m} \quad &(\myvector{m} \in \Algebraics^{d_{2}}) \\
+F \myvector{x} &< \myvector{f} \quad &(\myvector{f} \in \Reals \setminus \Algebraics^{d_{3}})
 \end{align*}
 where $K,M,F$ are matrices with algebraic entries. Before proceeding, we eliminate all such empty polyhedra; note that emptiness can be decided via Fourier-Motzkin elimination, as shown in \cref{thm:fme}.
 
-The idea of the next step is to reduce the dimension of all the problem instances at hand until we are left with a number of new instances with full-dimensional open convex polyhedra, of the same form as the original one, apart from the fact that all inequalities in their definitions will be strict. To do that, we use the equations $K \boldsymbol{x} = \boldsymbol{k}$ to eliminate variables: note that, whenever there is an integer solution,
+The idea of the next step is to reduce the dimension of all the problem instances at hand until we are left with a number of new instances with full-dimensional open convex polyhedra, of the same form as the original one, apart from the fact that all inequalities in their definitions will be strict. To do that, we use the equations $K \myvector{x} = \myvector{k}$ to eliminate variables: note that, whenever there is an integer solution,
 \begin{align*}
-K \boldsymbol{x} = \boldsymbol{k}, \boldsymbol{x} \in \mathbb{Z}^{d} \Leftrightarrow \boldsymbol{x} = \boldsymbol{x}_{0} + M \boldsymbol{z},
+K \myvector{x} = \myvector{k}, \myvector{x} \in \mathbb{Z}^{d} \Leftrightarrow \myvector{x} = \myvector{x}_{0} + M \myvector{z},
 \end{align*}
-where $M$ is a matrix with integer entries, $\boldsymbol{x}_{0}$ is an integer vector and $\boldsymbol{z}$ ranges over integer vectors over a smaller dimension space, wherein we also define the polyhedron
+where $M$ is a matrix with integer entries, $\myvector{x}_{0}$ is an integer vector and $\myvector{z}$ ranges over integer vectors over a smaller dimension space, wherein we also define the polyhedron
 \begin{align*}
-\mathcal{Q} = \lbrace \boldsymbol{y} : \boldsymbol{x}_{0} + M \boldsymbol{y} \in \mathcal{P} \rbrace .
+\mathcal{Q} = \lbrace \myvector{y} : \myvector{x}_{0} + M \myvector{y} \in \mathcal{P} \rbrace .
 \end{align*}
 
-Having now eliminated all equality constraints, we are left with a finite set of polyhedra of the form $\mathcal{P} = \lbrace \boldsymbol{x} \in \mathbb{R}^{d}: \pi A \boldsymbol{x} < \boldsymbol{b} \rbrace$ that are either empty or full-dimensional and open, and wish to decide whether they intersect the integer lattice of the corresponding space (different instances may lie in spaces of different dimensions, of course). Note that, when $\mathcal{P}$ is non-empty, we can use Fourier-Motzkin elimination to find a vector $\boldsymbol{q} \in \mathbb{Q}^{d}$ in its interior, and $\varepsilon > 0$ such that the $l_{1}$ closed ball of radius $\varepsilon$ and centre $\boldsymbol{q}$, which we call $\mathcal{B}$, is contained in $\mathcal{P}$.
+Having now eliminated all equality constraints, we are left with a finite set of polyhedra of the form $\mathcal{P} = \lbrace \myvector{x} \in \Reals^{d}: \pi A \myvector{x} < \myvector{b} \rbrace$ that are either empty or full-dimensional and open, and wish to decide whether they intersect the integer lattice of the corresponding space (different instances may lie in spaces of different dimensions, of course). Note that, when $\mathcal{P}$ is non-empty, we can use Fourier-Motzkin elimination to find a vector $\myvector{q} \in \Rationals^{d}$ in its interior, and $\varepsilon > 0$ such that the $l_{1}$ closed ball of radius $\varepsilon$ and centre $\myvector{q}$, which we call $\mathcal{B}$, is contained in $\mathcal{P}$.
 
-The next step is to consider the Minkowski-Weyl decomposition of $\mathcal{P}$, namely $\mathcal{P} = \mathcal{H} + \mathcal{C}$, where $\mathcal{H}$ is the convex hull of finitely many points of $\mathcal{P}$ (which we need not compute) and $\mathcal{C} = \lbrace \boldsymbol{x} \in \mathbb{R}^{d}: A \boldsymbol{x} \leq \boldsymbol{0} \rbrace$ is a cone with an algebraic description. Note that $\mathcal{P}$ is bounded if and only if $\mathcal{C} = \lbrace \boldsymbol{0} \rbrace$, in which case the problem at hand is simple: consider the polyhedron $\mathcal{Q}$ with an algebraic description obtained by rounding up each coordinate of $\boldsymbol{b} / \pi$, which has the same conic part as $\mathcal{P}$ and which contains $\mathcal{P}$, and therefore is bounded; finally, compute a bound on $\mathcal{Q}$ (such a bound can be defined in the first-order theory of reals), which is also a bound on $\mathcal{P}$, and test the integer points within that bound for membership in $\mathcal{P}$. Otherwise,
+The next step is to consider the Minkowski-Weyl decomposition of $\mathcal{P}$, namely $\mathcal{P} = \mathcal{H} + \mathcal{C}$, where $\mathcal{H}$ is the convex hull of finitely many points of $\mathcal{P}$ (which we need not compute) and $\mathcal{C} = \lbrace \myvector{x} \in \Reals^{d}: A \myvector{x} \leq \myvector{0} \rbrace$ is a cone with an algebraic description. Note that $\mathcal{P}$ is bounded if and only if $\mathcal{C} = \lbrace \myvector{0} \rbrace$, in which case the problem at hand is simple: consider the polyhedron $\mathcal{Q}$ with an algebraic description obtained by rounding up each coordinate of $\myvector{b} / \pi$, which has the same conic part as $\mathcal{P}$ and which contains $\mathcal{P}$, and therefore is bounded; finally, compute a bound on $\mathcal{Q}$ (such a bound can be defined in the first-order theory of reals), which is also a bound on $\mathcal{P}$, and test the integer points within that bound for membership in $\mathcal{P}$. Otherwise,
 \begin{align*}
-\mathcal{C} = \lbrace \lambda_{1} \boldsymbol{c}_{1} + \cdots + \lambda_{k} \boldsymbol{c}_{k}: \lambda_{1}, \ldots, \lambda_{k} \geq 0 \rbrace,
+\mathcal{C} = \lbrace \lambda_{1} \myvector{c}_{1} + \cdots + \lambda_{k} \myvector{c}_{k}: \lambda_{1}, \ldots, \lambda_{k} \geq 0 \rbrace,
 \end{align*}
-where $\boldsymbol{c}_{1}, \ldots, \boldsymbol{c}_{k} \in \overline{\mathbb{Q}}^{d}$ are the extremal rays of $\mathcal{C}$. Note that $\boldsymbol{q} + \mathcal{C} \subseteq \mathcal{P}$ and that $\mathcal{B} + \mathcal{C} \subseteq \mathcal{P}$.
+where $\myvector{c}_{1}, \ldots, \myvector{c}_{k} \in \Algebraics^{d}$ are the extremal rays of $\mathcal{C}$. Note that $\myvector{q} + \mathcal{C} \subseteq \mathcal{P}$ and that $\mathcal{B} + \mathcal{C} \subseteq \mathcal{P}$.
 
 Now we consider a variation of an argument which appears in \cite{KP}. Consider the computable set
 \begin{align*}
-\mathcal{L} = \mathcal{C}^{\perp} \cap \mathbb{Z}^{d} = \bigcap\limits_{i=1}^{k} A(\boldsymbol{c}_{i}) ,
+\mathcal{L} = \mathcal{C}^{\perp} \cap \mathbb{Z}^{d} = \bigcap\limits_{i=1}^{k} A(\myvector{c}_{i}) ,
 \end{align*}
-where $A(\boldsymbol{v})$ denotes the group of additive relations of $\boldsymbol{v}$.
+where $A(\myvector{v})$ denotes the group of additive relations of $\myvector{v}$.
 
-If $\mathcal{L} = \lbrace \boldsymbol{0} \rbrace$ then due to Kronecker's theorem on simultaneous Diophantine approximation it must be the case that there exists a vector $(n_{1}, \ldots, n_{k}) \in \mathbb{N}^{k}$ such that
+If $\mathcal{L} = \lbrace \myvector{0} \rbrace$ then due to Kronecker's theorem on simultaneous Diophantine approximation it must be the case that there exists a vector $(n_{1}, \ldots, n_{k}) \in \mathbb{N}^{k}$ such that
 \begin{align*}
-\operatorname{dist} \left(\boldsymbol{q} + \sum\limits_{i=1}^{k} n_{i} \boldsymbol{c}_{i}, \mathbb{Z}^{d} \right) \leq \varepsilon ,
+\operatorname{dist} \left(\myvector{q} + \sum\limits_{i=1}^{k} n_{i} \myvector{c}_{i}, \mathbb{Z}^{d} \right) \leq \varepsilon ,
 \end{align*}
-and we know that $\mathcal{P} \cap \mathbb{Z}^{d} \neq \emptyset$ from the fact that the $l_{1}$ closed ball $\mathcal{B}$ of radius $\varepsilon$ and centre $\boldsymbol{q}$ is contained in $\mathcal{P}$.
+and we know that $\mathcal{P} \cap \mathbb{Z}^{d} \neq \emptyset$ from the fact that the $l_{1}$ closed ball $\mathcal{B}$ of radius $\varepsilon$ and centre $\myvector{q}$ is contained in $\mathcal{P}$.
 
 On the other hand, if
-$\mathcal{L} \neq \lbrace \boldsymbol{0} \rbrace$, let
-$\boldsymbol{z} \in \mathcal{L} \setminus \lbrace \boldsymbol{0}
+$\mathcal{L} \neq \lbrace \myvector{0} \rbrace$, let
+$\myvector{z} \in \mathcal{L} \setminus \lbrace \myvector{0}
 \rbrace$.
-Since $\mathcal{H}$ is a bounded subset of $\mathbb{R}^n$, the set
-\[ \{ \boldsymbol{z}^T\boldsymbol{x} : \boldsymbol{x}\in \mathcal{P} \} =
-   \{ \boldsymbol{z}^T\boldsymbol{x} : \boldsymbol{x}\in \mathcal{H} \} \]
-is a bounded subset of $\mathbb{R}$.
+Since $\mathcal{H}$ is a bounded subset of $\Reals^n$, the set
+\[ \{ \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{P} \} =
+   \{ \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{H} \} \]
+is a bounded subset of $\Reals$.
 Therefore there exist
 $a,b \in \mathbb{Z}$ such that
 \begin{align*}
-\forall \boldsymbol{x} \in \mathcal{P}, a \leq \boldsymbol{z}^{T} \boldsymbol{x} \leq b ,
+\forall \myvector{x} \in \mathcal{P}, a \leq \myvector{z}^{T} \myvector{x} \leq b ,
 \end{align*}
 so we can reduce our problem to $b-a+1$ smaller-dimensional instances
 by finding the integer points of
-$\lbrace \boldsymbol{x} \in \mathcal{P} :
-\boldsymbol{z}^{T} \boldsymbol{x} = i \rbrace$,
+$\lbrace \myvector{x} \in \mathcal{P} :
+\myvector{z}^{T} \myvector{x} = i \rbrace$,
 for $i \in \lbrace a, \ldots, b \rbrace$. Note that we have seen
 earlier in the proof how to reduce the dimension of the ambient space
 when the polyhedron $\mathcal{P}$ is contained in an affine

@@ -1,5 +1,5 @@
 Integrate papers consistently.
-Make sure hyperref is working with HSCC_chapter.tex.
+Add section about LRS.
 Move technical parts from introduction to respective chapters.
 Review order of sections in the Background chapter, and edit them.
 Merge background/algebraic_numbers.tex with background/number_theory.tex.

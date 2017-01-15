@@ -13,29 +13,29 @@ Microsoft's \textsc{Terminator}~\cite{CookPR06}.
 A very simple form of linear programs are \emph{simple linear
   loops}, that is, programs of the form
 \begin{gather*}
-\mathsf{P1:}\  \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
-\textit{while} $B\boldsymbol{x} \geq \boldsymbol{c}$ \textit{do}
-$\boldsymbol{x}\leftarrow A\boldsymbol{x}+\boldsymbol{a}$,}
+\mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\textit{while} $B\myvector{x} \geq \myvector{c}$ \textit{do}
+$\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$,}
 \end{gather*}
-where $\boldsymbol{x}$ is vector of variables, $\boldsymbol{u}$,
-$\boldsymbol{a}$, and $\boldsymbol{c}$ are integer vectors, and $A$
+where $\myvector{x}$ is vector of variables, $\myvector{u}$,
+$\myvector{a}$, and $\myvector{c}$ are integer vectors, and $A$
 and $B$ are integer matrices of the appropriate dimensions.  Here the
 loop guard is a conjunction of linear inequalities and the loop body
-consists of a simultaneous affine assignment to $\boldsymbol{x}$.  If
-the vectors $\boldsymbol{a}$ and $\boldsymbol{c}$ are both zero then
+consists of a simultaneous affine assignment to $\myvector{x}$.  If
+the vectors $\myvector{a}$ and $\myvector{c}$ are both zero then
 we say that the loop is \emph{homogeneous}.
 
-Suppose that the vector $\boldsymbol{x}$ has dimension $d$.  We say
-that \textsf{P1} \emph{terminates} on a set $S\subseteq \mathbb{R}^d$
-if it terminates for all initial vectors $\boldsymbol{u} \in S$.
+Suppose that the vector $\myvector{x}$ has dimension $d$.  We say
+that \textsf{P1} \emph{terminates} on a set $S\subseteq \Reals^d$
+if it terminates for all initial vectors $\myvector{u} \in S$.
 Tiwari~\cite{Tiw04} gave a procedure to decide whether a given simple
-linear loop terminates on $\mathbb{R}^d$.  Later
+linear loop terminates on $\Reals^d$.  Later
 Braverman~\cite{Bra06} showed decidability of termination on
-$\mathbb{Q}^d$.  However the most natural problem from the point of
+$\Rationals^d$.  However the most natural problem from the point of
 view of program verification is termination on $\mathbb{Z}^d$.
 
 While termination on $\mathbb{Z}^d$ reduces to termination on
-$\mathbb{Q}^d$ in the homogeneous case (by a straightforward scaling
+$\Rationals^d$ in the homogeneous case (by a straightforward scaling
 argument), termination on $\mathbb{Z}^d$ in the general case is stated
 as an open problem in~\cite{BGM12,Bra06,Tiw04}.  The main result of
 this paper is a procedure to decide termination on $\mathbb{Z}^d$ for
@@ -52,17 +52,17 @@ linear~\cite{BGM12}.
 
 To prove our main result we focus on \emph{eventual non-termination},
 where \textsf{P1} is said to be eventually non-terminating on
-$\boldsymbol{u} \in \mathbb{Z}^d$ if, starting from initial value
-$\boldsymbol{u}$, after executing the loop body $\boldsymbol{x} \gets
-A\boldsymbol{x}+\boldsymbol{a}$ a finite number of times \emph{while
+$\myvector{u} \in \mathbb{Z}^d$ if, starting from initial value
+$\myvector{u}$, after executing the loop body $\myvector{x} \gets
+A\myvector{x}+\myvector{a}$ a finite number of times \emph{while
   disregarding the loop guard} we eventually reach a value on which
 \textsf{P1} fails to terminate.  Clearly \textsf{P1} fails to
 terminate on $\mathbb{Z}^d$ if and only if it is eventually
-non-terminating on some $\boldsymbol{u} \in \mathbb{Z}^d$.
+non-terminating on some $\myvector{u} \in \mathbb{Z}^d$.
 
 Given a simple linear loop we show how to compute a convex
-semi-algebraic set $W \subseteq \mathbb{R}^d$ such that the integer
-points $\boldsymbol{u} \in W$ are precisely the eventually
+semi-algebraic set $W \subseteq \Reals^d$ such that the integer
+points $\myvector{u} \in W$ are precisely the eventually
 non-terminating integer initial values.  Since it is decidable whether
 a convex semi-algebraic set contains an integer
 point~\cite{KhachiyanP97},\footnote{By contrast, recall that the
@@ -78,7 +78,7 @@ is the identity then the loop is non-terminating if and only if there
 is an integer point satisfying the guard.  Thus non-termination
 subsumes integer programming, which is \textbf{NP}-hard.  By contrast,
 even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06},
-deciding termination on $\mathbb{R}^d$ and $\mathbb{Q}^d$ can be done
+deciding termination on $\Reals^d$ and $\Rationals^d$ can be done
 in polynomial time.\footnote{This observation relies on the facts that
   one can compute Jordan canonical forms of integer matrices and solve
   instances of linear programming problems with algebraic numbers in
@@ -111,15 +111,15 @@ our approach.
 
 Consider the termination problem for a homogeneous linear loop program
 \begin{gather*}
-\mathsf{P2:}\  \mbox{$\boldsymbol{x}\gets \boldsymbol{u}$ ;
-\textit{while} $B\boldsymbol{x} \geq 0$ \textit{do} $\boldsymbol{x}\leftarrow A\boldsymbol{x}$}
+\mathsf{P2:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\textit{while} $B\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$}
 \end{gather*}
-on a single initial value $\boldsymbol{u}\in \mathbb{Z}^d$.  Each row
-$\boldsymbol{b}^T$ of matrix $B$ corresponds to a loop condition
-$\boldsymbol{b}^T\boldsymbol{x} \geq 0$.  For each such condition,
+on a single initial value $\myvector{u}\in \mathbb{Z}^d$.  Each row
+$\myvector{b}^T$ of matrix $B$ corresponds to a loop condition
+$\myvector{b}^T\myvector{x} \geq 0$.  For each such condition,
 consider the integer sequence $\langle x_n : n \in \mathbb{N} \rangle$
-defined by $x_n = \boldsymbol{b}^TA^n \boldsymbol{u}$.  Then
-\textsf{P2} fails to terminate on an initial value $\boldsymbol{u}$ if
+defined by $x_n = \myvector{b}^TA^n \myvector{u}$.  Then
+\textsf{P2} fails to terminate on an initial value $\myvector{u}$ if
 and only if each such sequence $\langle x_n \rangle$ is
 \emph{positive}, i.e., $x_n \geq 0$ for all $n$.  It is not difficult
 to show that each sequence $\langle x_n \rangle$ considered above is a
@@ -161,7 +161,7 @@ on the dimension of data in problem instances to obtain decidability.
 
 %Since Kannan and Lipton solved the \textbf{Orbit Problem} \cite{KL86},
 %which consists in deciding whether $\exists n\in\mathbb{N}: A^n x=y$
-%for given $x,y\in\mathbb{Q}^n,A\in\mathbb{Q}^{n\times n}$, a lot of
+%for given $x,y\in\Rationals^n,A\in\Rationals^{n\times n}$, a lot of
 %work has been done in related problems. For example, higher
 %dimensional versions of the Orbit Problem have been considered, namely
 %replacing the target point $y$ by some target subspace $V$
@@ -197,7 +197,7 @@ on the dimension of data in problem instances to obtain decidability.
 %of the generalised Orbit Problem by a polytope $\mathcal{P}$, has
 %recently seen some interesting progress.
 
-%Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\mathbb{R}$ and $\mathbb{Q}$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \textbf{NP}-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
+%Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \textbf{NP}-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
 
 %Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\mathbb{Z}^k$, $\forall n\in\mathbb{N},f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\mathbb{Z}^k$, $\exists N\in\mathbb{N}:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate positivity problem).
 
@@ -221,7 +221,7 @@ ranking function.  Sound and relatively complete methods for
 synthesising linear ranking functions can be found in
 \cite{PodelskiR04} and \cite{Ben-AmramG13}. Whether a linear
 ranking function exists can be decided in polynomial time when the
-state space is $\mathbb{Q}^d$ and is \textbf{coNP}-complete when the
+state space is $\Rationals^d$ and is \textbf{coNP}-complete when the
 state space is $\mathbb{Z}^d$.
 
 %END SODA
@@ -242,20 +242,20 @@ e.g.,~\cite{Alu15}.
 More precisely, consider a system consisting of a finite number of
 discrete locations (or control states), having the property that the
 continuous variables of interest evolve in each location according to
-some linear differential equation of the form $\dot{\boldsymbol{x}} = A
-\boldsymbol{x}$; here $\boldsymbol{x}$ is a vector of continuous
+some linear differential equation of the form $\dot{\myvector{x}} = A
+\myvector{x}$; here $\myvector{x}$ is a vector of continuous
 variables, and $A$ is a square `rate' matrix of appropriate
 dimension. As is well-known, in each location the closed form solution
-$\boldsymbol{x}(t)$ to the differential equation admits a
-matrix-exponential representation of the form $\boldsymbol{x}(t) =
-\exp(At)\boldsymbol{x}(0)$. Thus if a system evolves through a series
+$\myvector{x}(t)$ to the differential equation admits a
+matrix-exponential representation of the form $\myvector{x}(t) =
+\exp(At)\myvector{x}(0)$. Thus if a system evolves through a series
 of $k$ locations, each with rate matrix $A_i$, and spending time $t_i
 \geq 0$ in each location, the overall effect on the initial continuous
 configuration is given by the matrix
 \begin{align*}
 \prod \limits_{i=1}^{k} \exp(A_{i} t_{i}) \, ,
 \end{align*}
-viewed as a linear transformation on $\boldsymbol{x}(0)$.\footnote{In
+viewed as a linear transformation on $\myvector{x}(0)$.\footnote{In
   this motivating example, we are assuming that there are no discrete
   resets of the continuous variables when transitioning between
   locations.}
@@ -301,9 +301,9 @@ shown to be decidable in \cite{Hainry}:
 
 \begin{definition}[Continuous Orbit Problem]
 Given an $n \times n$ matrix $A$ with algebraic entries and two
-$n$-dimensional vectors $\boldsymbol{x}, \boldsymbol{y}$ with
+$n$-dimensional vectors $\myvector{x}, \myvector{y}$ with
 algebraic coordinates, does there exist a non-negative real $t$ such
-that $\exp(At) \boldsymbol{x} = \boldsymbol{y}$?
+that $\exp(At) \myvector{x} = \myvector{y}$?
 \end{definition}
 
 The paper \cite{ContinuousOrbitIPL} simplifies the argument of
@@ -341,9 +341,9 @@ We will also consider a generalised version of this problem, called
 the \emph{Generalised MEP}, in which the matrices $A_1,\ldots,A_k$ and
 $C$ are allowed to have complex algebraic entries and in which the
 input to the problem also mentions a polyhedron
-$\mathcal{P}\subseteq\mathbb{R}^{2k}$ that is specified by linear
+$\mathcal{P}\subseteq\Reals^{2k}$ that is specified by linear
 inequalities with real algebraic coefficients.  In the generalised problem
-we seek $t_1,\ldots,t_k \in \mathbb{C}$ that satisfy (\ref{MEP}) and
+we seek $t_1,\ldots,t_k \in \Complex$ that satisfy (\ref{MEP}) and
 such that the vector
 $(\Re(t_1),\ldots,\Re(t_k),
 \Im(t_1),\ldots,\Im(t_k))$ lies in $\mathcal{P}$.
@@ -363,9 +363,9 @@ problem:
 where $I$ and $J$ are finite index sets, the $\lambda_i^{(j)}$, $c_j$
 and $d_j$ are complex algebraic constants, and the $t_i$ are complex
 variables, together with a polyhedron
-$\mathcal{P} \subseteq \mathbb{R}^{2k}$ that is specified by a system
+$\mathcal{P} \subseteq \Reals^{2k}$ that is specified by a system
 of linear inequalities with algebraic coefficients.  The problem asks
-to determine whether there exist $t_1,\ldots,t_k\in \mathbb{C}$ that
+to determine whether there exist $t_1,\ldots,t_k\in \Complex$ that
 satisfy the system (\ref{single_eqn_form}) and such that
 $(\Re(t_1),\ldots,\Re(t_k),\Im(t_1),\ldots,\Im(t_k))$
 lies in $\mathcal{P}$.
@@ -384,22 +384,22 @@ $\beta_{0}, \alpha_{1}, \beta_{1}, \ldots, \alpha_{m}, \beta_{m}$ are
 algebraic numbers and $\log$ denotes a fixed branch of the complex
 logarithm function.
 
-% \exp(\boldsymbol{\lambda} \cdot \boldsymbol{t}) = c_{\boldsymbol{\lambda}} \exp(d_{\boldsymbol{\lambda}}), \quad \boldsymbol{\lambda} \in \overline{\mathbb{Q}}^{n}, c_{\boldsymbol{\lambda}}, d_{\boldsymbol{\lambda}} \in \overline{\mathbb{Q}}
+% \exp(\myvector{\lambda} \cdot \myvector{t}) = c_{\myvector{\lambda}} \exp(d_{\myvector{\lambda}}), \quad \myvector{\lambda} \in \Algebraics^{n}, c_{\myvector{\lambda}}, d_{\myvector{\lambda}} \in \Algebraics
 % \end{align}
-% and a convex polyhedron $\mathcal{P} \subseteq \mathbb{R}^{2k}$ with an algebraic description, decide whether (\ref{single_eqn_form}) admits a solution $\boldsymbol{t}$ such that $(\Re(\boldsymbol{t}), \Im(\boldsymbol{t})) \in \mathcal{P}$.
+% and a convex polyhedron $\mathcal{P} \subseteq \Reals^{2k}$ with an algebraic description, decide whether (\ref{single_eqn_form}) admits a solution $\myvector{t}$ such that $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$.
 % \end{definition}
 
-% In both cases, when a constraint of the form $(\Re(\boldsymbol{t}), \Im(\boldsymbol{t})) \in \mathcal{P}$ is imposed, where $\mathcal{P} \subseteq \mathbb{R}^{2k}$ is a convex polyhedron with an algebraic description, we refer to the problem as the \emph{constrained MEP/LEP}; the predicates defined above may often be combined, e.g. \emph{constrained commuting MEP}.
+% In both cases, when a constraint of the form $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$ is imposed, where $\mathcal{P} \subseteq \Reals^{2k}$ is a convex polyhedron with an algebraic description, we refer to the problem as the \emph{constrained MEP/LEP}; the predicates defined above may often be combined, e.g. \emph{constrained commuting MEP}.
 
 \begin{definition}
 An instance of the Algebraic-Logarithmic Integer Programming Problem (ALIP) consists of a finite system of equations of the form
 \begin{align*}
-A \boldsymbol{x} \leq \frac{1}{\pi} \boldsymbol{b}
+A \myvector{x} \leq \frac{1}{\pi} \myvector{b}
 \end{align*}
 where $A$ is an $m\times n$ matrix with real algebraic entries and
-where the coordinates of $\boldsymbol{b}$ are real linear forms in
+where the coordinates of $\myvector{b}$ are real linear forms in
 logarithms of algebraic numbers. The problem asks to determine whether
-such a system admits a solution $\boldsymbol{x} \in \mathbb{Z}^{n}$.
+such a system admits a solution $\myvector{x} \in \mathbb{Z}^{n}$.
 \end{definition}
 
 \subsection{Paper Outline}
@@ -415,12 +415,12 @@ Tenth Problem.
 %END LICS
 
 %BEGIN HSCC
-In ambient space $\mathbb{R}^{d}$, a \textbf{continuous linear
-  dynamical system} is a trajectory $\boldsymbol{x}(t)$, where $t$
+In ambient space $\Reals^{d}$, a \textbf{continuous linear
+  dynamical system} is a trajectory $\myvector{x}(t)$, where $t$
 ranges over the non-negative reals, defined by a differential equation
-$\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t))$ in which the function
+$\dot{\myvector{x}}(t)=f(\myvector{x}(t))$ in which the function
 $f$ is \emph{affine} or \emph{linear}. If the initial point
-$\boldsymbol{x}(0)$ is given, the differential equation uniquely
+$\myvector{x}(0)$ is given, the differential equation uniquely
 defines the entire trajectory. (Linear) dynamical systems have been
 extensively studied in Mathematics, Physics, and Engineering, and more
 recently have played an increasingly important role in Computer
@@ -430,7 +430,7 @@ is~\cite{Alu15}.
 
 In the study of dynamical systems, particularly from the perspective
 of control theory, considerable attention has been given to the study
-of \emph{invariant sets}, i.e., subsets of $\mathbb{R}^{d}$ from which
+of \emph{invariant sets}, i.e., subsets of $\Reals^{d}$ from which
 no trajectory can escape; see, e.g.,
 \cite{CastelanH92,BlondelT00,BM07,SDI08}. Our focus in the present
 paper is on sets with the dual property that \emph{no trajectory
@@ -442,16 +442,16 @@ point) must eventually reach a point at which they `escape'
 (temporarily or permanently) the set in question.
 
 More precisely, given an affine function
-$f:\mathbb{R}^{d}\rightarrow \mathbb{R}^{d}$ and a convex polytope
-$\mathcal{P}\subseteq\mathbb{R}^d$, both specified using rational
+$f:\Reals^{d}\rightarrow \Reals^{d}$ and a convex polytope
+$\mathcal{P}\subseteq\Reals^d$, both specified using rational
 coefficients encoded in binary, we consider the \textbf{Polytope
   Escape Problem} which asks whether there is some point
-$\boldsymbol{x}_0$ in $\mathcal{P}$ for which the corresponding
+$\myvector{x}_0$ in $\mathcal{P}$ for which the corresponding
 trajectory of the solution to the differential equation
 \begin{equation*}
 \begin{displaystyle} \begin{cases}
-\dot{\boldsymbol{x}}(t)=f(\boldsymbol{x}(t)) \\
-\boldsymbol{x}(0)=\boldsymbol{x}_{0}
+\dot{\myvector{x}}(t)=f(\myvector{x}(t)) \\
+\myvector{x}(0)=\myvector{x}_{0}
 \end{cases} \end{displaystyle}
 \end{equation*}
 is entirely contained in $\mathcal{P}$. Our main result is to show

@@ -1,3 +1,5 @@
+\subsection{Transcendental Number Theory}
+
 %We will need the following results of Baker~\cite{Baker75}.
 %The first one, together with Masser's theorem, allows us
 %to eliminate all algebraic relations in the description of linear
@@ -6,15 +8,15 @@
 Together with the following result, due to Alan Baker, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers. In particular, it also yields a method for comparing linear forms in logarithms of algebraic numbers: test whether their difference is zero and, if not, approximate it numerically to sufficient precision, so as to infer its sign. Note that the set of linear forms in logarithms of algebraic numbers is closed under addition and under multiplication by algebraic numbers, as well as under complex conjugation. See \cite{Baker75} and \cite{BakerPaper}.
 
 \begin{theorem}[Baker]
-Let $\alpha_{1}, \ldots, \alpha_{m} \in \overline{\mathbb{Q}} \setminus \lbrace 0 \rbrace$. If
+Let $\alpha_{1}, \ldots, \alpha_{m} \in \Algebraics \setminus \lbrace 0 \rbrace$. If
 \begin{align*}
 \log(\alpha_{1}), \ldots, \log(\alpha_{m})
 \end{align*}
-are linearly independent over $\mathbb{Q}$, then
+are linearly independent over $\Rationals$, then
 \begin{align*}
 1, \log(\alpha_{1}), \ldots, \log(\alpha_{m})
 \end{align*}
-are linearly independent over $\overline{\mathbb{Q}}$.
+are linearly independent over $\Algebraics$.
 \end{theorem}
 
 %The next result essentially implies that one can effectively check
@@ -36,5 +38,5 @@ are linearly independent over $\overline{\mathbb{Q}}$.
 The theorem below was proved by Ferdinand von Lindemann in 1882, and later generalised by Karl Weierstrass in what is now known as the Lindemann-Weierstrass theorem. As a historical note, this result was behind the first proof of transcendence of $\pi$, which immediately follows from it.
 
 \begin{theorem}[Lindemann]
-If $\alpha \in \overline{\mathbb{Q}} \setminus \lbrace 0 \rbrace$, then $e^{\alpha}$ is transcendental.
+If $\alpha \in \Algebraics \setminus \lbrace 0 \rbrace$, then $e^{\alpha}$ is transcendental.
 \end{theorem}

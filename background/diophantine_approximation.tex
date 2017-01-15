@@ -2,24 +2,24 @@
 
 \section{Diophantine Approximation}
 
-We will also need the following result, due to Leopold Kronecker, on simultaneous Diophantine approximation, which generalises Dirichlet's Approximation Theorem. We denote the \emph{group of additive relations} of $\boldsymbol{v}$ by
+We will also need the following result, due to Leopold Kronecker, on simultaneous Diophantine approximation, which generalises Dirichlet's Approximation Theorem. We denote the \emph{group of additive relations} of $\myvector{v}$ by
 \begin{align*}
-A(\boldsymbol{v}) = \lbrace \boldsymbol{z} \in \mathbb{Z}^{d} : \boldsymbol{z} \cdot \boldsymbol{v} \in \mathbb{Z} \rbrace .
+A(\myvector{v}) = \lbrace \myvector{z} \in \mathbb{Z}^{d} : \myvector{z} \cdot \myvector{v} \in \mathbb{Z} \rbrace .
 \end{align*}
 
 Throughout this paper, $\operatorname{dist}$ refers to the $l_{1}$ distance.
 
 \begin{theorem}[Kronecker]
-\label{Kronecker}
-Let $\boldsymbol{\alpha}_{1}, \ldots, \boldsymbol{\alpha_{k}} \in \mathbb{R}^{d}$ and $\boldsymbol{\beta} \in \mathbb{R}^{d}$. The following are equivalent:
+\label{thm:Kronecker}
+Let $\myvector{\alpha}_{1}, \ldots, \myvector{\alpha_{k}} \in \Reals^{d}$ and $\myvector{\beta} \in \Reals^{d}$. The following are equivalent:
 \begin{enumerate}
-\item For any $\varepsilon > 0$, there exists $\boldsymbol{n} \in \mathbb{N}^{k}$ such that
+\item For any $\varepsilon > 0$, there exists $\myvector{n} \in \mathbb{N}^{k}$ such that
 \begin{align*}
-\operatorname{dist}(\boldsymbol{\beta} + \sum\limits_{i=1}^{k} n_{i} \boldsymbol{\alpha}_{i}, \mathbb{Z}^{d}) \leq \varepsilon .
+\operatorname{dist}(\myvector{\beta} + \sum\limits_{i=1}^{k} n_{i} \myvector{\alpha}_{i}, \mathbb{Z}^{d}) \leq \varepsilon .
 \end{align*}
 \item It holds that
 \begin{align*}
-\bigcap\limits_{i=1}^{k} A(\boldsymbol{\alpha}_{i}) \subseteq A(\boldsymbol{\beta}) .
+\bigcap\limits_{i=1}^{k} A(\myvector{\alpha}_{i}) \subseteq A(\myvector{\beta}) .
 \end{align*}
 \end{enumerate}
 \end{theorem}
@@ -34,7 +34,7 @@ Many of these results, or slight variations thereof, can be found in \cite{Hardy
 \subsection{Kronecker's Theorem}
 Let $\mathbb{T}$ denote the group of complex numbers of modulus $1$,
 with multiplication as group operation.  Then the function
-$\phi:\mathbb{R} \rightarrow \mathbb{T}$ given by
+$\phi:\Reals \rightarrow \mathbb{T}$ given by
 $\phi(x)=\exp(2\pi i x)$ is a homomorphism from the additive
 group of real numbers to $\mathbb{T}$, with kernel the subgroup of
 integers.
@@ -44,7 +44,7 @@ Kronecker on simultaneous inhomogeneous Diophantine approximation.
 \begin{theorem}[Kronecker]
   Let $\theta_1,\ldots,\theta_s$ be real numbers such that the set
   $\{\theta_1,\ldots,\theta_s,1\}$ is linearly independent over
-  $\mathbb{Q}$.  Then for all $\psi_1,\ldots,\psi_s \in \mathbb{R}$
+  $\Rationals$.  Then for all $\psi_1,\ldots,\psi_s \in \Reals$
   and $\varepsilon > 0$, there exists a positive integer $n$
 and integers $n_1,\ldots,n_s$ such that
 \[ |n\theta_1 - \psi_1 - n_1| < \varepsilon, \ldots ,
@@ -55,7 +55,7 @@ We obtain the following simple corollary:
 \begin{corollary}
   Let $\theta_1,\ldots,\theta_s$ be real numbers such that the set
   $\{ \theta_1,\ldots,\theta_s,1\}$ is linearly independent over
-  $\mathbb{Q}$.  Then
+  $\Rationals$.  Then
 \[ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in \mathbb{N} \} \]
 is a dense subset of $\mathbb{T}^s$.
 \label{corl:kronecker}

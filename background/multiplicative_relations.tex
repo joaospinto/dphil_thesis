@@ -12,116 +12,116 @@ imaginary parts).  Under this interpretation we refer to sets of
 complex numbers as being semi-algebraic and first-order definable.
 Details of the relevant notions can be found in the Appendix.
 
-Let $\mathbb{T}=\lbrace z\in\mathbb{C}: \lvert z\rvert =1\rbrace$.  We
+Let $\mathbb{T}=\lbrace z\in\Complex: \lvert z\rvert =1\rbrace$.  We
 define the \emph{$s$-dimensional torus} to be $\mathbb{T}^s$,
 considered as a group under componentwise multiplication.
 
 Given a tuple of algebraic numbers
-$\boldsymbol\lambda=(\lambda_1,\ldots,\lambda_s)$, in this section we
+$\myvector\lambda=(\lambda_1,\ldots,\lambda_s)$, in this section we
 consider how to effectively represent the \emph{orbit} $\{
-\boldsymbol\lambda^n : n \in \mathbb{N}\}$.  More
+\myvector\lambda^n : n \in \mathbb{N}\}$.  More
 precisely, we will give an algebraic representation of the topological
 closure of that orbit in $\mathbb{T}^s$.
 
 The \emph{group of multiplicative relations} of
-$\boldsymbol{\lambda}$, which is an additive subgroup of
+$\myvector{\lambda}$, which is an additive subgroup of
 $\mathbb{Z}^s$, is defined as
 \begin{equation*}
-L(\boldsymbol{\lambda})=\lbrace \boldsymbol{v}\in \mathbb{Z}^s : \boldsymbol\lambda^{\boldsymbol v}=1 \rbrace \, ,
+L(\myvector{\lambda})=\lbrace \myvector{v}\in \mathbb{Z}^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
 \end{equation*}
-where $\boldsymbol\lambda^{\boldsymbol v}$ is defined to be
-$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\boldsymbol{v}\in \mathbb{Z}^s$, that is, exponentiation acts
+where $\myvector\lambda^{\myvector v}$ is defined to be
+$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \mathbb{Z}^s$, that is, exponentiation acts
 coordinatewise.
 
 Since $\mathbb{Z}^s$ is a free abelian group, its subgroups are also
-free.  In particular, $L(\boldsymbol\lambda)$ has a finite basis. The
+free.  In particular, $L(\myvector\lambda)$ has a finite basis. The
 following powerful theorem of Masser~\cite{Mas88} gives bounds on the
 magnitude of the components of such a basis.
 
 \begin{theorem}[Masser]
 \label{masser}
-The free abelian group $L(\boldsymbol{\lambda})$ has a basis $\boldsymbol{v}_1,\cdots,\boldsymbol{v}_l\in\mathbb{Z}^s$ for which
+The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1,\cdots,\myvector{v}_l\in\mathbb{Z}^s$ for which
 \[ \max\limits_{1\leq i\leq l,1\leq j\leq s} \lvert v_{i,j} \rvert \leq (D\log H)^{O(s^2)} \]
 where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_i$.
 \end{theorem}
-Membership of a tuple $\boldsymbol{v}\in \mathbb{Z}^s$ in
-$L(\boldsymbol{\lambda})$ can be computed in polynomial space, using a
+Membership of a tuple $\myvector{v}\in \mathbb{Z}^s$ in
+$L(\myvector{\lambda})$ can be computed in polynomial space, using a
 decision procedure for the existential theory of the reals.  In
 combination with \cref{masser}, it follows that we can compute
-a basis for $L(\boldsymbol{\lambda})$ in polynomial space by
+a basis for $L(\myvector{\lambda})$ in polynomial space by
 brute-force search.
 
-Corresponding to $L(\boldsymbol{\lambda})$, we consider the following
+Corresponding to $L(\myvector{\lambda})$, we consider the following
 multiplicative subgroup of $\mathbb{T}^s$:
 \begin{equation*}
-T(\boldsymbol{\lambda})=\lbrace \boldsymbol \mu\in\mathbb{T}^s : \forall \boldsymbol v\in L(\boldsymbol\lambda),\,\boldsymbol\mu^{\boldsymbol v}=1\rbrace \, .
+T(\myvector{\lambda})=\lbrace \myvector \mu\in\mathbb{T}^s : \forall \myvector v\in L(\myvector\lambda),\,\myvector\mu^{\myvector v}=1\rbrace \, .
 \end{equation*}
-If $V$ is a basis of $L(\boldsymbol{\lambda})$ then we can
-equivalently characterise $T(\boldsymbol{\lambda})$ as $\{
-\boldsymbol{\mu} \in \mathbb{T}^s: \forall \boldsymbol{v}\in
-V,\,\,\boldsymbol\mu^{\boldsymbol v}=1\}$.  Crucially, this finitary
-characterisation allows us to represent $T(\boldsymbol\lambda)$ as a
+If $V$ is a basis of $L(\myvector{\lambda})$ then we can
+equivalently characterise $T(\myvector{\lambda})$ as $\{
+\myvector{\mu} \in \mathbb{T}^s: \forall \myvector{v}\in
+V,\,\,\myvector\mu^{\myvector v}=1\}$.  Crucially, this finitary
+characterisation allows us to represent $T(\myvector\lambda)$ as a
 semi-algebraic set.
 
 We will use the following classical lemma of Kronecker on simultaneous
 Diophantine approximation, in order to show that the orbit $\lbrace
-\boldsymbol\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of
-$T(\boldsymbol{\lambda})$.
+\myvector\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of
+$T(\myvector{\lambda})$.
 
 \begin{lemma}
-  Let $\boldsymbol \theta,\boldsymbol \psi\in\mathbb{R}^s$. Suppose that for all $\boldsymbol v\in\mathbb{Z}^s$, if
-  $\boldsymbol v^T\boldsymbol \theta\in\mathbb{Z}$ then also
-  $\boldsymbol v^T\boldsymbol\psi\in\mathbb{Z}$, i.e., all integer
-  relations among the coordinates of $\boldsymbol \theta$ also hold
-  among those of $\boldsymbol\psi$ (modulo $\mathbb{Z}$). Then, for
-  each $\varepsilon>0$, there exist $\boldsymbol p\in\mathbb{Z}^s$ and
+  Let $\myvector \theta,\myvector \psi\in\Reals^s$. Suppose that for all $\myvector v\in\mathbb{Z}^s$, if
+  $\myvector v^T\myvector \theta\in\mathbb{Z}$ then also
+  $\myvector v^T\myvector\psi\in\mathbb{Z}$, i.e., all integer
+  relations among the coordinates of $\myvector \theta$ also hold
+  among those of $\myvector\psi$ (modulo $\mathbb{Z}$). Then, for
+  each $\varepsilon>0$, there exist $\myvector p\in\mathbb{Z}^s$ and
   a non-negative integer $n$ such that
-\[ \| n\boldsymbol\theta - \boldsymbol p - \boldsymbol\psi \|_\infty \leq\varepsilon \, .\]
+\[ \| n\myvector\theta - \myvector p - \myvector\psi \|_\infty \leq\varepsilon \, .\]
 \end{lemma}
 
 We now arrive at the main result of the section:
 
 \begin{theorem}
 \label{dense}
-Let $\boldsymbol{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \boldsymbol\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of $T(\boldsymbol{\lambda})$.
+Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of $T(\myvector{\lambda})$.
 \end{theorem}
 
 \begin{proof}
-  Let $\boldsymbol \theta\in\mathbb{R}^s$ be such that
-  $\boldsymbol\lambda=e^{2\pi i\boldsymbol\theta}$ (with
+  Let $\myvector \theta\in\Reals^s$ be such that
+  $\myvector\lambda=e^{2\pi i\myvector\theta}$ (with
   exponentiation operating coordinatewise). Notice that
-  $\boldsymbol\lambda^{\boldsymbol v}=1$ if and only if $\boldsymbol v^T
-  \boldsymbol\theta\in\mathbb{Z}$. If $\boldsymbol\mu\in
-  T(\boldsymbol{\lambda})$, we can likewise define
-  $\boldsymbol\psi\in\mathbb{R}^s$ to be such that
-  $\boldsymbol\mu=e^{2\pi i \boldsymbol\psi}$. Then the premisses of
-  Kronecker's lemma apply to $\boldsymbol \theta$ and $\boldsymbol
+  $\myvector\lambda^{\myvector v}=1$ if and only if $\myvector v^T
+  \myvector\theta\in\mathbb{Z}$. If $\myvector\mu\in
+  T(\myvector{\lambda})$, we can likewise define
+  $\myvector\psi\in\Reals^s$ to be such that
+  $\myvector\mu=e^{2\pi i \myvector\psi}$. Then the premisses of
+  Kronecker's lemma apply to $\myvector \theta$ and $\myvector
   \psi$. Thus, given $\varepsilon>0$, there exist a non-negative
-  integer $n$ and $\boldsymbol p\in\mathbb{Z}^s$ such that $\|
-  n\boldsymbol \theta -\boldsymbol p-\boldsymbol \psi \|_\infty
+  integer $n$ and $\myvector p\in\mathbb{Z}^s$ such that $\|
+  n\myvector \theta -\myvector p-\myvector \psi \|_\infty
   \leq\varepsilon$. Whence
-\[ \| \boldsymbol\lambda^n-\boldsymbol\mu \|_\infty = \| e^{2\pi i(n\boldsymbol\theta-\boldsymbol p)}-e^{2\pi i \boldsymbol\psi} \|_\infty \leq \]
-\[ \| 2\pi (n\boldsymbol \theta -\boldsymbol p - \boldsymbol \psi) \|_\infty \leq 2\pi\varepsilon \, .\]
+\[ \| \myvector\lambda^n-\myvector\mu \|_\infty = \| e^{2\pi i(n\myvector\theta-\myvector p)}-e^{2\pi i \myvector\psi} \|_\infty \leq \]
+\[ \| 2\pi (n\myvector \theta -\myvector p - \myvector \psi) \|_\infty \leq 2\pi\varepsilon \, .\]
 \end{proof}
 %END SODA
 
 %BEGIN HSCC
-Given a vector $\boldsymbol{\lambda} \in \overline{\mathbb{Q}}^{m}$, its \emph{group of multiplicative relations} is defined as
+Given a vector $\myvector{\lambda} \in \Algebraics^{m}$, its \emph{group of multiplicative relations} is defined as
 \begin{align*}
-L(\boldsymbol{\lambda}) = \lbrace \boldsymbol{v} \in \mathbb{Z}^{m} : \boldsymbol{\lambda}^{\boldsymbol{v}} = 1 \rbrace .
+L(\myvector{\lambda}) = \lbrace \myvector{v} \in \mathbb{Z}^{m} : \myvector{\lambda}^{\myvector{v}} = 1 \rbrace .
 \end{align*}
 
-Moreover, letting $\log$ represent a fixed branch of the complex logarithm function, note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\mathbb{Q}$ if and only if
+Moreover, letting $\log$ represent a fixed branch of the complex logarithm function, note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\Rationals$ if and only if
 \begin{align*}
-L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \boldsymbol{0} \rbrace .
+L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
 \end{align*}
 
-Being a subgroup of the free finitely generated abelian group $\mathbb{Z}^{m}$, the group $L(\boldsymbol{\lambda})$ is also free and admits a finite basis.
+Being a subgroup of the free finitely generated abelian group $\mathbb{Z}^{m}$, the group $L(\myvector{\lambda})$ is also free and admits a finite basis.
 
-The following theorem, due to David Masser, allows us to effectively determine $L(\boldsymbol{\lambda})$, and in particular decide whether it is equal to $\lbrace \boldsymbol{0} \rbrace$. This result can be found in \cite{Masser}.
+The following theorem, due to David Masser, allows us to effectively determine $L(\myvector{\lambda})$, and in particular decide whether it is equal to $\lbrace \myvector{0} \rbrace$. This result can be found in \cite{Masser}.
 
 \begin{theorem}[Masser]
-The free abelian group $L(\boldsymbol{\lambda})$ has a basis $\boldsymbol{v}_{1}, \ldots, \boldsymbol{v}_{l} \in \mathbb{Z}^{m}$ for which
+The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_{1}, \ldots, \myvector{v}_{l} \in \mathbb{Z}^{m}$ for which
 \begin{align*}
 \max\limits_{1 \leq i \leq l, 1 \leq j \leq m} \lvert v_{i,j} \rvert \leq (D \log H)^{O(m^{2})}
 \end{align*}
