@@ -5,9 +5,16 @@
 %to eliminate all algebraic relations in the description of linear
 %forms in logarithms of algebraic numbers.
 
-Together with the following result, due to Alan Baker, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers. In particular, it also yields a method for comparing linear forms in logarithms of algebraic numbers: test whether their difference is zero and, if not, approximate it numerically to sufficient precision, so as to infer its sign. Note that the set of linear forms in logarithms of algebraic numbers is closed under addition and under multiplication by algebraic numbers, as well as under complex conjugation. See \cite{Baker75} and \cite{BakerPaper}.
+A number of the form
+\begin{equation*}
+  \alpha_{0} + \alpha_{1} \log(\beta_{1}) + \cdots + \alpha_{n} \log(\beta_{n}),
+\end{equation*}
+where $\alpha_{0}, \ldots, \alpha_{n}, \beta_{1}, \ldots, \beta{n}$, is said to be a \emph{linear form in logarithms of algebraic numbers}. Note that the set of linear forms in logarithms of algebraic numbers is closed under addition and under multiplication by algebraic numbers, as well as under complex conjugation.
+
+The following result, together with \cref{thm:masser}, will yield a method for comparing linear forms in logarithms of algebraic numbers. Note that there are other theorems by Alan Baker that would allow us to do this directly, namely by providing lower bounds on the absolute value of non-zero linear forms in logarithms of algebraic numbers as a function of the degrees and heights of the defining polynomials of the algebraic numbers appearing therein; for simplicity, we will not expose these results in this thesis. For a proof, see~\cite{Baker75} and~\cite{BakerPaper}.
 
 \begin{theorem}[Baker]
+\label{thm:Baker}
 Let $\alpha_{1}, \ldots, \alpha_{m} \in \Algebraics \setminus \lbrace 0 \rbrace$. If
 \begin{align*}
 \log(\alpha_{1}), \ldots, \log(\alpha_{m})

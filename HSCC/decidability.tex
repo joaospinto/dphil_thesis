@@ -3,7 +3,7 @@
 The Polytope Escape Problem for continuous linear dynamical systems
 consists of deciding, given an affine function
 $f:\Reals^{d}\rightarrow \Reals^{d}$ and a convex polytope
-$\mathcal{P}\subseteq\Reals^d$, whether there exists an initial point
+$\mathcal{P}\subseteq\Reals^{d}$, whether there exists an initial point
 $\myvector{x}_{0} \in \mathcal{P}$ for which the trajectory of the unique
 solution to the differential equation
 $\dot{\myvector{x}}(t)=f(\myvector{x}(t)),\myvector{x}(0)=\myvector{x}_{0},
@@ -96,7 +96,7 @@ We claim that $(f,\mathcal{P})$ is a positive instance
 of the Polytope Escape Problem if and
 only if $(g,\mathcal{P}')$ is a positive instance.
 Indeed, if the point
-$\myvector{x}_0 \in \Reals^d$ is trapped
+$\myvector{x}_0 \in \Reals^{d}$ is trapped
 in $(f,\mathcal{P})$
 then the point $\begin{pmatrix}\myvector{x}_0\\1
 \end{pmatrix}$ is trapped in $(g,\mathcal{P}')$.
@@ -127,7 +127,7 @@ In this setting, the sets of trapped and eventually trapped points are, respecti
 \mathit{ET}&=\lbrace\myvector{x}_{0}\in\Reals^{d}:\exists t\geq 0,\exp(At)\myvector{x}_{0}\in\mathit{T}\rbrace
 \end{align*}
 
-Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\Reals^d$.
+Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\Reals^{d}$.
 
 \begin{lemma}
   The homogeneous Polytope Escape Problem is polynomial-time
@@ -277,7 +277,7 @@ where $\myvector{u}_{(\eta,j)}^{T}$ is the vector of coefficients of
 $t^j\exp(\eta t)$ in $\myvector{b}^{T}\exp(At)$.
 
 Note that if $\myvector{x}\in\mathcal{V}^{r}$ and $(\eta,j)\in
-(\sigma(A)\setminus \Reals)\times \mathbb{N}_{0}$, then
+(\sigma(A)\setminus \Reals)\times \Naturals_{0}$, then
 $\myvector{u}_{(\eta,j)}^{T}\myvector{x}=0$, as
 $\myvector{u}_{(\eta,j)}^{T}\myvector{x}$ is the coefficient of $t^{j} \exp(\eta
 t)$ in $\myvector{b}^{T}\exp(At) \myvector{x}$, and $\mathcal{V}^{r}$ is

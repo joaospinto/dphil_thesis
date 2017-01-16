@@ -1,72 +1,46 @@
-%BEGIN SODA
 \section{First-Order Theory of Reals}
 
-Let $\myvector{x}=(x_1,\ldots,x_m)$ be a list of $m$ real-valued
+Let $\myvector{x}=(x_1,\ldots,x_m)$ be a vector of $m$ real-valued
 variables, and let $\sigma(\myvector{x})$ be a Boolean combination
 of atomic predicates of the form $g(\myvector{x})\sim 0$, where each
 $g(\myvector{x})$ is a polynomial with integer coefficients in the
-variables $\myvector{x}$, and $\sim$ is either $>$ or $=$. Tarski
-has famously shown that we can decide the truth over the field
-$\Reals$ of sentences of the form $\phi=Q_1 x_1 \cdots Q_m x_n
+variables $\myvector{x}$, and $\sim$ is either $>$ or $=$.
+The set of true sentences of the form $\phi=Q_1 x_1 \cdots Q_m x_m
 \sigma(\myvector{x})$, where $Q_i$ is either $\exists$ or
-$\forall$. He did so by showing that this theory admits quantifier
-elimination (Tarski-Seidenberg theorem \cite{Tar51}).
+$\forall$, is called the \emph{first-order theory of reals}.
 
-%\begin{definition}
-%  A set $X\subseteq\Reals^d$ is said to be semi-algebraic if it is
-%  a finite Boolean combination of sets of the form $\{
-%  \myvector{x}\in \Reals^d : f(\myvector{x}) > 0\}$ and $\{
-%  \myvector{x}\in \Reals^d : g(\myvector{x}) = 0\}$, where $f$
-%  is a polynomial with integer coefficients.
-%\end{definition}
+A set $S \subseteq \Reals^{n}$ is said to be \emph{semi-algebraic} if it is a Boolean combination of sets of the form $\lbrace \myvector{x} \in \Reals^{n}: p(\myvector{x}) \geq 0\rbrace$, where $p$ is a polynomial with integer coefficients. Equivalently, the semi-algebraic sets are those definable by the quantifier-free first-order formulas over the structure $(\Reals, <, +, \cdot, 0, 1)$.
 
-All sets that are definable in the first-order theory of reals without
-quantification are by definition semi-algebraic, and it follows from
-Tarski's theorem that this is still the case if we allow
-quantification. We also remark that our standard representation of
-algebraic numbers allows us to write them explicitly in the
-first-order theory of reals, that is, given $\alpha\in\Algebraics$,
-there exists a sentence $\sigma(x)$ such that $\sigma(x)$ is true if
-and only if $x=\alpha$. Thus, we allow their use when defining
-semi-algebraic sets, for simplicity.
+\begin{theorem}[Tarski-Seidenberg]
+  The first-order theory of reals admits a constructive method for quantifier elimination. In particular, it is a decidable theory.~\cite{Tar51}
+\end{theorem}
 
-It follows from the undecidability of Hilbert's Tenth Problem that, in
-general, we cannot decide whether a given semi-algebraic set has an
-integer point.
+Therefore, the semi-algebraic sets are precisely the first-order definable sets (that is, the use of quantifiers does not augment the class of semi-algebraic sets).
 
-We shall make use of the following result by Basu, Pollack, and Roy
-\cite{BasuPR96}, which tells us how expensive it is, in terms of space
-usage, to perform quantifier elimination on a formula in the
-first-order theory of reals:
+We also remark that our standard representation of algebraic numbers, described in~\cref{sec:alg_num_rep}, allows us to write them explicitly in the first-order theory of reals, that is, given $\alpha\in\Algebraics$, there exists a sentence $\sigma(x)$ such that $\sigma(x)$ is true if and only if $x=\alpha$. Thus, we allow their use when defining semi-algebraic sets, for simplicity.
+
+The complexity class $\exists\Reals$ is defined as the set of problems having a polynomial-time many-one reduction to the existential theory of the reals. It was shown in~\cite{Canny88} that $\exists\Reals\subseteq \PSPACE$.
+
+The reader seeking a comprehensive study of the computational complexity of quantifier elimination may refer to~\cite{Renegar} and~\cite{BPR06}. We shall make use of the following result by Basu, Pollack, and Roy
+\cite{BasuPR96}, which upper-bounds the space complexity of quantifier elimination:
 
 \begin{theorem}
-  \label{thm:quant-elim}
-  Given a set $\mathcal{Q}=\lbrace q_1,\ldots,q_s\rbrace$ of $s$
-  polynomials each of degree at most $D$, in $h+d$ variables, and a
-  first-order formula $\Phi(\myvector x)=Q y_1 \ldots Q y_h
-  F(q_1(\myvector x,\myvector y),\ldots,q_s(\myvector
-  x,\myvector y))$, where $Q\in\lbrace \exists,\forall\rbrace$, $F$
-  is a quantifier-free Boolean combination with atomic elements of the
-  form $q_i(\myvector x,\myvector y)\sim 0$, then there exists a
-  quantifier-free formula $\Psi(\myvector
-  x)=\bigwedge_{i=1}^J\bigvee_{j=1}^{J_i}q_{ij}(\myvector x)\sim 0$,
-  where $I\leq (sD)^{O(hd)}$, $J\leq (sD)^{O(d)}$, the degrees of the
-  polynomials $q_{ij}$ are bounded by $D^d$, and the bit-sizes of the
-  heights of the polynomials in the quantifier-free formula are only
-  polynomially larger than those of $q_1,\ldots,q_s$.
+\label{thm:quant-elim}
+  Given a set $\mathcal{Q}=\lbrace q_1,\ldots,q_s\rbrace$ of $s$   polynomials each of degree at most $D$, in $h+d$ variables, and a   first-order formula $\Phi(\myvector x)=Q y_1 \ldots Q y_h   F(q_1(\myvector x,\myvector y),\ldots,q_s(\myvector x,\myvector y))$, where $Q\in\lbrace \exists,\forall\rbrace$, $F$ is a quantifier-free Boolean combination with atomic elements of the form $q_i(\myvector x,\myvector y)\sim 0$, then there exists a quantifier-free formula $\Psi(\myvector{x}) = \bigwedge_{i=1}^{J} \bigvee_{j=1}^{J_i} q_{ij}(\myvector{x}) \sim 0$,
+  where $I\leq (sD)^{O(hd)}$, $J\leq (sD)^{O(d)}$, the degrees of the   polynomials $q_{ij}$ are bounded by $D^{d}$, and the bit-sizes of the   heights of the polynomials in the quantifier-free formula are only   polynomially larger than those of $q_1,\ldots,q_s$.
 \end{theorem}
 
 We also make use of the following lemmas:
 \begin{lemma}
-  If $X\subseteq\Reals^d$ is semi-algebraic and non-empty,
-  $X\cap\Algebraics^d\neq\emptyset$.
+  If $X\subseteq\Reals^{d}$ is semi-algebraic and non-empty,
+  $X\cap\Algebraics^{d}\neq\emptyset$.
 \end{lemma}
 
 \begin{proof}
   We prove this result by strong induction on $d$. Since $X$ is
   semi-algebraic, there exists a quantifier-free sentence in the
   first-order theory of reals $\sigma$ such that $X=\lbrace
-  x\in\Reals^d\mid \sigma(x)\rbrace$.
+  x\in\Reals^{d}\mid \sigma(x)\rbrace$.
 
   Suppose that $d>1$. Letting $X_1=\lbrace x_d\in\Reals\mid
   \exists
@@ -80,112 +54,49 @@ We also make use of the following lemmas:
 
   It remains to prove this statement for $d=1$. When $d=1$, $X$ must
   be a finite union of intervals and points, since semi-algebraic sets
-  form an o-minimal structure on $\Reals$ \cite{Tar51}. Clearly
+  form an o-minimal structure on $\Reals$~\cite{Tar51}. Clearly
   $\Algebraics$ is dense in any interval, and each of these isolated
   points $x$ corresponds to some constraint $g(x)=0$, which implies
   that $x$ must be algebraic, since $g$ has integer coefficients.
 \end{proof}
 
 \begin{lemma}
-If $X\subseteq\Reals^d$ is semi-algebraic, then $X\cap\Algebraics^d$ is dense in $X$.
+If $X\subseteq\Reals^{d}$ is semi-algebraic, then $X\cap\Algebraics^{d}$ is dense in $X$.
 \end{lemma}
 
 \begin{proof}
   Pick $x\in X$ and $\varepsilon>0$ arbitrarily. Let
-  $y\in\Rationals^d$ be such that $\| x-y \|<\varepsilon/2$. Since
+  $y\in\Rationals^{d}$ be such that $\| x-y \|<\varepsilon/2$. Since
   $B(y,\varepsilon/2)$ is semi-algebraic, so must be $X\cap
   B(y,\varepsilon/2)$, and so this set must contain an algebraic
   point, since it is nonempty ($x$ is in it), and that point must
   therefore be at distance at most $\varepsilon$ of $x$, by the
-  triangular inequality. By letting $\varepsilon\rightarrow 0$, we get
+  triangle inequality. By letting $\varepsilon\rightarrow 0$, we get
   a sequence of algebraic points which converges to $x$.
 \end{proof}
 
 \begin{lemma}
-If $X\subseteq\Reals^d$ is semi-algebraic, so is $\overline{X}$.
+If $X\subseteq\Reals^{d}$ is semi-algebraic, so is $\overline{X}$.
 \end{lemma}
 
 \begin{proof}
   Let $\sigma$ be a sentence in the first-order theory of reals such
-  that $X=\lbrace x\in\Reals^d\mid \sigma(x)\rbrace$. Whence
+  that $X=\lbrace x\in\Reals^{d}\mid \sigma(x)\rbrace$. Whence
 \begin{equation*}
-  \overline{X}=\lbrace x\in\Reals^d\mid
-\forall \varepsilon>0,\exists y\in\Reals^d,\sigma(y)\wedge y\in B(x,\varepsilon) \rbrace .
+  \overline{X}=\lbrace x\in\Reals^{d}\mid
+\forall \varepsilon>0,\exists y\in\Reals^{d},\sigma(y)\wedge y\in B(x,\varepsilon) \rbrace .
 \end{equation*}
 \end{proof}
 
-%END SODA
-
-%BEGIN LICS
-\section{Convex Polyhedra and Semi-Algebraic Sets}
-
-A convex polyhedron is a subset of $\Reals^{n}$ of the form $\mathcal{P} = \lbrace \myvector{x} \in \Reals^{n} : A \myvector{x} \leq \myvector{b} \rbrace$, where $A$ is a $d \times n$ matrix and $\myvector{b} \in \Reals^{d}$. When all the entries of $A$ and coordinates of $\myvector{b}$ are algebraic numbers, the convex polyhedron $\mathcal{P}$ is said to have an algebraic description.
-
-A set $S \subseteq \Reals^{n}$ is said to be semi-algebraic if it is a Boolean combination of sets of the form $\lbrace \myvector{x} \in \Reals^{n}: p(\myvector{x}) \geq 0\rbrace$, where $p$ is a polynomial with integer coefficients. Equivalently, the semi-algebraic sets are those definable by the quantifier-free first-order formulas over the structure $(\Reals, <, +, \cdot, 0, 1)$.
-
-It was shown by Alfred Tarski in \cite{Tarski} that the first-order theory of reals admits quantifier elimination. Therefore, the semi-algebraic sets are precisely the first-order definable sets.
-
-\begin{theorem}[Tarski]
-The first-order theory of reals is decidable.
-\end{theorem}
-
-See \cite{Renegar} and \cite{BPR06} for more efficient decision procedures for the first-order theory of reals.
-
-\begin{definition}[Hilbert's Tenth Problem]
-Given a polynomial $p \in \mathbb{Z}[x_{1}, \ldots, x_{k}]$, decide whether $p(\myvector{x}) = 0$ admits a solution $\myvector{x} \in \mathbb{N}^{k}$. Equivalently, given a semi-algebraic set $S \subseteq \Reals^{k}$, decide whether it intersects $\mathbb{Z}^{k}$.
-\end{definition}
-
-The following celebrated theorem, due to Yuri Matiyasevich, will be used in
-our undecidability proof; see \cite{HTP} for a self-contained proof.
-
+\subsection{Hilbert's Tenth Problem}
+Given a polynomial $p \in \Integers[x_{1}, \ldots, x_{k}]$, Hilbert's Tenth Problem consists in deciding whether $p(\myvector{x}) = 0$ admits a solution $\myvector{x} \in \Naturals^{k}$. Equivalently, it can be seen as the problem of deciding whether a given semi-algebraic set intersects the integer lattice. The following celebrated theorem, due to Yuri Matiyasevich, settled this question negatively; see~\cite{HTP} for a self-contained proof.
 \begin{theorem}[Matiyasevich]
 Hilbert's Tenth Problem is undecidable.
 \end{theorem}
+This result can be seen as a strengthening of the famous G\"{o}del-Rosser incompleteness theorem, which states that the first-order theory of integers is undecidable. Namely, this result shows that the existential branch of that theory is already undecidable.
 
-On the other hand, our proof of decidability of ALIP makes use of some techniques present in the proof of the following result, shown in \cite{KP}:
-
+We shall also need the following result, shown in~\cite{KP}:
 \begin{theorem}[Khachiyan and Porkolab]
-It is decidable whether a given \emph{convex} semi-algebraic set $S \subseteq \Reals^{k}$ intersects $\mathbb{Z}^{k}$.
+\label{thm:KP}
+It is decidable whether a given \emph{convex} semi-algebraic set $S \subseteq \Reals^{k}$ intersects $\Integers^{k}$.
 \end{theorem}
-%END LICS
-
-%BEGIN HSCC
-Let $\myvector{x}=(x_1,\ldots,x_m)$ be a list of $m$ real-valued
-variables, and let $\sigma(\myvector{x})$ be a Boolean combination
-of atomic predicates of the form $g(\myvector{x})\sim 0$, where each
-$g(\myvector{x})$ is a polynomial with integer coefficients in the
-variables $\myvector{x}$, and $\sim$ is either $>$ or $=$. Tarski
-has famously shown that we can decide the truth over the field
-$\Reals$ of sentences of the form
-$\phi=Q_1 x_1 \cdots Q_m x_m \sigma(\myvector{x})$, where $Q_i$ is
-either $\exists$ or $\forall$. He did so by showing that this theory
-admits quantifier elimination (Tarski-Seidenberg theorem
-\cite{Tar51}). The set of all true sentences of such form is called
-the first-order theory of the reals, and the set of all true sentences
-where only existential quantification is allowed is called the
-existential first-order theory of the reals. The complexity class
-$\exists\Reals$ is defined as the set of problems having a
-polynomial-time many-one reduction to the existential theory of
-the reals. It was shown in \cite{Canny88} that
-$\exists\Reals\subseteq \mathit{PSPACE}$.
-
-We also remark that our standard representation of algebraic numbers
-allows us to write them explicitly in the first-order theory of the
-reals, that is, given $\alpha\in\Algebraics$, there exists a sentence
-$\sigma(x)$ such that $\sigma(x)$ is true if and only if
-$x=\alpha$. Thus, we allow their use when writing sentences in the
-first-order theory of the reals, for simplicity.
-
-The decision version of linear programming with canonically-defined algebraic coefficients is in $\exists\Reals$, as the emptiness of a convex polytope can easily be described by a sentence of the form $\exists x_1 \cdots \exists x_n \sigma(\myvector{x})$.
-
-Finally, we note that even though the decision version of linear
-programming with rational coefficients is in $\mathit{P}$, allowing
-algebraic coefficients makes things more complicated. While it has
-been shown in \cite{AdlerB94} that this is solvable in time polynomial
-in the size of the problem instance and on the degree of the smallest
-number field containing all algebraic numbers in each instance, it
-turns out that in the problem at hand the degree of that extension can
-be exponential in the size of the input. In other words, the splitting
-field of the characteristic polynomial of a matrix can have a degree
-which is exponential in the degree of the characteristic polynomial.
-%END HSCC

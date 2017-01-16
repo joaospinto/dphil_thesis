@@ -1,21 +1,19 @@
-%BEGIN LICS
-
-\section{Diophantine Approximation}
+\subsection{Diophantine Approximation}
 
 We will also need the following result, due to Leopold Kronecker, on simultaneous Diophantine approximation, which generalises Dirichlet's Approximation Theorem. We denote the \emph{group of additive relations} of $\myvector{v}$ by
 \begin{align*}
-A(\myvector{v}) = \lbrace \myvector{z} \in \mathbb{Z}^{d} : \myvector{z} \cdot \myvector{v} \in \mathbb{Z} \rbrace .
+A(\myvector{v}) = \lbrace \myvector{z} \in \Integers^{d} : \myvector{z} \cdot \myvector{v} \in \Integers \rbrace .
 \end{align*}
 
-Throughout this paper, $\operatorname{dist}$ refers to the $l_{1}$ distance.
+Throughout this thesis, $\dist$ refers to the $l_{1}$ distance.
 
 \begin{theorem}[Kronecker]
 \label{thm:Kronecker}
 Let $\myvector{\alpha}_{1}, \ldots, \myvector{\alpha_{k}} \in \Reals^{d}$ and $\myvector{\beta} \in \Reals^{d}$. The following are equivalent:
 \begin{enumerate}
-\item For any $\varepsilon > 0$, there exists $\myvector{n} \in \mathbb{N}^{k}$ such that
+\item For any $\varepsilon > 0$, there exists $\myvector{n} \in \Naturals^{k}$ such that
 \begin{align*}
-\operatorname{dist}(\myvector{\beta} + \sum\limits_{i=1}^{k} n_{i} \myvector{\alpha}_{i}, \mathbb{Z}^{d}) \leq \varepsilon .
+\operatorname{dist}(\myvector{\beta} + \sum\limits_{i=1}^{k} n_{i} \myvector{\alpha}_{i}, \Integers^{d}) \leq \varepsilon .
 \end{align*}
 \item It holds that
 \begin{align*}
@@ -24,53 +22,24 @@ Let $\myvector{\alpha}_{1}, \ldots, \myvector{\alpha_{k}} \in \Reals^{d}$ and $\
 \end{enumerate}
 \end{theorem}
 
-Many of these results, or slight variations thereof, can be found in \cite{HardyAndWright} and \cite{Cassels}.
+A proof of this result can be found in~\cite{Cassels}.
 
-
-
-%END LICS
-
-%BEGIN HSCC
-\subsection{Kronecker's Theorem}
-Let $\mathbb{T}$ denote the group of complex numbers of modulus $1$,
-with multiplication as group operation.  Then the function
-$\phi:\Reals \rightarrow \mathbb{T}$ given by
-$\phi(x)=\exp(2\pi i x)$ is a homomorphism from the additive
-group of real numbers to $\mathbb{T}$, with kernel the subgroup of
-integers.
-
-Recall from~\cite{HardyAndWright} the following classical theorem of
-Kronecker on simultaneous inhomogeneous Diophantine approximation.
-\begin{theorem}[Kronecker]
-  Let $\theta_1,\ldots,\theta_s$ be real numbers such that the set
-  $\{\theta_1,\ldots,\theta_s,1\}$ is linearly independent over
-  $\Rationals$.  Then for all $\psi_1,\ldots,\psi_s \in \Reals$
-  and $\varepsilon > 0$, there exists a positive integer $n$
-and integers $n_1,\ldots,n_s$ such that
-\[ |n\theta_1 - \psi_1 - n_1| < \varepsilon, \ldots ,
-   |n\theta_s - \psi_s - n_s| < \varepsilon \, .\]
-\end{theorem}
+Let $\mathbb{T}$ denote the group of complex numbers of modulus $1$, with multiplication as group operation. Then the function $x \mapsto \exp(2 \pi i x)$ is a homomorphism from the additive group of real numbers to $\mathbb{T}$, with kernel the subgroup of integers. By abuse of notation, we will also allow $\exp$ to be applied component-wise to a vector of reals.
 
 We obtain the following simple corollary:
 \begin{corollary}
-  Let $\theta_1,\ldots,\theta_s$ be real numbers such that the set
-  $\{ \theta_1,\ldots,\theta_s,1\}$ is linearly independent over
-  $\Rationals$.  Then
-\[ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in \mathbb{N} \} \]
-is a dense subset of $\mathbb{T}^s$.
+  Let $\myvector{\theta} = (\theta_{1}, \ldots, \theta_{s}) \in \Reals^{s}$ be such that $1, \theta_1, \ldots, \theta_s$ are linearly independent over $\Rationals$.
+  Then $\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace$ is a dense subset of $\mathbb{T}^s$.
 \label{corl:kronecker}
 \end{corollary}
 \begin{proof}
-  Since $\phi$ is surjective, an arbitrary element of $\mathbb{T}^s$
-  can be written in the form $(\phi(\psi_1),\ldots,\phi(\psi_s))$ for
-  some real numbers $\psi_1,\ldots,\psi_s$.
-Applying Kronecker's Theorem, we get that
-for all $\varepsilon > 0$, there exists a positive integer $n$
-and integers $n_1,\ldots,n_s$ such that
-\[ |n\theta_1 - \psi_1 - n_1| < \varepsilon, \ldots , |n\theta_s
-  - \psi_s - n_s| < \varepsilon \, .\] By continuity of $\phi$ it
-follows that $(\phi(\psi_1),\ldots,\phi(\psi_s))$ is a limit point of
-$ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in \mathbb{N} \}$.
+Since $\exp$ is surjective, an arbitrary element of $\mathbb{T}^{s}$ can be written in the form $\exp(2 \pi i \myvector{\psi})$ for some $\myvector{\psi} \in \Reals^{s}$. By hypothesis, we know that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. Applying Kronecker's Theorem, we get that, for all $\varepsilon > 0$, there exists a positive integer $n$ such that
+\begin{equation*}
+  \dist(n \myvector{\theta} - \myvector{\psi}, \Integers^{s}) \leq \varepsilon .
+\end{equation*}
+By continuity of $\exp$ it follows that $\exp(2 \pi i \myvector{\psi})$ is a limit point of
+\begin{equation*}
+\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace .
+\end{equation*}
 This establishes the result.
 \end{proof}
-%END HSCC

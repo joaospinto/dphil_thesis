@@ -7,3 +7,4 @@ Remove Fourier Motzkin Elimination from background section.
 Consistent nomenclature in ET vs ENT in HSCC and SODA chapters.
 Add chapter about control.
 Add statement about Minkowski-Weyl theorem.
+Uniformise \emph, \defemph, and \textbf.

@@ -1,19 +1,23 @@
 \subsection{Matrix exponentials}
+\label{sec:matrix_exp}
 
 Given a matrix $A \in \Complex^{n \times n}$, its exponential is defined as
 \begin{align*}
 \exp(A) = \sum \limits_{i=0}^{\infty} \frac{A^{i}}{i!} .
 \end{align*}
-The series above always converges, and so the exponential of a matrix is always well defined. The standard way of computing $\exp(A)$ is by finding $P \in \mathit{GL}_{n}(\Complex)$ such that $J=P^{-1}AP$ is in Jordan Canonical Form, and by using the fact that $\exp(A) = P \exp(J) P^{-1}$, where $\exp(J)$ is easy to compute. When $A \in \Algebraics^{n \times n}$, $P$ can be taken to be in $GL_{n}(\Algebraics)$; note that
+The series above always converges, and so the exponential of a matrix is always well defined. The standard way of computing $\exp(A)$ is by finding $P \in \mathit{GL}_{n}(\Complex)$ such that $J=P^{-1}AP$ is in Jordan Canonical Form, and by using the fact that $\exp(A) = P \exp(J) P^{-1}$, where $\exp(J)$ is easy to compute. When $A \in \Algebraics^{n \times n}$, $P$ can be taken to be in $GL_{n}(\Algebraics)$; note that, due to \cref{eq:jordan_powers}, if
 
 \begin{align*}
-\mbox{if } J &= \begin{pmatrix}
+J &= \begin{pmatrix}
 \lambda && 1 && 0 && \cdots && 0 \\
 0 && \lambda && 1 &&\cdots && 0 \\
 \vdots && \vdots && \ddots && \ddots && \vdots \\
 0 && 0 && \cdots && \lambda && 1 \\
 0 && 0 && \cdots && 0 && \lambda
-\end{pmatrix} \mbox{ then } \\
+\end{pmatrix}
+\end{align*}
+then
+\begin{align*}
 \exp(Jt) &= \exp(\lambda t) \begin{pmatrix}
 1 && t && \frac{t^{2}}{2} && \cdots && \frac{t^{k-1}}{(k-1)!} \\
 0 && 1 && t && \cdots && \frac{t^{k-2}}{(k-2)!} \\
@@ -27,9 +31,26 @@ Then $\exp(J)$ can be obtained by setting $t=1$, in particular $\exp(J)_{ij} = \
 
 When $A$ and $B$ commute, so must $\exp(A)$ and $\exp(B)$. Moreover, when $A$ and $B$ have algebraic entries, the converse also holds, as shown in \cite{MatrixExps}. Also, when $A$ and $B$ commute, it holds that $\exp(A)\exp(B) = \exp(A+B)$.
 
+\begin{proposition}
+  Let $\myvector{v}$ lie in the generalised eigenspace
+  $\mathcal{V}_{\lambda}$ for some $\lambda \in \sigma(A)$.  Then
+  $\myvector{b}^{T}\exp(At)\myvector{v}$ is a linear combination
+  of terms of the form $t^{n}\exp(\lambda t)$.
+\label{prop:linear}
+\end{proposition}
+% Every expression of the form
+%  $\myvector{b}^{T}\exp(At)\myvector{x}_{0}$ is a linear
+%  combination of terms of the form $t^{n}\exp(\lambda t)$, where
+%  $\lambda$ is an eigenvalue of $A$.
+
+\begin{proof}
+  Note that, if $A=Q^{-1}JQ$ and $J=\diag{J_{1},\ldots,J_{N}}$ is a block diagonal Jordan matrix, then $\exp(At)=Q^{-1}\exp(Jt)Q$ and $\exp(Jt)=\diag{\exp(J_{1}t),\ldots,\exp(J_{N}t)}$.
+The result follows by observing that $Q\myvector{v}$ is zero in every component other than those pertaining the block corresponding to the eigenspace $\mathcal{V}_{\lambda}$.
+\end{proof}
+
 \subsection{Matrix logarithms}
 
-The matrix $B$ is said to be a logarithm of the matrix $A$ if $\exp(B) = A$. It is well known that a logarithm of a matrix $A$ exists if and only if $A$ is invertible. However, matrix logarithms need not be unique. In fact, there exist matrices admitting uncountably many logarithms. See, for example, \cite{MatrixLogs1} and \cite{MatrixLogs2}.
+The matrix $B$ is said to be a logarithm of the matrix $A$ if $\exp(B) = A$. It is well known that a logarithm of a matrix $A$ exists if and only if $A$ is invertible. However, matrix logarithms need not be unique. In fact, there exist matrices admitting uncountably many logarithms. See, for example,~\cite{MatrixLogs1} and~\cite{MatrixLogs2}.
 
 A matrix is said to be unitriangular if it is triangular and all its diagonal entries equal $1$. Crucially, the following uniqueness result holds:
 

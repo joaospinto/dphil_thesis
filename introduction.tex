@@ -26,19 +26,19 @@ the vectors $\myvector{a}$ and $\myvector{c}$ are both zero then
 we say that the loop is \emph{homogeneous}.
 
 Suppose that the vector $\myvector{x}$ has dimension $d$.  We say
-that \textsf{P1} \emph{terminates} on a set $S\subseteq \Reals^d$
+that \textsf{P1} \emph{terminates} on a set $S\subseteq \Reals^{d}$
 if it terminates for all initial vectors $\myvector{u} \in S$.
 Tiwari~\cite{Tiw04} gave a procedure to decide whether a given simple
-linear loop terminates on $\Reals^d$.  Later
+linear loop terminates on $\Reals^{d}$.  Later
 Braverman~\cite{Bra06} showed decidability of termination on
-$\Rationals^d$.  However the most natural problem from the point of
-view of program verification is termination on $\mathbb{Z}^d$.
+$\Rationals^{d}$.  However the most natural problem from the point of
+view of program verification is termination on $\Integers^{d}$.
 
-While termination on $\mathbb{Z}^d$ reduces to termination on
-$\Rationals^d$ in the homogeneous case (by a straightforward scaling
-argument), termination on $\mathbb{Z}^d$ in the general case is stated
+While termination on $\Integers^{d}$ reduces to termination on
+$\Rationals^{d}$ in the homogeneous case (by a straightforward scaling
+argument), termination on $\Integers^{d}$ in the general case is stated
 as an open problem in~\cite{BGM12,Bra06,Tiw04}.  The main result of
-this paper is a procedure to decide termination on $\mathbb{Z}^d$ for
+this paper is a procedure to decide termination on $\Integers^{d}$ for
 simple linear loops when the assignment matrix $A$ is diagonalisable.
 This represents the first substantial progress on this open problem in
 over $10$ years.
@@ -52,16 +52,16 @@ linear~\cite{BGM12}.
 
 To prove our main result we focus on \emph{eventual non-termination},
 where \textsf{P1} is said to be eventually non-terminating on
-$\myvector{u} \in \mathbb{Z}^d$ if, starting from initial value
+$\myvector{u} \in \Integers^{d}$ if, starting from initial value
 $\myvector{u}$, after executing the loop body $\myvector{x} \gets
 A\myvector{x}+\myvector{a}$ a finite number of times \emph{while
   disregarding the loop guard} we eventually reach a value on which
 \textsf{P1} fails to terminate.  Clearly \textsf{P1} fails to
-terminate on $\mathbb{Z}^d$ if and only if it is eventually
-non-terminating on some $\myvector{u} \in \mathbb{Z}^d$.
+terminate on $\Integers^{d}$ if and only if it is eventually
+non-terminating on some $\myvector{u} \in \Integers^{d}$.
 
 Given a simple linear loop we show how to compute a convex
-semi-algebraic set $W \subseteq \Reals^d$ such that the integer
+semi-algebraic set $W \subseteq \Reals^{d}$ such that the integer
 points $\myvector{u} \in W$ are precisely the eventually
 non-terminating integer initial values.  Since it is decidable whether
 a convex semi-algebraic set contains an integer
@@ -70,15 +70,15 @@ point~\cite{KhachiyanP97},\footnote{By contrast, recall that the
   necessarily convex) semi-algebraic set---which is equivalent to
   Hilbert's tenth problem---is well-known to be undecidable.} we can
 decide whether an integer linear loop is terminating on
-$\mathbb{Z}^d$.
+$\Integers^{d}$.
 
 Termination over the set of all integer points is easily seen to be
-\textbf{coNP}-hard.  Indeed, if the update function in the loop body
+\coNP-hard.  Indeed, if the update function in the loop body
 is the identity then the loop is non-terminating if and only if there
 is an integer point satisfying the guard.  Thus non-termination
-subsumes integer programming, which is \textbf{NP}-hard.  By contrast,
+subsumes integer programming, which is \NP-hard.  By contrast,
 even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06},
-deciding termination on $\Reals^d$ and $\Rationals^d$ can be done
+deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be done
 in polynomial time.\footnote{This observation relies on the facts that
   one can compute Jordan canonical forms of integer matrices and solve
   instances of linear programming problems with algebraic numbers in
@@ -92,7 +92,7 @@ eventually non-terminating integer point).  In fact the algorithm
 computes a representation of the set of all eventually non-terminating
 integer points.  For reference, the closely related problem of
 deciding termination on the integer points in a given convex polytope is
-\textbf{EXPSPACE}-hard \cite{BGM12}.
+\EXPSPACE-hard \cite{BGM12}.
 
 As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
@@ -114,10 +114,10 @@ Consider the termination problem for a homogeneous linear loop program
 \mathsf{P2:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
 \textit{while} $B\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$}
 \end{gather*}
-on a single initial value $\myvector{u}\in \mathbb{Z}^d$.  Each row
+on a single initial value $\myvector{u}\in \Integers^{d}$.  Each row
 $\myvector{b}^T$ of matrix $B$ corresponds to a loop condition
 $\myvector{b}^T\myvector{x} \geq 0$.  For each such condition,
-consider the integer sequence $\langle x_n : n \in \mathbb{N} \rangle$
+consider the integer sequence $\langle x_n : n \in \Naturals \rangle$
 defined by $x_n = \myvector{b}^TA^n \myvector{u}$.  Then
 \textsf{P2} fails to terminate on an initial value $\myvector{u}$ if
 and only if each such sequence $\langle x_n \rangle$ is
@@ -139,7 +139,7 @@ specifically significant new results in Diophantine
 approximation~\cite{OW14:SODA}.
 
 The key difference between studying termination of simple linear loops
-over $\mathbb{Z}^d$ rather than a single initial value is that the
+over $\Integers^{d}$ rather than a single initial value is that the
 former problem can be approached through eventual termination.  In
 this sense the termination problem is related to the \emph{Ultimate
   Positivity Problem} for linear recurrence sequences, which asks
@@ -160,16 +160,16 @@ in logarithms~\cite{BW93}, and correspondingly relies on restrictions
 on the dimension of data in problem instances to obtain decidability.
 
 %Since Kannan and Lipton solved the \textbf{Orbit Problem} \cite{KL86},
-%which consists in deciding whether $\exists n\in\mathbb{N}: A^n x=y$
+%which consists in deciding whether $\exists n\in\Naturals: A^n x=y$
 %for given $x,y\in\Rationals^n,A\in\Rationals^{n\times n}$, a lot of
 %work has been done in related problems. For example, higher
 %dimensional versions of the Orbit Problem have been considered, namely
 %replacing the target point $y$ by some target subspace $V$
 %\cite{COW13}. Whenever $dim(V)\leq 3$, this problem is in
-%\textbf{PSPACE}. On the other hand, when $V$ is a hyperplane of the
+%\PSPACE. On the other hand, when $V$ is a hyperplane of the
 %embedding vector space, this corresponds to the famous
 %\textbf{Skolem's problem}, which can equivalently be stated as that of
-%finding whether the set $Z(u_n)=\lbrace n\in\mathbb{N}\mid
+%finding whether the set $Z(u_n)=\lbrace n\in\Naturals\mid
 %u_n=0\rbrace$ is empty for a given linear recurrence sequence (LRS)
 %$u_n$. The celebrated Skolem-Mahler-Lech theorem
 %\cite{Lec53,Mah35,Sko34,TUCS05,Hansel85} characterises $Z(u_n)$ as the
@@ -183,7 +183,7 @@ on the dimension of data in problem instances to obtain decidability.
 %length by Terence Tao in \cite{Tao07} and by Lipton in
 %\cite{Lip09}. Deciding the \textbf{positivity} problem (whether
 %$\forall n\geq 0,u_n\geq 0$) and the \textbf{ultimate positivity}
-%problem (whether $\lbrace n\in\mathbb{N}\mid u_n< 0\rbrace$ is finite)
+%problem (whether $\lbrace n\in\Naturals\mid u_n< 0\rbrace$ is finite)
 %is also only known to be possible for LRS of order up to 5 in general
 %\cite{OW14:SODA} and up to 9 for a relevant subclass
 %\cite{OW13:constructive-positivity}. In fact, there is a one-line
@@ -197,9 +197,9 @@ on the dimension of data in problem instances to obtain decidability.
 %of the generalised Orbit Problem by a polytope $\mathcal{P}$, has
 %recently seen some interesting progress.
 
-%Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \textbf{NP}-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
+%Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \NP-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
 
-%Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\mathbb{Z}^k$, $\forall n\in\mathbb{N},f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\mathbb{Z}^k$, $\exists N\in\mathbb{N}:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate positivity problem).
+%Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\Integers^k$, $\forall n\in\Naturals,f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\Integers^k$, $\exists N\in\Naturals:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate positivity problem).
 
 Termination of $\mathsf{P1}$ under the assumption that all eigenvalues
 of $A$ are real was studied in \cite{RMM,RMM1} using spectral
@@ -221,8 +221,8 @@ ranking function.  Sound and relatively complete methods for
 synthesising linear ranking functions can be found in
 \cite{PodelskiR04} and \cite{Ben-AmramG13}. Whether a linear
 ranking function exists can be decided in polynomial time when the
-state space is $\Rationals^d$ and is \textbf{coNP}-complete when the
-state space is $\mathbb{Z}^d$.
+state space is $\Rationals^{d}$ and is \coNP-complete when the
+state space is $\Integers^{d}$.
 
 %END SODA
 
@@ -280,7 +280,7 @@ Given $k+1$ square matrices $A_{1}, \ldots, A_{k}, C$, all of the same dimension
 \begin{align*}
 \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C
 \end{align*}
-admit any solution $n_{1}, \ldots, n_{k} \in \mathbb{N}$?
+admit any solution $n_{1}, \ldots, n_{k} \in \Naturals$?
 \end{definition}
 
 In general, both problems have been shown to be undecidable, in
@@ -340,7 +340,7 @@ $t_1,\ldots,t_k \geq 0$ such that
 We will also consider a generalised version of this problem, called
 the \emph{Generalised MEP}, in which the matrices $A_1,\ldots,A_k$ and
 $C$ are allowed to have complex algebraic entries and in which the
-input to the problem also mentions a polyhedron
+input to the problem also mentions a polytope
 $\mathcal{P}\subseteq\Reals^{2k}$ that is specified by linear
 inequalities with real algebraic coefficients.  In the generalised problem
 we seek $t_1,\ldots,t_k \in \Complex$ that satisfy (\ref{MEP}) and
@@ -362,7 +362,7 @@ problem:
 \end{align}
 where $I$ and $J$ are finite index sets, the $\lambda_i^{(j)}$, $c_j$
 and $d_j$ are complex algebraic constants, and the $t_i$ are complex
-variables, together with a polyhedron
+variables, together with a polytope
 $\mathcal{P} \subseteq \Reals^{2k}$ that is specified by a system
 of linear inequalities with algebraic coefficients.  The problem asks
 to determine whether there exist $t_1,\ldots,t_k\in \Complex$ that
@@ -386,10 +386,10 @@ logarithm function.
 
 % \exp(\myvector{\lambda} \cdot \myvector{t}) = c_{\myvector{\lambda}} \exp(d_{\myvector{\lambda}}), \quad \myvector{\lambda} \in \Algebraics^{n}, c_{\myvector{\lambda}}, d_{\myvector{\lambda}} \in \Algebraics
 % \end{align}
-% and a convex polyhedron $\mathcal{P} \subseteq \Reals^{2k}$ with an algebraic description, decide whether (\ref{single_eqn_form}) admits a solution $\myvector{t}$ such that $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$.
+% and a convex polytope $\mathcal{P} \subseteq \Reals^{2k}$ with an algebraic description, decide whether (\ref{single_eqn_form}) admits a solution $\myvector{t}$ such that $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$.
 % \end{definition}
 
-% In both cases, when a constraint of the form $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$ is imposed, where $\mathcal{P} \subseteq \Reals^{2k}$ is a convex polyhedron with an algebraic description, we refer to the problem as the \emph{constrained MEP/LEP}; the predicates defined above may often be combined, e.g. \emph{constrained commuting MEP}.
+% In both cases, when a constraint of the form $(\Re(\myvector{t}), \Im(\myvector{t})) \in \mathcal{P}$ is imposed, where $\mathcal{P} \subseteq \Reals^{2k}$ is a convex polytope with an algebraic description, we refer to the problem as the \emph{constrained MEP/LEP}; the predicates defined above may often be combined, e.g. \emph{constrained commuting MEP}.
 
 \begin{definition}
 An instance of the Algebraic-Logarithmic Integer Programming Problem (ALIP) consists of a finite system of equations of the form
@@ -399,7 +399,7 @@ A \myvector{x} \leq \frac{1}{\pi} \myvector{b}
 where $A$ is an $m\times n$ matrix with real algebraic entries and
 where the coordinates of $\myvector{b}$ are real linear forms in
 logarithms of algebraic numbers. The problem asks to determine whether
-such a system admits a solution $\myvector{x} \in \mathbb{Z}^{n}$.
+such a system admits a solution $\myvector{x} \in \Integers^{n}$.
 \end{definition}
 
 \subsection{Paper Outline}
@@ -443,7 +443,7 @@ point) must eventually reach a point at which they `escape'
 
 More precisely, given an affine function
 $f:\Reals^{d}\rightarrow \Reals^{d}$ and a convex polytope
-$\mathcal{P}\subseteq\Reals^d$, both specified using rational
+$\mathcal{P}\subseteq\Reals^{d}$, both specified using rational
 coefficients encoded in binary, we consider the \textbf{Polytope
   Escape Problem} which asks whether there is some point
 $\myvector{x}_0$ in $\mathcal{P}$ for which the corresponding
@@ -459,8 +459,8 @@ that this problem is decidable by reducing it in polynomial time to
 the decision version of linear programming with real algebraic
 coefficients, which itself reduces in polynomial time to deciding the
 truth of a sentence in the first-order theory of the reals, a problem
-whose complexity is known to lie between $\mathit{NP}$ and
-$\mathit{PSPACE}$ \cite{Canny88}. Our algorithm makes use of spectral
+whose complexity is known to lie between $\NP$ and
+$\PSPACE$ \cite{Canny88}. Our algorithm makes use of spectral
 techniques and relies among others on tools from Diophantine
 approximation.
 

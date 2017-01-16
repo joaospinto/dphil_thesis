@@ -14,39 +14,42 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{Algebraic Number Theory}{section.2.2}% 14
 \BOOKMARK [3][-]{subsubsection.2.2.1.1}{Manipulating algebraic numbers}{subsection.2.2.1}% 15
 \BOOKMARK [3][-]{subsubsection.2.2.1.2}{Lattices}{subsection.2.2.1}% 16
-\BOOKMARK [2][-]{subsection.2.2.2}{Linear Recurrence Sequences}{section.2.2}% 17
-\BOOKMARK [3][-]{subsubsection.2.2.2.1}{Lower-bounding simple linear recurrence sequences}{subsection.2.2.2}% 18
-\BOOKMARK [1][-]{section.2.3}{Groups of Multiplicative Relations}{chapter.2}% 19
-\BOOKMARK [2][-]{subsection.2.3.1}{Transcendental Number Theory}{section.2.3}% 20
-\BOOKMARK [1][-]{section.2.4}{Diophantine Approximation}{chapter.2}% 21
-\BOOKMARK [2][-]{subsection.2.4.1}{Kronecker's Theorem}{section.2.4}% 22
-\BOOKMARK [1][-]{section.2.5}{Logic}{chapter.2}% 23
-\BOOKMARK [1][-]{section.2.6}{First-Order Theory of Reals}{chapter.2}% 24
-\BOOKMARK [1][-]{section.2.7}{Convex Polyhedra and Semi-Algebraic Sets}{chapter.2}% 25
-\BOOKMARK [1][-]{section.2.8}{Analysis}{chapter.2}% 26
-\BOOKMARK [2][-]{subsection.2.8.1}{Laurent polynomials}{section.2.8}% 27
-\BOOKMARK [1][-]{section.2.9}{Fourier-Motzkin Elimination}{chapter.2}% 28
-\BOOKMARK [0][-]{chapter.3}{SODA Chapter}{}% 29
-\BOOKMARK [1][-]{section.3.1}{Overview of Main Results}{chapter.3}% 30
-\BOOKMARK [1][-]{section.3.2}{Algorithm for Universal Termination}{chapter.3}% 31
-\BOOKMARK [2][-]{subsection.3.2.1}{Eventual Non-Termination on Subspace Vi}{section.3.2}% 32
-\BOOKMARK [2][-]{subsection.3.2.2}{Definition of a Witness Set}{section.3.2}% 33
-\BOOKMARK [1][-]{section.3.3}{Complexity Analysis}{chapter.3}% 34
-\BOOKMARK [0][-]{chapter.4}{LICS Chapter}{}% 35
-\BOOKMARK [1][-]{section.4.1}{Example}{chapter.4}% 36
-\BOOKMARK [1][-]{section.4.2}{Decidability in the Commutative Case}{chapter.4}% 37
-\BOOKMARK [1][-]{section.4.3}{Undecidability of the Non-Commutative Case}{chapter.4}% 38
-\BOOKMARK [2][-]{subsection.4.3.1}{Matrix-Exponential Problem with Constraints}{section.4.3}% 39
-\BOOKMARK [2][-]{subsection.4.3.2}{Reduction from Hilbert's Tenth Problem}{section.4.3}% 40
-\BOOKMARK [2][-]{subsection.4.3.3}{Enforcing a matrix product order}{section.4.3}% 41
-\BOOKMARK [2][-]{subsection.4.3.4}{Undecidability of the semigroup problem}{section.4.3}% 42
-\BOOKMARK [1][-]{section.4.4}{Other Undecidability Results}{chapter.4}% 43
-\BOOKMARK [0][-]{chapter.5}{HSCC Chapter}{}% 44
-\BOOKMARK [1][-]{section.5.1}{The Polytope Escape Problem}{chapter.5}% 45
-\BOOKMARK [0][-]{chapter.6}{Reachability for Linear Time-Invariant Control Systems}{}% 46
-\BOOKMARK [1][-]{section.6.1}{Decidability of controllability for continuous-time LTI systems when the set of controls is a linear subspace}{chapter.6}% 47
-\BOOKMARK [1][-]{section.6.2}{Some undecidable matrix problems}{chapter.6}% 48
-\BOOKMARK [1][-]{section.6.3}{Undecidability result}{chapter.6}% 49
-\BOOKMARK [1][-]{section.6.4}{Hardness result}{chapter.6}% 50
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 51
-\BOOKMARK [0][-]{theorem.7.1}{Bibliography}{}% 52
+\BOOKMARK [2][-]{subsection.2.2.2}{Transcendental Number Theory}{section.2.2}% 17
+\BOOKMARK [2][-]{subsection.2.2.3}{Diophantine Approximation}{section.2.2}% 18
+\BOOKMARK [1][-]{section.2.3}{Logic}{chapter.2}% 19
+\BOOKMARK [1][-]{section.2.4}{First-Order Theory of Reals}{chapter.2}% 20
+\BOOKMARK [2][-]{subsection.2.4.1}{Hilbert's Tenth Problem}{section.2.4}% 21
+\BOOKMARK [1][-]{section.2.5}{Geometry}{chapter.2}% 22
+\BOOKMARK [2][-]{subsection.2.5.1}{Convex Polytopes}{section.2.5}% 23
+\BOOKMARK [2][-]{subsection.2.5.2}{Fourier-Motzkin Elimination}{section.2.5}% 24
+\BOOKMARK [1][-]{section.2.6}{Groups of Multiplicative Relations}{chapter.2}% 25
+\BOOKMARK [2][-]{subsection.2.6.1}{Groups of Multiplicative Relations}{section.2.6}% 26
+\BOOKMARK [1][-]{section.2.7}{Linear Recurrence Sequences}{chapter.2}% 27
+\BOOKMARK [2][-]{subsection.2.7.1}{Linear Recurrence Sequences}{section.2.7}% 28
+\BOOKMARK [3][-]{subsubsection.2.7.1.1}{Lower-bounding simple linear recurrence sequences}{subsection.2.7.1}% 29
+\BOOKMARK [1][-]{section.2.8}{Analysis}{chapter.2}% 30
+\BOOKMARK [2][-]{subsection.2.8.1}{Laurent polynomials}{section.2.8}% 31
+\BOOKMARK [0][-]{chapter.3}{SODA Chapter}{}% 32
+\BOOKMARK [1][-]{section.3.1}{Overview of Main Results}{chapter.3}% 33
+\BOOKMARK [1][-]{section.3.2}{Algorithm for Universal Termination}{chapter.3}% 34
+\BOOKMARK [2][-]{subsection.3.2.1}{Eventual Non-Termination on Subspace Vi}{section.3.2}% 35
+\BOOKMARK [2][-]{subsection.3.2.2}{Definition of a Witness Set}{section.3.2}% 36
+\BOOKMARK [1][-]{section.3.3}{Complexity Analysis}{chapter.3}% 37
+\BOOKMARK [0][-]{chapter.4}{LICS Chapter}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Example}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Decidability in the Commutative Case}{chapter.4}% 40
+\BOOKMARK [1][-]{section.4.3}{Undecidability of the Non-Commutative Case}{chapter.4}% 41
+\BOOKMARK [2][-]{subsection.4.3.1}{Matrix-Exponential Problem with Constraints}{section.4.3}% 42
+\BOOKMARK [2][-]{subsection.4.3.2}{Reduction from Hilbert's Tenth Problem}{section.4.3}% 43
+\BOOKMARK [2][-]{subsection.4.3.3}{Enforcing a matrix product order}{section.4.3}% 44
+\BOOKMARK [2][-]{subsection.4.3.4}{Undecidability of the semigroup problem}{section.4.3}% 45
+\BOOKMARK [1][-]{section.4.4}{Other Undecidability Results}{chapter.4}% 46
+\BOOKMARK [0][-]{chapter.5}{HSCC Chapter}{}% 47
+\BOOKMARK [1][-]{section.5.1}{The Polytope Escape Problem}{chapter.5}% 48
+\BOOKMARK [0][-]{chapter.6}{Reachability for Linear Time-Invariant Control Systems}{}% 49
+\BOOKMARK [1][-]{section.6.1}{Decidability of controllability for continuous-time LTI systems when the set of controls is a linear subspace}{chapter.6}% 50
+\BOOKMARK [1][-]{section.6.2}{Some undecidable matrix problems}{chapter.6}% 51
+\BOOKMARK [1][-]{section.6.3}{Undecidability result}{chapter.6}% 52
+\BOOKMARK [1][-]{section.6.4}{Hardness result}{chapter.6}% 53
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 54
+\BOOKMARK [0][-]{theorem.7.1}{Bibliography}{}% 55

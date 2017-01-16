@@ -1,5 +1,3 @@
-\section{Analysis}
-
 \subsection{Laurent polynomials}
 
 A multivariate \textbf{Laurent polynomial} is a polynomial in positive
@@ -8,7 +6,7 @@ coefficients.  We are interested in Laurent polynomials of the special form
 \[ g = \sum_{j=1}^k \left( c_j {z_1}^{n_{1,j}}\ldots {z_s}^{n_{s,j}} +
     \overline{c_j} {z_1}^{-n_{1,j}}\ldots {z_s}^{-n_{s,j}} \right) \,
   ,\] where $c_1,\ldots,c_k \in \mathbb{C}$ and
-$n_{1,1},\ldots,n_{s,k} \in \mathbb{Z}$.  We call such $g$
+$n_{1,1},\ldots,n_{s,k} \in \Integers$.  We call such $g$
 \textbf{self-conjugate Laurent polynomials}.  Notice that if
 $a_1,\ldots,a_s \in \mathbb{T}$ then $g(a_1,\ldots,a_s)$ is a real
 number, so we may regard $g$ as a function from $\mathbb{T}^s$ to
@@ -64,10 +62,10 @@ By assumption, $\theta_1,\ldots,\theta_s,1$ are linearly
 independent over $\mathbb{Q}$.  By \cref{corl:kronecker} it
 follows that
 \[ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in
-  \mathbb{N} \} \] is dense in $\mathbb{T}^s$ and hence has
+  \Naturals \} \] is dense in $\mathbb{T}^s$ and hence has
 $(\phi(x_1^*),\ldots,\phi(x_s^*))$ as a limit point.
 Since $g\circ\phi^s$ is continuous, there are
-arbitrarily large $n\in\mathbb{N}$ for which
+arbitrarily large $n\in\Naturals$ for which
 \[
 f(n) = g(\phi(n\theta_1),\ldots,\phi(n\theta_s))
     \leq \textstyle\frac{1}{2} g(\phi(x_1^*),\ldots,\phi(x_s^*)) < 0 \, , \]
@@ -106,7 +104,7 @@ More generally, let $\{\theta_1,\ldots,\theta_k\}$ be a maximal
 $\theta_1,\ldots,\theta_k,1$ are linearly independent over $\mathbb{Q}$.
 Note that $k\geq 1$ since the $\theta_i$ are non-zero.
 
-Then, for some $N\in\mathbb{N}$ and each $j\geq k+1$, one can write
+Then, for some $N\in\Naturals$ and each $j\geq k+1$, one can write
 \begin{equation*}
 N\theta_{j}= \left( m  +\sum\limits_{i=1}^{k} n_{i}\theta_{i}\right) \, ,
 \end{equation*}
@@ -135,8 +133,8 @@ to $h$.
 
 In order to compare the asymptotic growth of expressions of the form
 $t^{n}\exp(\lambda t)$, for $\lambda\in\mathbb{R}$ and
-$n\in\mathbb{N}_0$, we define $\prec$ to be the lexicographic order on
-$\mathbb{R}\times\mathbb{N}_{0}$, that is,
+$n\in\Naturals_0$, we define $\prec$ to be the lexicographic order on
+$\mathbb{R}\times\Naturals_{0}$, that is,
 \begin{equation*}
 (\eta,j)\prec (\rho,m) \quad \mbox{iff} \quad
 \eta<\rho \mbox{ or } (\eta = \rho \mbox{ and } j< m) \, .
@@ -145,7 +143,7 @@ Clearly $\exp(\eta t)t^{j}=o(\exp(\rho t)t^{m})$ as $t\rightarrow \infty$ if and
 
 \begin{definition}
 If $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is not identically zero,
-the maximal $(\rho,m)\in\mathbb{R}\times\mathbb{N}_{0}$ with respect
+the maximal $(\rho,m)\in\mathbb{R}\times\Naturals_{0}$ with respect
 to $\prec$ for which there is a term $t^{m}\exp (\lambda t)$ with
 $\Re(\lambda)=\rho$ in the closed-form expression for
 $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is called \emph{dominant} for
@@ -189,7 +187,7 @@ and from uniqueness of the above decomposition.
 
 \begin{proposition}
 \label{liminfprop}
-Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\mathbb{R}\times \mathbb{N}_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
+Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\mathbb{R}\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
 \begin{equation*}
 -\infty<\liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho
   t)t^{m}}<0 \, .
@@ -220,7 +218,7 @@ $g_{(\eta,j)}$.
 Note that
 \begin{equation*}
 (\rho,m)=\max\limits_{\prec} \lbrace (\eta,j)\in\mathbb{R}\times
-\mathbb{N}_{0}: g_{(\eta,j)}(\exp(i\boldsymbol{\theta}_{\eta} t)) \not
+\Naturals_{0}: g_{(\eta,j)}(\exp(i\boldsymbol{\theta}_{\eta} t)) \not
 \equiv 0 \rbrace \, .
 \end{equation*}
 

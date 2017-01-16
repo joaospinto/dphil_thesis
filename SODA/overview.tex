@@ -14,43 +14,43 @@ using polynomial space if $A$ has dimension at most $4$.
 \end{theorem}
 In this section we give a high-level overview of the proof of \cref{thm:main}.
 
-Let $f:\Reals^d\rightarrow \Reals^d$ be the affine function
+Let $f:\Reals^{d}\rightarrow \Reals^{d}$ be the affine function
 $f(\myvector{x})=A\myvector{x}+\myvector a$ computed by the body
 of the while loop in \textsf{P1} and $P=\{ \myvector{x} \in
-\Reals^d: B \myvector{x}\geq \myvector{c}\}$ the convex polytope
+\Reals^{d}: B \myvector{x}\geq \myvector{c}\}$ the convex polytope
 corresponding to the loop guard.  We define the set of
 \emph{non-terminating points} to be
-\[ \mathit{NT} = \{ \myvector{u}\in \Reals^d : \forall n \in
-\mathbb{N},\, f^n(\myvector{u}) \in P \} \, .\] Following
+\[ \mathit{NT} = \{ \myvector{u}\in \Reals^{d} : \forall n \in
+\Naturals,\, f^n(\myvector{u}) \in P \} \, .\] Following
 Braverman~\cite{Bra06}, we moreover define the set of \emph{eventually
   non-terminating points} to be
-\[ \mathit{ENT} = \{ \myvector{u}\in \Reals^d : \exists n \in
-\mathbb{N},\, f^n(\myvector{u}) \in \mathit{NT} \} \, .\]
+\[ \mathit{ENT} = \{ \myvector{u}\in \Reals^{d} : \exists n \in
+\Naturals,\, f^n(\myvector{u}) \in \mathit{NT} \} \, .\]
 It is easily seen from the above definitions that both \textit{NT} and
 \textit{ENT} are convex sets.
 
-By definition, \textsf{P1} is non-terminating on $\mathbb{Z}^d$ if
+By definition, \textsf{P1} is non-terminating on $\Integers^{d}$ if
 and only if $\mathit{NT}$ contains an integer point.  It is moreover
 clear that $\mathit{NT}$ contains an integer point if and only if
 $\mathit{ENT}$ contains an integer point.
 
-%% It is immediate that the problem of termination on $\mathbb{Z}^d$ is
-%% \textbf{coNP}-hard.  Indeed, taking $f$ to be the identity function,
+%% It is immediate that the problem of termination on $\Integers^{d}$ is
+%% \coNP-hard.  Indeed, taking $f$ to be the identity function,
 %% loop \textsf{P1} is non-terminating on initial value $\myvector{u}$
 %% if and only if $\myvector{u}$ satisfies the loop guard.  Thus the
 %% non-termination problem subsumes the problem of
 %% whether a given polytope contains an integer point (i.e., integer
-%% programming), which is \textbf{NP}-hard.  By contrast, even though not
+%% programming), which is \NP-hard.  By contrast, even though not
 %% stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding
-%% termination on $\Reals^d$ and $\Rationals^d$ can be done in
+%% termination on $\Reals^{d}$ and $\Rationals^{d}$ can be done in
 %% polynomial time.  This observation relies on the facts that one can
 %% compute Jordan canonical forms of integer matrices and solve instances
 %% of linear programming problems with algebraic numbers in polynomial
 %% time~\cite{Cai94,AdlerB94}.
 
-Recall that a subset of $\Reals^d$ is said to be
+Recall that a subset of $\Reals^{d}$ is said to be
 \emph{semi-algebraic} if it is a Boolean combination of sets of the
-form $\{ \myvector{x} \in \Reals^d : p(\myvector{x})\geq 0\}$,
+form $\{ \myvector{x} \in \Reals^{d} : p(\myvector{x})\geq 0\}$,
 where $p$ is a polynomial with integer coefficients.  Equivalently the
 semi-algebraic sets are those definable by quantifier-free first-order
 formulas over the structure $(\Reals,<,+,\cdot,0,1)$.  In fact,
@@ -58,26 +58,26 @@ since the first-order theory of the reals admits quantifier
 elimination~\cite{Tar51}, the semi-algebraic sets are precisely the
 first-order definable sets.
 
-Define $W \subseteq \Reals^d$ to be a
+Define $W \subseteq \Reals^{d}$ to be a
 \emph{non-termination witness set} (or simply a witness set) if it
 satisfies the following two properties (where $\Algebraics$ denotes the
 set of algebraic numbers):
 \begin{itemize}
 \item[(i)] $W$ is convex and semi-algebraic;
-\item[(ii)] $W\cap \Algebraics^d=\mathit{ENT}\cap \Algebraics^d$.
+\item[(ii)] $W\cap \Algebraics^{d}=\mathit{ENT}\cap \Algebraics^{d}$.
 \end{itemize}
 
 The integer points in a witness set $W$ are precisely the integer
 points of \textit{ENT}, and so \textsf{P1} is non-terminating on
-$\mathbb{Z}^d$ precisely when $W$ contains an integer point.  Our
+$\Integers^{d}$ precisely when $W$ contains an integer point.  Our
 approach to solving the termination problem consists in computing a
 witness set $W$ for a given program and then using the following
 theorem of Khachiyan and Porkolab~\cite{KhachiyanP97} to decide whether $W$
 contains an integer point.
 \begin{theorem}[Khachiyan and Porkolab]
-Let $W\subseteq\Reals^d$ be a convex semi-algebraic set defined by
+Let $W\subseteq\Reals^{d}$ be a convex semi-algebraic set defined by
 polynomials of degree at most $D$ and that can be represented in space
-$S$. In that case, if $W\cap\mathbb{Z}^d\neq\emptyset$, then $W$ must
+$S$. In that case, if $W\cap\Integers^{d}\neq\emptyset$, then $W$ must
 contain an integral point that can be represented in space
 $SD^{O(d^4)}$.
 \end{theorem}
@@ -98,7 +98,7 @@ analysis.
 We first reduce the problem of computing witness sets in the general
 case to the same problem in the homogeneous case.  Note that Program
 \textsf{P1} terminates on a given initial value $\myvector{u}\in
-\mathbb{Z}^d$ if and only if the homogeneous program \textsf{P3} below
+\Integers^{d}$ if and only if the homogeneous program \textsf{P3} below
 terminates for the same value of $\myvector{u}$:
 \begin{align*}
 \mathsf{P3:} \myvector{x}\gets
@@ -115,7 +115,7 @@ $\begin{pmatrix}A&\myvector{a}\\ 0 & 1
 eigenvalue $1$.  (Recall that an eigenvalue is said to be simple if it
 has multiplicity one as a root of the minimal polynomial of $A$.)  Now
 if $W$ is a witness set for program \textsf{P3} then $\left\{
-  \myvector{u} \in \Reals^d : \begin{pmatrix} \myvector{u}\\
+  \myvector{u} \in \Reals^{d} : \begin{pmatrix} \myvector{u}\\
     1\end{pmatrix} \in W \right\}$ is a witness set for \textsf{P1}.
 We conclude that, in order to settle the inhomogeneous case with a
 diagonalisable matrix, it suffices to compute a witness set in the
@@ -161,7 +161,7 @@ unity then $\lambda_1/\lambda_2$ is a root of unity and hence
 $\lambda^L_1/\lambda^L_2=1$. Note that all eigenvectors of $A$ are still eigenvectors of $A^L$, thus $A^L$ will be diagonalisable whenever $A$ is.
 
 Now program \textsf{P4} is eventually non-terminating on
-$\myvector{u}\in \mathbb{Z}^d$ if and only if program \textsf{P5}
+$\myvector{u}\in \Integers^{d}$ if and only if program \textsf{P5}
 below is eventually non-terminating on the set
 $\{\myvector{u},A\myvector{u}, \ldots,A^{L-1}\myvector{u}\}$:
 \begin{gather*}
@@ -169,7 +169,7 @@ $\{\myvector{u},A\myvector{u}, \ldots,A^{L-1}\myvector{u}\}$:
 \textit{while} $\myvector b^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A^L\myvector{x}$.}
 \end{gather*}
 Thus if $W$ is a witness set for \textsf{P5} then $\bigcap_{i=0}^{L-1}
-\{ \myvector{u} \in \mathbb{Z}^d : A^i\myvector{u} \in W\}$ is a witness set for
+\{ \myvector{u} \in \Integers^{d} : A^i\myvector{u} \in W\}$ is a witness set for
 \textsf{P4}.
 
 The main technical result of the paper is the following proposition:
@@ -201,8 +201,8 @@ In the rest of this section we give a brief summary of the proof of
 
 To compute a witness set $W$ for \textsf{P4} we first partition the
 eigenvalues of the update matrix $A$ by grouping eigenvalues of equal
-modulus.  Correspondingly we write $\Reals^d$ as a direct sum
-$\Reals^d = V_1 \oplus \ldots \oplus V_m$, where each subspace
+modulus.  Correspondingly we write $\Reals^{d}$ as a direct sum
+$\Reals^{d} = V_1 \oplus \ldots \oplus V_m$, where each subspace
 $V_i$ is the sum of (generalised) eigenspaces of $A$ associated to
 eigenvalues of the same modulus.  Assume that $V_1$ corresponds to the
 eigenvalues of maximum modulus, $V_2$ the next greatest modulus,
@@ -214,7 +214,7 @@ etc.  Then there are two main steps in the construction of $W$:
  $\mathit{ENT}\cap V_i$ of eventually non-terminating initial values
  in $V_i$ is semi-algebraic.
 \item
-Given $\myvector{v} \in \Reals^d$, we can write
+Given $\myvector{v} \in \Reals^{d}$, we can write
 $\myvector{v}=\myvector{v}_1+\ldots+\myvector{v}_m$, with
 $\myvector{v}_i \in V_i$.  Using \cref{thm:s-units} on
 $S$-units, we show that if all entries of $\myvector{v}$ are
@@ -222,7 +222,7 @@ algebraic numbers then the eventual non-termination of \textsf{P4} on
 $\myvector{v}$ is a function of its eventual non-termination on each
 $\myvector{v}_i$ separately.  More precisely we look for the first
 $\myvector{v}_i$ such that the sequence $\langle
-\myvector{b}^TA^n\myvector{v}_i : n \in \mathbb{N}\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
+\myvector{b}^TA^n\myvector{v}_i : n \in \Naturals\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
 $\myvector{v}$ if and only if it is eventually non-terminating on
 $\myvector{v}_i$.
 \end{enumerate}

@@ -20,8 +20,8 @@ real variables that appear in the statement of the problem.
   We consider the following three classes of arithmetic constraints
   over real variables $t_1,t_2,\ldots$:
 \begin{itemize}
-\item $\mathcal{E}_{\pi\mathbb{Z}}$ comprises constraints of the form
-  $t_i\in\alpha+\beta\pi\mathbb{Z}$, where $\alpha$ and $\beta\neq 0$
+\item $\mathcal{E}_{\pi\Integers}$ comprises constraints of the form
+  $t_i\in\alpha+\beta\pi\Integers$, where $\alpha$ and $\beta\neq 0$
   are real-valued constants such that $\cos(2\alpha\beta^{-1})$,
   $\beta$ are both algebraic numbers.
 \item $\mathcal{E}_{+}$ comprises linear equations of the form
@@ -32,12 +32,12 @@ real variables that appear in the statement of the problem.
 \end{itemize}
 \end{definition}
 
-A class of constraints $\mathcal{E} \subseteq \mathcal{E}_{\pi\mathbb{Z}} \cup
+A class of constraints $\mathcal{E} \subseteq \mathcal{E}_{\pi\Integers} \cup
 \mathcal{E}_{+}\cup \mathcal{E}_{\times}$
 induces a generalisation of the MEP problem as follows:
 \begin{definition}[MEP with Constraints]
   Given a class of constraints
-  $\mathcal{E} \subseteq \mathcal{E}_{\pi\mathbb{Z}} \cup
+  $\mathcal{E} \subseteq \mathcal{E}_{\pi\Integers} \cup
   \mathcal{E}_{+}\cup \mathcal{E}_{\times}$,
   the problem MEP$(\mathcal{E})$ is as follows.  An instance consists
   of real algebraic matrices $A_1,\ldots,A_k,C$ and a finite set of
@@ -128,26 +128,26 @@ for which the common variables appear in the same order in the
 respective products.
 
 The core of the reduction is to show that the constraints in
-$\mathcal{E}_{\pi\mathbb{Z}},\mathcal{E}_{+}$ and
+$\mathcal{E}_{\pi\Integers},\mathcal{E}_{+}$ and
 $\mathcal{E}_{\times}$ do not make the MEP problem harder: one can
 always encode them using the matrix product equation.
 
 \begin{proposition}
-  MEP$(\mathcal{E}_{\pi\mathbb{Z}} \cup \mathcal{E}_{+} \cup
+  MEP$(\mathcal{E}_{\pi\Integers} \cup \mathcal{E}_{+} \cup
   \mathcal{E}_{\times})$ reduces to MEP$(\mathcal{E}_{+} \cup
   \mathcal{E}_{\times})$.
 \label{lem:pi}
 \end{proposition}
 \begin{proof}
   Let $A_1,\ldots,A_k,C$ be real algebraic matrices and
-  $E\subseteq \mathcal{E}_{\pi\mathbb{Z}} \cup \mathcal{E}_{+} \cup
+  $E\subseteq \mathcal{E}_{\pi\Integers} \cup \mathcal{E}_{+} \cup
   \mathcal{E}_{\times}$
   a finite set of constraints on $t_1,\ldots,t_k$.  Since $E$ is
   finite it suffices to show how to eliminate from $E$ each constraint
-  in $\mathcal{E}_{\pi \mathbb{Z}}$.
+  in $\mathcal{E}_{\pi \Integers}$.
 
-  Let $t_j\in\alpha+\beta\pi\mathbb{Z}$ be a constraint in $E$.  By definition
-of  $\mathcal{E}_{\pi\mathbb{Z}}$
+  Let $t_j\in\alpha+\beta\pi\Integers$ be a constraint in $E$.  By definition
+of  $\mathcal{E}_{\pi\Integers}$
 we have
   that $\cos(2\alpha\beta^{-1}),\sin(2\alpha\beta^{-1})$ and
   $\beta\neq0$ are real algebraic.  Now define the following extra
@@ -166,10 +166,10 @@ e^{A'_j t_j}=C'
 &\Leftrightarrow\cos(2t_j\beta^{-1})=\cos(2\alpha\beta^{-1})\\
 &\qquad\wedge\sin(2t_j\beta^{-1})=\sin(2\alpha\beta^{-1})\\
 &\Leftrightarrow2\beta^{-1}t_j=2\alpha\beta^{-1}\mod 2\pi\\
-&\Leftrightarrow t_j\in\alpha+\beta\pi\mathbb{Z}.
+&\Leftrightarrow t_j\in\alpha+\beta\pi\Integers.
 \end{align*}
 Thus the additional matrix equation $e^{A_j't_j}=C'$ is equivalent to
-the constraint $t_j\in\alpha+\beta\pi\mathbb{Z}$.  Applying
+the constraint $t_j\in\alpha+\beta\pi\Integers$.  Applying
 \cref{prop:combine} we can thus eliminate this constraint.
 \end{proof}
 
@@ -294,7 +294,7 @@ Furthermore, the following extra product equation becomes:
 Combining Propositions~\ref{lem:pi}, \ref{lem:times}, and \ref{lem:plus} we
 have:
 \begin{proposition}
-  MEP$(\mathcal{E}_{\pi\mathbb{Z}}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$
+  MEP$(\mathcal{E}_{\pi\Integers}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$
   reduces to MEP.
 \end{proposition}
 
@@ -306,17 +306,17 @@ have:
 
 \begin{proof}
   We have seen in the previous section that the problem
-  MEP$(\mathcal{E}_{\pi\mathbb{Z}}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$
+  MEP$(\mathcal{E}_{\pi\Integers}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$
   reduces to MEP without constraints.  Thus it suffices to reduce
   Hilbert's Tenth Problem to
-  MEP$(\mathcal{E}_{\pi\mathbb{Z}}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$.
+  MEP$(\mathcal{E}_{\pi\Integers}\cup\mathcal{E}_{+}\cup\mathcal{E}_{\times})$.
   In fact the matrix equation will not play a role in the
   target of this reduction, only the additional constraints.
 
   Let $P$ be a polynomial of total degree $d$ in $k$ variables with
   integer coefficients. From $P$ we build a homogeneous polynomial $Q$, by
   adding a new variable $\lambda$:
-  \[Q(\mathbf{x},\lambda)=\lambda^dP\left(\frac{x_1}{\lambda},\ldots,
+  \[Q(\mathbf{x},\lambda)=\lambda^{d}P\left(\frac{x_1}{\lambda},\ldots,
     \frac{x_k}{\lambda}\right).\]
   Note that $Q$ still has integer coefficients. Furthermore, we have the relationship
 \[Q(\mathbf{x},1)=P(\mathbf{x}).\]
@@ -330,19 +330,19 @@ satisfied if and only if $t_0=Q(t_1,\ldots,t_k,\lambda)$. Note that
 $E_Q$ may need to mention variables other
 than $t_1,\ldots,t_k$ to do that.  Another
 finite set of equations
-$E_{\pi\mathbb{Z}}\subseteq\mathcal{E}_{\pi\mathbb{Z}}$ is used to
-encode that $t_1,\ldots,t_k,\lambda\in\pi\mathbb{Z}$. Finally,
+$E_{\pi\Integers}\subseteq\mathcal{E}_{\pi\Integers}$ is used to
+encode that $t_1,\ldots,t_k,\lambda\in\pi\Integers$. Finally,
 $E_{=}\subseteq\mathcal{E}_{+}\cup\mathcal{E}_{\times}$ is used to
 encode $t_{0}=0$ and $1\leqslant \lambda\leqslant4$.  The
 latter is done by adding the polynomial equations $\lambda=1+\alpha^2$ and
 $\lambda=4-\beta^2$ for some $\alpha$ and $\beta$. Finally we have the
 following chain of equivalences:
 \begin{align*}
-&\exists t_0,\ldots,\lambda\geqslant0\text{ s.t. }E_Q\cup E_{\pi\mathbb{Z}}\cup E_{=}\text{ is satisfied }\\
+&\exists t_0,\ldots,\lambda\geqslant0\text{ s.t. }E_Q\cup E_{\pi\Integers}\cup E_{=}\text{ is satisfied }\\
 &\qquad\Leftrightarrow\exists t_1,\ldots,\lambda\geqslant0\text{ s.t. } 0=Q(t_1,\ldots,t_k,\lambda)\\
-    &\qquad\qquad\wedge t_1,\ldots,t_k,\lambda\in\pi\mathbb{Z}\wedge 1\leqslant\lambda\leqslant4\\
-&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\mathbb{N}\text{ s.t. } 0=Q(\pi n_1,\ldots,\pi n_k,\pi)\\
-&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\mathbb{N}\text{ s.t. } 0=\pi^d Q(n_1,\ldots,n_k,1)\\
-&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\mathbb{N}\text{ s.t. } 0=P(n_1,\ldots,n_k).\\
+    &\qquad\qquad\wedge t_1,\ldots,t_k,\lambda\in\pi\Integers\wedge 1\leqslant\lambda\leqslant4\\
+&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\Naturals\text{ s.t. } 0=Q(\pi n_1,\ldots,\pi n_k,\pi)\\
+&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\Naturals\text{ s.t. } 0=\pi^{d} Q(n_1,\ldots,n_k,1)\\
+&\qquad\Leftrightarrow\exists n_1,\ldots,n_k\in\Naturals\text{ s.t. } 0=P(n_1,\ldots,n_k).\\
 \end{align*}
 \end{proof}

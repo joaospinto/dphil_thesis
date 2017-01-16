@@ -13,11 +13,7 @@
 %% the requirement that this intersection holds infinitely often, but
 %% instead ask whether it holds at least once, even though this would
 %% probably involve some technology that was not needed in this paper,
-%% such as Baker's theorem \cite{BW93}. Moreover, we could use Baker's
-%% theorem in order to characterise, up to dimension $4$, the set of
-%% nonterminating points as a convex, closed, semi-algebraic set,
-%% partially solving the \textbf{EXPSPACE}-hard problem raised by
-%% Ben-Amram in \cite{BGM12}.
+%% such as Baker's theorem \cite{BW93}.
 
 %% As opposed to what happens with the problems of deciding termination
 %% over the reals and rationals, it seems to be hard to come up with a
@@ -33,9 +29,9 @@
 %% bounded, in which case this problem reduces to that of finding a cycle
 %% in a graph.
 
-%% While the \textbf{NP}-hardness of this problem suggests that
+%% While the \NP-hardness of this problem suggests that
 %% termination over the integers is intrinsically harder, the gap between
-%% this lower bound and our \textbf{EXPSPACE} upper bound is far from
+%% this lower bound and our \EXPSPACE upper bound is far from
 %% satisfactory.
 
 We have shown decidability of termination of simple linear loops over
@@ -48,15 +44,15 @@ In this respect it is interesting to note that there are other
 settings in which universal termination is an easier problem than
 pointwise termination. For example, universal termination of Petri
 nets (also known as \textit{structural boundedness}) is
-\textbf{PTIME}-decidable, but the pointwise termination problem is
-\textbf{EXPSPACE}-hard.
+\PTIME-decidable, but the pointwise termination problem is
+\EXPSPACE-hard.
 
 A natural subject for further work is whether our techniques can be
 extended to non-diagonalisable matrices, or whether, as is the case
 for pointwise termination~\cite{OW14:SODA}, there are unavoidable
 number-theoretic obstacles to proving decidability.  We would also like
 to further study the computational complexity of the termination
-problem.  While there is a large gap between the \textbf{coNP} lower
+problem.  While there is a large gap between the \coNP lower
 complexity bound mentioned in the Introduction and the exponential
 space upper bound of our procedure, this may be connected with the
 fact that our procedure computes a representation of the set of all
@@ -68,7 +64,7 @@ terminating points would allow us to solve the termination problem
 over fixed initial values.
 
 %% We conjecture that deciding eventual termination for all integer
-%% points in a given convex semi-algebraic set is \textbf{EXPSPACE}-hard,
+%% points in a given convex semi-algebraic set is \EXPSPACE-hard,
 %% as is the problem of deciding termination for all integer points in a
 %% given polytope \cite{BGM12}, but believe that better bounds on the
 %% universal termination problem over the integers should be possible to

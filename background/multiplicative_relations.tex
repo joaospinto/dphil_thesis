@@ -1,5 +1,5 @@
 %BEGIN SODA
-\section{Groups of Multiplicative Relations}
+\subsection{Groups of Multiplicative Relations}
 \label{sec:mult}
 
 This section introduces some concepts concerning groups of
@@ -19,35 +19,37 @@ considered as a group under componentwise multiplication.
 Given a tuple of algebraic numbers
 $\myvector\lambda=(\lambda_1,\ldots,\lambda_s)$, in this section we
 consider how to effectively represent the \emph{orbit} $\{
-\myvector\lambda^n : n \in \mathbb{N}\}$.  More
+\myvector\lambda^n : n \in \Naturals\}$.  More
 precisely, we will give an algebraic representation of the topological
 closure of that orbit in $\mathbb{T}^s$.
 
 The \emph{group of multiplicative relations} of
 $\myvector{\lambda}$, which is an additive subgroup of
-$\mathbb{Z}^s$, is defined as
+$\Integers^s$, is defined as
 \begin{equation*}
-L(\myvector{\lambda})=\lbrace \myvector{v}\in \mathbb{Z}^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
+L(\myvector{\lambda})=\lbrace \myvector{v}\in \Integers^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
 \end{equation*}
 where $\myvector\lambda^{\myvector v}$ is defined to be
-$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \mathbb{Z}^s$, that is, exponentiation acts
+$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \Integers^s$, that is, exponentiation acts
 coordinatewise.
 
-Since $\mathbb{Z}^s$ is a free abelian group, its subgroups are also
+Since $\Integers^s$ is a free abelian group, its subgroups are also
 free.  In particular, $L(\myvector\lambda)$ has a finite basis. The
 following powerful theorem of Masser~\cite{Mas88} gives bounds on the
 magnitude of the components of such a basis.
 
+Together with \cref{thm:Baker}, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers.
+
 \begin{theorem}[Masser]
-\label{masser}
-The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1,\cdots,\myvector{v}_l\in\mathbb{Z}^s$ for which
+\label{thm:masser}
+The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1,\cdots,\myvector{v}_l\in\Integers^s$ for which
 \[ \max\limits_{1\leq i\leq l,1\leq j\leq s} \lvert v_{i,j} \rvert \leq (D\log H)^{O(s^2)} \]
 where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_i$.
 \end{theorem}
-Membership of a tuple $\myvector{v}\in \mathbb{Z}^s$ in
+Membership of a tuple $\myvector{v}\in \Integers^s$ in
 $L(\myvector{\lambda})$ can be computed in polynomial space, using a
 decision procedure for the existential theory of the reals.  In
-combination with \cref{masser}, it follows that we can compute
+combination with \cref{thm:masser}, it follows that we can compute
 a basis for $L(\myvector{\lambda})$ in polynomial space by
 brute-force search.
 
@@ -63,27 +65,15 @@ V,\,\,\myvector\mu^{\myvector v}=1\}$.  Crucially, this finitary
 characterisation allows us to represent $T(\myvector\lambda)$ as a
 semi-algebraic set.
 
-We will use the following classical lemma of Kronecker on simultaneous
-Diophantine approximation, in order to show that the orbit $\lbrace
-\myvector\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of
+We will use the \cref{thm:Kronecker} in order to show that the orbit $\lbrace
+\myvector\lambda^n : n\in\Naturals \rbrace$ is a dense subset of
 $T(\myvector{\lambda})$.
-
-\begin{lemma}
-  Let $\myvector \theta,\myvector \psi\in\Reals^s$. Suppose that for all $\myvector v\in\mathbb{Z}^s$, if
-  $\myvector v^T\myvector \theta\in\mathbb{Z}$ then also
-  $\myvector v^T\myvector\psi\in\mathbb{Z}$, i.e., all integer
-  relations among the coordinates of $\myvector \theta$ also hold
-  among those of $\myvector\psi$ (modulo $\mathbb{Z}$). Then, for
-  each $\varepsilon>0$, there exist $\myvector p\in\mathbb{Z}^s$ and
-  a non-negative integer $n$ such that
-\[ \| n\myvector\theta - \myvector p - \myvector\psi \|_\infty \leq\varepsilon \, .\]
-\end{lemma}
 
 We now arrive at the main result of the section:
 
 \begin{theorem}
 \label{dense}
-Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambda^n : n\in\mathbb{N} \rbrace$ is a dense subset of $T(\myvector{\lambda})$.
+Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambda^n : n\in\Naturals \rbrace$ is a dense subset of $T(\myvector{\lambda})$.
 \end{theorem}
 
 \begin{proof}
@@ -91,13 +81,13 @@ Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambd
   $\myvector\lambda=e^{2\pi i\myvector\theta}$ (with
   exponentiation operating coordinatewise). Notice that
   $\myvector\lambda^{\myvector v}=1$ if and only if $\myvector v^T
-  \myvector\theta\in\mathbb{Z}$. If $\myvector\mu\in
+  \myvector\theta\in\Integers$. If $\myvector\mu\in
   T(\myvector{\lambda})$, we can likewise define
   $\myvector\psi\in\Reals^s$ to be such that
   $\myvector\mu=e^{2\pi i \myvector\psi}$. Then the premisses of
   Kronecker's lemma apply to $\myvector \theta$ and $\myvector
   \psi$. Thus, given $\varepsilon>0$, there exist a non-negative
-  integer $n$ and $\myvector p\in\mathbb{Z}^s$ such that $\|
+  integer $n$ and $\myvector p\in\Integers^s$ such that $\|
   n\myvector \theta -\myvector p-\myvector \psi \|_\infty
   \leq\varepsilon$. Whence
 \[ \| \myvector\lambda^n-\myvector\mu \|_\infty = \| e^{2\pi i(n\myvector\theta-\myvector p)}-e^{2\pi i \myvector\psi} \|_\infty \leq \]
@@ -108,7 +98,7 @@ Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambd
 %BEGIN HSCC
 Given a vector $\myvector{\lambda} \in \Algebraics^{m}$, its \emph{group of multiplicative relations} is defined as
 \begin{align*}
-L(\myvector{\lambda}) = \lbrace \myvector{v} \in \mathbb{Z}^{m} : \myvector{\lambda}^{\myvector{v}} = 1 \rbrace .
+L(\myvector{\lambda}) = \lbrace \myvector{v} \in \Integers^{m} : \myvector{\lambda}^{\myvector{v}} = 1 \rbrace .
 \end{align*}
 
 Moreover, letting $\log$ represent a fixed branch of the complex logarithm function, note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\Rationals$ if and only if
@@ -116,12 +106,12 @@ Moreover, letting $\log$ represent a fixed branch of the complex logarithm funct
 L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
 \end{align*}
 
-Being a subgroup of the free finitely generated abelian group $\mathbb{Z}^{m}$, the group $L(\myvector{\lambda})$ is also free and admits a finite basis.
+Being a subgroup of the free finitely generated abelian group $\Integers^{m}$, the group $L(\myvector{\lambda})$ is also free and admits a finite basis.
 
 The following theorem, due to David Masser, allows us to effectively determine $L(\myvector{\lambda})$, and in particular decide whether it is equal to $\lbrace \myvector{0} \rbrace$. This result can be found in \cite{Masser}.
 
 \begin{theorem}[Masser]
-The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_{1}, \ldots, \myvector{v}_{l} \in \mathbb{Z}^{m}$ for which
+The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_{1}, \ldots, \myvector{v}_{l} \in \Integers^{m}$ for which
 \begin{align*}
 \max\limits_{1 \leq i \leq l, 1 \leq j \leq m} \lvert v_{i,j} \rvert \leq (D \log H)^{O(m^{2})}
 \end{align*}

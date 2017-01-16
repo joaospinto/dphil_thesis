@@ -32,7 +32,7 @@ witness set for \textsf{P4} using exponential space if all complex eigenvalues o
 % witness set $W$ is required to be convex and semi-algebraic, and to
 % satisfy
 % \begin{equation*}
-% W\cap\Algebraics^d=\mathit{ENT}\cap\Algebraics^d \, ,
+% W\cap\Algebraics^{d}=\mathit{ENT}\cap\Algebraics^{d} \, ,
 % \end{equation*}
 % where $\mathit{ENT}$ is the set of eventually non-terminating initial
 % values of \textsf{P4}.  The construction of such a witness set will
@@ -71,7 +71,7 @@ $J^n=\mathit{Diag}(J^n_1,\ldots,J^n_N)$, where each block $J_i^n$ has the form
 
                  Let $A$ have eigenvalues $\lambda_1,\ldots,\lambda_l$,
                  with respective indices $\nu_1,\ldots,\nu_l$.
-Given $\myvector{u}\in\Reals^d$, from
+Given $\myvector{u}\in\Reals^{d}$, from
                  our observations on the form of $J^n$, we can write
 \begin{gather}
 \myvector{b}^TA^n\myvector{u} =
@@ -94,8 +94,8 @@ comprised of algebraic integers.
 Now let us partition the eigenvalues of $A$ into sets $S_1,\ldots,S_m$
 by grouping eigenvalues of equal modulus.  Assume that $S_1$ contains
 eigenvalues of maximum modulus, $S_2$ eigenvalues of the next greatest
-modulus, etc.  Correspondingly we write $\Reals^d$ as a
-direct sum of subspaces $\Reals^d = V_1 \oplus \ldots \oplus V_m$,
+modulus, etc.  Correspondingly we write $\Reals^{d}$ as a
+direct sum of subspaces $\Reals^{d} = V_1 \oplus \ldots \oplus V_m$,
 where each subspace $V_i$ is the sum of (generalised) eigenspaces of
 $A$ associated to eigenvalues in $S_i$.  By the assumption that $A$ is
 non-degenerate, i.e., that no quotient of two distinct eigenvalues is
@@ -112,11 +112,11 @@ our goal is to show that $\mathit{ENT}_i$ is semi-algebraic.
 Given $\myvector{u} \in V_i$, membership of $\myvector{u}$ in
 $\mathit{ENT}_i$ can be characterised in terms of the \emph{ultimate
   positivity} of the sequence $\langle\,
-\myvector{b}^TA^n\myvector{u}:n\in\mathbb{N}\,\rangle$.  More
+\myvector{b}^TA^n\myvector{u}:n\in\Naturals\,\rangle$.  More
 precisely, $\myvector{u} \in \mathit{ENT}_i$ if and only if
 $\myvector{b}^TA^n\myvector{u} \geq 0$ for all but finitely many
 $n$.  In particular, defining
-\[ \mathit{ZERO}:=\{\myvector{u} \in \Reals^d: \forall
+\[ \mathit{ZERO}:=\{\myvector{u} \in \Reals^{d}: \forall
 n\geq d,\, \myvector{b}^TA^n\myvector{u}=0 \} \, \] and
 $\mathit{ZERO}_i:=\mathit{ZERO}\cap V_i$, we have that
 $\mathit{ZERO}_i\subseteq \mathit{ENT}_i$.
@@ -126,11 +126,11 @@ the uniqueness part of~\cite[Proposition 2.11]{TUCS05} implies that
 $\myvector{b}^TA^n\myvector{u}=0$ for all $n\geq d$ if and only if
 each term $n^k\lambda_j^n$ has coefficient zero in the expression
 (\ref{eq:master}).  Thus
-\[ \mathit{ZERO} = \left\{ \myvector{u}\in \Reals^d :
+\[ \mathit{ZERO} = \left\{ \myvector{u}\in \Reals^{d} :
 \bigwedge_{j=1}^{l}\bigwedge_{k=0}^{\nu_j-1}
 \myvector{\alpha}_{j,k}^T\myvector{u}= 0 \right\} \, .\] is
 semi-algebraic.  Since $V_i$ is a semi-algebraic subset of
-$\Reals^d$, being spanned by a subset of the columns of $P$, it
+$\Reals^{d}$, being spanned by a subset of the columns of $P$, it
 follows that $\mathit{ZERO}_i$ is semi-algebraic.
 
 \begin{proposition}
@@ -185,7 +185,7 @@ Define $f:\mathbb{T}\rightarrow\Reals$ by
 Then $\myvector{b}^TA^n\myvector{u} = \rho^n f(\lambda^n/\rho^n)$ for all $n\geq d$.
 
 Since $A$ is assumed to be non-degenerate, $\lambda/\rho$ is not a
-root of unity.  Thus $\{\lambda^n/\rho^n:n\in\mathbb{N}\}$ is dense in
+root of unity.  Thus $\{\lambda^n/\rho^n:n\in\Naturals\}$ is dense in
 $\mathbb{T}$.  It follows that $\myvector{u}\in\mathit{ENT}$ if and
 only if $f(z)\geq 0$ for all $z\in\mathbb{T}$.  By inspection this
 last condition is equivalent to $\myvector{\alpha}_0^T\myvector{u}
@@ -255,7 +255,7 @@ rewrite (\ref{eq:exp-poly}) as
                \frac{\lambda^n_s}{\rho^n}\right)^T \myvector{u} \, ,
 \label{eq:f-exp}
 \end{gather}
-where $f:\mathbb{T}^s\rightarrow\Reals^d$ is defined by
+where $f:\mathbb{T}^s\rightarrow\Reals^{d}$ is defined by
 \[f(z_1,\ldots,z_s)=\myvector{\alpha}_0 + \sum_{j=1}^s \myvector{\beta}_jz_j + \overline{\myvector{\beta}_jz_j} \, .\]
 Defining $\myvector\mu=(\lambda_1/\rho,\ldots,\lambda_s/\rho)$, we furthermore rewrite (\ref{eq:f-exp}) as
 \begin{gather}
@@ -265,7 +265,7 @@ Defining $\myvector\mu=(\lambda_1/\rho,\ldots,\lambda_s/\rho)$, we furthermore r
 \end{gather}
 
 By \cref{dense}, $\{ \myvector\mu^n : n \in
-\mathbb{N} \}$ is a dense subset of the torus $T(\myvector{\mu})$.
+\Naturals \}$ is a dense subset of the torus $T(\myvector{\mu})$.
 Thus the right-hand side of (\ref{eq:f2-exp}) is non-negative for
 every $n$ if and only if $f(\myvector{z})^T\myvector{u}\geq 0$ for
 all $\myvector{z}\in T(\myvector{\mu})$.  It follows that
@@ -283,7 +283,7 @@ that we can express the condition $\forall \myvector{z}\in
 T(\myvector{\mu}),\, f(\myvector{z})^T\myvector{u}\geq 0$ in the
 first-order theory of the reals.  By the Tarski-Seidenberg theorem
 \cite{Tar51} on quantifier elimination, the set of $\myvector{u}\in
-\Reals^d$ satisfying this condition is semi-algebraic.  But now
+\Reals^{d}$ satisfying this condition is semi-algebraic.  But now
 $\mathit{ENT}_i$ is the union of the two semi-algebraic sets
 (\ref{eq:ENT1}) and (\ref{eq:ENT2}), and therefore $\mathit{ENT}_i$ is
 itself semi-algebraic.
@@ -293,7 +293,7 @@ Having shown that $\mathit{ZERO}_i$ and $\mathit{ENT}_i$ are
 semi-algebraic sets for $i=1,\ldots,m$, we now define a witness set
 $W$ for the loop \textsf{P4}.
 
-Given $\myvector{u} \in \Reals^d$, write $\myvector{u}=
+Given $\myvector{u} \in \Reals^{d}$, write $\myvector{u}=
 \myvector{u}_1+\ldots+\myvector{u}_m$, with $\myvector{u}_1 \in
 V_1,\ldots,\myvector{u}_m\in V_m$.  Say that $\myvector{u}_i$ is
 the \emph{dominant component} of $\myvector{u}$ if
@@ -302,12 +302,12 @@ $\myvector{u}_j\in\mathit{ZERO}_j$ for all $j<i$.  The intuition is
 that if $\myvector{u}_i$ is dominant then the eventual
 non-termination of \textsf{P4} on $\myvector{u}$ is determined by
 its eventual non-termination on $\myvector{u}_i$.  However, to prove
-this we need to assume $\myvector{u}\in (\Algebraics\cap\Reals)^d$.  Formally we
+this we need to assume $\myvector{u}\in (\Algebraics\cap\Reals)^{d}$.  Formally we
 have:
 
 \begin{proposition}
   If $\myvector{u}_i$ is the dominant component of $\myvector{u}
-  \in (\Algebraics\cap\Reals)^d$ then $\myvector{u}\in\mathit{ENT}$ if and only
+  \in (\Algebraics\cap\Reals)^{d}$ then $\myvector{u}\in\mathit{ENT}$ if and only
 if $\myvector{u}_i \in \mathit{ENT}$.
 \label{prop:dominant}
 \end{proposition}
@@ -320,7 +320,7 @@ From the fact that $\myvector{u}_i$ is dominant we have:
 \label{eq:part}
 \end{eqnarray}
 for all $n\geq d$.  Moreover, for each $j>i$ it is clear that
-  $|\myvector{b}^TA^n\myvector{u}_j| = O(n^d\rho_j^n)$, where
+  $|\myvector{b}^TA^n\myvector{u}_j| = O(n^{d}\rho_j^n)$, where
   $\rho_j\geq 0$ is the modulus of the eigenvalues in $S_j$.
 
   We now consider three cases, mirroring the proof of
@@ -371,7 +371,7 @@ $\myvector{u}\in\mathit{ENT}$ if and only if $\myvector{u}_i\in
 
 Now we define a witness set $W$ for program \textsf{P4} by
 \begin{align*}
-W :=   \bigcup_{i=1}^m \{\myvector{u}\in \Reals^d: \,
+W :=   \bigcup_{i=1}^m \{\myvector{u}\in \Reals^{d}: \,
          & \myvector{u}_i \mbox{ is the dominant component of } \myvector{u},\\
          & \myvector{u}_i \in \mathit{ENT} \}
 \cup \mathit{ZERO} \, .
@@ -380,7 +380,7 @@ W :=   \bigcup_{i=1}^m \{\myvector{u}\in \Reals^d: \,
 From the fact that $\mathit{ZERO}_i$, $\mathit{ENT}_i$, and $V_i$ are
 semi-algebraic for $i=1,\ldots,m$, it is easy to see that $W$ is
 semi-algebraic.  It moreover follows from \cref{prop:dominant}
-that $W \cap \Algebraics^d = \mathit{ENT} \cap \Algebraics^d$.
+that $W \cap \Algebraics^{d} = \mathit{ENT} \cap \Algebraics^{d}$.
 
 To conclude the proof of \cref{prop:main2}, it
 remains to observe that the witness set $W$, like the actual set
@@ -422,25 +422,25 @@ using the fact that the set algebraic points in any semi-algebraic set
 is dense in that set. (See the Appendix for details).  From
 this we have:
 \begin{align*}
-\overline{W}=\overline{W\cap\Algebraics^d}=\overline{\mathit{ENT}\cap\Algebraics^d} \subseteq \overline{\mathit{ENT}}\cap\overline{\Algebraics^d}=\overline{\mathit{ENT}}
+\overline{W}=\overline{W\cap\Algebraics^{d}}=\overline{\mathit{ENT}\cap\Algebraics^{d}} \subseteq \overline{\mathit{ENT}}\cap\overline{\Algebraics^{d}}=\overline{\mathit{ENT}}
 \end{align*}
 
 The reverse inclusion, $\overline{ENT}\subseteq\overline{W}$, can be
 shown in similar fashion but this time using the fact that
-$\mathit{ENT}\cap\Algebraics^d$ is dense in $\mathit{ENT}$.  Our
+$\mathit{ENT}\cap\Algebraics^{d}$ is dense in $\mathit{ENT}$.  Our
 remaining goal is this last fact, which is established in
 \cref{corl:dense} below.
 
 We have previously shown that a vector of algebraic numbers
-$\myvector{u}\in (\Algebraics\cap\Reals)^d$ is eventually
+$\myvector{u}\in (\Algebraics\cap\Reals)^{d}$ is eventually
 non-terminating if and only if its dominant component
 $\myvector{u}_i$ is eventually non-terminating.  We now prove a
 partial result of this nature for general vectors $\myvector{u}\in
-\Reals^d$.
+\Reals^{d}$.
 
 \begin{proposition}
   Suppose that $\myvector u=\myvector u_1+\cdots+\myvector
-  u_m\in \Reals^d$, where $\myvector u_1\in
+  u_m\in \Reals^{d}$, where $\myvector u_1\in
   V_1,\ldots,\myvector u_m\in V_m$. Then $\myvector
   u\in\mathit{ENT}$ implies that its dominant component $\myvector
   u_i$ is also in \textit{ENT}.
@@ -456,17 +456,17 @@ partial result of this nature for general vectors $\myvector{u}\in
 \end{proof}
 
 \begin{corollary}
-$\mathit{ENT}\cap\Algebraics^d$ is dense in \textit{ENT}.
+$\mathit{ENT}\cap\Algebraics^{d}$ is dense in \textit{ENT}.
 \label{corl:dense}
 \end{corollary}
 
 \begin{proof}
   At several points we will rely on the fact that if
-  $X\subseteq\Reals^d$ is semi-algebraic, then the algebraic
+  $X\subseteq\Reals^{d}$ is semi-algebraic, then the algebraic
   points in $X$ are dense in $X$.  (See Appendix for details.)
 
   Fix $\myvector u\in\mathit{ENT}$ and let $\varepsilon>0$ be
-  given. We will find $\myvector v\in \mathit{ENT}\cap \Algebraics^d$
+  given. We will find $\myvector v\in \mathit{ENT}\cap \Algebraics^{d}$
   such that $||\myvector u-\myvector v||<\varepsilon$.
 
   The case in which $\myvector u \in \mathit{ZERO}$ is easy since
@@ -480,15 +480,15 @@ $\mathit{ENT}\cap\Algebraics^d$ is dense in \textit{ENT}.
   \cref{prop:dom2}, $\myvector u\in\mathit{ENT}$ implies
   that $\myvector u_i\in \mathit{ENT}$. Since $\mathit{ENT}\cap V_i$
   is semi-algebraic, we can pick $\myvector v_i\in \mathit{ENT}\cap
-  V_i\cap\Algebraics^d$ such that $\| \myvector v_i -\myvector u_i
+  V_i\cap\Algebraics^{d}$ such that $\| \myvector v_i -\myvector u_i
   \|<\varepsilon/n$. For each $j>i$, we pick some $\myvector v_j\in
-  V_j\cap \Algebraics^d$ for which $\| \myvector v_j - \myvector
+  V_j\cap \Algebraics^{d}$ for which $\| \myvector v_j - \myvector
   u_j\|<\varepsilon/n$.  For each $j<i$ we pick some $v_j \in
-  \mathit{ZERO}\cap V_j\cap \Algebraics^d$ for which $\| \myvector
+  \mathit{ZERO}\cap V_j\cap \Algebraics^{d}$ for which $\| \myvector
   v_j - \myvector u_j\|<\varepsilon/n$.
 
   Then, letting $\myvector v=\myvector v_1+\cdots+\myvector v_m
-  \in \Algebraics^d$, it follows that $\|\myvector u-\myvector
+  \in \Algebraics^{d}$, it follows that $\|\myvector u-\myvector
   v\|<\varepsilon$.  Finally, by \cref{prop:dominant} we
   have $\myvector v\in\mathit{ENT}$ since $\myvector v_i$ is the
   dominant component of $\myvector v$ and $\myvector v_i \in
