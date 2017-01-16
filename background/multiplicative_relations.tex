@@ -2,74 +2,56 @@
 \subsection{Groups of Multiplicative Relations}
 \label{sec:mult}
 
-This section introduces some concepts concerning groups of
-multiplicative relations among algebraic numbers.  Here we will assume
-some basic notions from algebraic number theory and the first-order
-theory of reals.  We assume also a natural first-order interpretation of
-the field of complex numbers in the ordered field of real numbers (in
-which each complex number is encoded as a pair comprising its real and
-imaginary parts).  Under this interpretation we refer to sets of
-complex numbers as being semi-algebraic and first-order definable.
-Details of the relevant notions can be found in the Appendix.
+This section introduces some concepts concerning groups of multiplicative relations among algebraic numbers. We assume a natural first-order interpretation of the field of complex numbers in the ordered field of real numbers (in which each complex number is encoded as a pair comprising its real and imaginary parts). Under this interpretation we refer to sets of complex numbers as being semi-algebraic and first-order definable.
 
-Let $\mathbb{T}=\lbrace z\in\Complex: \lvert z\rvert =1\rbrace$.  We
-define the \emph{$s$-dimensional torus} to be $\mathbb{T}^s$,
-considered as a group under componentwise multiplication.
+Let $\mathbb{T}=\lbrace z \in \Complex: \lvert z \rvert = 1 \rbrace$. We define the \emph{$s$-dimensional torus} to be $\mathbb{T}^s$, considered as a group under componentwise multiplication. Then the function $x \mapsto \exp(2 \pi i x)$ is a homomorphism from the additive group of real numbers to $\mathbb{T}$, with kernel the subgroup of integers. By abuse of notation, we will also allow $\exp$ to be applied component-wise to a vector of reals.
 
-Given a tuple of algebraic numbers
-$\myvector\lambda=(\lambda_1,\ldots,\lambda_s)$, in this section we
-consider how to effectively represent the \emph{orbit} $\{
-\myvector\lambda^n : n \in \Naturals\}$.  More
-precisely, we will give an algebraic representation of the topological
-closure of that orbit in $\mathbb{T}^s$.
+Given a tuple of algebraic numbers $\myvector{\lambda} = (\lambda_{1}, \ldots, \lambda_{s}) \in \mathbb{T}^{s}$, we consider how to effectively represent the \emph{orbit}
+\begin{equation*}
+\lbrace \myvector{\lambda}^{n} : n \in \Naturals \rbrace.
+\end{equation*}
+More precisely, we will give an algebraic representation of the topological closure of that orbit in $\mathbb{T}^s$.
 
-The \emph{group of multiplicative relations} of
-$\myvector{\lambda}$, which is an additive subgroup of
-$\Integers^s$, is defined as
+The \emph{group of multiplicative relations} of $\myvector{\lambda}$, which is an additive subgroup of $\Integers^s$, is defined as
 \begin{equation*}
 L(\myvector{\lambda})=\lbrace \myvector{v}\in \Integers^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
 \end{equation*}
-where $\myvector\lambda^{\myvector v}$ is defined to be
-$\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \Integers^s$, that is, exponentiation acts
-coordinatewise.
+where $\myvector\lambda^{\myvector v}$ is defined to be $\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \Integers^s$, that is, exponentiation acts coordinatewise.
 
 Since $\Integers^s$ is a free abelian group, its subgroups are also
 free.  In particular, $L(\myvector\lambda)$ has a finite basis. The
 following powerful theorem of Masser~\cite{Mas88} gives bounds on the
 magnitude of the components of such a basis.
 
-Together with \cref{thm:Baker}, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers.
+Note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\Rationals$ if and only if
+\begin{align*}
+L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
+\end{align*}
+Together with \cref{thm:Baker}, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers, and therefore also to test whether a linear form in logarithms of algebraic numbers is zero.
 
 \begin{theorem}[Masser]
 \label{thm:masser}
-The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1,\cdots,\myvector{v}_l\in\Integers^s$ for which
+The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1, \ldots, \myvector{v}_{l} \in \Integers^{s}$ for which
 \[ \max\limits_{1\leq i\leq l,1\leq j\leq s} \lvert v_{i,j} \rvert \leq (D\log H)^{O(s^2)} \]
-where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_i$.
+where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_{i}$.
 \end{theorem}
-Membership of a tuple $\myvector{v}\in \Integers^s$ in
-$L(\myvector{\lambda})$ can be computed in polynomial space, using a
-decision procedure for the existential theory of the reals.  In
-combination with \cref{thm:masser}, it follows that we can compute
-a basis for $L(\myvector{\lambda})$ in polynomial space by
-brute-force search.
+Membership of a tuple $\myvector{v}\in \Integers^{s}$ in $L(\myvector{\lambda})$ can be computed in polynomial space, using a decision procedure for the existential theory of the reals. In combination with \cref{thm:masser}, it follows that we can compute a basis for $L(\myvector{\lambda})$ in polynomial space by brute-force search (due to Savitch's theorem).
 
 Corresponding to $L(\myvector{\lambda})$, we consider the following
-multiplicative subgroup of $\mathbb{T}^s$:
+multiplicative subgroup of $\mathbb{T}^{s}$:
 \begin{equation*}
-T(\myvector{\lambda})=\lbrace \myvector \mu\in\mathbb{T}^s : \forall \myvector v\in L(\myvector\lambda),\,\myvector\mu^{\myvector v}=1\rbrace \, .
+T(\myvector{\lambda})=\lbrace \myvector{\mu} \in \mathbb{T}^{s} : \forall \myvector{v} \in L(\myvector{\lambda}), \, \myvector{\mu}^{\myvector{v}} = 1 \rbrace \, .
 \end{equation*}
-If $V$ is a basis of $L(\myvector{\lambda})$ then we can
-equivalently characterise $T(\myvector{\lambda})$ as $\{
-\myvector{\mu} \in \mathbb{T}^s: \forall \myvector{v}\in
-V,\,\,\myvector\mu^{\myvector v}=1\}$.  Crucially, this finitary
-characterisation allows us to represent $T(\myvector\lambda)$ as a
-semi-algebraic set.
+If $\mathcal{B}$ is a basis of $L(\myvector{\lambda})$ then we can
+equivalently characterise $T(\myvector{\lambda})$ as
+\begin{equation*}
+\lbrace \myvector{\mu} \in \mathbb{T}^{s}: \forall \myvector{v} \in \mathcal{B}, \, \, \myvector{\mu}^{\myvector{v}} = 1 \rbrace \, .
+\end{equation*}
+Crucially, this finitary characterisation allows us to represent $T(\myvector\lambda)$ as a semi-algebraic set.
 
 We will use the \cref{thm:Kronecker} in order to show that the orbit $\lbrace
 \myvector\lambda^n : n\in\Naturals \rbrace$ is a dense subset of
 $T(\myvector{\lambda})$.
-
-We now arrive at the main result of the section:
 
 \begin{theorem}
 \label{dense}
@@ -77,44 +59,25 @@ Let $\myvector{\lambda}\in\mathbb{T}^s$. Then the orbit $\lbrace \myvector\lambd
 \end{theorem}
 
 \begin{proof}
-  Let $\myvector \theta\in\Reals^s$ be such that
-  $\myvector\lambda=e^{2\pi i\myvector\theta}$ (with
-  exponentiation operating coordinatewise). Notice that
-  $\myvector\lambda^{\myvector v}=1$ if and only if $\myvector v^T
-  \myvector\theta\in\Integers$. If $\myvector\mu\in
-  T(\myvector{\lambda})$, we can likewise define
-  $\myvector\psi\in\Reals^s$ to be such that
-  $\myvector\mu=e^{2\pi i \myvector\psi}$. Then the premisses of
-  Kronecker's lemma apply to $\myvector \theta$ and $\myvector
-  \psi$. Thus, given $\varepsilon>0$, there exist a non-negative
-  integer $n$ and $\myvector p\in\Integers^s$ such that $\|
-  n\myvector \theta -\myvector p-\myvector \psi \|_\infty
-  \leq\varepsilon$. Whence
-\[ \| \myvector\lambda^n-\myvector\mu \|_\infty = \| e^{2\pi i(n\myvector\theta-\myvector p)}-e^{2\pi i \myvector\psi} \|_\infty \leq \]
-\[ \| 2\pi (n\myvector \theta -\myvector p - \myvector \psi) \|_\infty \leq 2\pi\varepsilon \, .\]
+Let $\myvector{\theta} \in \Reals^{s}$ be such that $\myvector{\lambda} = \exp(2 \pi i \myvector{\theta})$ (with exponentiation operating coordinatewise). Notice that $\myvector{\lambda}^{\myvector{v}} = 1$ if and only if $\myvector{v}^{T} \myvector{\theta} \in \Integers$.
+If $\myvector{\mu} \in T(\myvector{\lambda})$, we can likewise define $\myvector{\psi} \in \Reals^{s}$ to be such that $\myvector{\mu}=\exp(2 \pi i \myvector{\psi})$. Then the premisses of \cref{thm:Kronecker} apply to $\myvector{\theta}$ and $\myvector{\psi}$.
+Thus, given $\varepsilon>0$, there exist a non-negative integer $n$ and a vector $\myvector{p} \in \Integers^{s}$ such that $\dist(n \myvector{\theta} - \myvector{\psi}, \myvector{p}) \leq \varepsilon$.
+Whence
+\begin{equation*}
+  | \myvector{\lambda}^{n}-\myvector{\mu} \|_{\infty} = \| \exp( 2 \pi i (n\myvector{\theta} - \myvector{p})) - \exp(2 \pi i \myvector{\psi}) \|_{\infty} \leq \| 2 \pi (n\myvector{\theta} -\myvector{p} - \myvector{\psi}) \|_\infty \leq 2 \pi \varepsilon \, .
+\end{equation*}
+Given that $\varepsilon$ was arbitrary, it follows that $\lbrace \myvector{\lambda}^{n} : n \in \Naturals \rbrace$ is dense in $T(\myvector{\lambda})$.
 \end{proof}
-%END SODA
 
-%BEGIN HSCC
-Given a vector $\myvector{\lambda} \in \Algebraics^{m}$, its \emph{group of multiplicative relations} is defined as
-\begin{align*}
-L(\myvector{\lambda}) = \lbrace \myvector{v} \in \Integers^{m} : \myvector{\lambda}^{\myvector{v}} = 1 \rbrace .
-\end{align*}
-
-Moreover, letting $\log$ represent a fixed branch of the complex logarithm function, note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\Rationals$ if and only if
-\begin{align*}
-L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
-\end{align*}
-
-Being a subgroup of the free finitely generated abelian group $\Integers^{m}$, the group $L(\myvector{\lambda})$ is also free and admits a finite basis.
-
-The following theorem, due to David Masser, allows us to effectively determine $L(\myvector{\lambda})$, and in particular decide whether it is equal to $\lbrace \myvector{0} \rbrace$. This result can be found in \cite{Masser}.
-
-\begin{theorem}[Masser]
-The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_{1}, \ldots, \myvector{v}_{l} \in \Integers^{m}$ for which
-\begin{align*}
-\max\limits_{1 \leq i \leq l, 1 \leq j \leq m} \lvert v_{i,j} \rvert \leq (D \log H)^{O(m^{2})}
-\end{align*}
-where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_{i}$.
-\end{theorem}
-%END HSCC
+We will also need the following simple corollary:
+\begin{corollary}
+  Let $\myvector{\theta} \in \Reals^{s}$ be such that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. Then $\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace$ is a dense subset of $\mathbb{T}^s$.
+\label{corl:kronecker}
+\end{corollary}
+\begin{proof}
+This result follows from the fact that
+\begin{equation*}
+  L(\exp(2 \pi i \myvector{\theta})) = A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace \, .
+\end{equation*}
+Therefore, $T(\myvector{\lambda}) = \mathbb{T}^{s}$, which establishes the result.
+\end{proof}

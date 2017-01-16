@@ -1,74 +1,45 @@
 \subsection{Laurent polynomials}
 
-A multivariate \textbf{Laurent polynomial} is a polynomial in positive
-and negative powers of variables $z_1,\ldots,z_s$ with complex
-coefficients.  We are interested in Laurent polynomials of the special form
+A multivariate \emph{Laurent polynomial} is a polynomial in positive and negative powers of variables $z_{1}, \ldots, z_{s}$ with complex coefficients. We are interested in Laurent polynomials of the special form
 \[ g = \sum_{j=1}^k \left( c_j {z_1}^{n_{1,j}}\ldots {z_s}^{n_{s,j}} +
     \overline{c_j} {z_1}^{-n_{1,j}}\ldots {z_s}^{-n_{s,j}} \right) \,
-  ,\] where $c_1,\ldots,c_k \in \mathbb{C}$ and
-$n_{1,1},\ldots,n_{s,k} \in \Integers$.  We call such $g$
-\textbf{self-conjugate Laurent polynomials}.  Notice that if
-$a_1,\ldots,a_s \in \mathbb{T}$ then $g(a_1,\ldots,a_s)$ is a real
-number, so we may regard $g$ as a function from $\mathbb{T}^s$ to
-$\mathbb{R}$.
+\]
+where $c_1,\ldots,c_k \in \mathbb{C}$ and $n_{1,1},\ldots,n_{s,k} \in \Integers$.  We call such $g$ \emph{self-conjugate Laurent polynomials}.  Notice that if $\myvector{a} \in \mathbb{T}^{s}$ then $g(\myvector{a})$ is a real number, so we may regard $g$ as a function from $\mathbb{T}^{s}$ to $\Reals$.
 
-We say that $g$ is \textbf{simple} if $g$ has no constant term and
+We say that $g$ is \emph{simple} if $g$ has no constant term and
 each monomial in $g$ mentions only a single variable.
 
-\begin{proposition}
-\label{first}
-Let $g \in \mathbb{C}[z^{\pm 1}_1,\ldots,z^{\pm 1}_s]$ be a
-self-conjugate Laurent polynomial that has no constant term.
-Given real numbers $\theta_1,\ldots,\theta_s \in \mathbb{R}$ such that
-$\theta_1,\ldots,\theta_s,1$ are linearly independent over
-$\mathbb{Q}$, define a function
-$f:\mathbb{R}_{\geq 0}\rightarrow \mathbb{R}$ by
-\[ f(t) = g(\phi(t\theta_1),\ldots,\phi(t\theta_s)) \, .\]
+\begin{lemma}
+\label{lem:first_bound}
+Let $g \in \mathbb{C}[z^{\pm 1}_1,\ldots,z^{\pm 1}_s]$ be a self-conjugate Laurent polynomial that has no constant term.
+Given $\myvector{\theta} \in \Reals^{s}$ such that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$, define a function $f: \Reals_{\geq 0} \rightarrow \Reals$ by
+\[ f(t) = g(\exp(2 \pi i t \myvector{\theta})) \, .\]
 Then either $f$ is identically zero, or
 \begin{align*}
 \liminf\limits_{n\rightarrow\infty} f(n) < 0 \, ,
 \end{align*}
 where $n$ ranges over the nonnegative integers.
-\end{proposition}
-\begin{proof}
-  Recall that we may regard $g$ as a function from
-$\mathbb{T}^s$ to $\mathbb{R}$.  Now we consider the
-  function $g \circ \phi^s : \mathbb{R}^s \rightarrow \mathbb{R}$,
-  \[ (x_1,\ldots,x_s) \mapsto g(\phi(x_1),\ldots,\phi(x_s)) \, . \] We
-  use an averaging argument to establish that either $g\circ\phi^s$ is
-  identically zero on $\mathbb{R}^s$ or there exist
-  $x_1^*,\ldots,x_s^* \in [0,2\pi]$ such that
-  $g(\phi(x_1^*),\ldots,\phi(x_s^*))<0$.
+\end{lemma}
 
-  Since $\int_0^{2\pi} \exp(2\pi i n x) dx=0$ for all non-zero
-  integers $n$, it holds that
+\begin{proof}
+Consider the function $h : \Reals^s \rightarrow \Reals$ given by $\myvector{x} \mapsto g(\exp(2 \pi i \myvector{x}))$.
+We use an averaging argument to establish that either $h$ is identically zero on $\Reals^s$ or there exist $\myvector{x}^{\star} \in [0,1]$ such that $h(\myvector{x}^{\star}) < 0$.
+
+Since, for all non-zero integers $n$,
 \begin{equation*}
-\int_0^{2\pi} \ldots \int_0^{2\pi}
-g(\phi(x_1),\ldots,\phi(x_s))
-dx_1 \ldots dx_s =0 \, .
+  \int_{0}^{1} \exp(2\pi i n x) dx = 0 \, ,
+\end{equation*}
+it holds that
+\begin{equation*}
+\int_{[0, 1]^{s}} h(\myvector{x}) d \myvector{x} = 0 \, .
 \end{equation*}
 %
-Suppose that
-$g\circ \phi^s$ is not identically zero over
-$\mathbb{R}^s$ and hence not identically zero over $[0,2\pi]^{s}$.
-Then $g\circ \phi^s$ cannot be nonnegative on $[0,2\pi]^{s}$, since
-the integral over a set of positive measure of a continuous
-nonnegative function that is not identically zero must be strictly
-positive.  We conclude that there must exist
-$(x_1^*,\ldots,x_s^*) \in [0,2\pi]^{s}$ such that
-$g(\phi(x_1^*),\ldots,\phi(x_s^*))<0$.
+Suppose that $h$ is not identically zero over $\Reals^s$ and hence not identically zero over $[0,1]^{s}$. Then $h$ cannot be nonnegative on $[0,1]^{s}$, since the integral over a set of positive measure of a continuous nonnegative function that is not identically zero must be strictly positive. We conclude that there must exist $\myvector{x}^{\star} \in [0,1]^{s}$ such that $h(\myvector{x}^{\star}) < 0$.
 
-By assumption, $\theta_1,\ldots,\theta_s,1$ are linearly
-independent over $\mathbb{Q}$.  By \cref{corl:kronecker} it
-follows that
-\[ \{ (\phi(n\theta_1),\ldots,\phi(n\theta_s)) : n \in
-  \Naturals \} \] is dense in $\mathbb{T}^s$ and hence has
-$(\phi(x_1^*),\ldots,\phi(x_s^*))$ as a limit point.
-Since $g\circ\phi^s$ is continuous, there are
-arbitrarily large $n\in\Naturals$ for which
-\[
-f(n) = g(\phi(n\theta_1),\ldots,\phi(n\theta_s))
-    \leq \textstyle\frac{1}{2} g(\phi(x_1^*),\ldots,\phi(x_s^*)) < 0 \, , \]
+By assumption, $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. By \cref{corl:kronecker} it follows that
+\[ \lbrace \exp(n \myvector{\theta}) : n \in \Naturals \} \]
+is dense in $\mathbb{T}^s$ and hence has $ \exp(2 \pi i \myvector{x}^{\star})$ as a limit point. Since $h$ is continuous, there are arbitrarily large $n\in\Naturals$ for which
+\[ f(n) = h(n \myvector{\theta}) \leq \frac{1}{2} h(\myvector{x}^{\star}) < 0 \, , \]
 which proves the result.
 \end{proof}
 
@@ -76,65 +47,63 @@ Note that this proof could be made constructive by using an effective
 version of Kronecker's Theorem, as studied in~\cite{ConstructiveKronecker1} and~\cite{ConstructiveKronecker2},
 although we do not make use of this fact in the present paper.
 
-The following consequence of \cref{first} will be key to
+The following consequence of \cref{lem:first_bound} will be key to
 proving decidability of the problem at hand. It is a continuous-time
 analogue of Lemma 4 in~\cite{Bra06}.
 
-\begin{proposition}
-\label{prop:liminf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%CONTINUE HERE%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%ERROR BELOW%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}
+\label{thm:liminf}
 Let $g\in\mathbb{C}[z_1^{\pm 1},\ldots,z_s^{\pm 1}]$ be a simple
-self-conjugate Laurent polynomial and $\theta_1,\ldots,\theta_s$
-non-zero real numbers.  Then either
+self-conjugate Laurent polynomial and $\theta_{1}, \ldots, \theta_{s}$ be
+non-zero real numbers. Then either
 \begin{align*}
-& g(\phi(t\theta_1),\ldots,\phi(t\theta_s)) = 0 \mbox{ for all $t\in\mathbb{R}$}
+& g(\exp(2 \pi i t \theta_{1}),\ldots,\exp(2 \pi i t \theta_{s})) = 0 \mbox{ for all $t\in\Reals$}
 \intertext{or}
 &
-\liminf\limits_{n\rightarrow\infty}  g(\phi(n\theta_1),\ldots,\phi(n\theta_s)) < 0 \, ,
+\liminf\limits_{n\rightarrow\infty}  g(\exp(2 \pi i n \theta_{1}), \ldots, \exp(2 \pi i n \theta_{s})) < 0 \, ,
 \end{align*}
 where $n$ ranges over the nonnegative integers.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
-Note that if $\theta_1,\ldots,\theta_s,1$ are linearly
-  independent over $\mathbb{Q}$ the the result follows
-  from \cref{first}.
-
-More generally, let $\{\theta_1,\ldots,\theta_k\}$ be a maximal
-  subset of $\{\theta_1,\ldots,\theta_s\}$ such that
-$\theta_1,\ldots,\theta_k,1$ are linearly independent over $\mathbb{Q}$.
-Note that $k\geq 1$ since the $\theta_i$ are non-zero.
+Note that if $\theta_{1}, \ldots, \theta_{s}$ are linear independent over $\Rationals$ then the result follows from \cref{lem:first_bound}.
+Otherwise, let $\lbrace \theta_{i_{1}}, \ldots, \theta_{i_{k}} \rbrace$ be a maximal subset of $\lbrace \theta_{1}, \ldots, \theta_{s} \rbrace$ such that $\theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$.
 
 Then, for some $N\in\Naturals$ and each $j\geq k+1$, one can write
 \begin{equation*}
-N\theta_{j}= \left( m  +\sum\limits_{i=1}^{k} n_{i}\theta_{i}\right) \, ,
+N\theta_{j}= \left( m  +\sum\limits_{l=1}^{k} n_{l}\theta_{i_{l}} \right) \, ,
 \end{equation*}
-where $m,n_{1},\ldots,n_{k}$ are integers that depend on $j$, whilst
-$N$ does not depend on $j$.  It follows that for all $j\geq k+1$ and
-$t \in \mathbb{R}$,
+where $m,n_{i_{1}},\ldots,n_{i_{k}}$ are integers that depend on $j$, whilst $N$ does not depend on $j$.  It follows that for all $j\geq k+1$ and
+$t \in \Reals$,
 \begin{align*}
-\phi(N\theta_{j}t) &= \phi(m t) \cdot \prod\limits_{i=1}^{k} \phi( n_i \theta_{i} t) \\
-&= \phi(t)^m \cdot \prod\limits_{i=1}^{k} \phi( \theta_{i} t)^{n_i}  \, .
+\exp(2 \pi i N\theta_{j} t) &= \exp( 2 \pi i m t) \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i  n_{i_{l}} \theta_{i_{l}} t) \\
+&= \exp(2 \pi i t)^{m} \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i \theta_{i_{l}} t)^{n_{i_{l}}}  \, .
 \end{align*}
-In other words, for $j=1,\ldots,s$, $\phi(N\theta_j t)$ can be written
-as a product of positive and negative powers of the terms
-$\phi(t), \phi(\theta_1 t),\ldots,\phi(\theta_k t)$.
+In other words, for all $j \geq k+1$, $\exp(2 \pi i N \theta_{j} t)$ can be written as a product of positive and negative powers of the terms
+\begin{equation*}
+  \exp(2 \pi i t), \exp(2 \pi i \theta_{i_{1}} t), \ldots, \exp(2 \pi i \theta_{i_{k}} t) \, .
+\end{equation*}
 It follows that there exists a self-conjugate Laurent polynomial
-$h\in\mathbb{C}[z_1^{\pm 1},\ldots,z_k^{\pm 1}]$, not necessarily
+$h\in\Complex [z_1^{\pm 1},\ldots,z_k^{\pm 1}]$, not necessarily
 simple, but with zero constant term, such that for all
-$t\in \mathbb{R}$,
-\[ g(\phi(N\theta_1t),\ldots,\phi(N\theta_s t)) =
-  h(\phi(\theta_1t),\ldots,\phi(\theta_k t)) \, .\] Since
-$\theta_1,\ldots,\theta_k,1$ are linearly independent over
-$\mathbb{Q}$, the result follows by applying \cref{first}
+$t\in \Reals$,
+\[ g(\exp(2 \pi N \theta_{1} t), \ldots, \exp(2 \pi N \theta_{s} t)) =
+  h(\exp(2 \pi i \theta_{i_{1}} t),\ldots,\exp(2 \pi i \theta_{i_{k}} t)) \, .\]
+Since $\theta_{i_{1}},\ldots,\theta_{i_{k}},1$ are linearly independent over $\Rationals$, the result follows by applying \cref{lem:first_bound}
 to $h$.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%(removed something from here)%%%%%%%%%%%%%%
 
 In order to compare the asymptotic growth of expressions of the form
-$t^{n}\exp(\lambda t)$, for $\lambda\in\mathbb{R}$ and
+$t^{n}\exp(\lambda t)$, for $\lambda\in\Reals$ and
 $n\in\Naturals_0$, we define $\prec$ to be the lexicographic order on
-$\mathbb{R}\times\Naturals_{0}$, that is,
+$\Reals\times\Naturals_{0}$, that is,
 \begin{equation*}
 (\eta,j)\prec (\rho,m) \quad \mbox{iff} \quad
 \eta<\rho \mbox{ or } (\eta = \rho \mbox{ and } j< m) \, .
@@ -143,51 +112,16 @@ Clearly $\exp(\eta t)t^{j}=o(\exp(\rho t)t^{m})$ as $t\rightarrow \infty$ if and
 
 \begin{definition}
 If $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is not identically zero,
-the maximal $(\rho,m)\in\mathbb{R}\times\Naturals_{0}$ with respect
+the maximal $(\rho,m)\in\Reals\times\Naturals_{0}$ with respect
 to $\prec$ for which there is a term $t^{m}\exp (\lambda t)$ with
 $\Re(\lambda)=\rho$ in the closed-form expression for
 $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is called \emph{dominant} for
 $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$.
 \end{definition}
 
-Before we can proceed, we shall need the following auxiliary result:
-
-\begin{proposition}
-\label{conj-relation}
-Suppose that $\boldsymbol{v}\in\mathbb{R}^{d}$ and that $\boldsymbol{v}=\sum\limits_{\lambda\in\sigma(A)} \boldsymbol{v}_{\lambda}$, where $\boldsymbol{v}_{\lambda} \in\mathcal{V}_{\lambda}$. Then $\boldsymbol{v}_{\overline{\lambda}}$ and $\boldsymbol{v}_{\lambda}$ are component-wise complex conjugates.
-\end{proposition}
-
-\begin{proof}
-  Note that $\boldsymbol{v}_{\lambda}\in \ker(A-\lambda I)^{k}$
-  implies that
-  $\overline{\boldsymbol{v}_{\lambda}} \in \ker(A-\overline{\lambda}
-  I)^{k}$
-  and hence that
-  $\overline{ \boldsymbol{v}_{ \overline{\lambda}}} \in
-  \mathcal{V}_{\lambda}$.  The result follows from the fact that
-\begin{align*}
-\boldsymbol{0}=\boldsymbol{v}-\overline{\boldsymbol{v}}=\sum\limits_{\lambda\in \sigma(A)}(\boldsymbol{v}_{\lambda}-\overline{ \boldsymbol{v}_{ \overline{\lambda}}})
-\end{align*}
-and from uniqueness of the above decomposition.
-%
-%For each $\lambda\in\sigma(A)$, let $f_{\lambda}$ be the function mapping each $\boldsymbol{v}$ to the corresponding $\boldsymbol{v}_{\lambda}$. Fix a basis $\mathcal{B}$ of generalised eigenvectors of $A$, with the property
-%\begin{align*}
-%\boldsymbol{x}\in\mathcal{B}\Rightarrow \overline{\boldsymbol{x}}\in\mathcal{B}
-%\end{align*}
-%For each $\boldsymbol{x}\in\mathcal{B}$, we define a linear functional $g_{\boldsymbol{x}}$ so that
-%\begin{align*}
-%g_{\boldsymbol{x}}(\sum\limits_{\boldsymbol{y}\in\mathcal{B}} \alpha_{\boldsymbol{y}}\boldsymbol{y})=\alpha_{\boldsymbol{x}}
-%\end{align*}
-%Then $\forall \boldsymbol{u}\in\mathbb{C}^{d}, \overline{g_{\overline{\boldsymbol{x}}}(\overline{\boldsymbol{u}})}=g_{\boldsymbol{x}}(\boldsymbol{u})$, as this equality certainly holds when $\boldsymbol{u}\in\mathcal{B}$, and by linearity of both sides. The result follows from the fact that
-%\begin{align*}
-%\forall \boldsymbol{u}\in\mathbb{R}^{d}, f_{\lambda}(\boldsymbol{u})= \sum\limits_{\boldsymbol{x}\in\mathcal{B}:\boldsymbol{x}\in\mathcal{V}_{\lambda}} g_{\boldsymbol{x}}(\boldsymbol{u})\boldsymbol{x}
-%\end{align*}
-%
-\end{proof}
-
 \begin{proposition}
 \label{liminfprop}
-Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\mathbb{R}\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
+Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\Reals\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
 \begin{equation*}
 -\infty<\liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho
   t)t^{m}}<0 \, .
@@ -196,10 +130,10 @@ Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^
 
 \begin{proof}
   Let
-  $\Re(\sigma(A))=\lbrace \eta\in\mathbb{R}:
-  \eta+i\theta\in\sigma(A),\mbox{ for some }\theta\in\mathbb{R}
+  $\Re(\sigma(A))=\lbrace \eta\in\Reals:
+  \eta+i\theta\in\sigma(A),\mbox{ for some }\theta\in\Reals
   \rbrace$. Moreover, for $\eta\in\Re(\sigma(A))$, we define
-  $\boldsymbol{\theta}_{\eta}=\lbrace \theta\in\mathbb{R}_{>0}:
+  $\boldsymbol{\theta}_{\eta}=\lbrace \theta\in\Reals_{>0}:
   \eta+i\theta \in\sigma(A) \rbrace$. By abuse of notation, we also
   use $\boldsymbol{\theta}_{\eta}$ to refer to the vector whose
   coordinates are exactly the members of this set, ordered in an
@@ -217,12 +151,12 @@ for some simple self-conjugate Laurent polynomials
 $g_{(\eta,j)}$.
 Note that
 \begin{equation*}
-(\rho,m)=\max\limits_{\prec} \lbrace (\eta,j)\in\mathbb{R}\times
+(\rho,m)=\max\limits_{\prec} \lbrace (\eta,j)\in\Reals\times
 \Naturals_{0}: g_{(\eta,j)}(\exp(i\boldsymbol{\theta}_{\eta} t)) \not
 \equiv 0 \rbrace \, .
 \end{equation*}
 
-The result then follows from \cref{prop:liminf} and the fact
+The result then follows from \cref{thm:liminf} and the fact
 that
 \begin{align*}
 \liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho t)t^{m}}=

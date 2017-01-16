@@ -23,23 +23,3 @@ Let $\myvector{\alpha}_{1}, \ldots, \myvector{\alpha_{k}} \in \Reals^{d}$ and $\
 \end{theorem}
 
 A proof of this result can be found in~\cite{Cassels}.
-
-Let $\mathbb{T}$ denote the group of complex numbers of modulus $1$, with multiplication as group operation. Then the function $x \mapsto \exp(2 \pi i x)$ is a homomorphism from the additive group of real numbers to $\mathbb{T}$, with kernel the subgroup of integers. By abuse of notation, we will also allow $\exp$ to be applied component-wise to a vector of reals.
-
-We obtain the following simple corollary:
-\begin{corollary}
-  Let $\myvector{\theta} = (\theta_{1}, \ldots, \theta_{s}) \in \Reals^{s}$ be such that $1, \theta_1, \ldots, \theta_s$ are linearly independent over $\Rationals$.
-  Then $\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace$ is a dense subset of $\mathbb{T}^s$.
-\label{corl:kronecker}
-\end{corollary}
-\begin{proof}
-Since $\exp$ is surjective, an arbitrary element of $\mathbb{T}^{s}$ can be written in the form $\exp(2 \pi i \myvector{\psi})$ for some $\myvector{\psi} \in \Reals^{s}$. By hypothesis, we know that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. Applying Kronecker's Theorem, we get that, for all $\varepsilon > 0$, there exists a positive integer $n$ such that
-\begin{equation*}
-  \dist(n \myvector{\theta} - \myvector{\psi}, \Integers^{s}) \leq \varepsilon .
-\end{equation*}
-By continuity of $\exp$ it follows that $\exp(2 \pi i \myvector{\psi})$ is a limit point of
-\begin{equation*}
-\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace .
-\end{equation*}
-This establishes the result.
-\end{proof}

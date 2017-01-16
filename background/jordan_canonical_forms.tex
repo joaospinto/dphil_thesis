@@ -34,6 +34,40 @@ $\myvector{v}=\myvector{v}^{r}+\myvector{v}^{c}$, where
 $\myvector{v}^{r} \in\mathcal{V}^{r}$ and
 $\myvector{v}^{c} \in\mathcal{V}^{c}$.
 
+We will need the following result:
+\begin{proposition}
+\label{conj-relation}
+Suppose that $\boldsymbol{v}\in\mathbb{R}^{d}$ and that $\boldsymbol{v}=\sum\limits_{\lambda\in\sigma(A)} \boldsymbol{v}_{\lambda}$, where $\boldsymbol{v}_{\lambda} \in\mathcal{V}_{\lambda}$. Then $\boldsymbol{v}_{\overline{\lambda}}$ and $\boldsymbol{v}_{\lambda}$ are component-wise complex conjugates.
+\end{proposition}
+
+\begin{proof}
+  Note that $\boldsymbol{v}_{\lambda}\in \ker(A-\lambda I)^{k}$
+  implies that
+  $\overline{\boldsymbol{v}_{\lambda}} \in \ker(A-\overline{\lambda}
+  I)^{k}$
+  and hence that
+  $\overline{ \boldsymbol{v}_{ \overline{\lambda}}} \in
+  \mathcal{V}_{\lambda}$.  The result follows from the fact that
+\begin{align*}
+\boldsymbol{0}=\boldsymbol{v}-\overline{\boldsymbol{v}}=\sum\limits_{\lambda\in \sigma(A)}(\boldsymbol{v}_{\lambda}-\overline{ \boldsymbol{v}_{ \overline{\lambda}}})
+\end{align*}
+and from uniqueness of the above decomposition.
+%
+%For each $\lambda\in\sigma(A)$, let $f_{\lambda}$ be the function mapping each $\boldsymbol{v}$ to the corresponding $\boldsymbol{v}_{\lambda}$. Fix a basis $\mathcal{B}$ of generalised eigenvectors of $A$, with the property
+%\begin{align*}
+%\boldsymbol{x}\in\mathcal{B}\Rightarrow \overline{\boldsymbol{x}}\in\mathcal{B}
+%\end{align*}
+%For each $\boldsymbol{x}\in\mathcal{B}$, we define a linear functional $g_{\boldsymbol{x}}$ so that
+%\begin{align*}
+%g_{\boldsymbol{x}}(\sum\limits_{\boldsymbol{y}\in\mathcal{B}} \alpha_{\boldsymbol{y}}\boldsymbol{y})=\alpha_{\boldsymbol{x}}
+%\end{align*}
+%Then $\forall \boldsymbol{u}\in\mathbb{C}^{d}, \overline{g_{\overline{\boldsymbol{x}}}(\overline{\boldsymbol{u}})}=g_{\boldsymbol{x}}(\boldsymbol{u})$, as this equality certainly holds when $\boldsymbol{u}\in\mathcal{B}$, and by linearity of both sides. The result follows from the fact that
+%\begin{align*}
+%\forall \boldsymbol{u}\in\mathbb{R}^{d}, f_{\lambda}(\boldsymbol{u})= \sum\limits_{\boldsymbol{x}\in\mathcal{B}:\boldsymbol{x}\in\mathcal{V}_{\lambda}} g_{\boldsymbol{x}}(\boldsymbol{u})\boldsymbol{x}
+%\end{align*}
+%
+\end{proof}
+
 Moreover, we can write any matrix $A$ as $A=Q^{-1}JQ$ for some
 invertible matrix $Q$ and block diagonal Jordan matrix
 $J=\diag{J_{1},\ldots,J_{N}}$, with each block $J_{i}$ having the
