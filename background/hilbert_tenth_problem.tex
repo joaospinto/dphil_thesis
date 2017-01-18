@@ -1,0 +1,12 @@
+\subsection{Hilbert's Tenth Problem}
+Given a polynomial $p \in \Integers[x_{1}, \ldots, x_{k}]$, Hilbert's Tenth Problem consists in deciding whether $p(\myvector{x}) = 0$ admits a solution $\myvector{x} \in \Naturals^{k}$. Equivalently, it can be seen as the problem of deciding whether a given semi-algebraic set intersects the integer lattice. The following celebrated theorem, due to Yuri Matiyasevich, settled this question negatively; see~\cite{HTP} for a self-contained proof.
+\begin{theorem}[Matiyasevich]
+Hilbert's Tenth Problem is undecidable.
+\end{theorem}
+This result can be seen as a strengthening of the famous G\"{o}del-Rosser incompleteness theorem, which states that the first-order theory of integers is undecidable. Namely, this result shows that the existential branch of that theory is already undecidable.
+
+We shall also need the following result, shown in~\cite{KP}:
+\begin{theorem}[Khachiyan and Porkolab]
+\label{thm:KP}
+It is decidable whether a given \emph{convex} semi-algebraic set $S \subseteq \Reals^{k}$ intersects $\Integers^{k}$.
+\end{theorem}

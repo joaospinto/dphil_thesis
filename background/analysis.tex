@@ -43,18 +43,11 @@ is dense in $\mathbb{T}^s$ and hence has $ \exp(2 \pi i \myvector{x}^{\star})$ a
 which proves the result.
 \end{proof}
 
-Note that this proof could be made constructive by using an effective
-version of Kronecker's Theorem, as studied in~\cite{ConstructiveKronecker1} and~\cite{ConstructiveKronecker2},
-although we do not make use of this fact in the present paper.
+Note that this proof could be made constructive by using an effective version of Kronecker's Theorem, as studied in~\cite{ConstructiveKronecker1} and~\cite{ConstructiveKronecker2}, although we do not make use of this fact in the present thesis.
 
 The following consequence of \cref{lem:first_bound} will be key to
 proving decidability of the problem at hand. It is a continuous-time
 analogue of Lemma 4 in~\cite{Bra06}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%CONTINUE HERE%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%ERROR BELOW%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{theorem}
 \label{thm:liminf}
@@ -71,15 +64,14 @@ where $n$ ranges over the nonnegative integers.
 \end{theorem}
 
 \begin{proof}
-Note that if $\theta_{1}, \ldots, \theta_{s}$ are linear independent over $\Rationals$ then the result follows from \cref{lem:first_bound}.
-Otherwise, let $\lbrace \theta_{i_{1}}, \ldots, \theta_{i_{k}} \rbrace$ be a maximal subset of $\lbrace \theta_{1}, \ldots, \theta_{s} \rbrace$ such that $\theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$.
+Note that if $1, \theta_{1}, \ldots, \theta_{s}$ are linear independent over $\Rationals$ then the result follows from \cref{lem:first_bound}.
+Otherwise, let $\lbrace \theta_{i_{1}}, \ldots, \theta_{i_{k}} \rbrace$ be a maximal subset of $\lbrace \theta_{1}, \ldots, \theta_{s} \rbrace$ such that $1, \theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$.
 
-Then, for some $N\in\Naturals$ and each $j\geq k+1$, one can write
+Then, for some $N\in\Naturals$ and each $j$, one can write
 \begin{equation*}
 N\theta_{j}= \left( m  +\sum\limits_{l=1}^{k} n_{l}\theta_{i_{l}} \right) \, ,
 \end{equation*}
-where $m,n_{i_{1}},\ldots,n_{i_{k}}$ are integers that depend on $j$, whilst $N$ does not depend on $j$.  It follows that for all $j\geq k+1$ and
-$t \in \Reals$,
+where $m,n_{i_{1}},\ldots,n_{i_{k}}$ are integers that depend on $j$, whilst $N$ does not depend on $j$.  It follows that for all $j$ and $t \in \Reals$,
 \begin{align*}
 \exp(2 \pi i N\theta_{j} t) &= \exp( 2 \pi i m t) \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i  n_{i_{l}} \theta_{i_{l}} t) \\
 &= \exp(2 \pi i t)^{m} \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i \theta_{i_{l}} t)^{n_{i_{l}}}  \, .
@@ -94,7 +86,7 @@ simple, but with zero constant term, such that for all
 $t\in \Reals$,
 \[ g(\exp(2 \pi N \theta_{1} t), \ldots, \exp(2 \pi N \theta_{s} t)) =
   h(\exp(2 \pi i \theta_{i_{1}} t),\ldots,\exp(2 \pi i \theta_{i_{k}} t)) \, .\]
-Since $\theta_{i_{1}},\ldots,\theta_{i_{k}},1$ are linearly independent over $\Rationals$, the result follows by applying \cref{lem:first_bound}
+Since $1, \theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$, the result follows by applying \cref{lem:first_bound}
 to $h$.
 \end{proof}
 
@@ -119,14 +111,16 @@ $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$ is called \emph{dominant} for
 $\boldsymbol{b}^{T}\exp(At)\boldsymbol{v}$.
 \end{definition}
 
-\begin{proposition}
-\label{liminfprop}
+We now derive a useful corollary of \cref{thm:liminf}:
+
+\begin{corollary}
+\label{cor:liminf}
 Consider a function of the form $h(t)=\boldsymbol{b}^{T}\exp(At) \boldsymbol{v}^{c}$, where $\boldsymbol{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\Reals\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
 \begin{equation*}
 -\infty<\liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho
   t)t^{m}}<0 \, .
 \end{equation*}
-\end{proposition}
+\end{corollary}
 
 \begin{proof}
   Let

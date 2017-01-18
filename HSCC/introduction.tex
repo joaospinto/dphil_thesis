@@ -1,0 +1,58 @@
+In ambient space $\Reals^{d}$, a \textbf{continuous linear
+  dynamical system} is a trajectory $\myvector{x}(t)$, where $t$
+ranges over the non-negative reals, defined by a differential equation
+$\dot{\myvector{x}}(t)=f(\myvector{x}(t))$ in which the function
+$f$ is \emph{affine} or \emph{linear}. If the initial point
+$\myvector{x}(0)$ is given, the differential equation uniquely
+defines the entire trajectory. (Linear) dynamical systems have been
+extensively studied in Mathematics, Physics, and Engineering, and more
+recently have played an increasingly important role in Computer
+Science, notably in the modelling and analysis of cyber-physical
+systems; a recent and authoritative textbook on the matter
+is~\cite{Alu15}.
+
+In the study of dynamical systems, particularly from the perspective
+of control theory, considerable attention has been given to the study
+of \emph{invariant sets}, i.e., subsets of $\Reals^{d}$ from which
+no trajectory can escape; see, e.g.,
+\cite{CastelanH92,BlondelT00,BM07,SDI08}. Our focus in the present
+chapter is on sets with the dual property that \emph{no trajectory
+  remains trapped}. Such sets play a key role in analysing
+\emph{liveness} properties in cyber-physical systems (see, for
+instance,~\cite{Alu15}): discrete progress is ensured by
+guaranteeing that all trajectories (i.e., from any initial starting
+point) must eventually reach a point at which they `escape'
+(temporarily or permanently) the set in question.
+
+More precisely, given an affine function
+$f:\Reals^{d}\rightarrow \Reals^{d}$ and a convex polytope
+$\mathcal{P}\subseteq\Reals^{d}$, both specified using rational
+coefficients encoded in binary, we consider the \textbf{Polytope
+  Escape Problem} which asks whether there is some point
+$\myvector{x}_0$ in $\mathcal{P}$ for which the corresponding
+trajectory of the solution to the differential equation
+\begin{equation*}
+\begin{displaystyle} \begin{cases}
+\dot{\myvector{x}}(t)=f(\myvector{x}(t)) \\
+\myvector{x}(0)=\myvector{x}_{0}
+\end{cases} \end{displaystyle}
+\end{equation*}
+is entirely contained in $\mathcal{P}$. Our main result is to show
+that this problem is decidable by reducing it in polynomial time to
+the decision version of linear programming with real algebraic
+coefficients, which itself reduces in polynomial time to deciding the
+truth of a sentence in the first-order theory of the reals, a problem
+whose complexity is known to lie between $\NP$ and
+$\PSPACE$ \cite{Canny88}. Our algorithm makes use of spectral
+techniques and relies among others on tools from Diophantine
+approximation.
+
+It is interesting to note that a seemingly closely related problem,
+that of determining whether a given trajectory of a linear dynamical
+system ever hits a given hyperplane (also known as the
+\emph{continuous Skolem Problem}), is not known to be decidable; see,
+in particular,~\cite{BellDJB10,COW16a:ICALP16,COW16b:LICS16}. When the
+target is instead taken to be a single point (rather than a
+hyperplane), the corresponding reachability question (known as the
+\emph{continuous Orbit Problem}) can be decided in polynomial
+time~\cite{Hainry08}.
