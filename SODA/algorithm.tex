@@ -1,23 +1,11 @@
 \section{Algorithm for Universal Termination}
-Our goal in this section is to prove the following proposition, which
-is restated from \cref{sec:overview}.  We have already shown in
-\cref{sec:overview} that the main result of this chapter,
-\cref{thm:main}, then follows.
+Our goal in this section is to prove~\cref{prop:soda-main-simplified}, which we restate below. We have already shown in~\cref{sec:overview} that the main result of this chapter,~\cref{thm:main}, then follows.
 
-\begin{proposition}
-Given a homogeneous simple linear loop
-\begin{gather*}
-\mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$ ;
-\textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
-\end{gather*}
-such that $A$ is non-degenerate, we can compute a
-witness set for \textsf{P4} using exponential space if all complex eigenvalues of $A$ are simple and using polynomial space if $A$ has dimension at most $5$.
-\label{prop:main2}
-\end{proposition}
+\sodamainsimplified*
 
 % In \cref{sec:overview} we showed that the main result of this
 % paper, \cref{thm:main}, follows from
-% \cref{prop:main}.  In this section our goal is to prove the
+% \cref{prop:soda-main-simplified}.  In this section our goal is to prove the
 % latter result, that is, we give a procedure that computes a witness
 % set $W$ given a linear loop of the form
 % \begin{gather*}
@@ -66,7 +54,10 @@ real eigenvalue.
 \subsection{Eventual Non-Termination on Subspace $V_i$}
 We first consider the eventual non-termination of \textsf{P4} on
 initial vectors in the subspace $V_i$ for a fixed $i \in
-\{1,\ldots,m\}$.  Writing $\mathit{ENT}_i := \mathit{ENT} \cap V_i$,
+\{1,\ldots,m\}$.  Writing
+\begin{equation*}
+  \mathit{ENT}_i := \mathit{ENT} \cap V_i,
+\end{equation*}
 our goal is to show that $\mathit{ENT}_i$ is semi-algebraic.
 
 Given $\myvector{u} \in V_i$, membership of $\myvector{u}$ in
@@ -99,7 +90,7 @@ The set $\mathit{ENT}_i$ is semi-algebraic for each $i\in \{1,\ldots,m\}$.
 \end{proposition}
 \begin{proof}
   We consider three (overlapping) cases.  Under the hypotheses of
-  \cref{prop:main2} at least one of these cases will apply.
+  \cref{prop:soda-main-simplified} at least one of these cases will apply.
 
 \paragraph{Case I: $A$ has dimension at most $5$.}
 Assume that $A$ has dimension at most $5$.  The situations in which
@@ -131,7 +122,7 @@ If $\myvector{\beta}_1^T\myvector{u}\neq 0$, then as $n$ tends to
 infinity the dominant terms on the right-hand side above are constant
 multiples of $n\lambda^n$ and $n\overline{\lambda^n}$.  In this case
 it follows from~\cref{thm:liminf} that
-$\myvector{b}^TA^n\myvector{u}$ changes sign infinitely often as
+$\myvector{b}^{T} A^{n}\myvector{u}$ gets arbitrarily large negative values as
 $n$ grows, and hence $\myvector{u}\not\in\mathit{ENT}_i$.
 
 The argument in case $\myvector{\beta}_1^T\myvector{u}=0$ is a
@@ -241,8 +232,8 @@ In \cref{sec:mult} we observed that the set
 $T(\myvector{\mu})$ was (effectively) semi-algebraic.  It follows
 that we can express the condition $\forall \myvector{z}\in
 T(\myvector{\mu}),\, f(\myvector{z})^T\myvector{u}\geq 0$ in the
-first-order theory of the reals.  By the Tarski-Seidenberg theorem
-\cite{Tar51} on quantifier elimination, the set of $\myvector{u}\in
+first-order theory of the reals.
+By~\cref{thm:tarski}, the set of $\myvector{u}\in
 \Reals^{d}$ satisfying this condition is semi-algebraic.  But now
 $\mathit{ENT}_i$ is the union of the two semi-algebraic sets
 (\ref{eq:ENT1}) and (\ref{eq:ENT2}), and therefore $\mathit{ENT}_i$ is
@@ -296,8 +287,7 @@ for all $n\geq d$.  Moreover, for each $j>i$ it is clear that
   The second case is that $S_i$ does not contain a positive real
   eigenvalue.  Then it follows from~\cref{thm:liminf} that there
   is a constant $c<0$ such that
-  $\myvector{b}^TA^n\myvector{u}_i<c\rho_i^n$ for infinitely many
-  $n$.  In this case neither $\myvector{u}_i$ nor $\myvector{u}$
+  $\myvector{b}^{T} A^{n} \myvector{u}_{i} < c \rho_{i}^{n}$ for infinitely many $n$.  In this case neither $\myvector{u}_i$ nor $\myvector{u}$
   are elements of $\mathit{ENT}$.
 
   It remains to consider the case that all complex eigenvalues in
@@ -308,7 +298,7 @@ for all $n\geq d$.  Moreover, for each $j>i$ it is clear that
   $\mathit{ENT}$ and if $\alpha<0$ then neither $\myvector{u}$ or
   $\myvector{u}_i$ are in $\mathit{ENT}$.
 
-  Otherwise, specialising the expression (\ref{eq:master}) to the case
+  Otherwise, the positive real eigenvalue in $S_{i}$ is also simple. Specialising the expression~\eqref{eq:master} to the case
   at hand, we have that
 \begin{gather}
 \label{eq:diag}
@@ -316,9 +306,17 @@ for all $n\geq d$.  Moreover, for each $j>i$ it is clear that
 \end{gather}
 where $\alpha_0$ and the $\beta_j$ are algebraic-integer constants and
 $\rho_i,\lambda_1,\overline{\lambda_1},\ldots,\lambda_s,\overline{\lambda_s} \in S_i$.  In this case, letting $\eta = (\rho_{i} + \rho_{i+1})/2$ (note that $\rho_{i+1} < \eta < \rho_{i}$), one can use~\cref{thm:s-units} as we did in~\cref{sec:s-units-app} to show that
-$\myvector{b}^{T} A^{n} \myvector{u}_{i} = \Omega(\eta^{n})$. Since it holds trivially that, for all $j>i$, $\myvector{b}^{T} A^{n} \myvector{u}_{j} = o(\eta^{n})$, it follows that
-$|\myvector{b}^TA^n\myvector{u}_j|=o(|\myvector{b}^TA^n
-\myvector{u}_i|)$ for all $j>i$. Therefore, $\myvector{u}\in\mathit{ENT}$ if and only if $\myvector{u}_i\in \mathit{ENT}$.
+\begin{equation*}
+  \myvector{b}^{T} A^{n} \myvector{u}_{i} = \Omega(\eta^{n}).
+\end{equation*}
+
+Since it holds trivially that, for all $j>i$, $\myvector{b}^{T} A^{n} \myvector{u}_{j} = o(\eta^{n})$, it follows that
+\begin{equation*}
+  \lvert \myvector{b}^T A^{n}\myvector{u}_{j} \rvert = o\left(\lvert\myvector{b}^{T} A^{n}
+  \myvector{u}_{i} \rvert\right).
+\end{equation*}
+
+Therefore, $\myvector{u} \in \mathit{ENT}$ if and only if $\myvector{u}_{i} \in \mathit{ENT}$.
 \end{proof}
 
 Now we define a witness set $W$ for program \textsf{P4} by
@@ -334,7 +332,7 @@ semi-algebraic for $i=1,\ldots,m$, it is easy to see that $W$ is
 semi-algebraic.  It moreover follows from \cref{prop:dominant}
 that $W \cap \Algebraics^{d} = \mathit{ENT} \cap \Algebraics^{d}$.
 
-To conclude the proof of \cref{prop:main2}, it
+To conclude the proof of \cref{prop:soda-main-simplified}, it
 remains to observe that the witness set $W$, like the actual set
 $\mathit{ENT}$ of eventually non-terminating points, is convex.
 \begin{proposition}
@@ -365,13 +363,13 @@ y_k,\myvector z_k \in \mathit{ENT}_k$, and hence $\myvector x_k
 $\myvector{x}\in W$.
 \end{proof}
 
-This concludes the proof of \cref{prop:main2}.
+This concludes the proof of \cref{prop:soda-main-simplified}.
 In the remaining part of this section we show that
 $\overline{\mathit{ENT}}=\overline{W}$.
 
 The inclusion $\overline{W}\subseteq \overline{ENT}$ can be shown
 using the fact that the set algebraic points in any semi-algebraic set
-is dense in that set. (See the Appendix for details).  From
+is dense in that set, as shown in~\cref{lem:semi-alg-density}.  From
 this we have:
 \begin{align*}
 \overline{W}=\overline{W\cap\Algebraics^{d}}=\overline{\mathit{ENT}\cap\Algebraics^{d}} \subseteq \overline{\mathit{ENT}}\cap\overline{\Algebraics^{d}}=\overline{\mathit{ENT}}
@@ -383,12 +381,7 @@ $\mathit{ENT}\cap\Algebraics^{d}$ is dense in $\mathit{ENT}$.  Our
 remaining goal is this last fact, which is established in
 \cref{corl:dense} below.
 
-We have previously shown that a vector of algebraic numbers
-$\myvector{u}\in (\Algebraics\cap\Reals)^{d}$ is eventually
-non-terminating if and only if its dominant component
-$\myvector{u}_i$ is eventually non-terminating.  We now prove a
-partial result of this nature for general vectors $\myvector{u}\in
-\Reals^{d}$.
+We have previously shown that a vector of algebraic numbers $\myvector{u}\in (\Algebraics\cap\Reals)^{d}$ is eventually non-terminating if and only if its dominant component $\myvector{u}_i$ is eventually non-terminating. We now prove a partial result of this nature for general vectors $\myvector{u} \in \Reals^{d}$ (that is, dropping the algebraicity assumption).
 
 \begin{proposition}
   Suppose that $\myvector u=\myvector u_1+\cdots+\myvector
@@ -413,9 +406,7 @@ $\mathit{ENT}\cap\Algebraics^{d}$ is dense in \textit{ENT}.
 \end{corollary}
 
 \begin{proof}
-  At several points we will rely on the fact that if
-  $X\subseteq\Reals^{d}$ is semi-algebraic, then the algebraic
-  points in $X$ are dense in $X$.  (See Appendix for details.)
+  At several points we will rely on the fact that if $X\subseteq\Reals^{d}$ is semi-algebraic, then the algebraic points in $X$ are dense in $X$, again due to~\cref{lem:semi-alg-density}.
 
   Fix $\myvector u\in\mathit{ENT}$ and let $\varepsilon>0$ be
   given. We will find $\myvector v\in \mathit{ENT}\cap \Algebraics^{d}$
@@ -430,14 +421,21 @@ $\mathit{ENT}\cap\Algebraics^{d}$ is dense in \textit{ENT}.
   u_m$, where $\myvector u_1\in V_1,\ldots,\myvector u_m\in V_m$,
   with $\myvector u_i$ the dominant component of $\myvector u$. By
   \cref{prop:dom2}, $\myvector u\in\mathit{ENT}$ implies
-  that $\myvector u_i\in \mathit{ENT}$. Since $\mathit{ENT}\cap V_i$
-  is semi-algebraic, we can pick $\myvector v_i\in \mathit{ENT}\cap
-  V_i\cap\Algebraics^{d}$ such that $\| \myvector v_i -\myvector u_i
-  \|<\varepsilon/n$. For each $j>i$, we pick some $\myvector v_j\in
-  V_j\cap \Algebraics^{d}$ for which $\| \myvector v_j - \myvector
-  u_j\|<\varepsilon/n$.  For each $j<i$ we pick some $v_j \in
-  \mathit{ZERO}\cap V_j\cap \Algebraics^{d}$ for which $\| \myvector
-  v_j - \myvector u_j\|<\varepsilon/n$.
+  that $\myvector u_i\in \mathit{ENT}$.
+  Since $\mathit{ENT}\cap V_i$
+  is semi-algebraic, we can pick $\myvector v_i\in \mathit{ENT}_{i}\cap\Algebraics^{d}$ such that
+  \begin{equation*}
+    \| \myvector{v_{i}} -\myvector{u_{i}} \| < \frac{\varepsilon}{n} \, .
+  \end{equation*}
+  Similarly, for each $j>i$, we pick some $\myvector v_j\in
+  V_j\cap \Algebraics^{d}$ for which
+  \begin{equation*}
+    \| \myvector{v_{j}} - \myvector{u_{j}} \| < \frac{\varepsilon}{n} \, ,
+  \end{equation*}
+  and for each $j<i$ we pick some $v_j \in \mathit{ZERO}_{j} \cap \Algebraics^{d}$ for which
+  \begin{equation*}
+    \| \myvector{v_{j}} - \myvector{u_{j}} \| < \frac{\varepsilon}{n} \, .
+  \end{equation*}
 
   Then, letting $\myvector v=\myvector v_1+\cdots+\myvector v_m
   \in \Algebraics^{d}$, it follows that $\|\myvector u-\myvector

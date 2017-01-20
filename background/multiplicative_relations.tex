@@ -12,35 +12,35 @@ More precisely, we will give an algebraic representation of the topological clos
 
 The \emph{group of multiplicative relations} of $\myvector{\lambda}$, which is an additive subgroup of $\Integers^s$, is defined as
 \begin{equation*}
-L(\myvector{\lambda})=\lbrace \myvector{v}\in \Integers^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
+\cL(\myvector{\lambda})=\lbrace \myvector{v}\in \Integers^s : \myvector\lambda^{\myvector v}=1 \rbrace \, ,
 \end{equation*}
 where $\myvector\lambda^{\myvector v}$ is defined to be $\lambda_1^{v_1}\cdots\lambda_s^{v_s}$ for $\myvector{v}\in \Integers^s$, that is, exponentiation acts coordinatewise.
 
 Since $\Integers^s$ is a free abelian group, its subgroups are also
-free.  In particular, $L(\myvector\lambda)$ has a finite basis. The
+free.  In particular, $\cL(\myvector\lambda)$ has a finite basis. The
 following powerful theorem of Masser~\cite{Mas88} gives bounds on the
 magnitude of the components of such a basis.
 
 Note that $\log(\alpha_{1}), \ldots, \log(\alpha_{m})$ are linearly independent over $\Rationals$ if and only if
 \begin{align*}
-L(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
+\cL(\alpha_{1}, \ldots, \alpha_{m}) = \lbrace \myvector{0} \rbrace .
 \end{align*}
 Together with \cref{thm:Baker}, Masser's theorem allows us to eliminate all algebraic relations in the description of linear forms in logarithms of algebraic numbers, and therefore also to test whether a linear form in logarithms of algebraic numbers is zero.
 
 \begin{theorem}[Masser]
 \label{thm:masser}
-The free abelian group $L(\myvector{\lambda})$ has a basis $\myvector{v}_1, \ldots, \myvector{v}_{l} \in \Integers^{s}$ for which
+The free abelian group $\cL(\myvector{\lambda})$ has a basis $\myvector{v}_1, \ldots, \myvector{v}_{l} \in \Integers^{s}$ for which
 \[ \max\limits_{1\leq i\leq l,1\leq j\leq s} \lvert v_{i,j} \rvert \leq (D\log H)^{O(s^2)} \]
 where $H$ and $D$ bound respectively the heights and degrees of all the $\lambda_{i}$.
 \end{theorem}
-Membership of a tuple $\myvector{v}\in \Integers^{s}$ in $L(\myvector{\lambda})$ can be computed in polynomial space, using a decision procedure for the existential theory of the reals. In combination with \cref{thm:masser}, it follows that we can compute a basis for $L(\myvector{\lambda})$ in polynomial space by brute-force search (due to Savitch's theorem).
+Membership of a tuple $\myvector{v}\in \Integers^{s}$ in $\cL(\myvector{\lambda})$ can be computed in polynomial space, using a decision procedure for the existential theory of the reals. In combination with \cref{thm:masser}, it follows that we can compute a basis for $\cL(\myvector{\lambda})$ in polynomial space by brute-force search (due to Savitch's theorem).
 
-Corresponding to $L(\myvector{\lambda})$, we consider the following
+Corresponding to $\cL(\myvector{\lambda})$, we consider the following
 multiplicative subgroup of $\mathbb{T}^{s}$:
 \begin{equation*}
-T(\myvector{\lambda})=\lbrace \myvector{\mu} \in \mathbb{T}^{s} : \forall \myvector{v} \in L(\myvector{\lambda}), \, \myvector{\mu}^{\myvector{v}} = 1 \rbrace \, .
+T(\myvector{\lambda})=\lbrace \myvector{\mu} \in \mathbb{T}^{s} : \forall \myvector{v} \in \cL(\myvector{\lambda}), \, \myvector{\mu}^{\myvector{v}} = 1 \rbrace \, .
 \end{equation*}
-If $\mathcal{B}$ is a basis of $L(\myvector{\lambda})$ then we can
+If $\mathcal{B}$ is a basis of $\cL(\myvector{\lambda})$ then we can
 equivalently characterise $T(\myvector{\lambda})$ as
 \begin{equation*}
 \lbrace \myvector{\mu} \in \mathbb{T}^{s}: \forall \myvector{v} \in \mathcal{B}, \, \, \myvector{\mu}^{\myvector{v}} = 1 \rbrace \, .
@@ -69,13 +69,13 @@ Given that $\varepsilon$ was arbitrary, it follows that $\lbrace \myvector{\lamb
 
 We will also need the following simple corollary:
 \begin{corollary}
-  Let $\myvector{\theta} \in \Reals^{s}$ be such that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. Then $\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace$ is a dense subset of $\mathbb{T}^s$.
+  Let $\myvector{\theta} \in \Reals^{s}$ be such that $\cA(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. Then $\lbrace \exp(2 \pi i n \myvector{\theta}) : n \in \Naturals \rbrace$ is a dense subset of $\mathbb{T}^s$.
 \label{corl:kronecker}
 \end{corollary}
 \begin{proof}
 This result follows from the fact that
 \begin{equation*}
-  L(\exp(2 \pi i \myvector{\theta})) = A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace \, .
+  \cL(\exp(2 \pi i \myvector{\theta})) = \cA(\myvector{\theta}) = \lbrace \myvector{0} \rbrace \, .
 \end{equation*}
 Therefore, $T(\myvector{\lambda}) = \mathbb{T}^{s}$, which establishes the result.
 \end{proof}

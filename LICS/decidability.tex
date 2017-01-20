@@ -168,7 +168,7 @@ and define a convex polytope $\mathcal{T}\subseteq \Reals^b$ by
 \Im (f(\myvector{v}))) \in \mathcal{Q} \} \, . \]
 
 The problem then amounts to deciding whether the convex polytope
-$\mathcal{T}$ intersects contains an integer point. Crucially, the
+$\mathcal{T}$ contains an integer point. Crucially, the
 description of the convex polytope $\mathcal{T}$ is of the form
 $\pi B\myvector{x} \leq \myvector{b}$, for some matrix $B$ and
 vector $\myvector{b}$ such that the entries of $B$ are real
@@ -188,18 +188,18 @@ We are given a convex polytope $\mathcal{P}=\lbrace \myvector{x} \in \Reals^{d} 
 \begin{align*}
 b_{i} = r_{0} + r_{1} \log(s_{1}) + \cdots + r_{k} \log(s_{k}), r_{0}, r_{1}, s_{1}, \ldots, r_{k}, s_{k} \in \Algebraics.
 \end{align*}
-Due to Baker's theorem, there exists a non-trivial linear relation with algebraic coefficients amongs $\log(-1), \log(s_{1}), \ldots, \log(s_{k})$ if and only if there is one with integer coefficients. But such relations can be computed, since
+Due to~\cref{thm:Baker}, there exists a non-trivial linear relation with algebraic coefficients amongs $\log(-1), \log(s_{1}), \ldots, \log(s_{k})$ if and only if there is one with integer coefficients. But such relations can be computed, since
 \begin{align*}
 &n_{0} \log(-1) + n_{1} \log(s_{1}) + \cdots + n_{k} \log(s_{k}) = 0 \Leftrightarrow \\
 &(-1)^{n_{0}} s_{1}^{n_{1}} \cdots s_{k}^{n_{k}} = 1
 \end{align*}
-and since the group of multiplicative relations $L(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever it contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \Algebraics$, and transcendental otherwise.
+and since the group of multiplicative relations $\cL(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever it contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \Algebraics$, and transcendental otherwise.
 
 Now, when $\myvector{x} \in \Integers^{d}$, $A \myvector{x}$ is a vector with algebraic coefficients, so whenever $b_{i} / \pi$ is transcendental we may alter $\mathcal{P}$ by replacing $\leq$ by $<$ in the $i$-th inequality, preserving its intersection with $\Integers^{d}$. On the other hand, whenever $b_{i} / \pi$ is algebraic, we split our problem into two: in the first one, $\mathcal{P}$ is altered to force equality on the $i$-th constraint (that is, replacing $\leq$ by $=$), and in the second we force strict inequality (that is, replacing $\leq$ by $<$). We do this for all $i$, so that no $\leq$ is left in any problem instance, leaving us with finitely many polytopes, each defined by equations of the form
 \begin{align*}
 K \myvector{x} &= \myvector{k} \quad &(\myvector{k} \in \Algebraics^{d_{1}}) \\
 M \myvector{x} &< \myvector{m} \quad &(\myvector{m} \in \Algebraics^{d_{2}}) \\
-F \myvector{x} &< \myvector{f} \quad &(\myvector{f} \in \Reals \setminus \Algebraics^{d_{3}})
+F \myvector{x} &< \myvector{f} \quad &(\myvector{f} \in \left(\Reals \setminus \Algebraics \right)^{d_{3}})
 \end{align*}
 where $K,M,F$ are matrices with algebraic entries. Before proceeding, we eliminate all such empty polytopes; note that emptiness can be decided via Fourier-Motzkin elimination, as shown in \cref{thm:fme}.
 
@@ -222,19 +222,19 @@ where $\myvector{c}_{1}, \ldots, \myvector{c}_{k} \in \Algebraics^{d}$ are the e
 
 Now we consider a variation of an argument which appears in \cite{KP}. Consider the computable set
 \begin{align*}
-\mathcal{L} = \mathcal{C}^{\perp} \cap \Integers^{d} = \bigcap\limits_{i=1}^{k} A(\myvector{c}_{i}) ,
+\cL = \mathcal{C}^{\perp} \cap \Integers^{d} = \bigcap\limits_{i=1}^{k} \cA(\myvector{c}_{i}) ,
 \end{align*}
-where $A(\myvector{v})$ denotes the group of additive relations of $\myvector{v}$.
+where $\cA(\myvector{v})$ denotes the group of additive relations of $\myvector{v}$.
 
-If $\mathcal{L} = \lbrace \myvector{0} \rbrace$ then due to Kronecker's theorem on simultaneous Diophantine approximation it must be the case that there exists a vector $(n_{1}, \ldots, n_{k}) \in \Naturals^{k}$ such that
+If $\cL = \lbrace \myvector{0} \rbrace$ then due to~\cref{thm:Kronecker} it must be the case that there exists a vector $(n_{1}, \ldots, n_{k}) \in \Naturals^{k}$ such that
 \begin{align*}
 \operatorname{dist} \left(\myvector{q} + \sum\limits_{i=1}^{k} n_{i} \myvector{c}_{i}, \Integers^{d} \right) \leq \varepsilon ,
 \end{align*}
 and we know that $\mathcal{P} \cap \Integers^{d} \neq \emptyset$ from the fact that the $l_{1}$ closed ball $\mathcal{B}$ of radius $\varepsilon$ and centre $\myvector{q}$ is contained in $\mathcal{P}$.
 
 On the other hand, if
-$\mathcal{L} \neq \lbrace \myvector{0} \rbrace$, let
-$\myvector{z} \in \mathcal{L} \setminus \lbrace \myvector{0}
+$\cL \neq \lbrace \myvector{0} \rbrace$, let
+$\myvector{z} \in \cL \setminus \lbrace \myvector{0}
 \rbrace$.
 Since $\mathcal{H}$ is a bounded subset of $\Reals^n$, the set
 \[ \{ \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{P} \} =

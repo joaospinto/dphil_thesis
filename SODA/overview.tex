@@ -71,16 +71,7 @@ The integer points in a witness set $W$ are precisely the integer
 points of \textit{ENT}, and so \textsf{P1} is non-terminating on
 $\Integers^{d}$ precisely when $W$ contains an integer point.  Our
 approach to solving the termination problem consists in computing a
-witness set $W$ for a given program and then using the following
-theorem of Khachiyan and Porkolab~\cite{KhachiyanP97} to decide whether $W$
-contains an integer point.
-\begin{theorem}[Khachiyan and Porkolab]
-Let $W\subseteq\Reals^{d}$ be a convex semi-algebraic set defined by
-polynomials of degree at most $D$ and that can be represented in space
-$S$. In that case, if $W\cap\Integers^{d}\neq\emptyset$, then $W$ must
-contain an integral point that can be represented in space
-$SD^{O(d^4)}$.
-\end{theorem}
+witness set $W$ for a given program and then using~\cref{thm:kp}.
 
 Our approach does not attempt to characterise the set \textit{ENT}
 directly, but rather uses the witness set $W$ as a proxy. However, our
@@ -172,31 +163,30 @@ Thus if $W$ is a witness set for \textsf{P5} then $\bigcap_{i=0}^{L-1}
 \textsf{P4}.
 
 The main technical result of the chapter is the following proposition:
-\begin{proposition}
+\begin{restatable}{proposition}{sodamainsimplified}
+\label{prop:soda-main-simplified}
 Given a homogeneous simple linear loop
 \begin{gather*}
 \mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$ ;
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
 \end{gather*}
-such that $A$ is non-degenerate and either $A$ has dimension at most
-$5$ or all complex eigenvalues of $A$ are simple,  we can compute a
-witness set for \textsf{P4} using exponential space if $A$ is diagonalisable and using polynomial space if $A$ has dimension at most $5$.
-\label{prop:main}
-\end{proposition}
+such that $A$ is non-degenerate, we can compute a
+witness set for \textsf{P4} using exponential space if all complex eigenvalues of $A$ are simple and using polynomial space if $A$ has dimension at most $5$.
+\end{restatable}
 
 Bearing in mind that the transformation from $\mathsf{P1}$ to
 $\mathsf{P4}$ increases the dimension of $A$ by one and does not
 introduce repeated complex eigenvalues, it follows from
-\cref{prop:main} that we can also compute witness sets for
+\cref{prop:soda-main-simplified} that we can also compute witness sets for
 simple linear loops of the form \textsf{P1}
 under the assumptions of \cref{thm:main}, and thus we obtain
 the decidability part of \cref{thm:main}.  The
 exponential-space bound in \cref{thm:main} is obtained by
 bounding the representation of the witness set in
-\cref{prop:main} (see \cref{sec:complexity}).
+\cref{prop:soda-main-simplified}, as done in~\cref{sec:complexity}.
 
 In the rest of this section we give a brief summary of the proof of
-\cref{prop:main}.
+\cref{prop:soda-main-simplified}.
 
 To compute a witness set $W$ for \textsf{P4} we first partition the
 eigenvalues of the update matrix $A$ by grouping eigenvalues of equal

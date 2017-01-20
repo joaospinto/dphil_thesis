@@ -3,7 +3,9 @@
 *.aux
 *.log
 *.lof
+*.out
 *.toc
 *.bbl
 *.blg
+*.synctex.gz
 .nfs*

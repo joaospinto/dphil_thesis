@@ -66,8 +66,7 @@ non-terminating integer initial values.  Since it is decidable whether
 a convex semi-algebraic set contains an integer
 point~\cite{KhachiyanP97},\footnote{By contrast, recall that the
   existence of an integer point in an \emph{arbitrary} (i.e., not
-  necessarily convex) semi-algebraic set---which is equivalent to
-  Hilbert's tenth problem---is well-known to be undecidable.} we can
+  necessarily convex) semi-algebraic set is well-known to be undecidable, due to~\cref{thm:HTP}.} we can
 decide whether an integer linear loop is terminating on
 $\Integers^{d}$.
 
@@ -75,13 +74,7 @@ Termination over the set of all integer points is easily seen to be
 \coNP-hard.  Indeed, if the update function in the loop body
 is the identity then the loop is non-terminating if and only if there
 is an integer point satisfying the guard.  Thus non-termination
-subsumes integer programming, which is \NP-hard.  By contrast,
-even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06},
-deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be done
-in polynomial time.\footnote{This observation relies on the facts that
-  one can compute Jordan canonical forms of integer matrices and solve
-  instances of linear programming problems with algebraic numbers in
-  polynomial time~\cite{Cai94,AdlerB94}.}
+subsumes integer programming, which is \NP-hard.
 
 While our algorithm for deciding termination requires exponential
 space, it should be noted that the procedure actually solves a more
@@ -91,7 +84,7 @@ eventually non-terminating integer point).  In fact the algorithm
 computes a representation of the set of all eventually non-terminating
 integer points.  For reference, the closely related problem of
 deciding termination on the integer points in a given convex polytope is
-\EXPSPACE-hard \cite{BGM12}.
+\EXPSPACE-hard \cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE.
 
 As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
@@ -203,13 +196,13 @@ on the dimension of data in problem instances to obtain decidability.
 Termination of $\mathsf{P1}$ under the assumption that all eigenvalues
 of $A$ are real was studied in \cite{RMM,RMM1} using spectral
 techniques. However, as will become clear throughout the course of
-this paper, most of the machinery that we use is needed to tackle the
+this chapter, most of the machinery that we use is needed to tackle the
 case where there are both real and complex eigenvalues with the same
 absolute value. In the setting of \cite{RMM,RMM1}, the set of
 eventually non-terminating points is in fact a polytope, which can be
 effectively computed resorting only to straightforward linear algebra.
 
-While we use spectral and number-theoretic techniques in this paper,
+While we use spectral and number-theoretic techniques in this chapter,
 another well-studied approach for proving termination of linear loops
 involves designing linear ranking functions, that is, linear functions
 from the state space to a well-founded domain such that each iteration

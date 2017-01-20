@@ -1,10 +1,7 @@
 Integrate papers consistently.
-Add section about LRS.
-Move technical parts from introduction to respective chapters.
-Review order of sections in the Background chapter, and edit them.
-Merge background/algebraic_numbers.tex with background/number_theory.tex.
 Remove Fourier Motzkin Elimination from background section.
 Consistent nomenclature in ET vs ENT in HSCC and SODA chapters.
-Add chapter about control.
-Add statement about Minkowski-Weyl theorem.
 Uniformise \emph, \defemph, and \textbf.
+Write introduction to LTI chapter.
+Change reductions of Continuous Generalised Orbit/Skolem so that they don't force an order in the products.
+Review correctness of decidability part of LICS paper.

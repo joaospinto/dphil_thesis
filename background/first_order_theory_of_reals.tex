@@ -12,6 +12,7 @@ $\forall$, is called the \emph{first-order theory of reals}.
 A set $S \subseteq \Reals^{n}$ is said to be \emph{semi-algebraic} if it is a Boolean combination of sets of the form $\lbrace \myvector{x} \in \Reals^{n}: p(\myvector{x}) \geq 0\rbrace$, where $p$ is a polynomial with integer coefficients. Equivalently, the semi-algebraic sets are those definable by the quantifier-free first-order formulas over the structure $(\Reals, <, +, \cdot, 0, 1)$.
 
 \begin{theorem}[Tarski-Seidenberg]
+  \label{thm:tarski}
   The first-order theory of reals admits a constructive method for quantifier elimination. In particular, it is a decidable theory.~\cite{Tar51}
 \end{theorem}
 
@@ -61,6 +62,7 @@ We also make use of the following lemmas:
 \end{proof}
 
 \begin{lemma}
+  \label{lem:semi-alg-density}
 If $X\subseteq\Reals^{d}$ is semi-algebraic, then $X\cap\Algebraics^{d}$ is dense in $X$.
 \end{lemma}
 

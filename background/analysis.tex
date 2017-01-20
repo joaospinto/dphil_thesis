@@ -12,7 +12,7 @@ each monomial in $g$ mentions only a single variable.
 \begin{lemma}
 \label{lem:first_bound}
 Let $g \in \mathbb{C}[z^{\pm 1}_1,\ldots,z^{\pm 1}_s]$ be a self-conjugate Laurent polynomial that has no constant term.
-Given $\myvector{\theta} \in \Reals^{s}$ such that $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$, define a function $f: \Reals_{\geq 0} \rightarrow \Reals$ by
+Given $\myvector{\theta} \in \Reals^{s}$ such that $\cA(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$, define a function $f: \Reals_{\geq 0} \rightarrow \Reals$ by
 \[ f(t) = g(\exp(2 \pi i t \myvector{\theta})) \, .\]
 Then either $f$ is identically zero, or
 \begin{align*}
@@ -36,7 +36,7 @@ it holds that
 %
 Suppose that $h$ is not identically zero over $\Reals^s$ and hence not identically zero over $[0,1]^{s}$. Then $h$ cannot be nonnegative on $[0,1]^{s}$, since the integral over a set of positive measure of a continuous nonnegative function that is not identically zero must be strictly positive. We conclude that there must exist $\myvector{x}^{\star} \in [0,1]^{s}$ such that $h(\myvector{x}^{\star}) < 0$.
 
-By assumption, $A(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. By \cref{corl:kronecker} it follows that
+By assumption, $\cA(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$. By \cref{corl:kronecker} it follows that
 \[ \lbrace \exp(n \myvector{\theta}) : n \in \Naturals \} \]
 is dense in $\mathbb{T}^s$ and hence has $ \exp(2 \pi i \myvector{x}^{\star})$ as a limit point. Since $h$ is continuous, there are arbitrarily large $n\in\Naturals$ for which
 \[ f(n) = h(n \myvector{\theta}) \leq \frac{1}{2} h(\myvector{x}^{\star}) < 0 \, , \]
@@ -47,7 +47,7 @@ Note that this proof could be made constructive by using an effective version of
 
 The following consequence of \cref{lem:first_bound} will be key to
 proving decidability of the problem at hand. It is a continuous-time
-analogue of Lemma 4 in~\cite{Bra06}.
+analogue of~\cite[Lemma 4]{Bra06}.
 
 \begin{theorem}
 \label{thm:liminf}
