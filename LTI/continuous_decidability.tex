@@ -1,4 +1,4 @@
-\section{Decidable Instances}
+\subsection{Decidable Instances: Reducing to the Continuous Orbit Problem}
 
 \label{continuous-decidability}
 
@@ -7,7 +7,7 @@ Given two matrices $A \in \Reals^{n \times n}$ and $B \in \Reals^{n \times d}$, 
 \label{continuous-lti}
 \dot{\myvector{x}}(t) = A \myvector{x}(t) + B \myvector{u}(t) .
 \end{equation}
-The \emph{continuous point-to-point controllability problem for linear time-invariant (LTI) systems} amounts to deciding whether, given initial and target points $s,t \in \Reals^{n}$, there exists a real $T\geq 0$ and a measurable function $\myvector{u}(t) : [0,T] \rightarrow \Reals^{d}$ such that the unique solution to \cref{continuous-lti} starting at $\myvector{x}(0) = \myvector{s}$ satisfies $\myvector{x}(T) = \myvector{t}$.
+We recall that the continuous point-to-point controllability problem for linear time-invariant (LTI) systems amounts to deciding whether, given initial and target points $s,t \in \Reals^{n}$, there exists a real $T\geq 0$ and a measurable function $\myvector{u}(t) : [0,T] \rightarrow \Reals^{d}$ such that the unique solution to \cref{continuous-lti} starting at $\myvector{x}(0) = \myvector{s}$ satisfies $\myvector{x}(T) = \myvector{t}$.
 
 We will show that this problem is decidable in polynomial time, by reduction from the Continuous Orbit Problem. The \emph{Continuous Orbit Problem} consists of deciding whether, given initial and target points $\myvector{s}, \myvector{t} \in \Reals^{n}$ and a matrix $A \in \Reals^{n \times n}$, the unique solution $\myvector{x}(t) = \exp(A t) \myvector{s}$ of the differential equation
 \begin{equation}
@@ -16,7 +16,7 @@ We will show that this problem is decidable in polynomial time, by reduction fro
 \myvector{x}(0) = \myvector{s}
 \end{cases}
 \end{equation}
-ever hits $\myvector{t}$. This problem was shown to be decidable in polynomial time in~\cite{ContinuousSkolem1, ContinuousSkolem2}.
+ever hits $\myvector{t}$. This problem was shown to be decidable in polynomial time in~\cite{ContinuousSkolem1, ContinuousOrbitIPL}.
 
 Before proceeding, we prove a few simple definitions and preliminary results.
 

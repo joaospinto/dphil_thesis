@@ -1,4 +1,31 @@
 \chapter{Introduction}
 \label{sec:introduction}
 
-TODO
+Dynamical systems have long been of interest to computer scientists. Many such problems, including the dynamics of polynomial differential equations, finitely generated matrix semigroups, or cellular automata, have been shown to be Turing-complete. However, despite the fact that some of these topics were studied over half a century ago, a surprising number of problems remain open, and we tackle some of them in this thesis.
+
+As early as~1966, Mikhailova showed in~\cite[in Russian]{Mik66} that the membership problem for finitely generated matrix semigroups of $SL(4,\Integers)$ (that is, $4\times 4$ integer matrices of determinant $1$) is undecidable.
+In~1970, Paterson proved the undecidability of testing whether the zero matrix belongs to a given finitely generated semigroup of $3 \times 3$ integer matrices is undecidable~\cite{Paterson}.
+The decidability of the membership problem for $2 \times 2$ matrices was only shown to be decidable in 2016, by Potapov and Semukhin in~\cite{PS2Z}.
+Moreover, the decidability of the membership problem for finitely generated matrix semigroups of \emph{commuting} integer matrices was shown to be decidable in any dimension by Babai, Beals, Cai, Ivanyos, and Luks in~\cite{MultiplicativeMatrixEquations}.
+Another interesting problem relates to the study of equations of the form
+\begin{equation*}
+  \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C \, ,
+\end{equation*}
+which were studied in~\cite{MEHTP}, where it was shown to be undecidable whether they have any solution. Note that this undecidability result was done by reducing from Hilbert's Tenth Problem, as opposed to the Post Correspondence Problem, as will frequently happen throughout this dissertation. In fact, we will need a strengthened version of this result where the matrices $A_{1}, \ldots, A_{k}, C$ are required to be unimodular, as we shall see in~\cref{sec:matrix-undecidability}.
+
+On a different note, the study of \emph{continous} models of computation started as early as 1941, when Shannon studied the General Purpose Analog Computer (GPAC).
+In particular, he showed that the class of GPAC-computable functions corresponds to the set of functions which are components of a solution to an ordinary differential equation with a polynomial right-hand side~\cite{Shannon1941}.
+Modulo technicalities, GPAC-computable functions have been shown to correspond to Turing-computable functions~\cite{Bournez1,Bournez2}, and even a characterisation of \PTIME{} is known.
+Therefore, it is unsurprising that researchers have focused on linear ordinary differential equations, where numerous decidability results have been achieved.
+The \emph{continuous Orbit problem}, which amounts to deciding whether the unique solution to a given linear ordinary differential equation ever reaches a given target point, has been shown to be decidable in polynomial time~\cite{Hainry08,ContinuousOrbitIPL}.
+Some work has also been done on the \emph{continuous Skolem problem}, which analogously to the Orbit problem asks whether such a trajectory hits a given hyperplane (instead of a point).
+In~\cite{ContinuousSkolem}, this problem was shown to be decidable when $A$ is $2 \times 2$.
+Moreover, the version of this problem with a bounded time-horizon was shown to be decidable in~\cite{ContinuousSkolem3} conditionally on Schanuel's conjecture being true.
+
+On the discrete-time front, \emph{linear recurrence sequences} have been exhaustively studied. These correspond to sequences where each term is a fixed linear combination of the previous $k$ terms ($k$ is said to be the \emph{order} of the linear recurrence sequence). The Skolem-Mahler-Lech theorem~\cite{Sko34,Mah35,Lec53,Hansel85} characterises the set of such sequences as the union of finitely many arithmetic progressions and a finite set. Whilst it is known how to compute these arithmetic progressions\cite{BM76}, the general problem of determining whether a linear recurrence sequence ever hits zero has not been shown to be decidable. However, this problem is known to be decidable when~$k \leq 4$~\cite{Ver85}.
+Furthermore, other properties of these sequences, such as the positivity problem~\cite{BG07,HHH06,LT09,OW13:constructive-positivity,OW14:SODA,Liu10} and the ultimate positivity problem~\cite{OuaknineW13b}, have been studied.
+In particular, these problems are known to be decidable when $k \leq 5$, and have shown to be hard when $k \geq 6$, in the sense that their decidability would entail a substantial breakthrough in analytic number theory.
+
+Kannan and Lipton's \emph{Orbit problem}~\cite{KL86} consists in deciding whether an orbit of the form $(A^{n} \myvector{x})_{n \in \Naturals}$ ever hits a target point $\myvector{y}$, which was shown to be in \PTIME{}. Further generalisations where the target is replaced by a small-dimension linear subspace~\cite{COW13} or a convex polytope~\cite{COW15:SODA} in a small-dimensional space have been considered, but both problems are Skolem-hard, and the latter is also hard for positivity and ultimate positivity (on top of the positivity problem being Skolem-hard, more hardness results are known for positivity than for Skolem).
+
+Many other similar problems, have been studied, and the reader should refer to the cited papers for further information.
