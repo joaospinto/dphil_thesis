@@ -1,6 +1,4 @@
-\chapter{Conclusion}
-
-%BEGIN SODA
+\section{Conclusion}
 
 %% Our techniques can actually be altered in order to solve another
 %% related problem. One may ask if, given a convex semi-algebraic set, an
@@ -47,21 +45,12 @@ nets (also known as \textit{structural boundedness}) is
 \PTIME-decidable, but the pointwise termination problem is
 \EXPSPACE-hard.
 
-A natural subject for further work is whether our techniques can be
-extended to non-diagonalisable matrices, or whether, as is the case
-for pointwise termination~\cite{OW14:SODA}, there are unavoidable
-number-theoretic obstacles to proving decidability.  We would also like
-to further study the computational complexity of the termination
-problem.  While there is a large gap between the \coNP lower
-complexity bound mentioned in the Introduction and the exponential
-space upper bound of our procedure, this may be connected with the
-fact that our procedure computes a representation of the set of all
-integer eventually non-terminating points. Finally we would like to
-examine more carefully the question of whether the respective sets of
-terminating and non-terminating points are semi-algebraic.  Note that
-an \emph{effective} semi-algebraic characterisation of the set of
-terminating points would allow us to solve the termination problem
-over fixed initial values.
+Interestingly, Braverman conjectured in~\cite{Bra06} that it would be necessary that one is able to decide pointwise termination in order to decide universal termination over the integers. We partly disprove this conjecture, as characterising the set of \emph{eventually} non-terminating points (or rather, a witness set thereto) seems to suffice.
+
+A natural subject for further work would be the extension of our result to instances with non-diagonalisable matrices, or showing that there are unavoidable number-theoretic obstacles to proving decidability of this problem, as is the case in~\cite{OW14:SODA}.
+Another relevant problem would be the computational complexity of the termination problem.  While there is a large gap between the \coNP{} lower complexity bound mentioned in~\cref{sec:soda_intro} and the \EXPSPACE{} upper bound of our procedure, this may be connected with the fact that our procedure computes a representation of the set of all integer eventually non-terminating points.
+
+Finally, the question of whether the respective sets of terminating and non-terminating points are semi-algebraic is quite interesting.  Note that an \emph{effective} semi-algebraic characterisation of the set of terminating points would allow us to solve the termination problem over fixed initial values.
 
 %% We conjecture that deciding eventual termination for all integer
 %% points in a given convex semi-algebraic set is \EXPSPACE-hard,
@@ -74,38 +63,3 @@ over fixed initial values.
 %% problem with non-diagonalisable update matrices in dimension at least
 %% $5$ should be hard, in a similar sense to the one described in
 %% \cite{OW14:SODA}.
-
-%END SODA
-
-%BEGIN LICS
-
-We have shown that the Matrix-Exponential Problem is undecidable in
-general, but decidable when the matrices $A_{1}, \ldots, A_{k}$ commute.
-This is analogous to what was known for the discrete version
-of this problem, in which the matrix exponentials $e^{At}$ are
-replaced by matrix powers $A^n$.
-
-It would also be interesting to look at possibly decidable
-restrictions of the MEP/MESP, for example the case where $k=2$ with a
-non-commuting pair of matrices, which was shown to be decidable for
-the discrete analogue of this problem in \cite{MEHTP}. Bounding the dimension of the ambient vector space could also yield decidability, which has been partly accomplished in the discrete case in \cite{CK05}. Finally, upper bounding the complexity of our decision procedure for the commutative case would also be a worthwhile task.
-%END LICS
-
-%BEGIN HSCC
-We have shown that the Polytope Escape Problem for continuous-time
-linear dynamical systems is decidable, and in fact, polynomial-time
-reducible to the decision problem for the existential theory of real
-closed fields.  Given an instance of the problem $(f,\mathcal{P})$,
-with $f$ an affine map, our decision procedure involves analysing the real
-eigenstructure of the linear operator
-$g(\myvector{x}):=f(\myvector{x})-f(\myvector{0})$. In fact, we
-showed that all complex eigenvalues could essentially be ignored for
-the purposes of deciding this problem.
-
-Interestingly, the seemingly closely related question of whether a
-given single trajectory of a linear dynamical system remains trapped
-within a given polytope, on the other hand, appears to be
-considerably more challenging and is not known to be decidable. In
-that instance, it seems that the influence of the complex
-eigenstructure cannot simply be discarded.
-%END HSCC

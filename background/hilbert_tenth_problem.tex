@@ -2,6 +2,7 @@
 Given a polynomial $p \in \Integers[x_{1}, \ldots, x_{k}]$, Hilbert's Tenth Problem consists in deciding whether $p(\myvector{x}) = 0$ admits a solution $\myvector{x} \in \Naturals^{k}$. The following celebrated theorem, due to Yuri Matiyasevich, settled this question negatively; see~\cite{HTP} for a self-contained proof.
 \begin{theorem}[Matiyasevich]
 \label{thm:HTP}
+%TODO: Actually state that RE = Diophantine.
 Hilbert's Tenth Problem is undecidable.
 \end{theorem}
 This result can be seen as a strengthening of the famous G\"{o}del-Rosser incompleteness theorem, which states that the first-order theory of integers is undecidable. Namely, this result shows that the existential branch of that theory is already undecidable. As a consequence, it is undecidable whether a given semi-algebraic set intersects the integer lattice.
@@ -14,4 +15,24 @@ polynomials of degree at most $D$ and that can be represented in space
 $S$. In that case, if $W\cap\Integers^{d}\neq\emptyset$, then $W$ must
 contain an integral point that can be represented in space
 $SD^{O(d^4)}$.
+\end{theorem}
+
+\subsection{Arithmetical Hierarchy, Turing Jumps, and Post's Theorem}
+%TODO
+The purpose of this section is to describe the \emph{arithmetical hierarchy} and Post's theorem, which will be needed to understand~\cref{sec:turing-degree-lics}.
+
+Consider a quantifier-free formula $\Psi$ consisting of Boolean combinations of atomic predicates of the form $p(x_{1}, \ldots, x_{n}) \geq 0$, where $p \in \Integers[x_{1}, \ldots, x_{n}]$.
+The class of such formulas is $\Sigma_{0}=\Pi_{0}$.
+Moreover, if $\Phi \in \Pi_{n}$ and $x_{1}, \ldots, x_{n}$ are free variables in $\Phi$, then $\exists x_{1}, \ldots, \exists x_{n} \Phi$ belongs to $\Sigma_{n+1}$.
+Similarly, if $\Phi \in \Sigma_{n}$ and $x_{1}, \ldots, x_{n}$ are free variables in $\Phi$, then $\forall x_{1}, \ldots, \forall x_{n} \Phi$ belongs to $\Pi_{n+1}$.
+In order to extend these classes beyond formulas in prenex normal form, we make them closed under logical equivalence. Therefore, if $\Phi \in \Sigma_{n}$, then $\neg \Phi \in \Pi_{n}$, and vice-versa.
+Furthermore, we define $\Delta_{n} = \Sigma_{n} \cap \Pi_{n}$.
+
+%TODO: mention that \Sigma_1 = RE.
+%TODO: define completeness
+By abuse of notation, ...%TODO
+
+\begin{theorem}[Post]
+  \label{thm:Post}
+  TODO
 \end{theorem}
