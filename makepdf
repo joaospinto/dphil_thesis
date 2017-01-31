@@ -1,0 +1,6 @@
+pdf: main.tex main.bib
+	pdflatex main
+	bibtex main
+	pdflatex main
+	pdflatex main
+	rm *.aux *.log *.bbl *.blg *.out *.toc
