@@ -1,6 +1,6 @@
-pdflatex main
+pdflatex --synctex=1 main
 bibtex main
-pdflatex main
-pdflatex main
+pdflatex --synctex=1 main
+pdflatex --synctex=1 main
 rm *.aux *.log *.bbl *.blg *.lof *.out *.toc
 clear
