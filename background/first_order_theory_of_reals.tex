@@ -27,8 +27,15 @@ The reader seeking a comprehensive study of the computational complexity of quan
 
 \begin{theorem}
 \label{thm:quant-elim}
-  Given a set $\mathcal{Q}=\lbrace q_1,\ldots,q_s\rbrace$ of $s$   polynomials each of degree at most $D$, in $h+d$ variables, and a   first-order formula $\Phi(\myvector x)=Q y_1 \ldots Q y_h   F(q_1(\myvector x,\myvector y),\ldots,q_s(\myvector x,\myvector y))$, where $Q\in\lbrace \exists,\forall\rbrace$, $F$ is a quantifier-free Boolean combination with atomic elements of the form $q_i(\myvector x,\myvector y)\sim 0$, then there exists a quantifier-free formula $\Psi(\myvector{x}) = \bigwedge_{i=1}^{J} \bigvee_{j=1}^{J_i} q_{ij}(\myvector{x}) \sim 0$,
-  where $I\leq (sD)^{O(hd)}$, $J\leq (sD)^{O(d)}$, the degrees of the   polynomials $q_{ij}$ are bounded by $D^{d}$, and the bit-sizes of the   heights of the polynomials in the quantifier-free formula are only   polynomially larger than those of $q_1,\ldots,q_s$.
+Given a set $\mathcal{Q}=\lbrace q_1,\ldots,q_s\rbrace$ of $s$   polynomials each of degree at most $D$, in $h+d$ variables, and a first-order formula
+\begin{equation*}
+  \Phi(\myvector x)=Q y_1 \ldots Q y_h   F(q_1(\myvector x,\myvector y),\ldots,q_s(\myvector x,\myvector y)) \, ,
+\end{equation*}
+where $Q\in\lbrace \exists,\forall\rbrace$, $F$ is a quantifier-free Boolean combination with atomic elements of the form $q_i(\myvector x,\myvector y)\sim 0$, then there exists a quantifier-free formula
+\begin{equation*}
+\Psi(\myvector{x}) = \bigwedge_{i=1}^{J} \bigvee_{j=1}^{J_i} q_{ij}(\myvector{x}) \sim 0 \, ,
+\end{equation*}
+where $I\leq (sD)^{O(hd)}$, $J\leq (sD)^{O(d)}$, the degrees of the   polynomials $q_{ij}$ are bounded by $D^{d}$, and the bit-sizes of the heights of the polynomials in the quantifier-free formula are only   polynomially larger than those of $q_1,\ldots,q_s$.
 \end{theorem}
 
 We also make use of the following lemmas:
@@ -62,7 +69,7 @@ We also make use of the following lemmas:
 \end{proof}
 
 \begin{lemma}
-  \label{lem:semi-alg-density}
+\label{lem:semi-alg-density}
 If $X\subseteq\Reals^{d}$ is semi-algebraic, then $X\cap\Algebraics^{d}$ is dense in $X$.
 \end{lemma}
 
@@ -78,7 +85,7 @@ If $X\subseteq\Reals^{d}$ is semi-algebraic, then $X\cap\Algebraics^{d}$ is dens
 \end{proof}
 
 \begin{lemma}
-  \label{lem:semi-alg-closure}
+\label{lem:semi-alg-closure}
 If $X\subseteq\Reals^{d}$ is semi-algebraic, so is $\overline{X}$.
 \end{lemma}
 

@@ -3,17 +3,13 @@
 
 Having shown that MEP is undecidable and that MESP reduces to MEP, we are interested in classifying the Turing-degree of MEP.
 
-%TODO: recall Post's theorem in the background section.
-
-
-
 \begin{theorem}
 \label{thm:turing-degree-2}
-  MEP is in $\Sigma_{2}^{0}$.
+  MEP is in $\Sigma_{2}$.
 \end{theorem}
 
 \begin{proof}
-  We recall that, by~\cref{thm:Post}, $\emptyset^{(2)}$ (that is, the second Turing jump of the empty set\footnote{Note that any computable set could have been used instead of $\emptyset$.}) is $\Sigma_{2}^{0}$-complete. Below, we present a reduction from MEP to $\emptyset^{(2)}$.
+  We recall that, by~\cref{thm:Post}, $\emptyset^{(2)}$ (that is, the second Turing jump of the empty set\footnote{Note that any computable set could have been used instead of $\emptyset$.}) is $\Sigma_{2}$-complete. Below, we present a reduction from MEP to $\emptyset^{(2)}$.
 
   Consider the function
   \begin{equation*}
@@ -31,10 +27,10 @@ Having shown that MEP is undecidable and that MESP reduces to MEP, we are intere
 Moreover, the following result holds.
 
 \begin{theorem}
-  If Schanuel's conjecture is true, MEP is $\Sigma_{1}^{0}$-complete.
+  If Schanuel's conjecture is true, MEP is $\Sigma_{1}$-complete.
 \end{theorem}
 
 \begin{proof}
-  It is clear that MEP is $\Sigma_{1}^{0}$-hard.
+  It is clear that MEP is $\Sigma_{1}$-hard.
   Let $f$ be as in the proof of~\cref{thm:turing-degree-2}. Consider the Turing Machine $T$ which, for each $n \in \Naturals$, uses~\cref{thm:wilkie-macintyre} to decide whether $f$ admits a zero in the region $[0,n]^{k}$. Then $T$ terminates if and only if the instance of MEP under consideration is positive.
 \end{proof}

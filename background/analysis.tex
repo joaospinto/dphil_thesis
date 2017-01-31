@@ -71,10 +71,10 @@ Then, for some $N\in\Naturals$ and each $j$, one can write
 \begin{equation*}
 N\theta_{j}= \left( m  +\sum\limits_{l=1}^{k} n_{l}\theta_{i_{l}} \right) \, ,
 \end{equation*}
-where $m,n_{i_{1}},\ldots,n_{i_{k}}$ are integers that depend on $j$, whilst $N$ does not depend on $j$.  It follows that for all $j$ and $t \in \Reals$,
+where $m,n_{1},\ldots,n_{k}$ are integers that depend on $j$, whilst $N$ does not depend on $j$. It follows that for all $j$ and $t \in \Reals$,
 \begin{align*}
-\exp(2 \pi i N\theta_{j} t) &= \exp( 2 \pi i m t) \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i  n_{i_{l}} \theta_{i_{l}} t) \\
-&= \exp(2 \pi i t)^{m} \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i \theta_{i_{l}} t)^{n_{i_{l}}}  \, .
+\exp(2 \pi i N\theta_{j} t) &= \exp( 2 \pi i m t) \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i  n_{l} \theta_{i_{l}} t) \\
+&= \exp(2 \pi i t)^{m} \cdot \prod\limits_{l=1}^{k} \exp(2 \pi i \theta_{i_{l}} t)^{n_{l}}  \, .
 \end{align*}
 In other words, for all $j \geq k+1$, $\exp(2 \pi i N \theta_{j} t)$ can be written as a product of positive and negative powers of the terms
 \begin{equation*}
@@ -84,13 +84,11 @@ It follows that there exists a self-conjugate Laurent polynomial
 $h\in\Complex [z_1^{\pm 1},\ldots,z_k^{\pm 1}]$, not necessarily
 simple, but with zero constant term, such that for all
 $t\in \Reals$,
-\[ g(\exp(2 \pi N \theta_{1} t), \ldots, \exp(2 \pi N \theta_{s} t)) =
+\[ g(\exp(2 \pi i N \theta_{1} t), \ldots, \exp(2 \pi i N \theta_{s} t)) =
   h(\exp(2 \pi i \theta_{i_{1}} t),\ldots,\exp(2 \pi i \theta_{i_{k}} t)) \, .\]
 Since $1, \theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$, the result follows by applying \cref{lem:first_bound}
 to $h$.
 \end{proof}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%(removed something from here)%%%%%%%%%%%%%%
 
 In order to compare the asymptotic growth of expressions of the form
 $t^{n}\exp(\lambda t)$, for $\lambda\in\Reals$ and
