@@ -9,3 +9,5 @@
 *.blg
 *.synctex.gz
 .nfs*
+*.tfm
+*.600pk
