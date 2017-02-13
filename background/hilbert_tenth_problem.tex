@@ -23,12 +23,12 @@ By abuse of notation, we also use $\Sigma_{n}$, $\Pi_{n}$, and $\Delta_{n}$ to r
 
 Before stating Post's theorem, we need to introduce some notation. If $A$ is a decision problem, we define $A^{(0)}$ to be $A$, and for each $n \geq 1$ we define $A^{(n+1)}$ as the Halting Problem for Turing machines with access to an oracle for solving $A^{(n)}$. In the statement below, $\emptyset$ could be replaced by any computable set.
 
-\begin{theorem}[Post]
+\begin{theorem}[Post, modern version]
 \label{thm:Post}
 $\emptyset^{(n)}$ is $\Sigma_{n}$-complete.
 \end{theorem}
 
-Note that the~\cref{thm:Post}, whilst named after Emil Post, was not proven by him, since he died in 1954, long before Hilbert's Tenth Problem was settled, and as~\cref{thm:Post} implies its undecidability.
+Note that the original statement of~\cref{thm:Post} was weaker than the one we present, and in particular did not imply the undecidability of Hilbert's Tenth Problem.
 
 We shall also need the following result, shown in~\cite{KhachiyanP97}, which contrasts with~\cref{thm:HTP}:
 \begin{theorem}[Khachiyan and Porkolab]
