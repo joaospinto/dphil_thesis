@@ -6,12 +6,12 @@ In this section, we present a hardness result for the point-to-point controllabi
 Given a matrix $A \in \Rationals^{d \times d}$ and two vectors
 $\myvector{u}, \myvector{v} \in \Rationals^{d}$, \emph{Skolem's problem} consists in determining
 whether there exists a number $n \in \Naturals$ such that
-$\myvector{u}^{T} A^{n} \myvector{v} = 0$, and the \emph{positivity problem} consists in determining whether there exists a number $n \in \Naturals$ such that $\myvector{u}^{T} A^{n} \myvector{v} \geq 0$. A decision problem is said to be \emph{Skolem-hard} if Skolem's problem can be reduced to it; we define \emph{positivity-hardness} accordingly.
+$\myvector{u}^{T} A^{n} \myvector{v} = 0$, and the \emph{Positivity problem} consists in determining whether there exists a number $n \in \Naturals$ such that $\myvector{u}^{T} A^{n} \myvector{v} \geq 0$. A decision problem is said to be \emph{Skolem-hard} if Skolem's problem can be reduced to it; we define \emph{Positivity-hardness} accordingly.
 \end{definition}
 
-Skolem's problem is a long-standing open problem in logic and number theory, whose decidability has not yet been determined. It is well known that the positivity-problem is Skolem-hard \cite{OW14:SODA}.
+Skolem's problem is a long-standing open problem in logic and number theory, whose decidability has not yet been determined. It is well known that the Positivity problem is Skolem-hard \cite{OW14:SODA}.
 
-Instead of reducing from the positivity problem directly, we shall proceed by reducing from the following problem, which has been shown to be positivity-hard in \cite{MRP}:
+Instead of reducing from the Positivity problem directly, we shall proceed by reducing from the following problem, which has been shown to be Positivity-hard in \cite{MRP}:
 \begin{definition}
 Given a (column-)stochastic matrix $M \in \Rationals^{d \times d}$ and a number $r \in \Rationals \cap [0,1]$,
 the \emph{Markov Reachability Problem} consists in determining whether there exists a number $n \in \Naturals$ such that $\left( M^{n} \right)_{1,2} \geq r$.
@@ -20,7 +20,7 @@ the \emph{Markov Reachability Problem} consists in determining whether there exi
 We will now show the following result:
 
 \begin{theorem}
-The point-to-point controllability problem for LTI systems whose set of admissible controls are compact convex polytopes is positivity-hard.
+The point-to-point controllability problem for LTI systems whose set of admissible controls are compact convex polytopes is Positivity-hard.
 \end{theorem}
 
 \begin{proof}

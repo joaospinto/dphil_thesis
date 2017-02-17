@@ -9,15 +9,15 @@ where $A$ is a $d \times n$ matrix and $\myvector{b} \in \Reals^{d}$. When all t
 The decision version of linear programming with canonically-defined algebraic coefficients is in $\exists\Reals$, as the emptiness of a convex polytope can easily be described by a sentence of the form $\exists x_1 \cdots \exists x_n \sigma(\myvector{x})$.
 
 Finally, we note that even though the decision version of linear
-programming with rational coefficients is in $\mathit{P}$, allowing
+programming with rational coefficients is in~\PTIME{}, allowing
 algebraic coefficients makes things more complicated. While it has
 been shown in~\cite{AdlerB94} that this is solvable in time polynomial
-in the size of the problem instance and on the degree of the smallest
+in the size of the problem instance and in the degree of the smallest
 number field containing all algebraic numbers in each instance, it
-turns out that in the problem at hand the degree of that extension can
+turns out that, in the problem at hand, the degree of that extension can
 be exponential in the size of the input. In other words, the splitting
 field of the characteristic polynomial of a matrix can have a degree
-which is exponential in the degree of the characteristic polynomial.
+which is exponential in the degree of the characteristic polynomial, which is makes it hard to place this problem in~\PTIME{}.
 
 We will also make use of the following result:
 \begin{theorem}[Minkowski-Weyl]

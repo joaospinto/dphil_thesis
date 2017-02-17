@@ -16,14 +16,14 @@ A set $S \subseteq \Reals^{n}$ is said to be \emph{semi-algebraic} if it is a Bo
   The first-order theory of reals admits a constructive method for quantifier elimination. In particular, it is a decidable theory.~\cite{Tar51}
 \end{theorem}
 
-Therefore, the semi-algebraic sets are precisely the first-order definable sets (that is, the use of quantifiers does not augment the class of semi-algebraic sets).
+From~\cref{thm:tarski}, it follows that the semi-algebraic sets are precisely the first-order definable sets (that is, the use of quantifiers does not augment the class of semi-algebraic sets).
 
 We also remark that our standard representation of algebraic numbers, described in~\cref{sec:alg_num_rep}, allows us to write them explicitly in the first-order theory of reals, that is, given $\alpha\in\Algebraics$, there exists a sentence $\sigma(x)$ such that $\sigma(x)$ is true if and only if $x=\alpha$. Thus, we allow their use when defining semi-algebraic sets, for simplicity.
 
 The complexity class $\exists\Reals$ is defined as the set of problems having a polynomial-time many-one reduction to the existential theory of the reals. It was shown in~\cite{Canny88} that $\exists\Reals\subseteq \PSPACE$.
 
 The reader seeking a comprehensive study of the computational complexity of quantifier elimination may refer to~\cite{Renegar} and~\cite{BPR06}. We shall make use of the following result by Basu, Pollack, and Roy
-\cite{BasuPR96}, which upper-bounds the space complexity of quantifier elimination:
+\cite{BasuPR96}, which provides an upper bound on the space complexity of quantifier elimination:
 
 \begin{theorem}
 \label{thm:quant-elim}
@@ -40,7 +40,7 @@ where $I\leq (sD)^{O(hd)}$, $J\leq (sD)^{O(d)}$, the degrees of the   polynomial
 
 We also make use of the following lemmas:
 \begin{lemma}
-  If $X\subseteq\Reals^{d}$ is semi-algebraic and non-empty,
+  If $X\subseteq\Reals^{d}$ is semi-algebraic and non-empty, then
   $X\cap\Algebraics^{d}\neq\emptyset$.
 \end{lemma}
 
@@ -79,14 +79,13 @@ If $X\subseteq\Reals^{d}$ is semi-algebraic, then $X\cap\Algebraics^{d}$ is dens
   $B(y,\varepsilon/2)$ is semi-algebraic, so must be $X\cap
   B(y,\varepsilon/2)$, and so this set must contain an algebraic
   point, since it is nonempty ($x$ is in it), and that point must
-  therefore be at distance at most $\varepsilon$ of $x$, by the
-  triangle inequality. By letting $\varepsilon\rightarrow 0$, we get
-  a sequence of algebraic points which converges to $x$.
+  therefore be at distance at most $\varepsilon$ from $x$, by the
+  triangle inequality.
 \end{proof}
 
 \begin{lemma}
 \label{lem:semi-alg-closure}
-If $X\subseteq\Reals^{d}$ is semi-algebraic, so is $\overline{X}$.
+If $X\subseteq\Reals^{d}$ is semi-algebraic, then so is $\overline{X}$.
 \end{lemma}
 
 \begin{proof}

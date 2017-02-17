@@ -174,15 +174,15 @@ on the dimension of data in problem instances to obtain decidability.
 %as proved independently by Vereschagin \cite{Ver85} and Mignotte,
 %Shorey, and Tijdeman \cite{MST84}. This problem has been discussed at
 %length by Terence Tao in \cite{Tao07} and by Lipton in
-%\cite{Lip09}. Deciding the \emph{positivity} problem (whether
-%$\forall n\geq 0,u_n\geq 0$) and the \emph{ultimate positivity}
+%\cite{Lip09}. Deciding the \emph{Positivity} problem (whether
+%$\forall n\geq 0,u_n\geq 0$) and the \emph{Ultimate Positivity}
 %problem (whether $\lbrace n\in\Naturals\mid u_n< 0\rbrace$ is finite)
 %is also only known to be possible for LRS of order up to 5 in general
 %\cite{OW14:SODA} and up to 9 for a relevant subclass
 %\cite{OW13:constructive-positivity}. In fact, there is a one-line
-%reduction from Skolem's problem to the positivity problem which does
+%reduction from Skolem's problem to the Positivity problem which does
 %not, however, preserve orders. Ouaknine and Worrell
-%\cite{OuaknineW13b} showed that ultimate positivity is decidable in
+%\cite{OuaknineW13b} showed that Ultimate Positivity is decidable in
 %polynomial space (and in polynomial time for a fixed order) for all
 %simple LRS (those whose characteristic polynomial has no repeated
 %roots), and we borrow many of the techniques used there. Finally, the
@@ -192,7 +192,7 @@ on the dimension of data in problem instances to obtain decidability.
 
 %Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \NP-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
 
-%Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\Integers^k$, $\forall n\in\Naturals,f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\Integers^k$, $\exists N\in\Naturals:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate positivity problem).
+%Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\Integers^k$, $\forall n\in\Naturals,f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the Positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\Integers^k$, $\exists N\in\Naturals:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate Positivity problem).
 
 Termination of $\mathsf{P1}$ under the assumption that all eigenvalues
 of $A$ are real was studied in \cite{RMM,RMM1} using spectral
