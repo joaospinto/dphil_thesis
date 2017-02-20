@@ -10,7 +10,7 @@ functions~\cite{Ben-AmramG13,BradleyMS05,ChenFM12,ColonS01,PodelskiR04},
 many of which have been implemented in software-verification tools, such as
 Microsoft's \textsc{Terminator}~\cite{CookPR06}.
 
-A very simple form of linear programs are \emph{simple linear
+A very simple form of imperative programs are \emph{simple linear
   loops}, that is, programs of the form
 \begin{gather*}
 \mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
@@ -43,7 +43,7 @@ simple linear loops when the assignment matrix $A$ is diagonalisable.
 This represents the first substantial progress on this open problem in
 over $10$ years.
 
-Termination of more complex linear programs can often be reduced to
+Termination of more complex programs can often be reduced to
 termination of simple linear loops (see, e.g.,~\cite{CookPR06}
 or~\cite[Section 6]{Tiw04}).  On the other hand, termination becomes
 undecidable for mild generalisations of simple linear loops, for
@@ -56,7 +56,8 @@ $\myvector{u} \in \Integers^{d}$ if, starting from initial value
 $\myvector{u}$, after executing the loop body $\myvector{x} \gets
 A\myvector{x}+\myvector{a}$ a finite number of times \emph{while
   disregarding the loop guard} we eventually reach a value on which
-\textsf{P1} fails to terminate.  Clearly \textsf{P1} fails to
+\textsf{P1} fails to terminate.  Recall that $A$ and $\myvector{a}$
+have integer coefficients, so clearly \textsf{P1}~fails to
 terminate on $\Integers^{d}$ if and only if it is eventually
 non-terminating on some $\myvector{u} \in \Integers^{d}$.
 
@@ -65,11 +66,11 @@ semi-algebraic set $W \subseteq \Reals^{d}$ such that the integer
 points $\myvector{u} \in W$ are precisely the eventually
 non-terminating integer initial values.  Since it is decidable whether
 a convex semi-algebraic set contains an integer
-point~\cite{KhachiyanP97},\footnote{By contrast, recall that the
-  existence of an integer point in an \emph{arbitrary} (i.e., not
-  necessarily convex) semi-algebraic set is well-known to be undecidable, due to~\cref{thm:HTP}.} we can
+point~\cite{KhachiyanP97}, we can
 decide whether an integer linear loop is terminating on
-$\Integers^{d}$.
+$\Integers^{d}$. Convexity is crucial here: deciding whether an arbitrary
+semi-algebraic set contains any integer points is equivalent to
+Hilbert's Tenth Problem, and this is undecidable.
 
 Termination over the set of all integer points is easily seen to be
 \coNP-hard.  Indeed, if the update function in the loop body
@@ -91,7 +92,7 @@ As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
 lower bounds in Diophantine approximation that generalise Roth's
 Theorem.  (The need for such bounds in the inhomogeneous setting was
-conjectured in the discussion in the conclusion of~\cite{Bra06}.)  We
+conjectured in the conclusion of~\cite{Bra06}.)  We
 also use classical results in number theory, such as the
 Skolem-Mahler-Lech Theorem~\cite{Lec53,Mah35,Sko34} on linear
 recurrences.  Crucially the well-known and notorious ineffectiveness
@@ -102,7 +103,7 @@ our approach.
 
 \subsection{Related Work}
 
-Consider the termination problem for a homogeneous linear loop program
+Consider the termination problem for a homogeneous simple linear loop
 \begin{gather*}
 \mathsf{P2:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
 \textit{while} $B\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$}
@@ -116,8 +117,8 @@ defined by $x_n = \myvector{b}^TA^n \myvector{u}$.  Then
 and only if each such sequence $\langle x_n \rangle$ is
 \emph{positive}, i.e., $x_n \geq 0$ for all $n$.  It is not difficult
 to show that each sequence $\langle x_n \rangle$ considered above is a
-\emph{linear recurrence sequence}, thanks to the Cayley-Hamilton
-theorem.  Thus deciding whether a homogeneous linear loop program
+\emph{linear recurrence sequence}, as we saw in~\cref{sec:LRS}.
+Thus deciding whether a homogeneous simple linear loop
 terminates on a given initial value is at least as hard as the
 \emph{Positivity Problem} for linear recurrence sequences, that is,
 the problem of deciding whether a given linear recurrence sequence has
@@ -129,7 +130,9 @@ known only for sequences satisfying recurrences of order $5$ or less.
 It is moreover known that showing decidability at order $6$ will
 necessarily entail breakthroughs in transcendental number theory,
 specifically significant new results in Diophantine
-approximation~\cite{OW14:SODA}.
+approximation~\cite{OW14:SODA}. Even for \emph{simple} linear recurrence
+sequences, decidability has only been established for order at
+most~$9$~\cite{OW13:constructive-positivity}.
 
 The key difference between studying termination of simple linear loops
 over $\Integers^{d}$ rather than a single initial value is that the

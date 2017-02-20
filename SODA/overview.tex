@@ -76,20 +76,20 @@ witness set $W$ for a given program and then using~\cref{thm:kp}.
 Our approach does not attempt to characterise the set \textit{ENT}
 directly, but rather uses the witness set $W$ as a proxy. However, our
 techniques do allow us to establish that
-$\overline{\mathit{ENT}}=\overline{W}$, which in particular implies
+$\overline{\mathit{ENT}}=\overline{W}$, which implies
 that $\overline{\mathit{ENT}}$ is semi-algebraic, since the closure of
 a semi-algebraic set is semi-algebraic (see~\cref{lem:semi-alg-closure}). A natural question is whether the set $ENT$
 itself is semi-algebraic, which we leave as an open problem.
 
 We next describe some restrictions on linear loops that can
-be made without loss of generality and that will ease our upcoming
-analysis.
+be made without loss of generality for deciding termination
+and that will ease our upcoming analysis.
 
 We first reduce the problem of computing witness sets in the general
 case to the same problem in the homogeneous case.  Note that Program
 \textsf{P1} terminates on a given initial value $\myvector{u}\in
 \Integers^{d}$ if and only if the homogeneous program \textsf{P3} below
-terminates for the same value of $\myvector{u}$:
+terminates on initial value $(\myvector{u}, 1)$:
 \begin{align*}
 \mathsf{P3:} \myvector{x}\gets
 \begin{pmatrix} \myvector{u}\\ 1\end{pmatrix} \mbox{\textit{while}} \begin{pmatrix}B &-\myvector{c} \end{pmatrix}
@@ -165,13 +165,13 @@ Thus if $W$ is a witness set for \textsf{P5} then $\bigcap_{i=0}^{L-1}
 The main technical result of the chapter is the following proposition:
 \begin{restatable}{proposition}{sodamainsimplified}
 \label{prop:soda-main-simplified}
-Given a homogeneous simple linear loop
+Consider a homogeneous simple linear loop
 \begin{gather*}
 \mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$ ;
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
 \end{gather*}
-such that $A$ is non-degenerate, we can compute a
-witness set for \textsf{P4} using exponential space if all complex eigenvalues of $A$ are simple and using polynomial space if $A$ has dimension at most $5$.
+such that $A$ is non-degenerate. If $A$ has dimension at most $5$, we can compute a witness set for \textsf{P4} using polynomial space.
+In case all complex eigenvalues of $A$ are simple, we can compute a witness set for \textsf{P4} using exponential space.
 \end{restatable}
 
 Bearing in mind that the transformation from $\mathsf{P1}$ to
@@ -208,7 +208,7 @@ $\myvector{v}=\myvector{v}_1+\ldots+\myvector{v}_m$, with
 $\myvector{v}_i \in V_i$.  Using \cref{thm:s-units} on
 $S$-units, we show that if all entries of $\myvector{v}$ are
 algebraic numbers then the eventual non-termination of \textsf{P4} on
-$\myvector{v}$ is a function of its eventual non-termination on each
+$\myvector{v}$ is determined by its eventual non-termination on each
 $\myvector{v}_i$ separately.  More precisely we look for the first
 $\myvector{v}_i$ such that the sequence $\langle
 \myvector{b}^TA^n\myvector{v}_i : n \in \Naturals\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
