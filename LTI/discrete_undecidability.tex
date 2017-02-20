@@ -25,31 +25,31 @@ and $M = \diag{B_{k}, \ldots, B_{1}, I_{d}, 1} \in \mathbb{Q}^{((3k+1)d+1) \time
 
 Moreover, we let, for each $i \in \lbrace 1, \ldots, k \rbrace$,
 \begin{align*}
-\mathcal{P}_{i}^{(1)} &= {\lbrace \boldsymbol{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (-\boldsymbol{z}, \boldsymbol{z}, \boldsymbol{0}, \boldsymbol{0}), \boldsymbol{z} \in \mathbb{R}^{d} \rbrace &\times
-{\lbrace \boldsymbol{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
+\mathcal{P}_{i}^{(1)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
+\lbrace (-\myvector{z}, \myvector{z}, \myvector{0}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+{\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{P}_{i}^{(2)} &= {\lbrace \boldsymbol{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (-\boldsymbol{z}, \boldsymbol{0}, \boldsymbol{z}, \boldsymbol{0}), \boldsymbol{z} \in \mathbb{R}^{d} \rbrace &\times
-{\lbrace \boldsymbol{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
+\mathcal{P}_{i}^{(2)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
+\lbrace (-\myvector{z}, \myvector{0}, \myvector{z}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+{\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{Q}_{i}^{(1)} &= {\lbrace \boldsymbol{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (\boldsymbol{0}, -\boldsymbol{z}, \boldsymbol{0}, \boldsymbol{z}), \boldsymbol{z} \in \mathbb{R}^{d} \rbrace &\times
-{\lbrace \boldsymbol{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
+\mathcal{Q}_{i}^{(1)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
+\lbrace (\myvector{0}, -\myvector{z}, \myvector{0}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+{\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{Q}_{i}^{(2)} &= {\lbrace \boldsymbol{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (\boldsymbol{0}, \boldsymbol{0}, -\boldsymbol{z}, \boldsymbol{z}), \boldsymbol{z} \in \mathbb{R}^{d} \rbrace &\times
-{\lbrace \boldsymbol{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
+\mathcal{Q}_{i}^{(2)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
+\lbrace (\myvector{0}, \myvector{0}, -\myvector{z}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+{\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1}.
 \end{align*}
 We also let $\mathcal{P}_{1} = \mathcal{P}_{i}^{(1)} \dot{\cup} \mathcal{P}_{i}^{(2)}$ and $\mathcal{Q}_{1} = \mathcal{Q}_{i}^{(1)} \dot{\cup} \mathcal{Q}_{i}^{(2)}$.
 We define the set of admissible controls as
 \begin{align*}
-\mathcal{U} = \bigcup\limits_{i=1}^{k} \left( \mathcal{P}_{i} \dot{\cup} \mathcal{Q}_{i} \right) \dot{\cup} \lbrace \boldsymbol{0} \rbrace.
+\mathcal{U} = \bigcup\limits_{i=1}^{k} \left( \mathcal{P}_{i} \dot{\cup} \mathcal{Q}_{i} \right) \dot{\cup} \lbrace \myvector{0} \rbrace.
 \end{align*}
-Finally, defining $\boldsymbol{s} = (\boldsymbol{x}, \boldsymbol{0}, \ldots, \boldsymbol{0}, 0)$, and $\boldsymbol{t} = (\boldsymbol{0}, \ldots, \boldsymbol{0}, \boldsymbol{y}, 2k)$, it holds that $\boldsymbol{s}$ can be controlled to $\boldsymbol{t}$ if and only if there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z} \setminus \lbrace 0 \rbrace$ such that
+Finally, defining $\myvector{s} = (\myvector{x}, \myvector{0}, \ldots, \myvector{0}, 0)$, and $\myvector{t} = (\myvector{0}, \ldots, \myvector{0}, \myvector{y}, 2k)$, it holds that $\myvector{s}$ can be controlled to $\myvector{t}$ if and only if there exist $n_{1}, \ldots, n_{k} \in \mathbb{Z} \setminus \lbrace 0 \rbrace$ such that
 \begin{equation*}
-\prod\limits_{i=1}^{k}A_{i}^{n_{i}} \boldsymbol{x} = \boldsymbol{y}.
+\prod\limits_{i=1}^{k}A_{i}^{n_{i}} \myvector{x} = \myvector{y}.
 \end{equation*}
 
 For one implication, suppose that such $n_{1}, \ldots, n_{k}$ exist.

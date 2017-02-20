@@ -27,14 +27,14 @@ The point-to-point controllability problem for LTI systems whose set of admissib
 Given a (column-)stochastic matrix $M \in \mathbb{Q}^{d \times d}$ and a number $r \in \mathbb{Q} \cap [0,1]$, we define the matrix $A=\diag{M, 0, 0, 1} \in \mathbb{Q}^{(d+3)\times (d+3)}$ and the compact convex polytope
 %Note: We want P to contain the origin, otherwise this could be simplified.
 \begin{equation*}
-\mathcal{P} = \lbrace (-\boldsymbol{x}, y, \boldsymbol{x} \cdot \boldsymbol{1}, \boldsymbol{x} \cdot \boldsymbol{1}), \boldsymbol{x} \geq \boldsymbol{0}, \boldsymbol{x} \cdot \boldsymbol{1} \leq 1, 0 \leq y \leq \boldsymbol{x} \cdot \boldsymbol{e}_{1} \rbrace \subseteq \mathbb{R}^{d+3},
+\mathcal{P} = \lbrace (-\myvector{x}, y, \myvector{x} \cdot \myvector{1}, \myvector{x} \cdot \myvector{1}), \myvector{x} \geq \myvector{0}, \myvector{x} \cdot \myvector{1} \leq 1, 0 \leq y \leq \myvector{x} \cdot \myvector{e}_{1} \rbrace \subseteq \mathbb{R}^{d+3},
 \end{equation*}
-as well as the source $\boldsymbol{s} = (\boldsymbol{e}_{2}, 0, 0, 0) \in \mathbb{Q}^{d+3}$ and target $\boldsymbol{t} = (\boldsymbol{0}, r, 1, 1) \in \mathbb{Q}^{d+3}$.
+as well as the source $\myvector{s} = (\myvector{e}_{2}, 0, 0, 0) \in \mathbb{Q}^{d+3}$ and target $\myvector{t} = (\myvector{0}, r, 1, 1) \in \mathbb{Q}^{d+3}$.
 
-First, suppose that there exists $n \in \mathbb{N}$ such that $\left( M^{n} \right)_{1,2} \geq r$. Consider the sequence of controls $\left( \boldsymbol{u}_{i} \right)_{i=0}^{i=n-1} \subseteq \mathcal{P}$ given by $\boldsymbol{u}_{0} = \cdots = \boldsymbol{u_{n-2}} = \boldsymbol{0}$ and $\boldsymbol{u}_{n-1}$ is the element from $\mathcal{P}$ corresponding to $\boldsymbol{x} = M^{n} \boldsymbol{e}_{2}$ and $y=r$.
-This sequence clearly controls $\boldsymbol{s}$ to $\boldsymbol{t}$.
+First, suppose that there exists $n \in \mathbb{N}$ such that $\left( M^{n} \right)_{1,2} \geq r$. Consider the sequence of controls $\left( \myvector{u}_{i} \right)_{i=0}^{i=n-1} \subseteq \mathcal{P}$ given by $\myvector{u}_{0} = \cdots = \myvector{u_{n-2}} = \myvector{0}$ and $\myvector{u}_{n-1}$ is the element from $\mathcal{P}$ corresponding to $\myvector{x} = M^{n} \myvector{e}_{2}$ and $y=r$.
+This sequence clearly controls $\myvector{s}$ to $\myvector{t}$.
 
-On the other hand, suppose there exists a sequence $\left( \boldsymbol{u}_{i} \right)_{i=0}^{i=n-1}$ controlling $\boldsymbol{s}$ to $\boldsymbol{t}$.
-From the fact that the coordinates $d+2$ and $d+3$ of $\boldsymbol{t}$ are equal, and noting that the matrix $A$ erases coordinate $d+2$ but not $d+3$, it follows that $\boldsymbol{u}_{n-1}$ is the only non-zero control, that is, $\boldsymbol{u}_{0} = \cdots = \boldsymbol{u}_{n-2} = \boldsymbol{0}$.
-Therefore, at time $n-1$, we will be in state $(M^{n-1} \boldsymbol{e}_{2}, 0, 0, 0)$, and the only way to reach $\boldsymbol{t}$ in the remaining step is to take $\boldsymbol{u}_{n-1} \in \mathcal{P}$ with $\boldsymbol{x} = M^{n} \boldsymbol{e}_{2}$ and $y=r$, otherwise one of the first $d$ coordinates will be non-zero. It then follows that $\left( M^{n} \right)_{1,2} \geq r$, by looking at coordinate $d+1$.
+On the other hand, suppose there exists a sequence $\left( \myvector{u}_{i} \right)_{i=0}^{i=n-1}$ controlling $\myvector{s}$ to $\myvector{t}$.
+From the fact that the coordinates $d+2$ and $d+3$ of $\myvector{t}$ are equal, and noting that the matrix $A$ erases coordinate $d+2$ but not $d+3$, it follows that $\myvector{u}_{n-1}$ is the only non-zero control, that is, $\myvector{u}_{0} = \cdots = \myvector{u}_{n-2} = \myvector{0}$.
+Therefore, at time $n-1$, we will be in state $(M^{n-1} \myvector{e}_{2}, 0, 0, 0)$, and the only way to reach $\myvector{t}$ in the remaining step is to take $\myvector{u}_{n-1} \in \mathcal{P}$ with $\myvector{x} = M^{n} \myvector{e}_{2}$ and $y=r$, otherwise one of the first $d$ coordinates will be non-zero. It then follows that $\left( M^{n} \right)_{1,2} \geq r$, by looking at coordinate $d+1$.
 \end{proof}
