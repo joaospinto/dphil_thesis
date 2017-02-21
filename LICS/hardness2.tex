@@ -2,7 +2,7 @@
 
 In this section, we will present a gadget matrix-exponential semigroup that can
 enforce a certain partial order on the matrices reaching a particular target.
-More precisely, we will exhibit fives matrices $W,X,Y,Z$ and $G$ such that any
+More precisely, we will exhibit five matrices $W,X,Y,Z$ and $G$ such that any
 product $G=\prod_{i=1}^pe^{A_it_i}$
 where $t_i>0$ and $A_i\in\{W,X,Y,Z\}$ is such that all the ``$X$'' appear before
 the ``$Y$''. Define the following matrices:
@@ -47,10 +47,10 @@ any such choice we have $i<j$.
 First observe that any such product is always an upper triangular matrix with
 non-negative entries (because all the matrices have non-negative entries) and positive
 entries on the diagonal. Let $M$ be such a matrix, we denote its coefficients by
-$0$ if they are zero and $+$ if they are positive. One easily checks that the following diagrams holds.
-It should be read as follows: an arrow from $M$ to $M'$ annotated with $A$ means that any product
-of a matrix of the shape of $M$ by $e^{At}$ with $t>0$ will give a matrix with the shape of $M'$.
-Note that the empty product gives the identity.
+$0$ if they are zero and $+$ if they are positive.
+The following diagram should be read as follows: an arrow from $M$ to $M'$ annotated with $A$ means that any product
+of a matrix of the shape of $M$ by $e^{At}$ with $t>0$ will give a matrix with the shape of $M'$. Note that the empty product gives the identity.
+One easily checks that the following transitions hold.
 \begin{center}
 \begin{tikzpicture}
     \node(start) at (-1.5,0) {};

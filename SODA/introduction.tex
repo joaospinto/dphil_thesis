@@ -86,7 +86,7 @@ eventually non-terminating integer point).  In fact the algorithm
 computes a representation of the set of all eventually non-terminating
 integer points.  For reference, the closely related problem of
 deciding termination on the integer points in a given convex polytope is
-\EXPSPACE-hard \cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE.
+\EXPSPACE-hard~\cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE.
 
 As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
@@ -155,7 +155,7 @@ that of this chapter, including Baker's Theorem on linear forms
 in logarithms~\cite{BW93}, and correspondingly relies on restrictions
 on the dimension of data in problem instances to obtain decidability.
 
-%Since Kannan and Lipton solved the \emph{Orbit Problem} \cite{KL86},
+%Since Kannan and Lipton solved the \emph{Orbit Problem}~\cite{KL86},
 %which consists in deciding whether $\exists n\in\Naturals: A^n x=y$
 %for given $x,y\in\Rationals^n,A\in\Rationals^{n\times n}$, a lot of
 %work has been done in related problems. For example, higher
@@ -174,9 +174,9 @@ on the dimension of data in problem instances to obtain decidability.
 %\cite{BlondelT00} remark that ``the present consensus among number
 %theorists is that an algorithm [for Skolem's problem] should exist'',
 %even though such algorithms are only known for LRS of order up to $4$,
-%as proved independently by Vereschagin \cite{Ver85} and Mignotte,
-%Shorey, and Tijdeman \cite{MST84}. This problem has been discussed at
-%length by Terence Tao in \cite{Tao07} and by Lipton in
+%as proved independently by Vereschagin~\cite{Ver85} and Mignotte,
+%Shorey, and Tijdeman~\cite{MST84}. This problem has been discussed at
+%length by Terence Tao in~\cite{Tao07} and by Lipton in
 %\cite{Lip09}. Deciding the \emph{Positivity} problem (whether
 %$\forall n\geq 0,u_n\geq 0$) and the \emph{Ultimate Positivity}
 %problem (whether $\lbrace n\in\Naturals\mid u_n< 0\rbrace$ is finite)
@@ -193,16 +193,16 @@ on the dimension of data in problem instances to obtain decidability.
 %of the generalised Orbit Problem by a polytope $\mathcal{P}$, has
 %recently seen some interesting progress.
 
-%Even though the results of Tiwari \cite{Tiw04} and Braverman \cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this paper, as conjectured to be needed by Braverman in \cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms \cite{Cai94} and solving Linear Programming problems with algebraic numbers \cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \NP-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
+%Even though the results of Tiwari~\cite{Tiw04} and Braverman~\cite{Bra06} rely almost exclusively on elementary linear algebra and linear programming, stronger results from both analytic and algebraic number theory tend to be necessary to tackle all the other problems we discussed, namely those involving linear recurrence sequences. In fact, the same holds for this chapter, as conjectured to be needed by Braverman in~\cite{Bra06}. Moreover, even though the procedures for solving the universal termination problem over $\Reals$ and $\Rationals$ run in polynomial time (requiring some non-trivial subroutines such as computing Jordan Canonical Forms~\cite{Cai94} and solving Linear Programming problems with algebraic numbers~\cite{AdlerB94}\footnote{In order to find $z_{max}$ and $index_{z_{max}}$, we can simply determine $index_v$ and $index_{-v}$ for each eigenvector $v$ associated with a positive real eigenvalue and take $index_{z_{max}}$ to be the maximum of these $index_v$ and $index_{-v}$, after which we only have to solve a linear programming that is guaranteed to have a solution in order to determine $z_{max}$}), it is easy to see that deciding the existence of a non-terminating point becomes \NP-hard over the integers, by a trivial reduction from the problem of deciding the existence of an integer point in a polytope. Such a hardness result suggests that this problem is thus intrinsically different from Tiwari's or Braverman's, therefore further emphasising our point.
 
-%Braverman conjectured in \cite{Bra06} that one would need to decide whether, for a given $x\in\Integers^k$, $\forall n\in\Naturals,f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the Positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\Integers^k$, $\exists N\in\Naturals:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate Positivity problem).
+%Braverman conjectured in~\cite{Bra06} that one would need to decide whether, for a given $x\in\Integers^k$, $\forall n\in\Naturals,f^{n}(x)\in\mathcal{P}$ (that is, point-wise termination, which is equivalent to deciding the Positivity problem) in order to decide universal termination. As it turns out, we only needed to be able to decide whether, for a given $x\in\Integers^k$, $\exists N\in\Naturals:\forall n\geq N,f^{n}(x)\in\mathcal{P}$ (that is, eventual pointwise termination, which is equivalent to deciding the ultimate Positivity problem).
 
 Termination of $\mathsf{P1}$ under the assumption that all eigenvalues
-of $A$ are real was studied in \cite{RMM,RMM1} using spectral
+of $A$ are real was studied in~\cite{RMM,RMM1} using spectral
 techniques. However, as will become clear throughout the course of
 this chapter, most of the machinery that we use is needed to tackle the
 case where there are both real and complex eigenvalues with the same
-absolute value. In the setting of \cite{RMM,RMM1}, the set of
+absolute value. In the setting of~\cite{RMM,RMM1}, the set of
 eventually non-terminating points is in fact a polytope, which can be
 effectively computed resorting only to straightforward linear algebra.
 
@@ -215,7 +215,7 @@ function. However, this approach is incomplete: it is not hard to
 construct an example of a terminating loop which admits no linear
 ranking function.  Sound and relatively complete methods for
 synthesising linear ranking functions can be found in
-\cite{PodelskiR04} and \cite{Ben-AmramG13}. Whether a linear
+\cite{PodelskiR04} and~\cite{Ben-AmramG13}. Whether a linear
 ranking function exists can be decided in polynomial time when the
 state space is $\Rationals^{d}$ and is \coNP-complete when the
 state space is $\Integers^{d}$.
