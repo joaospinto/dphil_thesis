@@ -1,14 +1,16 @@
 \section{Introduction}
 In this chapter, we study a basic problem in control theory, namely the point-to-point controllability problem for both continuous- and discrete-time linear time-invariant (henceforth LTI) systems.
 
-A discrete-time LTI system $(\myvector{x}_{n})_{n \in \Naturals} \subseteq \Reals^{d}$ with control set $\mathcal{U} \subseteq \Reals^{d}$ satisfies the evolution rule $\myvector{x}_{n+1} = A \myvector{x}_{n} + \myvector{u}_{n}$, where $A$ is a matrix of adequate dimensions and $\myvector{u}_{n} \in \mathcal{U}$.
-Therefore, the next state of the system is obtained by applying a time-invariant linear function to the previous state and adding a control from a time-invariant set of controls.
+A discrete-time LTI system ${(\myvector{x}_{n})}_{n \in \Naturals} \subseteq \Reals^{d}$ with control set $\mathcal{U} \subseteq \Reals^{d}$ satisfies the evolution rule $\myvector{x}_{n+1} = A \myvector{x}_{n} + \myvector{u}_{n}$, where $A$ is a $d \times d$ matrix and $\myvector{u}_{n} \in \mathcal{U}$.
+In words, the next state $\myvector{x}_{n+1}$ of the system is obtained by applying a time-invariant linear function to the previous state $\myvector{x}_{n}$ and adding a control $\myvector{u}_{n}$ from a time-invariant set $\mathcal{U}$ of controls.
 
-Given two points $\myvector{s}, \myvector{t} \in \mathbb{R}^{d}$, the \emph{point-to-point controllability question for discrete-time LTI systems} consists in deciding whether there exist $n \in \Naturals$ and $(\myvector{u}_{i})_{i=0}^{n-1} \subseteq \mathcal{U}$ such that $\myvector{x}_{0} = \myvector{s}$ and $\myvector{x}_{n} = \myvector{t}$.
+Given two points $\myvector{s}, \myvector{t} \in \mathbb{R}^{d}$, the \emph{point-to-point controllability question for discrete-time LTI systems} consists in deciding whether there exist $n \in \Naturals$ and ${(\myvector{u}_{i})}_{i=0}^{n-1} \subseteq \mathcal{U}$ such that $\myvector{x}_{0} = \myvector{s}$ and $\myvector{x}_{n} = \myvector{t}$.
 
-We show that this problem is undecidable when $\mathcal{U}$ is non-convex (in particular, when it is a finite union of convex polytopes) and that it is Skolem-hard even when $\mathcal{U}$ is a convex polytope. This contrasts with the case where $\mathcal{U}$ is a linear subspace, in which case the problem reduces to the Orbit Problem, known to be decidable.
+We show that this problem is undecidable when $\mathcal{U}$ is non-convex (in particular, when it is a finite union of convex polytopes) and that there is a reduction from Skolem's Problem when $\mathcal{U}$ is a convex polytope. This contrasts with the case where $\mathcal{U}$ is a linear subspace, in which case the problem reduces to the Orbit Problem, known to be decidable~\cite{Harrison}.
 
-Similarly, a continuous-time LTI system $\myvector{x}(t)$ with control set $\mathcal{U}$ is a function satisfying the evolution rule $\dot{\myvector{x}}(t) = A \myvector{x}(t) + \myvector{u}(t)$
-where $A$ is a matrix of adequate dimensions and $\myvector{u}$ is a measurable function with codomain $\mathcal{U}$. The \emph{point-to-point controllability question for continuous-time LTI systems} consists in deciding whether there exist $t \geq 0$ and $\myvector{u} : [0,t] \rightarrow \mathcal{U}$ such that $\myvector{x}(0) = \myvector{s}$ and $\myvector{x}(t) = \myvector{t}$.
+Similarly to the discrete case, a continuous-time LTI system $\myvector{x}(t) \subseteq \Reals^{d}$ with control set $\mathcal{U} \subseteq \Reals^{d}$ is a function satisfying the evolution rule $\dot{\myvector{x}}(t) = A \myvector{x}(t) + \myvector{u}(t)$
+where $A$ is a $d \times d$ matrix and $\myvector{u}$ is a measurable function with codomain $\mathcal{U}$. The \emph{point-to-point controllability question for continuous-time LTI systems} consists in deciding whether there exist $t \geq 0$ and $\myvector{u} : [0,t] \rightarrow \mathcal{U}$ such that $\myvector{x}(0) = \myvector{s}$ and $\myvector{x}(t) = \myvector{t}$.
+
+We show that this problem is in \PTIME{} when $\mathcal{U}$ is a linear subspace, by presenting a polynomial-time reduction to the Continuous Orbit Problem, which is known to be in \PTIME{}~\cite{ContinuousOrbitIPL}.
 
 A survey of computational complexity results in control theory can be found in~\cite{BlondelT00}.

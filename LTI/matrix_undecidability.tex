@@ -1,23 +1,25 @@
 \subsection{Encoding Hilbert's Tenth Problem}
 \label{sec:matrix-undecidability}
 
-Given $k+1$ invertible matrices $A_{1}, \ldots, A_{k},C \in \Rationals^{d \times d}$, the \emph{generalized matrix powering problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \Integers$ such that
+Given $k+1$ invertible matrices $A_{1}, \ldots, A_{k},C \in \Rationals^{d \times d}$, the \emph{Generalised Matrix Powering Problem for invertible matrices} consists in deciding whether there exist $n_{1}, \ldots, n_{k} \in \Integers$ such that
 \begin{equation*}
 \prod\limits_{i=1}^{k} A_{i}^{n_{i}} = C.
 \end{equation*}
 
+The techniques used to show the next result are very similar to those employed in \cref{sec:lics_encoding}.
+
 \begin{theorem}
-The generalized matrix powering problem for invertible matrices is undecidable.
+The Generalised Matrix Powering Problem for invertible matrices is undecidable.
 \end{theorem}
 
 \begin{proof}
-We will show this result by reducing from Hilbert's Tenth Problem. Given a polynomial $p \in \Integers[n_{1}, \ldots, n_{k}]$, it is easy to express $p(n_{1}, \ldots, n_{k})$ as a conjunction of relations of the following form (noting that we may need to introduce new variables):
+We will show this result by reducing from Hilbert's Tenth Problem. Given a polynomial $p \in \Integers[n_{1}, \ldots, n_{k}]$, it is easy to express $p(n_{1}, \ldots, n_{k})$ as a conjunction of relations of the following form (noting that we may need to introduce fresh variables):
 \begin{itemize}
 \item $z = k$, where $k \in \Integers$
 \item $z = x+y$
 \item $z = xy$.
 \end{itemize}
-We start by showing how to encode each of these as an instance of the generalized matrix powering problem for invertible matrices.
+We start by showing how to encode each of these constraints as an instance of the Generalised Matrix Powering Problem for invertible matrices.
 Firstly, note that
 \begin{equation*}
 z = k \Leftrightarrow
@@ -106,6 +108,8 @@ Given invertible matrices $A_{1}, \ldots, A_{k} \in \Rationals^{d \times d}$ and
 \prod\limits_{i=1}^{k}A_{i}^{n_{i}} \myvector{x} = \myvector{y}.
 \end{equation*}
 \end{definition}
+
+Note that this problem is similar to the Generalised Orbit Problem, which as shown to be decidable when $A_{1}, \ldots, A_{k} \in SL(2,\Integers)$~\cite{VRP}, but here we fix the order in which we multiply the matrices $A_{1}, \ldots, A_{k}$.
 
 \begin{theorem}
 The vector reachability problem for invertible matrices is undecidable.

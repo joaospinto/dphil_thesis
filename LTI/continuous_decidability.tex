@@ -9,14 +9,14 @@ Given two matrices $A \in \Reals^{n \times n}$ and $B \in \Reals^{n \times d}$, 
 \end{equation}
 We recall that the continuous point-to-point controllability problem for linear time-invariant (LTI) systems amounts to deciding whether, given initial and target points $s,t \in \Reals^{n}$, there exists a real $T\geq 0$ and a measurable function $\myvector{u}(t) : [0,T] \rightarrow \Reals^{d}$ such that the unique solution to \cref{continuous-lti} starting at $\myvector{x}(0) = \myvector{s}$ satisfies $\myvector{x}(T) = \myvector{t}$.
 
-We will show that this problem is decidable in polynomial time, by reduction from the Continuous Orbit Problem. The \emph{Continuous Orbit Problem} consists of deciding whether, given initial and target points $\myvector{s}, \myvector{t} \in \Reals^{n}$ and a matrix $A \in \Reals^{n \times n}$, the unique solution $\myvector{x}(t) = \exp(A t) \myvector{s}$ of the differential equation
+We will show that this problem is decidable in polynomial time, by reduction to the Continuous Orbit Problem. The \emph{Continuous Orbit Problem} consists of deciding whether, given initial and target points $\myvector{s}, \myvector{t} \in \Reals^{n}$ and a matrix $A \in \Reals^{n \times n}$, the unique solution $\myvector{x}(t) = \exp(A t) \myvector{s}$ of the differential equation
 \begin{equation}
 \begin{cases}
 \dot{\myvector{x}}(t) = A \myvector{x}(t) \\
 \myvector{x}(0) = \myvector{s}
 \end{cases}
 \end{equation}
-ever hits $\myvector{t}$. This problem was shown to be decidable in polynomial time in~\cite{ContinuousSkolem1, ContinuousOrbitIPL}.
+ever hits $\myvector{t}$. This problem was shown to be decidable in polynomial time in~\cite{Hainry08, ContinuousOrbitIPL}.
 
 Before proceeding, we prove a few simple definitions and preliminary results.
 
@@ -48,7 +48,7 @@ Let $\myvector{r} \in \mathcal{V}^{\perp}$. Then
 \begin{equation*}
 \myvector{r}^{T} \int_{0}^{t} f(y) \, dy = \int_{0}^{t} \myvector{r}^{T} f(y) \, dy = \int_{0}^{t} 0 \, dy = 0
 \end{equation*}
-and therefore $\int_{0}^{t} f(y) dy \in (\mathcal{V}^{\perp})^{\perp} = \mathcal{V}$.
+and therefore $\int_{0}^{t} f(y) dy \in {(\mathcal{V}^{\perp})}^{\perp} = \mathcal{V}$, because $\mathcal{V}$ is closed.
 \end{proof}
 
 The matrix
@@ -61,7 +61,7 @@ is called the controllability matrix for the LTI system defined in \cref{continu
 \label{orthogonality-equivalence}
 The following are equivalent:
 \begin{enumerate}
-\item $\myvector{r} \in \Im(C)^{\perp}$.
+\item $\myvector{r} \in \Im{(C)}^{\perp}$.
 \item $\myvector{r}^{T} \exp(-Ay) B$ is identically zero on $[0,\infty)$.
 \item There exists $T>0$ for which $\myvector{r}^{T} \exp(-Ay) B$ is identically zero on $[0,T]$.
 \end{enumerate}
@@ -69,7 +69,7 @@ The following are equivalent:
 
 \begin{proof}
 We show that $(1) \Rightarrow (2)$ and that $(3) \Rightarrow (1)$. It is trivial that $(2) \Rightarrow (3)$.
-By the Cayley-Hamilton Theorem, $\myvector{r} \in \Im(C)^{\perp} \Rightarrow \myvector{r}^{T} A^{k} B = 0$ for any $k \geq 0$. The first implication follows from the power series definition of matrix exponentials. For the second implication, note that if $f(y) \triangleq \myvector{r}^{T} \exp(-Ay) B$ is identically zero on $[0,T]$ then $0 = f^{(k)} (0) = \myvector{r}^{T} (-A)^{k} B$.
+By the Cayley-Hamilton Theorem, $\myvector{r} \in \Im{(C)}^{\perp} \Rightarrow \myvector{r}^{T} A^{k} B = 0$ for any $k \geq 0$. The first implication follows from the power series definition of matrix exponentials. For the second implication, note that if $f(y) \triangleq \myvector{r}^{T} \exp(-Ay) B$ is identically zero on $[0,T]$ then $0 = f^{(k)} (0) = \myvector{r}^{T} {(-A)}^{k} B$.
 \end{proof}
 
 \begin{proposition}
@@ -85,17 +85,17 @@ Let $\mathcal{H}$ denote the space of piecewise constant functions mapping $[0,T
 \begin{equation*}
 g(\myvector{u}) = \int_{0}^{T} \exp(-Ay) B \myvector{u}(y) \, dy.
 \end{equation*}
-It is clear from \cref{integral-invariance} and from \cref{orthogonality-equivalence} that $\Im(g) \subseteq \Im(C)$. To show the converse containment, let $\myvector{r} \in \Im(g)^{\perp}$. Then, for all $\myvector{u} : [0,T] \rightarrow \Reals^{d}$,
+It is clear from \cref{integral-invariance} and from \cref{orthogonality-equivalence} that $\Im(g) \subseteq \Im(C)$. To show the converse containment, let $\myvector{r} \in \Im{(g)}^{\perp}$. Then, for all $\myvector{u} : [0,T] \rightarrow \Reals^{d}$,
 \begin{equation*}
 0 = \myvector{r}^{T} \int_{0}^{T} \exp(-Ay) B \myvector{u}(y) \, dy = \int_{0}^{T} \myvector{r}^{T} \exp(-Ay) B \myvector{u}(y) \, dy
 \end{equation*}
-and therefore $\myvector{r}^{T} \exp(-Ay) B$ must by identically zero on $[0,T]$, due to the arbitrarity of $\myvector{u}$. Thus, we can conclude from \cref{orthogonality-equivalence} that $\myvector{r} \in \Im(C)^{\perp}$, which implies that $\Im(g)^{\perp} \subseteq \Im(C)^{\perp}$, due to the arbitrarity of $\myvector{r}$, implying that $\Im(g) = \Im(C)$.
+and therefore $\myvector{r}^{T} \exp(-Ay) B$ must by identically zero on $[0,T]$, due to the arbitrarity of $\myvector{u}$. Thus, we can conclude from \cref{orthogonality-equivalence} that $\myvector{r} \in \Im{(C)}^{\perp}$, which implies that $\Im{(g)}^{\perp} \subseteq \Im{(C)}^{\perp}$, due to the arbitrarity of $\myvector{r}$, implying that $\Im(g) = \Im(C)$.
 \end{proof}
 
 We can finally prove the main result of this section.
 
 \begin{theorem}
-The continuous point-to-point controllability problem for LTI systems reduces to the continuous orbit problem in polynomial time.
+The continuous point-to-point controllability problem for LTI systems reduces to the continuous orbit problem in polynomial time, and therefore is in \PTIME{}.
 \end{theorem}
 
 \begin{proof}
