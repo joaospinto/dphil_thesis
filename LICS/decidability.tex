@@ -68,16 +68,16 @@ For each fixed $j$, the matrices $N_{i}^{(j)}$ inherit commutativity from
 the matrices $B^{(j)}_{i}$, so we have
 \begin{align*}
 \prod\limits_{i=1}^{k} \exp((\lambda_i^{(j)}I + N_i^{(j)})t_{i}) &=
-   \exp\big(\sum_{i=1}^k (\lambda_i^{(j)}I  +
+   \exp\big(\sum_{i=1}^{k} (\lambda_i^{(j)}I  +
  N_i^{(j)}) t_i \big)\\
-&= \exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big) \cdot
-   \exp\big(\sum_{i=1}^k N_i^{(j)} t_i \big) .
+&= \exp\big(\sum_{i=1}^{k} \lambda_i^{(j)} t_i\big) \cdot
+   \exp\big(\sum_{i=1}^{k} N_i^{(j)} t_i \big) .
 \end{align*}
 
 Hence the system (\ref{eq:main1}) is equivalent to
 \begin{align}
-\exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big) \cdot
-   \exp\big(\sum_{i=1}^k N_i^{(j)} t_i \big)  = D^{(j)}
+\exp\big(\sum_{i=1}^{k} \lambda_i^{(j)} t_i\big) \cdot
+   \exp\big(\sum_{i=1}^{k} N_i^{(j)} t_i \big)  = D^{(j)}
 \label{eq:main2}
 \end{align}
 for $j=1,\ldots,b$.
@@ -85,11 +85,11 @@ for $j=1,\ldots,b$.
 By assumption, the diagonal entries of each matrix $D^{(j)}$ are
 equal to a unique value, say $c^{(j)}$.
 Since the diagonal entries of
-$\exp\left(\sum_{i=1}^kN^{(j)}t_i\right)$
+$\exp\left(\sum_{i=1}^{k} N^{(j)}t_i\right)$
 are all $1$, the equation system (\ref{eq:main2}) is equivalent to:
 \begin{align*}
-\exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big)
-= c^{(j)} \mbox{ and }\exp\big(\sum_{i=1}^k N_i^{(j)} t_i \big)
+\exp\big(\sum_{i=1}^{k} \lambda_i^{(j)} t_i\big)
+= c^{(j)} \mbox{ and }\exp\big(\sum_{i=1}^{k} N_i^{(j)} t_i \big)
 =\frac{1}{c^{(j)}} D^{(j)}
 \end{align*}
 for $j=1,\ldots,b$.
@@ -97,8 +97,8 @@ for $j=1,\ldots,b$.
 Applying \cref{thm:log_uniqueness}, the
 above system can equivalently be written
 \begin{align*}
-\exp\big(\sum_{i=1}^k \lambda_i^{(j)} t_i\big)
-= c^{(j)} \mbox{ and } \sum_{i=1}^k
+\exp\big(\sum_{i=1}^{k} \lambda_i^{(j)} t_i\big)
+= c^{(j)} \mbox{ and } \sum_{i=1}^{k}
 N_i^{(j)} t_i =
 S^{(j)}
 \end{align*}
@@ -106,25 +106,25 @@ for  some effectively computable matrix
 $S^{(j)}$ with algebraic entries, $j=1,\ldots,b$.
 
 Except for the additional linear equations, this has the form of an
-instance of LEP.
+instance of LEP\@.
  However we can eliminate the linear equations by
 performing a linear change of variables, i.e., by computing the
 solution of the system in parametric form.  Thus we finally arrive at
-an instance of LEP.
+an instance of LEP\@.
 \end{proof}
 
 
-In the following result, we essentially solve the system of equations \ref{single_eqn_form}, reducing it to the simpler problem that really lies at its heart.
+In the following result, we essentially solve the system of equations~\eqref{single_eqn_form}, reducing it to the simpler problem that really lies at its heart.
 
 \begin{theorem}
 \label{reference-for-log}
-LEP reduces to ALIP.
+LEP reduces to ALIP\@.
 \end{theorem}
 
 \begin{proof}
 Consider an instance of LEP, comprising a system of equations
 \begin{align}
- \exp\left(\sum_{\ell=1}^k \lambda_\ell^{(j)} t_\ell \right) = c_j \exp (d_j)
+ \exp\left(\sum_{\ell=1}^{k} \lambda_\ell^{(j)} t_{\ell} \right) = c_j \exp (d_j)
 \quad j=1,\ldots,b,
 \label{eq:LEPinstance}
 \end{align}
@@ -138,7 +138,7 @@ some $j$ then (\ref{eq:LEPinstance}) has no solution. Otherwise, by
 applying $\log$ to each equation in (\ref{eq:LEPinstance}),
 we get:
 \begin{align}
-\sum_{\ell=1}^k \lambda_\ell^{(j)} t_\ell = d_j+\log(c_j) + 2i\pi n_j \quad j=1,\ldots,b,
+\sum_{\ell=1}^{k} \lambda_\ell^{(j)} t_{\ell} = d_j+\log(c_j) + 2i\pi n_j \quad j=1,\ldots,b,
 \label{eq:logs}
 \end{align}
 where $n_j \in \Integers$.
@@ -153,7 +153,7 @@ is applied pointwise to vectors.
 Now, defining the convex polytope $\mathcal{Q}\subseteq \Reals^{2b}$ by
 \begin{align*}
 \mathcal{Q} = \lbrace &(\Re(A\myvector{y}), \Im(A\myvector{y})) :
-\myvector{y}\in\Complex^k, (\Re(\myvector{y}), \Im(\myvector{y})) \in \mathcal{P} \rbrace \, ,
+\myvector{y}\in\Complex^{k}, (\Re(\myvector{y}), \Im(\myvector{y})) \in \mathcal{P} \rbrace \, ,
 \end{align*}
 it suffices to decide whether the set
 $\myvector{d} + \log(\myvector{c})+ 2i\pi  \Integers^b$
@@ -165,8 +165,8 @@ Define $f:\Reals^b \rightarrow \Complex^b$ by
 $f(\myvector{v})= \myvector{d} + \log(\myvector{c}) +
 2i\pi \myvector{v}$,
 and define a convex polytope $\mathcal{T}\subseteq \Reals^b$ by
-\[\mathcal{T}=\{ \myvector{v}\in\Reals^b : (\Re(f(\myvector{v})),
-\Im (f(\myvector{v}))) \in \mathcal{Q} \} \, . \]
+\[\mathcal{T}=\lbrace \myvector{v}\in\Reals^b : (\Re(f(\myvector{v})),
+\Im (f(\myvector{v}))) \in \mathcal{Q} \rbrace \, . \]
 
 The problem then amounts to deciding whether the convex polytope
 $\mathcal{T}$ contains an integer point. Crucially, the
@@ -242,8 +242,8 @@ $\cL \neq \lbrace \myvector{0} \rbrace$, let
 $\myvector{z} \in \cL \setminus \lbrace \myvector{0}
 \rbrace$.
 Since $\mathcal{H}$ is a bounded subset of $\Reals^n$, the set
-\[ \{ \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{P} \} =
-   \{ \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{H} \} \]
+\[ \lbrace \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{P} \rbrace =
+   \lbrace \myvector{z}^T\myvector{x} : \myvector{x}\in \mathcal{H} \rbrace \]
 is a bounded subset of $\Reals$.
 Therefore there exist
 $a,b \in \Integers$ such that

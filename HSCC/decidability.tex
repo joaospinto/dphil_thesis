@@ -56,7 +56,7 @@ instances is called the homogeneous Polytope Escape Problem.
   Let $(f,\mathcal{P})$ be an instance of the Polytope Escape
   Problem in $\Reals^{d}$, and write
 \begin{equation*}
-f(\myvector{x})=A\myvector{x}+\myvector{a}\mbox{ and } \mathcal{P}=\lbrace\myvector{x}\in\Reals^{d}: B_{1}\myvector{x}>\myvector{b}_{1} \wedge B_2\myvector{x}\geq \myvector{b}_{2}\rbrace \, .
+f(\myvector{x})=A\myvector{x}+\myvector{a}\mbox{ and } \mathcal{P}=\lbrace \myvector{x}\in\Reals^{d}: B_{1}\myvector{x}>\myvector{b}_{1} \wedge B_2\myvector{x}\geq \myvector{b}_{2}\rbrace \, .
 \end{equation*}
 Now define
 \begin{align*}
@@ -64,7 +64,7 @@ Now define
 B_{1}'=\begin{pmatrix}B_{1} & -\myvector{b}_{1} \\ \myvector{0}^T & 1\end{pmatrix},
 B_{2}'=\begin{pmatrix}B_{2} & -\myvector{b}_{2} \end{pmatrix} \, ,\\
 & \mathcal{P}'=
-\left\lbrace
+\left\lbrace 
 \begin{pmatrix}\myvector{x}\\y
 \end{pmatrix} \in\Reals^{d+1}:B_{1}'\begin{pmatrix}\myvector{x}\\y
 \end{pmatrix}
@@ -124,7 +124,7 @@ $\myvector{x}(t)=\exp(At)\myvector{x}_{0}$.
 In this setting, the sets of trapped and eventually trapped points are, respectively:
 \begin{align*}
 \mathit{T}&=\lbrace \myvector{x}_0\in\Reals^{d}: \forall t\geq 0, \exp(At)\myvector{x}_{0} \in \mathcal{P}\rbrace \\
-\mathit{ET}&=\lbrace\myvector{x}_{0}\in\Reals^{d}:\exists t\geq 0,\exp(At)\myvector{x}_{0}\in\mathit{T}\rbrace
+\mathit{ET}&=\lbrace \myvector{x}_{0}\in\Reals^{d}:\exists t\geq 0,\exp(At)\myvector{x}_{0}\in\mathit{T}\rbrace
 \end{align*}
 
 Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\Reals^{d}$.
@@ -146,7 +146,7 @@ Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\Reals^{d}$
   % representation of $A\vert_{\mathcal{V}^{r}}$ with respect to
   % $\mathcal{B}$ and
 %\begin{align*}
-%\mathcal{P}'=\lbrace\myvector{x}\in \Reals^{k} : \sum\limits_{i=1}^{k} x_{i}\myvector{u}_{i}\in\mathcal{P}\rbrace
+%\mathcal{P}'=\lbrace \myvector{x}\in \Reals^{k} : \sum\limits_{i=1}^{k} x_{i}\myvector{u}_{i}\in\mathcal{P}\rbrace
 %\end{align*}
 %which is still a cone.
 

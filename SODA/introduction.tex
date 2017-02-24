@@ -13,7 +13,7 @@ Microsoft's \textsc{Terminator}~\cite{CookPR06}.
 A very simple form of imperative programs are \emph{simple linear
   loops}, that is, programs of the form
 \begin{gather*}
-\mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $B\myvector{x} \geq \myvector{c}$ \textit{do}
 $\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$,}
 \end{gather*}
@@ -86,7 +86,7 @@ eventually non-terminating integer point).  In fact the algorithm
 computes a representation of the set of all eventually non-terminating
 integer points.  For reference, the closely related problem of
 deciding termination on the integer points in a given convex polytope is
-\EXPSPACE-hard~\cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE.
+\EXPSPACE{}-hard~\cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE{}.
 
 As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
@@ -105,14 +105,14 @@ our approach.
 
 Consider the termination problem for a homogeneous simple linear loop
 \begin{gather*}
-\mathsf{P2:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\mathsf{P2:}\  \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $B\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$}
 \end{gather*}
 on a single initial value $\myvector{u}\in \Integers^{d}$.  Each row
 $\myvector{b}^T$ of matrix $B$ corresponds to a loop condition
 $\myvector{b}^T\myvector{x} \geq 0$.  For each such condition,
 consider the integer sequence $\langle x_n : n \in \Naturals \rangle$
-defined by $x_n = \myvector{b}^TA^n \myvector{u}$.  Then
+defined by $x_n = \myvector{b}^{T} A^{n} \myvector{u}$.  Then
 \textsf{P2} fails to terminate on an initial value $\myvector{u}$ if
 and only if each such sequence $\langle x_n \rangle$ is
 \emph{positive}, i.e., $x_n \geq 0$ for all $n$.  It is not difficult

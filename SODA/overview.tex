@@ -4,7 +4,7 @@ The main result of this chapter is as follows:
 \begin{theorem}
   The termination over the integers of simple linear loops of the form
 \begin{gather*}
-\mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $B\myvector{x} \geq \myvector{c}$ \textit{do}
 $\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$}
 \end{gather*}
@@ -16,16 +16,16 @@ In this section we give a high-level overview of the proof of \cref{thm:main}.
 
 Let $f:\Reals^{d}\rightarrow \Reals^{d}$ be the affine function
 $f(\myvector{x})=A\myvector{x}+\myvector a$ computed by the body
-of the while loop in \textsf{P1} and $P=\{ \myvector{x} \in
-\Reals^{d}: B \myvector{x}\geq \myvector{c}\}$ the convex polytope
+of the while loop in \textsf{P1} and $P=\lbrace \myvector{x} \in
+\Reals^{d}: B \myvector{x}\geq \myvector{c}\rbrace$ the convex polytope
 corresponding to the loop guard.  We define the set of
 \emph{non-terminating points} to be
-\[ \mathit{NT} = \{ \myvector{u}\in \Reals^{d} : \forall n \in
-\Naturals,\, f^n(\myvector{u}) \in P \} \, .\] Following
+\[ \mathit{NT} = \lbrace \myvector{u}\in \Reals^{d} : \forall n \in
+\Naturals,\, f^n(\myvector{u}) \in P \rbrace \, .\] Following
 Braverman~\cite{Bra06}, we moreover define the set of \emph{eventually
   non-terminating points} to be
-\[ \mathit{ENT} = \{ \myvector{u}\in \Reals^{d} : \exists n \in
-\Naturals,\, f^n(\myvector{u}) \in \mathit{NT} \} \, .\]
+\[ \mathit{ENT} = \lbrace \myvector{u}\in \Reals^{d} : \exists n \in
+\Naturals,\, f^n(\myvector{u}) \in \mathit{NT} \rbrace \, .\]
 It is easily seen from the above definitions that both \textit{NT} and
 \textit{ENT} are convex sets.
 
@@ -50,7 +50,7 @@ $\mathit{ENT}$ contains an integer point.
 
 Recall that a subset of $\Reals^{d}$ is said to be
 \emph{semi-algebraic} if it is a Boolean combination of sets of the
-form $\{ \myvector{x} \in \Reals^{d} : p(\myvector{x})\geq 0\}$,
+form $\lbrace \myvector{x} \in \Reals^{d} : p(\myvector{x})\geq 0\rbrace$,
 where $p$ is a polynomial with integer coefficients.  Equivalently the
 semi-algebraic sets are those definable by quantifier-free first-order
 formulas over the structure $(\Reals,<,+,\cdot,0,1)$.  In fact,
@@ -104,9 +104,9 @@ $\begin{pmatrix}A&\myvector{a}\\ 0 & 1
 \end{pmatrix}$ are simple, with the possible exception of the
 eigenvalue $1$.  (Recall that an eigenvalue is said to be simple if it
 has multiplicity one as a root of the minimal polynomial of $A$.)  Now
-if $W$ is a witness set for program \textsf{P3} then $\left\{
+if $W$ is a witness set for program \textsf{P3} then $\left\lbrace
   \myvector{u} \in \Reals^{d} : \begin{pmatrix} \myvector{u}\\
-    1\end{pmatrix} \in W \right\}$ is a witness set for \textsf{P1}.
+    1\end{pmatrix} \in W \right\rbrace$ is a witness set for \textsf{P1}.
 We conclude that, in order to settle the inhomogeneous case with a
 diagonalisable matrix, it suffices to compute a witness set in the
 case of a homogeneous linear loop \textsf{P2} in which the only
@@ -128,7 +128,7 @@ $\myvector{u}$ if and only if for each row $\myvector{b}^T$ of $B$
 program \textsf{P4} below is eventually non-terminating on
 $\myvector{u}$:
 \begin{gather*}
-\mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$.}
 \end{gather*}
 Noting that the finite intersection of convex semi-algebraic sets is
@@ -153,13 +153,13 @@ $\lambda^L_1/\lambda^L_2=1$. Note that all eigenvectors of $A$ are still eigenve
 Now program \textsf{P4} is eventually non-terminating on
 $\myvector{u}\in \Integers^{d}$ if and only if program \textsf{P5}
 below is eventually non-terminating on the set
-$\{\myvector{u},A\myvector{u}, \ldots,A^{L-1}\myvector{u}\}$:
+$\lbrace \myvector{u},A\myvector{u}, \ldots,A^{L-1}\myvector{u}\rbrace$:
 \begin{gather*}
-\mathsf{P5:}\ \mbox{$\myvector{x}\gets \myvector{v}$ ;
+\mathsf{P5:}\ \mbox{$\myvector{x}\gets \myvector{v}$;
 \textit{while} $\myvector b^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A^L\myvector{x}$.}
 \end{gather*}
 Thus if $W$ is a witness set for \textsf{P5} then $\bigcap_{i=0}^{L-1}
-\{ \myvector{u} \in \Integers^{d} : A^i\myvector{u} \in W\}$ is a witness set for
+\lbrace \myvector{u} \in \Integers^{d} : A^i\myvector{u} \in W\rbrace$ is a witness set for
 \textsf{P4}.
 
 The main technical result of the chapter is the following proposition:
@@ -167,7 +167,7 @@ The main technical result of the chapter is the following proposition:
 \label{prop:soda-main-simplified}
 Consider a homogeneous simple linear loop
 \begin{gather*}
-\mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$ ;
+\mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
 \end{gather*}
 such that $A$ is non-degenerate. If $A$ has dimension at most $5$, we can compute a witness set for \textsf{P4} using polynomial space.
@@ -204,14 +204,14 @@ etc.  Then there are two main steps in the construction of $W$:
  in $V_i$ is semi-algebraic.
 \item
 Given $\myvector{v} \in \Reals^{d}$, we can write
-$\myvector{v}=\myvector{v}_1+\ldots+\myvector{v}_m$, with
+$\myvector{v}=\myvector{v}_1+\cdots+\myvector{v}_m$, with
 $\myvector{v}_i \in V_i$.  Using \cref{thm:s-units} on
 $S$-units, we show that if all entries of $\myvector{v}$ are
 algebraic numbers then the eventual non-termination of \textsf{P4} on
 $\myvector{v}$ is determined by its eventual non-termination on each
 $\myvector{v}_i$ separately.  More precisely we look for the first
 $\myvector{v}_i$ such that the sequence $\langle
-\myvector{b}^TA^n\myvector{v}_i : n \in \Naturals\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
+\myvector{b}^{T} A^{n}\myvector{v}_i : n \in \Naturals\rangle$ is infinitely often non-zero. Then \textsf{P4} is eventually non-terminating on
 $\myvector{v}$ if and only if it is eventually non-terminating on
 $\myvector{v}_i$.
 \end{enumerate}

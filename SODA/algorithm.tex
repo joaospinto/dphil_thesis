@@ -54,7 +54,7 @@ real eigenvalue.
 \subsection{Eventual Non-Termination on Subspace $V_i$}
 We first consider the eventual non-termination of \textsf{P4} on
 initial vectors in the subspace $V_i$ for a fixed $i \in
-\{1,\ldots,m\}$.  Writing
+\lbrace 1,\ldots,m\rbrace$.  Writing
 \begin{equation*}
   \mathit{ENT}_i := \mathit{ENT} \cap V_i,
 \end{equation*}
@@ -66,8 +66,8 @@ $\mathit{ENT}_i$ can be characterised in terms of the \emph{Ultimate Positivity}
 precisely, $\myvector{u} \in \mathit{ENT}_i$ if and only if
 $\myvector{b}^TA^n\myvector{u} \geq 0$ for all but finitely many
 $n$.  In particular, defining
-\[ \mathit{ZERO}:=\{\myvector{u} \in \Reals^{d}: \forall
-n\geq d,\, \myvector{b}^TA^n\myvector{u}=0 \} \, \] and
+\[ \mathit{ZERO}:=\lbrace \myvector{u} \in \Reals^{d}: \forall
+n\geq d,\, \myvector{b}^TA^n\myvector{u}=0 \rbrace \, \] and
 $\mathit{ZERO}_i:=\mathit{ZERO}\cap V_i$, we have that
 $\mathit{ZERO}_i\subseteq \mathit{ENT}_i$.
 
@@ -76,15 +76,15 @@ the uniqueness part of~\cite[Proposition 2.11]{TUCS05} implies that
 $\myvector{b}^TA^n\myvector{u}=0$ for all $n\geq d$ if and only if
 each term $n^k\lambda_j^n$ has coefficient zero in the expression
 (\ref{eq:master}).  Thus
-\[ \mathit{ZERO} = \left\{ \myvector{u}\in \Reals^{d} :
+\[ \mathit{ZERO} = \left\lbrace \myvector{u}\in \Reals^{d} :
 \bigwedge_{j=1}^{l}\bigwedge_{k=0}^{\nu_j-1}
-\myvector{\alpha}_{j,k}^T\myvector{u}= 0 \right\} \, .\] is
+\myvector{\alpha}_{j,k}^T\myvector{u}= 0 \right\rbrace \, .\] is
 semi-algebraic.  Since $V_i$ is a semi-algebraic subset of
 $\Reals^{d}$, being spanned by a subset of the columns of $P$, it
 follows that $\mathit{ZERO}_i$ is semi-algebraic.
 
 \begin{proposition}
-The set $\mathit{ENT}_i$ is semi-algebraic for each $i\in \{1,\ldots,m\}$.
+The set $\mathit{ENT}_i$ is semi-algebraic for each $i\in \lbrace 1,\ldots,m\rbrace$.
 \label{prop:semi-alg}
 \end{proposition}
 \begin{proof}
@@ -101,7 +101,7 @@ $5$, it must be the case that $\lambda$ and its complex conjugate
 $\overline{\lambda}$ both have index exactly $2$.  Let $\rho \in S_i$
 be the positive real eigenvalue.  Since
 $A$ has dimension at most $5$, $\rho$ must be simple.  Thus
-$S_i=\{\rho,\lambda,\overline{\lambda}\}$ contains all the eigenvalues
+$S_i=\lbrace \rho,\lambda,\overline{\lambda}\rbrace$ contains all the eigenvalues
 of $A$.
 
 For $\myvector{u}\in V_i$ we can write
@@ -135,15 +135,15 @@ Define $f:\mathbb{T}\rightarrow\Reals$ by
 Then $\myvector{b}^TA^n\myvector{u} = \rho^n f(\lambda^n/\rho^n)$ for all $n\geq d$.
 
 Since $A$ is assumed to be non-degenerate, $\lambda/\rho$ is not a
-root of unity.  Thus $\{\lambda^n/\rho^n:n\in\Naturals\}$ is dense in
+root of unity.  Thus $\lbrace \lambda^n/\rho^n:n\in\Naturals\rbrace$ is dense in
 $\mathbb{T}$.  It follows that $\myvector{u}\in\mathit{ENT}$ if and
 only if $f(z)\geq 0$ for all $z\in\mathbb{T}$.  By inspection this
 last condition is equivalent to $\myvector{\alpha}_0^T\myvector{u}
 \geq 2|\myvector{\beta}_0^T\myvector{u}|$.
 We conclude that
-\[ \mathit{ENT}_i = \left\{ \myvector{u}\in V_i :
+\[ \mathit{ENT}_i = \left\lbrace \myvector{u}\in V_i :
 \myvector{\beta}_1^T\myvector{u}=0 \wedge
-\myvector{\alpha}_0^T\myvector{u} \geq 2|\myvector{\beta}_0^T\myvector{u}| \right\} \, ,\]
+\myvector{\alpha}_0^T\myvector{u} \geq 2|\myvector{\beta}_0^T\myvector{u}| \right\rbrace \, ,\]
 and hence $\mathit{ENT}_i$ is semi-algebraic.
 
 \paragraph{Case II: $S_i$ does not contain a positive real eigenvalue.}
@@ -187,9 +187,9 @@ $\myvector{\alpha}_{j}^T\myvector{u}<0$ then
 $\myvector{b}^TA^n\myvector{u}$ is not ultimately positive (hence
 $\myvector{u}\not\in\mathit{ENT}_i$).  It follows that
 \begin{gather}
-\left\{ \myvector{u} \in V_i : \bigvee_{j=1}^{t-1}\bigwedge_{k=j+1}^{t-1}
+\left\lbrace \myvector{u} \in V_i : \bigvee_{j=1}^{t-1}\bigwedge_{k=j+1}^{t-1}
 (\myvector{\alpha}_j^T \myvector{u}>0 \wedge
-\myvector{\alpha}_k^T \myvector{u}=0) \right\}
+\myvector{\alpha}_k^T \myvector{u}=0) \right\rbrace
 \label{eq:ENT1}
 \end{gather}
 is a subset of $\mathit{ENT}_i$.
@@ -214,15 +214,15 @@ Defining $\myvector\mu=(\lambda_1/\rho,\ldots,\lambda_s/\rho)$, we furthermore r
 \label{eq:f2-exp}
 \end{gather}
 
-By \cref{dense}, $\{ \myvector\mu^n : n \in
-\Naturals \}$ is a dense subset of the torus $T(\myvector{\mu})$.
+By \cref{dense}, $\lbrace \myvector\mu^n : n \in
+\Naturals \rbrace$ is a dense subset of the torus $T(\myvector{\mu})$.
 Thus the right-hand side of (\ref{eq:f2-exp}) is non-negative for
 every $n$ if and only if $f(\myvector{z})^T\myvector{u}\geq 0$ for
 all $\myvector{z}\in T(\myvector{\mu})$.  It follows that
-\begin{gather} \big \{ \myvector{u}\in V_i :
+\begin{gather} \big \lbrace \myvector{u}\in V_i :
 \forall \myvector{z}\in T(\myvector{\mu}),\,
                               f(\myvector{z})^T\myvector{u}\geq 0
-\big\}\, .
+\big\rbrace\, .
 \label{eq:ENT2}
 \end{gather}
 is a subset of $\mathit{ENT}_i$.
@@ -320,9 +320,9 @@ Therefore, $\myvector{u} \in \mathit{ENT}$ if and only if $\myvector{u}_{i} \in 
 
 Now we define a witness set $W$ for program \textsf{P4} by
 \begin{align*}
-W :=   \bigcup_{i=1}^m \{\myvector{u}\in \Reals^{d}: \,
+W :=   \bigcup_{i=1}^m \lbrace \myvector{u}\in \Reals^{d}: \,
          & \myvector{u}_i \mbox{ is the dominant component of } \myvector{u},\\
-         & \myvector{u}_i \in \mathit{ENT} \}
+         & \myvector{u}_i \in \mathit{ENT} \rbrace
 \cup \mathit{ZERO} \, .
 \end{align*}
 
@@ -348,13 +348,13 @@ The witness set $W$ is convex.
 If $\myvector{y},\myvector{z}\in \mathit{ZERO}$ then
 $\myvector{x}\in \mathit{ZERO}$ since the latter is a convex set.
 
-Suppose that $\myvector{y}\in \mathit{ZERO}$ and $\myvector{z}_i \in \mathit{ENT}$ is dominant for $\myvector{z}$ for some index $i\in\{1,\ldots,m\}$.
+Suppose that $\myvector{y}\in \mathit{ZERO}$ and $\myvector{z}_i \in \mathit{ENT}$ is dominant for $\myvector{z}$ for some index $i\in\lbrace 1,\ldots,m\rbrace$.
 Then $\myvector{x}_i$ is dominant for $\myvector{x}$, and
 $\myvector{x}_i \in \mathit{ENT}$.  Thus $\myvector{x}\in W$.
 
 Otherwise, let $\myvector y_i$ be dominant for $\myvector y$ and
 $\myvector z_j$ be dominant for $\myvector z$ for some
-$i,j\in\{1,\ldots,m\}$.  Then $\myvector x_k\in \mathit{ZERO}_k$ for
+$i,j\in\lbrace 1,\ldots,m\rbrace$.  Then $\myvector x_k\in \mathit{ZERO}_k$ for
 all $k<\min\lbrace i,j\rbrace$ since $\mathit{ZERO}_k$ is convex.
 Moreover if $k=\min\lbrace i,j\rbrace$ then $\myvector
 y_k,\myvector z_k \in \mathit{ENT}_k$, and hence $\myvector x_k
