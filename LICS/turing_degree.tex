@@ -21,7 +21,7 @@ and note that each $f_{\myvector{w}}$ is an exponential-polynomial which has the
 
 Before proceeding, note that exponential-polynomials are closed under differentiation, and that they are computable functions. We also recall the well-known topological fact that continuous functions map compact sets to compact sets. Therefore, we may compute upper bounds on the Lipschitz constants of the restrictions of exponential-polynomials to compact sets.
 
-Let $\myvector{b} : \Naturals \rightarrow {\lbrace 1, \ldots, k \rbrace}^{\star}$ be any computable injection.
+Let $\myvector{b} : \Naturals \rightarrow {\lbrace 1, \ldots, k \rbrace}^{\star}$ be any computable surjection.
 
 For each $n \in \Naturals$, consider the Turing machine $A_{n}$ which does the following:
 for each $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(n) \rbrace$ and for each $m \in \Naturals$, partition ${[0,n]}^{\lvert \myvector{w} \rvert}$ in an uniform grid, with mesh size $m^{-1}$, and compute the approximate value of $f_{\myvector{w}}$ with error at most $m^{-1}$ at each grid point;
