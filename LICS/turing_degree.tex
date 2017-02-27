@@ -19,15 +19,16 @@ Consider the functions
 \end{equation*}
 and note that each $f_{\myvector{w}}$ is an exponential-polynomial which has the non-negative reals as co-domain. Clearly, this instance of MESP is positive if and only if some $f_{\myvector{w}}$ has a tangential zero.
 
-Before proceeding, note that exponential-polynomials are closed under differentiation, and that they are computable functions. We also recall the well-known topological fact that continuous functions map compact sets to compact sets. Therefore, we may compute upper bounds on the Lipschitz constants of the restrictions of exponential-polynomials to compact sets.
+Before proceeding, note that exponential-polynomials are closed under differentiation, and that they are computable functions.
 
 Let $\myvector{b} : \Naturals \rightarrow {\lbrace 1, \ldots, k \rbrace}^{\star}$ be any computable surjection.
 
-For each $n \in \Naturals$, consider the Turing machine $A_{n}$ which does the following:
-for each $m \in \Naturals$ and $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(m) \rbrace$, partition ${[0,n]}^{\lvert \myvector{w} \rvert}$ in an uniform grid, with mesh size $m^{-1}$, and compute the approximate value of $f_{\myvector{w}}$ with error at most $m^{-1}$ at each grid point;
-if it is ever the case that all the approximate values of $f_{\myvector{w}}$ are greater than $2 L_{\myvector{w}, n} m^{-1}$ (where $L_{\myvector{w}, n}$ is an upper bound on ${\| \nabla f_{\myvector{w}} \|}\restriction_{[0,n]}$, which we can compute), $A_{n}$ halts. Note that the instance of MESP is positive if and only if some $A_{n}$ loops.
+For each $n \in \Naturals$ and $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(n) \rbrace$, consider the Turing machine $A_{\myvector{w}, n}$ which does the following:
+for each $m \in \Naturals$, partition ${[0,n]}^{\lvert \myvector{w} \rvert}$ in an uniform grid, with mesh size $m^{-1}$, and compute the approximate value of $f_{\myvector{w}}$ with error at most $m^{-1}$ at each grid point;
+if it is ever the case that all the approximate values of $f_{\myvector{w}}$ are greater than $2 L_{\myvector{w}, n} m^{-1}$ (where $L_{\myvector{w}, n}$ is an upper bound on ${\| \nabla f_{\myvector{w}} \|}\restriction_{[0,n]}$, which we can compute by using the triangle inequality and the monotonicity of the exponential function), $A_{\myvector{w}, n}$ halts. Due to the Mean Value Theorem, $A_{\myvector{w}, n}$ halts if and only if $f_{\myvector{w}} \restriction_{[0,n]}$ does not have zeroes.
+Thus, the instance of MESP is positive if and only if some $A_{\myvector{w}, n}$ loops.
 
-Now, consider the Turing machine $B$ with access to a Halting Problem oracle (that is, a $\emptyset^{(1)}$ oracle) which, for each $n \in \Naturals$, uses the oracle to decide whether $A_{n}$ halts; if that is ever not the case, $B$ halts. Finally, note that $B$ halts if and only if the MESP instance in consideration is positive.
+Now, consider the Turing machine $B$ with access to a Halting Problem oracle (that is, a $\emptyset^{(1)}$ oracle) which, for each $n \in \Naturals$ and $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(n) \rbrace$, uses the oracle to decide whether $A_{\myvector{w}, n}$ halts; if that is ever not the case, $B$ halts. Finally, note that $B$ halts if and only if the MESP instance in consideration is positive.
 \end{proof}
 
 Moreover, the following result holds.
