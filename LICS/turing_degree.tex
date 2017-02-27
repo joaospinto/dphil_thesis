@@ -1,36 +1,46 @@
-\section{Turing-degree of MEP}
+\section{Turing-degree of MESP}
 \label{sec:turing-degree-lics}
 
-Having shown that MEP is undecidable and that MESP reduces to MEP, we are interested in classifying the Turing-degree of MEP.
+We are interested in classifying the Turing-degree of MESP\@.
 
 \begin{theorem}
 \label{thm:turing-degree-2}
-  MEP is in $\Sigma_{2}$.
+  MESP is in $\Sigma_{2}$.
 \end{theorem}
 
 \begin{proof}
-  We recall that, by~\cref{thm:Post}, $\emptyset^{(2)}$ (that is, the second Turing jump of the empty set\footnote{Note that any computable set could have been used instead of $\emptyset$.}) is $\Sigma_{2}$-complete. Below, we present a reduction from MEP to $\emptyset^{(2)}$.
+We recall that, by~\cref{thm:Post}, $\emptyset^{(2)}$ (that is, the second Turing jump of the empty set\footnote{Note that any computable set could have been used instead of $\emptyset$.}) is $\Sigma_{2}$-complete.
 
-  Consider the function
-  \begin{equation*}
-    f(\myvector{t}) = \left\| \prod \limits_{i=1}^{k} \exp(A_{i} t_{i}) - C \right\|_{2}^{2}
-  \end{equation*}
-  and note that $f$ is an exponential-polynomial which has the non-negative reals as co-domain. Clearly, $f$ has a tangential zero if and only if this is a positive instance of MEP.
+Below, we present a reduction from MESP to $\emptyset^{(2)}$.
 
-  For each $n \in \Naturals$, consider the Turing machine $A_{n}$ which does the following: for each $m \in \Naturals$, partition $[0,n]^{k}$ (where $k$ is the number of matrices in the instance of MEP under consideration) in an uniform grid, with mesh size $m^{-1}$, and compute the approximate value of $f$ with error at most $m^{-1}$ at each grid point, and, if it is ever the case that all the approximate values of $f$ are greater than $m^{-1}$, returns false. Note that $A_{n}$ never returns true.
+Consider the functions
+\begin{equation*}
+    f_{\myvector{w}}(\myvector{t}) = {\left \| \prod \limits_{i=1}^{\lvert \myvector{w} \rvert} \exp(A_{w_{i}} t_{i}) - C \right \|}_{2}^{2}, \, \myvector{w} \in {\lbrace 1, \ldots, k \rbrace}^{\star}
+\end{equation*}
+and note that each $f_{\myvector{w}}$ is an exponential-polynomial which has the non-negative reals as co-domain. Clearly, this instance of MESP is positive if and only if some $f_{\myvector{w}}$ has a tangential zero.
 
-  Now, consider the Turing machine $B$ with access to a Halting Problem oracle (that is, a $\emptyset^{(1)}$ oracle) which, for each $n \in \Naturals$, uses the oracle to decide whether $A_{n}$ terminates and, if that is ever not the case, returns true. Note that $B$ never returns false.
+Before proceeding, note that exponential-polynomials are closed under differentiation, and that they are computable functions. We also recall the well-known topological fact that continuous functions map compact sets to compact sets. Therefore, we may compute upper bounds on the Lipschitz constants of the restrictions of exponential-polynomials to compact sets.
 
-  Finally, note that $B$ terminates if and only if the MEP instance in consideration is positive.
+Let $\myvector{b} : \Naturals \rightarrow {\lbrace 1, \ldots, k \rbrace}^{\star}$ be any computable injection.
+
+For each $n \in \Naturals$, consider the Turing machine $A_{n}$ which does the following:
+for each $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(n) \rbrace$ and for each $m \in \Naturals$, partition ${[0,n]}^{\lvert \myvector{w} \rvert}$ in an uniform grid, with mesh size $m^{-1}$, and compute the approximate value of $f_{\myvector{w}}$ with error at most $m^{-1}$ at each grid point;
+if it is ever the case that all the approximate values of $f_{\myvector{w}}$ are greater than $2 L_{\myvector{w}, n} m^{-1}$ (where $L_{\myvector{w}, n}$ is an upper bound on ${\| \nabla f_{\myvector{w}} \|}\restriction_{[0,n]}$, which we can compute), returns false. Note that $A_{n}$ never returns true, and that the instance of MESP is positive if $A_{n}$ loops.
+
+Now, consider the Turing machine $B$ with access to a Halting Problem oracle (that is, a $\emptyset^{(1)}$ oracle) which, for each $n \in \Naturals$, uses the oracle to decide whether $A_{n}$ terminates and, if that is ever not the case, returns true. Note that $B$ never returns false.
+
+Finally, note that $B$ terminates if and only if the MESP instance in consideration is positive.
 \end{proof}
 
 Moreover, the following result holds.
 
 \begin{theorem}
-  If Schanuel's conjecture is true, MEP is $\Sigma_{1}$-complete.
+  If Schanuel's conjecture is true, MESP is $\Sigma_{1}$-complete.
 \end{theorem}
 
 \begin{proof}
-  It is clear that MEP is $\Sigma_{1}$-hard.
-  Let $f$ be as in the proof of~\cref{thm:turing-degree-2}. Consider the Turing Machine $T$ which, for each $n \in \Naturals$, uses~\cref{thm:wilkie-macintyre} to decide whether $f$ admits a zero in the region $[0,n]^{k}$. Then $T$ terminates if and only if the instance of MEP under consideration is positive.
+  It is clear that MESP is $\Sigma_{1}$-hard.
+  Let $f_{\myvector{w}}, \myvector{w} \in {\lbrace 1, \ldots, k \rbrace}^{\star}$ be as in the proof of~\cref{thm:turing-degree-2}.
+  Consider the Turing Machine $T$ which, for each $n \in \Naturals$ and $\myvector{w} \in \lbrace \myvector{b}(1), \ldots, \myvector{b}(n) \rbrace$, uses~\cref{thm:wilkie-macintyre} to decide whether $f_{\myvector{w}}$ admits a zero in the region ${[0,n]}^{\lvert \myvector{w} \rvert}$.
+  Then $T$ terminates if and only if the instance of MESP under consideration is positive.
 \end{proof}

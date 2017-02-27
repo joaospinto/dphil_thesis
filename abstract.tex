@@ -1,10 +1,13 @@
 \begin{abstract}
 
-The object of this thesis is the study of the decidability properties of a number of problems related to the broad area of linear dynamical systems, which has fundamental ties to theoretical computer science, software verification, and control theory.
+The object of this thesis is the study of the decidability properties of linear dynamical systems, which have fundamental ties to theoretical computer science, software verification, linear hybrid systems, and control theory.
 
-In particular, we describe a method for deciding the termination of simple linear loops, partly solving a 10-year-old open problem of Tiwari~\cite{Tiw04} and Braverman~\cite{Bra06}. We also study the membership problem for semigroups of matrix exponentials, which we show to be undecidable in general by reduction from Hilbert's Tenth Problem, and decidable for all instances where the matrices defining the semigroup commute, somewhat similar to what was known about the discrete-time version of this problem, studied in~\cite{MultiplicativeMatrixEquations}.
-In turn, this entails the undecidability of the generalised versions of the continuous-time Orbit and Skolem Problems to a multi-matrix setting. We also study point-to-point controllability for linear time-invariant systems, which is a fundamental problem in control theory. For discrete-time systems, we show that this problem is undecidable when the set of controls is non-convex, and Skolem-hard even when it is a convex polytope; for continuous-time systems, we show that this problem reduces to the continuous-time Orbit Problem when the set of controls is a linear subspace, which entails decidability.
-Finally, we study the liveness of states in linear hybrid automata, in particular what we call the ``Polytope Escape Problem'', showing that it is decidable.
+In particular, we describe a method for deciding the termination of simple linear loops, partly solving a 10-year-old open problem of Tiwari~\cite{Tiw04} and Braverman~\cite{Bra06}.
+We also study the membership problem for semigroups of matrix exponentials, which we show to be undecidable in general by reduction from Hilbert's Tenth Problem, and decidable for all instances where the matrices defining the semigroup commute.
+In turn, this entails the undecidability of the generalised versions of the Continuous Orbit and Skolem Problems to a multi-matrix setting.
+We also study point-to-point controllability for linear time-invariant systems, which is a central problem in control theory.
+For discrete-time systems, we show that this problem is undecidable when the set of controls is non-convex, and at least as hard as the Skolem Problem even when it is a convex polytope; for continuous-time systems, we show that this problem reduces to the Continuous Orbit Problem when the set of controls is a linear subspace, which entails decidability.
+Finally, we show how to decide whether all solutions of a given linear ordinary differential equation starting in a given convex polytope eventually leave it; this problem, which we call the ``Polytope Escape Problem'', relates to the liveness of states in linear hybrid automata.
 
 Our results rely on a number of theorems from number theory, logic, and algebra, which we introduce in a self-contained way in the preamble to this thesis, together with a few new mathematical results of independent interest.
 
