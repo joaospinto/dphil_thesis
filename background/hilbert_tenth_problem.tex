@@ -1,41 +1,18 @@
-\subsection{The Arithmetical Hierarchy and Hilbert's Tenth Problem}
+\subsection{Hilbert's Tenth Problem}
 
-The purpose of this section is to describe the \emph{arithmetical hierarchy}, together with two related theorems which are of central importance to computer science and logic.
+A set $S \subseteq \Integers^{d}$ is called \emph{Diophantine} if there exist $m \in \Naturals$ and $p \in \Integers[x_{1}, \ldots, x_{d+m}]$ such that
+\[ S = \lbrace \myvector{x} \in \Integers^{d} : \exists \myvector{y} \in \Integers^{m}, \, p(\myvector{x}, \myvector{y}) = 0 \rbrace \, . \]
+Equivalently, Diophantine sets correspond to those that are definable in the existential branch of the first-order theory of the ring of integers.
 
-Consider a quantifier-free formula $\Psi$ consisting of Boolean combinations of atomic predicates of the form $p(x_{1}, \ldots, x_{n}) \geq 0$, where $p \in \Integers[x_{1}, \ldots, x_{n}]$.
-The set of such formulas is, by definition, $\Sigma_{0}=\Pi_{0}$. We will define $\Sigma_{n}$ and $\Pi_{n}$ inductively.
-If $\Phi \in \Pi_{n}$ and $x_{1}, \ldots, x_{n}$ are free variables in $\Phi$, then $\exists x_{1}, \ldots, \exists x_{n} \Phi$ belongs to $\Sigma_{n+1}$.
-Similarly, if $\Phi \in \Sigma_{n}$ and $x_{1}, \ldots, x_{n}$ are free variables in $\Phi$, then $\forall x_{1}, \ldots, \forall x_{n} \Phi$ belongs to $\Pi_{n+1}$.
-In order to extend these sets beyond formulas in prenex normal form, we make them closed under logical equivalence. Therefore, if $\Phi \in \Sigma_{n}$, then $\neg \Phi \in \Pi_{n}$, and vice-versa.
-Furthermore, we define $\Delta_{n} = \Sigma_{n} \cap \Pi_{n}$.
-A set $S \subseteq \Integers^{d}$ definable by a formula in $\Sigma_{1}$ is called \emph{Diophantine}. In his famous list of 23 problems, Hilbert asked whether there was a finite method for testing emptiness of Diophantine sets; this was the tenth problem in his list. Alternatively, given a polynomial $p \in \Integers[x_{1}, \ldots, x_{k}]$, Hilbert's Tenth Problem consists in deciding whether $p(\myvector{x}) = 0$ admits a solution $\myvector{x} \in \Naturals^{k}$ (or $\Integers^{k}$, equivalently). The following celebrated theorem, due to Yuri Matiyasevich, settled this question negatively, namely by showing that it is an undecidable problem; see~\cite{HTP} for a self-contained proof.
+In his famous list of 23 problems, Hilbert asked whether an algorithm for deciding whether a given polynomial $p \in \Integers[x_{1}, \ldots, x_{d}]$ admits any root $\myvector{x} \in \Integers^{d}$ exists; this was the tenth problem in his list.
+
+The following celebrated theorem, due to Yuri Matiyasevich, settled this question negatively, namely by showing that it is an undecidable problem; see~\cite{HTP} for a self-contained proof.
 
 \begin{theorem}[Matiyasevich]
 \label{thm:HTP}
 The recursively enumerable subsets of $\Integers^{d}$ are Diophantine.
 \end{theorem}
 
-It is obvious that the converse is also true, namely that all Diophantine sets are recursively enumerable, by countability of $\Integers^{d}$. It also follows that $\Delta_{1}$ corresponds to the class of recursive sets of integer tuples.
+It is obvious that the converse is also true, namely that all Diophantine sets are recursively enumerable, by countability of $\Integers^{d}$.
 
-\cref{thm:HTP} can be seen as a strengthening of the famous G\"{o}del-Rosser incompleteness theorem, which states that the first-order theory of the ring of integers is undecidable. Namely, this result shows that the existential branch of that theory is already undecidable. As a consequence, it is undecidable whether a given semi-algebraic $X \subseteq \Reals^{d}$ set intersects the integer lattice $\Integers^{d}$.
-
-By abuse of notation, we also use $\Sigma_{n}$, $\Pi_{n}$, and $\Delta_{n}$ to refer to the corresponding decision problems of testing whether a well-formed quantifier-free formula therein is true over the ring of integers. A problem is said to be complete for one of these classes if it is Turing-equivalent to determining the truth of a well-formed formula with no free variables therein.
-
-Before stating Post's theorem, we need to introduce some notation. If $A$ is a decision problem, we define $A^{(0)}$ to be $A$, and for each $n \geq 1$ we define $A^{(n+1)}$ as the Halting Problem for Turing machines with access to an oracle for solving $A^{(n)}$. In the statement below, $\emptyset$ could be replaced by any computable set.
-
-\begin{theorem}[Post, modern version]
-\label{thm:Post}
-$\emptyset^{(n)}$ is $\Sigma_{n}$-complete.
-\end{theorem}
-
-Note that the original statement of~\cref{thm:Post} was weaker than the one we present, and in particular did not imply the undecidability of Hilbert's Tenth Problem.
-
-We shall also need the following result, shown in~\cite{KhachiyanP97}, which contrasts with~\cref{thm:HTP}:
-\begin{theorem}[Khachiyan and Porkolab]
-\label{thm:kp}
-Let $W\subseteq\Reals^{d}$ be a convex semi-algebraic set defined by
-polynomials of degree at most $D$ and that can be represented in space
-$S$. In that case, if $W\cap\Integers^{d}\neq\emptyset$, then $W$ must
-contain an integral point that can be represented in space
-$SD^{O(d^4)}$.
-\end{theorem}
+\cref{thm:HTP} can be seen as a strengthening of the famous G\"{o}del-Rosser incompleteness theorem, which states that the first-order theory of the ring of integers is undecidable. Namely, this result shows that the existential branch of that theory is already undecidable.
