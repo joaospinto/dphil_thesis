@@ -1,6 +1,6 @@
 \subsection{Properties of commuting matrices}
 
-We will now present a useful decomposition of $\Complex^{d}$ induced by the commuting matrices $A_{1}, \ldots, A_{k} \in \Complex^{d \times d}$. Let $\sigma(A_{i})$ denote the spectrum of the matrix $A_{i}$. In what follows, let
+We will now present a useful decomposition of $\Complex^{d}$ induced by the commuting matrices $A_{1}, \ldots, A_{k} \in \Complex^{d \times d}$. We remind the read that $\sigma(A_{i})$ denotes the spectrum of the matrix $A_{i}$. In what follows, let
 \begin{align*}
 \myvector{\lambda} = (\lambda_{1}, \ldots, \lambda_{k}) \in \sigma(A_{1}) \times \cdots \times \sigma(A_{k}) .
 \end{align*}
@@ -9,6 +9,7 @@ The generalised eigenspace of $\lambda_{i}$ of $A_{i}$ corresponds to $\ker{(A_{
 \mathcal{V}_{\myvector{\lambda}} = \bigcap \limits_{i=1}^{k} \ker{(A_{i} - \lambda_{i} I)}^{d}.
 \end{align*}
 Also, let $\Sigma = \lbrace \myvector{\lambda} \in \sigma(A_{1}) \times \cdots \times \sigma(A_{k}) : \mathcal{V}_{\myvector{\lambda}} \neq \lbrace \myvector{0} \rbrace \rbrace$.
+Below, $A_{i} \restriction_{\mathcal{V}_{\myvector{\lambda}}}$ denotes the restriction of the linear operator $A_{i}$ to the linear subspace $\mathcal{V}_{\myvector{\lambda}}$, which is invariant under $A_{i}$.
 
 \begin{theorem}
 \label{subspace_decomposition}

@@ -7,7 +7,7 @@ The \emph{minimal polynomial} of $A$ is the unique monic
 polynomial $m(x) \in \Rationals[x]$ of least degree such that
 $m(A)=0$.  By the Cayley-Hamilton Theorem the degree of $m$ is at most
 the dimension of $A$. The set $\sigma(A)$ of eigenvalues is the set of
-roots of $m$.
+roots of $m$, also known as the \emph{spectrum} of $A$.
 The \emph{index} of an eigenvalue $\lambda$, denoted
 by $\nu(\lambda)$, is its multiplicity as a root of $m$. We
 use $\nu(A)$ to denote $\max_{\lambda\in\sigma(A)} \nu(\lambda)$: the
@@ -23,7 +23,7 @@ of $\Complex^{d}$ spanned by the set of generalised eigenvectors
 associated to eigenvalues with non-zero imaginary part by
 $\mathcal{V}^{c}$.
 
-It is well known that each vector $\myvector{v}\in\Complex^{d}$
+As a consequence of the existence of Jordan Canonical Forms, described later in this subsection, each vector $\myvector{v}\in\Complex^{d}$
 can be written uniquely as
 \begin{equation}
 \label{eq:eigen-decomposition}
