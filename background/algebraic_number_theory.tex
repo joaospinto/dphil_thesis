@@ -10,7 +10,7 @@ A \emph{number field} of dimension $d$ is a field extension $K$ of $\Rationals$ 
 Recall that, in that case, there are exactly $d$ monomorphisms $\sigma_{i} : K \rightarrow \Complex$ whose restriction over $\Rationals$ is the identity (and therefore these must map elements of $K$ to their Galois conjugates).
 Given an algebraic number $\alpha$, $\Rationals(\alpha)$ denotes the smallest number field containing $\alpha$. Moreover, if $K=\Rationals(\alpha)$, then $\alpha$ is said to be a \emph{primitive element} of $K$. It is well known that all number fields have a primitive element.
 
-The \emph{ring of integers} $\mathcal{O}_{K}$ of a number field $K$ is the set of elements of $K$ that are algebraic integers, that is, $\mathcal{O}=K\cap\mathcal{O}$.
+The \emph{ring of integers} $\mathcal{O}_{K}$ of a number field $K$ is the set of elements of $K$ that are algebraic integers, that is, $\mathcal{O}_{K}=K\cap\mathcal{O}$.
 An ideal of $\mathcal{O}_{K}$ is an additive subgroup of $\mathcal{O}_{K}$ that is closed under multiplication by any element of $\mathcal{O}_{K}$. An ideal $\mathfrak{P}$ is said to be prime if $ab\in \mathfrak{P}$ implies $a\in\mathfrak{P}$ or $b\in\mathfrak{P}$. The following theorem is central in Algebraic Number Theory, and a proof can be found in~\cite{SnT}:
 
 \begin{theorem}
@@ -64,7 +64,7 @@ degree of $\alpha$ is given in unary. It follows from the obvious fact that $\ph
     Let $\phi$ be Euler's totient function. Then $\phi(r)\geq\sqrt{r/2}$. Therefore, if $\alpha$ has degree $n$ and is a $r$'th root of unity, then $r\leq 2n^2$.
 \end{lemma}
 
-Therefore, in order to decide whether an algebraic number $\alpha$ of degree $n$ is a root of unity, we check whether it is a $r$-th root of unity, for each $r\leq 2n^2$. In order to test whether $\alpha$ is a $r$-th root of unity, it suffices to see whether $\gcd(p_\alpha,x^r-1)=p_\alpha$, since we know that $x^r-1$ is the product of each $d$-th cyclotomic polynomial, with $d$ ranging over the divisors of $n$.
+Therefore, in order to decide whether an algebraic number $\alpha$ of degree $n$ is a root of unity, we check whether it is a $r$-th root of unity, for each $r\leq 2n^2$. In order to test whether $\alpha$ is a $r$-th root of unity, it suffices to see whether $\gcd(p_\alpha,x^r-1)=p_\alpha$, since we know that $x^r-1$ is the product of each $d$-th cyclotomic polynomial, with $d$ ranging over the divisors of $r$.
 
 \subsubsection{Integral solutions of linear equations with algebraic coefficients}
 

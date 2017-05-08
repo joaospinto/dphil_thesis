@@ -18,7 +18,7 @@ Then either $f$ is identically zero, or
 \begin{align*}
 \liminf\limits_{n\rightarrow\infty} f(n) < 0 \, ,
 \end{align*}
-where $n$ ranges over the nonnegative integers.
+where $n$ ranges over the naturals.
 \end{lemma}
 
 \begin{proof}
@@ -47,7 +47,7 @@ Note that this proof could be made constructive by using an effective version of
 
 The following consequence of \cref{lem:first_bound} will be key to
 proving decidability of the problem at hand. It is a continuous-time
-analogue of~\cite[Lemma 4]{Bra06}.
+extension of~\cite[Lemma 4]{Bra06}.
 
 \begin{theorem}
 \label{thm:liminf}
@@ -60,7 +60,7 @@ non-zero real numbers. Then either
 &
 \liminf\limits_{n\rightarrow\infty}  g(\exp(2 \pi i n \theta_{1}), \ldots, \exp(2 \pi i n \theta_{s})) < 0 \, ,
 \end{align*}
-where $n$ ranges over the nonnegative integers.
+where $n$ ranges over the naturals.
 \end{theorem}
 
 \begin{proof}
@@ -85,7 +85,7 @@ $h\in\Complex [z_1^{\pm 1},\ldots,z_k^{\pm 1}]$, not necessarily
 simple, but with zero constant term, such that for all
 $t\in \Reals$,
 \[ g(\exp(2 \pi i N \theta_{1} t), \ldots, \exp(2 \pi i N \theta_{s} t)) =
-  h(\exp(2 \pi i \theta_{i_{1}} t),\ldots,\exp(2 \pi i \theta_{i_{k}} t)) \, .\]
+h(\exp(2 \pi i t), \exp(2 \pi i \theta_{i_{1}} t),\ldots,\exp(2 \pi i \theta_{i_{k}} t)) \, .\]
 Since $1, \theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$, the result follows by applying \cref{lem:first_bound}
 to $h$.
 \end{proof}

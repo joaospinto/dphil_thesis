@@ -12,15 +12,15 @@ It is well-known that linear recurrence sequences correspond to sequences admitt
   \label{eq:poly-exp}
   u_{n} = \sum\limits_{i=1}^{k} p_{i}(n) \lambda_{i}^{n}
 \end{equation}
-where $\lambda_{1}, \ldots, \lambda_{k}$ are the characteristic roots of $u$.
+where $\lambda_{1}, \ldots, \lambda_{k}$ are the characteristic roots of $u$, as can easily be shown by considering the Jordan canonical form of the matricial form of this recurrence.
 
-Moreover, the sequences admitting a representation of the form described in \cref{eq:poly-exp} where the polynomials $p_{i}$ are constant correspond to simple linear recurrence sequences.
+Moreover, the sequences admitting a representation of the form described in \cref{eq:poly-exp}, where the polynomials $p_{i}$ are constant, correspond to simple linear recurrence sequences.
 
 Finally, if ${(u_{n})}_{n \in \Naturals} \subseteq \Reals$, then the polynomials $p_{i}$ and constants $\lambda_{i}$ in \cref{eq:poly-exp} satisfy the relation
-\begin{equation*}
+\begin{equation}
   \label{eq:real_property}
   \lambda_{i} = \overline{\lambda_{j}} \Rightarrow p_{i} = \overline{p_{j}} \, .
-\end{equation*}
+\end{equation}
 
 As an example, the Fibonacci sequence $0, 1, 1, 2, 3, 5, 8, 13, \ldots$ is a simple linear recurrence sequence of order $2$, with recursion rule $f_{n+1} = f_{n} + f_{n-1}$. It can also be represented in the form
 \begin{equation*}
@@ -47,10 +47,10 @@ In order to make use of~\cref{thm:s-units}, it is important to understand the se
 \label{eq:genzeros}
 \end{equation}
 
-The following well-known theorem characterises the set of zeros of linear recurrence sequences. In particular, it gives us a sufficient condition for guaranteeing that the set of zeros of a non-identically zero linear recurrence sequence is finite. Namely, it suffices that the sequence is \emph{non-degenerate}, that is, that no ratio of two of its characteristic roots is a root of unit.
+The following well-known theorem characterises the set of zeros of linear recurrence sequences. In particular, it gives us a sufficient condition for guaranteeing that the set of zeros of a non-identically zero linear recurrence sequence is finite. Namely, it suffices that the sequence is \emph{non-degenerate}, that is, that no ratio of two of its characteristic roots is a root of unity.
 
 \begin{theorem}[Skolem-Mahler-Lech]
-Let ${(u_{n})}_{n \in \Naturals}$ be a linear recurrence sequence. The set $\lbrace n\in\Naturals: u_n=0\rbrace$ is always a union of a finite set and finitely many arithmetic progressions. Moreover, if $u_n$ is non-degenerate, this set is actually finite.
+Let ${(u_{n})}_{n \in \Naturals}$ be a linear recurrence sequence. The set $\lbrace n\in\Naturals: u_n=0\rbrace$ is a union of a finite set and finitely many arithmetic progressions. Moreover, if $u_n$ is non-degenerate, this set is actually finite.
 \end{theorem}
 
 It follows from the Skolem-Mahler-Lech theorem that if $u_n$ is non-degenerate  then~\eqref{eq:genzeros} must be finite, assuming without loss of generality that

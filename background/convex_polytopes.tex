@@ -11,11 +11,12 @@ The decision version of linear programming with canonically-defined algebraic co
 Finally, we note that even though the decision version of linear
 programming with rational coefficients is in~\PTIME{}, allowing
 algebraic coefficients makes things more complicated. While it has
-been shown in~\cite{AdlerB94} that this is solvable in time polynomial
+been shown that the decision version of linear programming
+with canonically-defined algebraic coefficients is solvable in time polynomial
 in the size of the problem instance and in the degree of the smallest
-number field containing all algebraic numbers in each instance, it
-turns out that, in the problem at hand, the degree of that extension can
-be exponential in the size of the input. In other words, the splitting
+number field containing all algebraic numbers in each instance~\cite{AdlerB94}, it
+turns out that the degree of that extension can
+be exponential in the size of the input\footnote{For example, consider the sequence of field extensions $\Rationals(\sqrt{p_{1}}, \ldots, \sqrt{p_{n}})$, where $p_{i}$ denotes the $i$'th prime.}. In other words, the splitting
 field of the characteristic polynomial of a matrix can have a degree
 which is exponential in the degree of the characteristic polynomial, which is makes it hard to place this problem in~\PTIME{}.
 
