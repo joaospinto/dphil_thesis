@@ -1,7 +1,7 @@
 \subsection{Laurent polynomials}
 
 A multivariate \emph{Laurent polynomial} is a polynomial in positive and negative powers of variables $z_{1}, \ldots, z_{s}$ with complex coefficients. We are interested in Laurent polynomials of the special form
-\[ g = \sum_{j=1}^k \left( c_j {z_1}^{n_{1,j}}\ldots {z_s}^{n_{s,j}} +
+\[ g(\myvector{z}) = \sum_{j=1}^k \left( c_j {z_1}^{n_{1,j}}\ldots {z_s}^{n_{s,j}} +
     \overline{c_j} {z_1}^{-n_{1,j}}\ldots {z_s}^{-n_{s,j}} \right) \,
 \]
 where $c_1,\ldots,c_k \in \mathbb{C}$ and $n_{1,1},\ldots,n_{s,k} \in \Integers$.  We call such $g$ \emph{self-conjugate Laurent polynomials}.  Notice that if $\myvector{a} \in \mathbb{T}^{s}$ then $g(\myvector{a})$ is a real number, so we may regard $g$ as a function from $\mathbb{T}^{s}$ to $\Reals$.
@@ -11,7 +11,7 @@ each monomial in $g$ mentions only a single variable.
 
 \begin{lemma}
 \label{lem:first_bound}
-Let $g \in \mathbb{C}[z^{\pm 1}_1,\ldots,z^{\pm 1}_s]$ be a self-conjugate Laurent polynomial that has no constant term.
+Let $g \in \mathbb{C}[z^{\pm 1}_1,\ldots,z^{\pm 1}_s]$ be a self-conjugate Laurent polynomial that has no constant term (not necessarily simple).
 Given $\myvector{\theta} \in \Reals^{s}$ such that $\cA(\myvector{\theta}) = \lbrace \myvector{0} \rbrace$, define a function $f: \Reals_{\geq 0} \rightarrow \Reals$ by
 \[ f(t) = g(\exp(2 \pi i t \myvector{\theta})) \, .\]
 Then either $f$ is identically zero, or
@@ -29,7 +29,7 @@ Since, for all non-zero integers $n$,
 \begin{equation*}
   \int_{0}^{1} \exp(2\pi i n x) dx = 0 \, ,
 \end{equation*}
-it holds that
+it follows that
 \begin{equation*}
 \int_{[0, 1]^{s}} h(\myvector{x}) d \myvector{x} = 0 \, .
 \end{equation*}
@@ -64,7 +64,7 @@ where $n$ ranges over the naturals.
 \end{theorem}
 
 \begin{proof}
-Note that if $1, \theta_{1}, \ldots, \theta_{s}$ are linear independent over $\Rationals$ then the result follows from \cref{lem:first_bound}.
+Note that if $1, \theta_{1}, \ldots, \theta_{s}$ are linearly independent over $\Rationals$ then the result follows from \cref{lem:first_bound}.
 Otherwise, let $\lbrace \theta_{i_{1}}, \ldots, \theta_{i_{k}} \rbrace$ be a maximal subset of $\lbrace \theta_{1}, \ldots, \theta_{s} \rbrace$ such that $1, \theta_{i_{1}}, \ldots, \theta_{i_{k}}$ are linearly independent over $\Rationals$.
 
 Then, for some $N\in\Naturals$ and each $j$, one can write
@@ -113,7 +113,7 @@ We now derive a useful corollary of \cref{thm:liminf}:
 
 \begin{corollary}
 \label{cor:liminf}
-Consider a function of the form $h(t)=\myvector{b}^{T}\exp(At) \myvector{v}^{c}$, where $\myvector{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\Reals\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, then we have
+Consider a function of the form $h(t)=\myvector{b}^{T}\exp(At) \myvector{v}^{c}$, where $A \in \Reals^{d \times d}$, $\myvector{b}, \myvector{v}^{c} \in \Reals^{d}$, and $\myvector{v}^{c}\in\mathcal{V}^{c}$, with $(\rho,m)\in\Reals\times \Naturals_{0}$ dominant. If $h(t)\not\equiv 0$, that is, if it is not identically zero, then we have
 \begin{equation*}
 -\infty<\liminf\limits_{t\rightarrow\infty} \frac{h(t)}{\exp(\rho
   t)t^{m}}<0 \, .

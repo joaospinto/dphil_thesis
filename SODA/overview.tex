@@ -2,14 +2,15 @@
 \label{sec:overview}
 The main result of this chapter is as follows:
 \begin{theorem}
-  The termination over the integers of simple linear loops of the form
+    The termination over the integers (as defined in~\cref{sec:soda_intro})
+    of simple linear loops of the form
 \begin{gather*}
 \mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $B\myvector{x} \geq \myvector{c}$ \textit{do}
 $\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$}
 \end{gather*}
-is decidable using exponential space if $A$ is diagonalisable and
-using polynomial space if $A$ has dimension at most $4$.
+is decidable in exponential space if $A$ is diagonalisable and
+in polynomial space if $A$ has dimension at most $4$.
 \label{thm:main}
 \end{theorem}
 In this section we give a high-level overview of the proof of \cref{thm:main}.
@@ -82,8 +83,8 @@ a semi-algebraic set is semi-algebraic (see~\cref{lem:semi-alg-closure}). A natu
 itself is semi-algebraic, which we leave as an open problem.
 
 We next describe some restrictions on linear loops that can
-be made without loss of generality for deciding termination
-and that will ease our upcoming analysis.
+be made without loss of generality for deciding termination;
+that will ease our upcoming analysis.
 
 We first reduce the problem of computing witness sets in the general
 case to the same problem in the homogeneous case.  Note that Program
@@ -122,9 +123,9 @@ homogeneous case for matrices of dimension at most $d+1$.%
   arbitrary inhomogeneous programs.}
 
 We can further simplify the homogeneous case by restricting to loop
-guards that comprise a single linear inequality.  To see this, first
+guards that consist of a single linear inequality.  To see this, first
 note that program \textsf{P2} above is eventually non-terminating on
-$\myvector{u}$ if and only if for each row $\myvector{b}^T$ of $B$
+$\myvector{u}$ if and only if, for each row $\myvector{b}^T$ of $B$,
 program \textsf{P4} below is eventually non-terminating on
 $\myvector{u}$:
 \begin{gather*}
@@ -140,15 +141,20 @@ The final simplification concerns the notion of
 non-degeneracy.  We say that matrix $A$ is \emph{degenerate} if it has
 distinct eigenvalues $\lambda_1 \neq \lambda_2$ whose quotient
 $\lambda_1/\lambda_2$ is a root of unity.
+The \emph{order} of a root of unity $\zeta$ is defined as
+$\min\lbrace n > 0 : \zeta^{n} = 1 \rbrace$.
 
-Given an arbitrary matrix $A$, let $L$ be the least common multiple of all orders of quotients of distinct eigenvalues of $A$ which are roots
+Given an arbitrary matrix $A$, let $L$ be the least common multiple of
+all orders of quotients of distinct eigenvalues of $A$ which are roots
 of unity. It is known that $L=2^{O(d\sqrt{\log d})}$~\cite{BOOK}.  The
 eigenvalues of the matrix $A^L$ have the form $\lambda^L$ for
 $\lambda$ an eigenvalue of $A$, by the spectral mapping theorem.  It follows that
 $A^L$ is non-degenerate, since if $\lambda_1,\lambda_2$ are
 eigenvalues of $A$ such that $\lambda^L_1/\lambda^L_2$ is a root of
 unity then $\lambda_1/\lambda_2$ is a root of unity and hence
-$\lambda^L_1/\lambda^L_2=1$. Note that all eigenvectors of $A$ are still eigenvectors of $A^L$, thus $A^L$ will be diagonalisable whenever $A$ is.
+$\lambda^L_1/\lambda^L_2=1$.
+Note that all eigenvectors of $A$ are still eigenvectors of $A^L$,
+thus, whenever $A$ is diagonalisable, so will $A^L$ be.
 
 Now program \textsf{P4} is eventually non-terminating on
 $\myvector{u}\in \Integers^{d}$ if and only if program \textsf{P5}
@@ -171,7 +177,7 @@ Consider a homogeneous simple linear loop
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
 \end{gather*}
 such that $A$ is non-degenerate. If $A$ has dimension at most $5$, we can compute a witness set for \textsf{P4} using polynomial space.
-In case all complex eigenvalues of $A$ are simple, we can compute a witness set for \textsf{P4} using exponential space.
+In the case where all complex eigenvalues of $A$ are simple, we can compute a witness set for \textsf{P4} using exponential space.
 \end{restatable}
 
 Bearing in mind that the transformation from $\mathsf{P1}$ to
@@ -191,8 +197,8 @@ In the rest of this section we give a brief summary of the proof of
 To compute a witness set $W$ for \textsf{P4} we first partition the
 eigenvalues of the update matrix $A$ by grouping eigenvalues of equal
 modulus.  Correspondingly we write $\Reals^{d}$ as a direct sum
-$\Reals^{d} = V_1 \oplus \ldots \oplus V_m$, where each subspace
-$V_i$ is the sum of (generalised) eigenspaces of $A$ associated to
+$\Reals^{d} = V_1 \oplus \cdots \oplus V_m$, where each subspace
+$V_i$ is the sum of (generalised) eigenspaces of $A$ associated with
 eigenvalues of the same modulus.  Assume that $V_1$ corresponds to the
 eigenvalues of maximum modulus, $V_2$ the next greatest modulus,
 etc.  Then there are two main steps in the construction of $W$:

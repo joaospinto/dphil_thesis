@@ -43,9 +43,9 @@ Now let us partition the eigenvalues of $A$ into sets $S_1,\ldots,S_m$
 by grouping eigenvalues of equal modulus.  Assume that $S_1$ contains
 eigenvalues of maximum modulus, $S_2$ eigenvalues of the next greatest
 modulus, etc.  Correspondingly we write $\Reals^{d}$ as a
-direct sum of subspaces $\Reals^{d} = V_1 \oplus \ldots \oplus V_m$,
+direct sum of subspaces $\Reals^{d} = V_1 \oplus \cdots \oplus V_m$,
 where each subspace $V_i$ is the sum of (generalised) eigenspaces of
-$A$ associated to eigenvalues in $S_i$.  By the assumption that $A$ is
+$A$ associated with eigenvalues in $S_i$.  By the assumption that $A$ is
 non-degenerate, i.e., that no quotient of two distinct eigenvalues is
 a root of unity, $S_i$ cannot have both a positive and a negative real
 eigenvalue of the same modulus.  Thus each set $S_i$ contains at most one
@@ -124,9 +124,9 @@ it follows from~\cref{thm:liminf} that
 $\myvector{b}^{T} A^{n}\myvector{u}$ gets arbitrarily large negative values as
 $n$ grows, and hence $\myvector{u}\not\in\mathit{ENT}_i$.
 
-The argument in case $\myvector{\beta}_1^T\myvector{u}=0$ is a
-simple version of the approach in Case III, however we include details
-since the reader may find this special case instructive.
+In case $\myvector{\beta}_1^T\myvector{u}=0$, the argument is a
+simpler version of the approach in Case III; however, we include the
+details of this special case, since the reader may find them instructive.
 
 Define $f:\mathbb{T}\rightarrow\Reals$ by
 \[ f(z)=\myvector{\alpha}_0^T\myvector{u}+
@@ -147,8 +147,8 @@ We conclude that
 and hence $\mathit{ENT}_i$ is semi-algebraic.
 
 \paragraph{Case II: $S_i$ does not contain a positive real eigenvalue.}
-It follows from~\cref{thm:liminf} that if $S_i$ does not contain a
-positive real eigenvalue then for $\myvector{u}\in V_i$ the sequence
+It follows from~\cref{thm:liminf} that, if $S_i$ does not contain a
+positive real eigenvalue, then for $\myvector{u}\in V_i$ the sequence
 $\myvector{b}^TA^n\myvector{u}$ is either identically zero for $n\geq
 d$ or is infinitely often strictly positive and infinitely often
 strictly negative.  Thus in this case
@@ -175,7 +175,7 @@ where the $\myvector{\alpha}_j$ and $\myvector{\beta}_j$ are
 $d$-dimensional vectors of algebraic numbers, with all coefficients of
 each $\myvector{\alpha}_j$ being real.
 
-Since $\rho=|\lambda_1|=\ldots=|\lambda_s|$, if
+Since $\rho=|\lambda_1|=\cdots=|\lambda_s|$, if
 $\myvector{\alpha}_j^T\myvector{u}\neq 0$ for some strictly
 positive index $j$, then, for the largest such index $j$, the term
 $n^{j}\rho^n\myvector{\alpha}_{j}^T\myvector{u}$ is
@@ -244,7 +244,7 @@ semi-algebraic sets for $i=1,\ldots,m$, we now define a witness set
 $W$ for the loop \textsf{P4}.
 
 Given $\myvector{u} \in \Reals^{d}$, write $\myvector{u}=
-\myvector{u}_1+\ldots+\myvector{u}_m$, with $\myvector{u}_1 \in
+\myvector{u}_1+\cdots+\myvector{u}_m$, with $\myvector{u}_1 \in
 V_1,\ldots,\myvector{u}_m\in V_m$.  Say that $\myvector{u}_i$ is
 the \emph{dominant component} of $\myvector{u}$ if
 $\myvector{u}_i\not\in \mathit{ZERO}_i$ and
@@ -252,8 +252,8 @@ $\myvector{u}_j\in\mathit{ZERO}_j$ for all $j<i$.  The intuition is
 that if $\myvector{u}_i$ is dominant then the eventual
 non-termination of \textsf{P4} on $\myvector{u}$ is determined by
 its eventual non-termination on $\myvector{u}_i$.  However, to prove
-this we need to assume $\myvector{u}\in (\Algebraics\cap\Reals)^{d}$.  Formally we
-have:
+this we need to assume $\myvector{u}\in (\Algebraics\cap\Reals)^{d}$.
+Formally, we have
 
 \begin{proposition}
   If $\myvector{u}_i$ is the dominant component of $\myvector{u}
@@ -262,7 +262,7 @@ if $\myvector{u}_i \in \mathit{ENT}$.
 \label{prop:dominant}
 \end{proposition}
 \begin{proof}
-From the fact that $\myvector{u}_i$ is dominant we have:
+From the fact that $\myvector{u}_i$ is dominant, we have
 \begin{eqnarray}
  \myvector{b}^TA^n\myvector{u}&=&
    \myvector{b}^TA^n(\myvector{u}_1+\cdots+\myvector{u}_m) \notag\\
@@ -341,7 +341,7 @@ The witness set $W$ is convex.
   Suppose $\myvector y,\myvector z\in W$ and let $\myvector
   x=\lambda\myvector y+(1-\lambda)\myvector z$, where $0 < \lambda
   < 1$. Moreover, write
-  $\myvector{x}=\myvector{x}_1+\ldots+\myvector{x}_m$, where
+  $\myvector{x}=\myvector{x}_1+\cdots+\myvector{x}_m$, where
   $\myvector{x}_1\in V_1,\ldots,\myvector{x}_m\in V_m$, and
   likewise for $\myvector{y}$ and $\myvector{z}$.
 
@@ -367,15 +367,15 @@ In the remaining part of this section we show that the topological closures of
 $\mathit{ENT}$ and $W$ are equal.
 
 The inclusion $\closure{W}\subseteq \closure{ENT}$ can be shown
-using the fact that the set algebraic points in any semi-algebraic set
-is dense in that set, as shown in~\cref{lem:semi-alg-density}.  From
-this we have:
+using the fact that the set of algebraic points in any semi-algebraic set
+is dense in that set, as shown in~\cref{lem:semi-alg-density}.
+From this, we get
 \begin{align*}
-\closure{W}=\closure{W\cap\Algebraics^{d}}=\closure{\mathit{ENT}\cap\Algebraics^{d}} \subseteq \closure{\mathit{ENT}}\cap\closure{\Algebraics^{d}}=\closure{\mathit{ENT}}
+\closure{W}=\closure{W\cap\Algebraics^{d}}=\closure{\mathit{ENT}\cap\Algebraics^{d}} \subseteq \closure{\mathit{ENT}}\cap\closure{\Algebraics^{d}}=\closure{\mathit{ENT}} .
 \end{align*}
 
 The reverse inclusion, $\closure{ENT}\subseteq\closure{W}$, can be
-shown in similar fashion but this time using the fact that
+shown in a similar fashion, but this time using the fact that
 $\mathit{ENT}\cap\Algebraics^{d}$ is dense in $\mathit{ENT}$.  Our
 remaining goal is this last fact, which is established in
 \cref{corl:dense} below.

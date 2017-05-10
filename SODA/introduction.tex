@@ -10,7 +10,7 @@ functions~\cite{Ben-AmramG13,BradleyMS05,ChenFM12,ColonS01,PodelskiR04},
 many of which have been implemented in software-verification tools, such as
 Microsoft's \textsc{Terminator}~\cite{CookPR06}.
 
-A very simple form of imperative programs are \emph{simple linear
+A very simple form of imperative programs is \emph{simple linear
   loops}, that is, programs of the form
 \begin{gather*}
 \mathsf{P1:}\  \mbox{$\myvector{x}\gets \myvector{u}$;
@@ -48,7 +48,9 @@ termination of simple linear loops (see, e.g.,~\cite{CookPR06}
 or~\cite[Section 6]{Tiw04}).  On the other hand, termination becomes
 undecidable for mild generalisations of simple linear loops, for
 example, allowing the update function in the loop body to be piecewise
-linear~\cite{BGM12}.
+linear~\cite{BGM12}. An interesting related result is the undecidability
+of a simple generalisation of the famous Collatz problem~\cite{GeneralisedCollatz},
+as well as the related ``FRACTRAN'' computational model, introduced by John Horton Conway.
 
 To prove our main result we focus on \emph{eventual non-termination},
 where \textsf{P1} is said to be eventually non-terminating on
@@ -97,7 +99,7 @@ also use classical results in number theory, such as the
 Skolem-Mahler-Lech Theorem~\cite{Lec53,Mah35,Sko34} on linear
 recurrences.  Crucially the well-known and notorious ineffectiveness
 of Roth's Theorem (and its higher-dimensional and $p$-adic
-generalisations) and of the Skolem-Mahler-Lech Theorem are not a
+generalisations) and Skolem-Mahler-Lech Theorem is not a
 problem for deciding \emph{eventual} non-termination, which is key to
 our approach.
 
@@ -109,14 +111,14 @@ Consider the termination problem for a homogeneous simple linear loop
 \textit{while} $B\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$}
 \end{gather*}
 on a single initial value $\myvector{u}\in \Integers^{d}$.  Each row
-$\myvector{b}^T$ of matrix $B$ corresponds to a loop condition
+$\myvector{b}^T$ of the matrix $B$ corresponds to a loop condition
 $\myvector{b}^T\myvector{x} \geq 0$.  For each such condition,
 consider the integer sequence $\langle x_n : n \in \Naturals \rangle$
 defined by $x_n = \myvector{b}^{T} A^{n} \myvector{u}$.  Then
 \textsf{P2} fails to terminate on an initial value $\myvector{u}$ if
 and only if each such sequence $\langle x_n \rangle$ is
-\emph{positive}, i.e., $x_n \geq 0$ for all $n$.  It is not difficult
-to show that each sequence $\langle x_n \rangle$ considered above is a
+\emph{positive}, i.e., $x_n \geq 0$ for all $n$. 
+Each sequence $\langle x_n \rangle$ considered above is a
 \emph{linear recurrence sequence}, as we saw in~\cref{sec:LRS}.
 Thus deciding whether a homogeneous simple linear loop
 terminates on a given initial value is at least as hard as the
@@ -147,10 +149,10 @@ Schlickewei~\cite{Evertse84,PS82}.  Such tools enable us to obtain
 decidability of termination for matrices of arbitrary dimension,
 assuming diagonalisability.
 
-The paper~\cite{COW13} studies higher dimensional versions of
+Chonev et al.~\cite{COW13} study higher dimensional versions of
 Kannan and Lipton's Orbit Problem~\cite{KL86}.  These can be seen as
 versions of the termination problem for linear loops on a fixed
-initial value.  That work uses substantially different technology from
+initial value.  Chonev et al. use substantially different technology from
 that of this chapter, including Baker's Theorem on linear forms
 in logarithms~\cite{BW93}, and correspondingly relies on restrictions
 on the dimension of data in problem instances to obtain decidability.
@@ -213,9 +215,11 @@ from the state space to a well-founded domain such that each iteration
 of the loop strictly decreases the value of the ranking
 function. However, this approach is incomplete: it is not hard to
 construct an example of a terminating loop which admits no linear
-ranking function.  Sound and relatively complete methods for
+ranking function\footnote{For example,
+consider the program $\mbox{while}(x \geq 0) \lbrace x \leftarrow -2x+10 \rbrace$.}.
+Sound and relatively complete methods for
 synthesising linear ranking functions can be found in
 \cite{PodelskiR04} and~\cite{Ben-AmramG13}. Whether a linear
 ranking function exists can be decided in polynomial time when the
-state space is $\Rationals^{d}$ and is \coNP-complete when the
-state space is $\Integers^{d}$.
+state space is $\Rationals^{d}$~\cite{PodelskiR04} and is \coNP-complete when the
+state space is $\Integers^{d}$~\cite{Ben-AmramG13}.
