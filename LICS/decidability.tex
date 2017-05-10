@@ -136,7 +136,7 @@ is defined on all the numbers $c_j, \exp(d_j)$ appearing
 above, and for which $\log(-1) = i \pi$. Note that if any $c_j=0$ for
 some $j$ then (\ref{eq:LEPinstance}) has no solution. Otherwise, by
 applying $\log$ to each equation in (\ref{eq:LEPinstance}),
-we get:
+we get
 \begin{align}
 \sum_{\ell=1}^{k} \lambda_\ell^{(j)} t_{\ell} = d_j+\log(c_j) + 2i\pi n_j \quad j=1,\ldots,b,
 \label{eq:logs}
@@ -196,7 +196,7 @@ Due to~\cref{thm:Baker}, there exists a non-trivial linear relation with algebra
 &n_{0} \log(-1) + n_{1} \log(s_{1}) + \cdots + n_{k} \log(s_{k}) = 0 \Leftrightarrow \\
 &{(-1)}^{n_{0}} s_{1}^{n_{1}} \cdots s_{k}^{n_{k}} = 1
 \end{align*}
-and since the group of multiplicative relations $\cL(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever it contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \Algebraics$, and transcendental otherwise.
+and since the group of multiplicative relations $\cL(-1, s_{1}, \ldots, s_{k})$ can be effectively computed. Whenever $\cL(-1, s_{1}, \ldots, s_{k})$ contains a non-zero vector, we use it to eliminate an unnecessary $\log(s_{i})$ term, although never eliminating $\log(-1)$. When this process is over, we can see whether each term $b_{i}/\pi$ is algebraic or transcendental: it is algebraic if $b_{i} = \alpha \log(-1), \alpha \in \Algebraics$, and transcendental otherwise.
 
 Now, when $\myvector{x} \in \Integers^{d}$, $A \myvector{x}$ is a vector with algebraic coefficients, so whenever $b_{i} / \pi$ is transcendental we may alter $\mathcal{P}$ by replacing $\leq$ by $<$ in the $i$-th inequality, preserving its intersection with $\Integers^{d}$.
 On the other hand, whenever $b_{i} / \pi$ is algebraic, we split our problem into two: in the first one, $\mathcal{P}$ is altered to force equality on the $i$-th constraint (that is, replacing $\leq$ by $=$), and in the second we force strict inequality (that is, replacing $\leq$ by $<$).
@@ -220,7 +220,7 @@ where $M$ is a matrix with integer entries, $\myvector{x}_{0}$ is an integer vec
 Having now eliminated all equality constraints, we are left with a finite set of polytopes of the form $\mathcal{P} = \lbrace \myvector{x} \in \Reals^{d}: \pi A \myvector{x} < \myvector{b} \rbrace$ that are either empty or full-dimensional and open, and wish to decide whether they intersect the integer lattice of the corresponding space (different instances may lie in spaces of different dimensions, of course). Note that, when $\mathcal{P}$ is non-empty, we can use Fourier-Motzkin elimination to find a vector $\myvector{q} \in \Rationals^{d}$ in its interior, and $\varepsilon > 0$ such that the closed ball of centre $\myvector{q}$ and radius $\varepsilon$ with respect to the $l_{1}$ norm, which we call $\mathcal{B}$, is contained in $\mathcal{P}$.
 
 The next step is to consider the Minkowski-Weyl decomposition of $\mathcal{P}$, namely $\mathcal{P} = \mathcal{H} + \mathcal{C}$, where $\mathcal{H}$ is the convex hull of finitely many points of $\mathcal{P}$ (which we need not compute) and $\mathcal{C} = \lbrace \myvector{x} \in \Reals^{d}: A \myvector{x} \leq \myvector{0} \rbrace$ is a cone with an algebraic description.
-Note that $\mathcal{P}$ is bounded if and only if $\mathcal{C} = \lbrace \myvector{0} \rbrace$, in which case the problem at hand is simple: consider the polytope $\mathcal{Q}$ with an algebraic description obtained by rounding up each coordinate of $\myvector{b} / \pi$, which has the same conic part as $\mathcal{P}$ and which contains $\mathcal{P}$, and therefore is bounded; finally, compute a bound on $\mathcal{Q}$ (such a bound can be defined in the first-order theory of reals), which is also a bound on $\mathcal{P}$, and test the integer points within that bound for membership in $\mathcal{P}$. Otherwise,
+Note that $\mathcal{P}$ is bounded if and only if $\mathcal{C} = \lbrace \myvector{0} \rbrace$, in which case the problem at hand is simple: consider the polytope $\mathcal{Q}$ with an algebraic description obtained by rounding up each coordinate of $\myvector{b} / \pi$, which has the same conic part as $\mathcal{P}$ and which contains $\mathcal{P}$, and therefore is bounded; finally, compute a bound on $\mathcal{Q}$ (such a bound can be defined in the first-order theory of the reals), which is also a bound on $\mathcal{P}$, and test the integer points within that bound for membership in $\mathcal{P}$. Otherwise,
 \begin{align*}
 \mathcal{C} = \lbrace \alpha_{1} \myvector{c}_{1} + \cdots + \alpha_{k} \myvector{c}_{k}: \alpha_{1}, \ldots, \alpha_{k} \geq 0 \rbrace,
 \end{align*}
