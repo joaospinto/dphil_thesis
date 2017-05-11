@@ -29,7 +29,7 @@ is an affine function and $\mathcal{P}\subseteq\Reals^{d}$ is a
 convex polytope. In this formulation we assume that all numbers
 involved in the definition of $f$ and $\mathcal{P}$ are
 rational.\footnote{The assumption of rationality is required to
-  justify some of our complexity claims (e.g., Jordan Canonical Forms
+  justify some of our complexity claims (e.g., Jordan canonical forms
   are only known to be polynomial-time computable for matrices with
   rational coordinates). Nevertheless, our procedure remains valid in
   a more general setting, and in fact, the overall
@@ -121,10 +121,10 @@ that $y_0^{-1}\myvector{x}_0$ is trapped in $(f,\mathcal{P})$.
 We remind the reader that the unique solution to the differential equation $\dot{\myvector{x}}(t)=f(\myvector{x}(t)),\myvector{x}(0)=\myvector{x}_{0},t\geq 0$, where $f(\myvector{x})=A\myvector{x}$, is given by
 $\myvector{x}(t)=\exp(At)\myvector{x}_{0}$.
 
-In this setting, the sets of trapped and eventually trapped points are, respectively:
+In this setting, the sets of trapped and eventually trapped points are, respectively,
 \begin{align*}
 \mathit{T}&=\lbrace \myvector{x}_0\in\Reals^{d}: \forall t\geq 0, \exp(At)\myvector{x}_{0} \in \mathcal{P}\rbrace \\
-\mathit{ET}&=\lbrace \myvector{x}_{0}\in\Reals^{d}:\exists t\geq 0,\exp(At)\myvector{x}_{0}\in\mathit{T}\rbrace
+\mathit{ET}&=\lbrace \myvector{x}_{0}\in\Reals^{d}:\exists t\geq 0,\exp(At)\myvector{x}_{0}\in\mathit{T}\rbrace .
 \end{align*}
 
 Note that both $\mathit{T}$ and $\mathit{ET}$ are convex subsets of $\Reals^{d}$.
@@ -169,9 +169,11 @@ a convex polytope, it suffices to prove this claim for the case when
   We may assume that
   $\myvector{b}^{T} \exp(At) \myvector{x}_{0}^{c}$ is not identically
   zero, as in that case
-  $\myvector{b}^{T} \exp(At)\myvector{x}_{0} \equiv
-  \myvector{b}^{T} \exp(At)\myvector{x}_{0}^{r}$ and our claim
-  holds trivially.
+  \begin{equation*}
+  \myvector{b}^{T} \exp(At)\myvector{x}_{0} \equiv
+  \myvector{b}^{T} \exp(At)\myvector{x}_{0}^{r}
+  \end{equation*}
+  and our claim holds trivially.
   Also, if $\myvector{x}_{0}\in\mathit{T}$, it cannot hold that
   $\myvector{b}^{T} \exp(At) \myvector{x}_{0}^{r} \equiv 0$, since
   $\myvector{b}^{T} \exp(At) \myvector{x}_{0}^{c}$ is negative
@@ -286,8 +288,8 @@ invariant under $\exp(At)$. Moreover,
 \begin{align*}
 \mathit{ET}\cap\mathcal{V}^{r}=(\mathcal{B}\cap\mathcal{C}) \cup
 \begin{cases}
-\lbrace \myvector{0} \rbrace & \text{ if } \triangleright \text{ is } \geq \\
-\emptyset & \text{ if } \triangleright \text{ is } >
+\lbrace \myvector{0} \rbrace & \text{ if } \triangleright \text{ is } \geq ; \\
+\emptyset & \text{ if } \triangleright \text{ is } > ;
 \end{cases}
 %\mathit{ET}\cap\mathcal{V}^{r}=(\mathcal{B}\cap\mathcal{C})\cup\lbrace \myvector{0}\mbox{ if }\triangleright\mbox{ is }\geq\mbox{ as opposed to }> \rbrace
 \end{align*}
@@ -295,7 +297,7 @@ where
 \begin{align*}
 \mathcal{B}=&\bigcap\limits_{(\eta,j)\in (\sigma(A)\setminus \Reals)\times [\nu(A)]} \lbrace \myvector{x}\in\Reals^{d}: \myvector{u}_{(\eta,j)}^{T} \myvector{x}=0 \rbrace \\
 \mathcal{C}=&\bigcup\limits_{(\eta,j)\in(\sigma(A)\cap \Reals)\times [\nu(A)]} \bigg[ \lbrace \myvector{x}\in\Reals^{d}: \myvector{u}_{(\eta,j)}^{T} \myvector{x}>0 \rbrace \cap \\
-&\bigcap\limits_{(\rho,m)\succ (\eta,j)} \lbrace \myvector{x}\in\Reals^{d}: \myvector{u}_{(\rho,m)}^{T} \myvector{x}=0 \rbrace \bigg]
+&\bigcap\limits_{(\rho,m)\succ (\eta,j)} \lbrace \myvector{x}\in\Reals^{d}: \myvector{u}_{(\rho,m)}^{T} \myvector{x}=0 \rbrace \bigg].
 \end{align*}
 
 The set $\mathit{ET}\cap\mathcal{V}^{r}$ can be seen to be convex from

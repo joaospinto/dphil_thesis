@@ -4,6 +4,7 @@
 The goal of this section is to prove the following result.
 
 \begin{theorem}
+\label{thm:lti-undecidability}
 The point-to-point controllability problem for LTI systems whose sets of admissible controls are disjoint unions of finitely many closed convex polytopes is undecidable.
 \end{theorem}
 
@@ -25,20 +26,20 @@ and $M = \diag{B_{k}, \ldots, B_{1}, I_{d}, 1} \in \mathbb{Q}^{((3k+1)d+1) \time
 
 Moreover, we let, for each $i \in \lbrace 1, \ldots, k \rbrace$,
 \begin{align*}
-\mathcal{P}_{i}^{(1)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (-\myvector{z}, \myvector{z}, \myvector{0}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+\mathcal{P}_{i}^{(1)} = {\lbrace \myvector{0} \rbrace}^{3(k-i)d} \times
+\lbrace (-\myvector{z}, \myvector{z}, \myvector{0}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace \times
 {\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{P}_{i}^{(2)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (-\myvector{z}, \myvector{0}, \myvector{z}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+\mathcal{P}_{i}^{(2)} = {\lbrace \myvector{0} \rbrace}^{3(k-i)d} \times
+\lbrace (-\myvector{z}, \myvector{0}, \myvector{z}, \myvector{0}), \myvector{z} \in \mathbb{R}^{d} \rbrace \times
 {\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{Q}_{i}^{(1)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (\myvector{0}, -\myvector{z}, \myvector{0}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+\mathcal{Q}_{i}^{(1)} = {\lbrace \myvector{0} \rbrace}^{3(k-i)d} \times
+\lbrace (\myvector{0}, -\myvector{z}, \myvector{0}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace \times
 {\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1} \\
-\mathcal{Q}_{i}^{(2)} &= {\lbrace \myvector{0} \rbrace}^{3(k-i)d} &\times
-\lbrace (\myvector{0}, \myvector{0}, -\myvector{z}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace &\times
+\mathcal{Q}_{i}^{(2)} = {\lbrace \myvector{0} \rbrace}^{3(k-i)d} \times
+\lbrace (\myvector{0}, \myvector{0}, -\myvector{z}, \myvector{z}), \myvector{z} \in \mathbb{R}^{d} \rbrace \times
 {\lbrace \myvector{0} \rbrace}^{3(i-1)d} &\times \lbrace 1 \rbrace
 \subseteq \mathbb{R}^{(3k+1)d+1}.
 \end{align*}
@@ -52,7 +53,7 @@ Finally, defining $\myvector{s} = (\myvector{x}, \myvector{0}, \ldots, \myvector
 \prod\limits_{i=1}^{k}A_{i}^{n_{i}} \myvector{x} = \myvector{y}.
 \end{equation*}
 
-For the if implication, suppose that such $n_{1}, \ldots, n_{k}$ exist.
+For the ``if'' implication, suppose that such $n_{1}, \ldots, n_{k}$ exist.
 We can use precisely $2k$ non-zero controls, which will correspond to times
 $t_{1} = 0,
 t_{2} = \lvert n_{1}\rvert,
@@ -70,7 +71,7 @@ On the other hand, for each $i \in \lbrace 0, \ldots, k-1 \rbrace$, $\myvector{u
 \end{equation*}
 It is clear that this sequence controls $\myvector{s}$ to $\myvector{t}$.
 
-We now proceed to showing the more challenging only if implication. We first note that, for any sequence controlling $\myvector{s}$ to $\myvector{t}$,
+We now proceed to showing the more challenging ``only if'' implication. We first note that, for any sequence controlling $\myvector{s}$ to $\myvector{t}$,
 for all $i \in \lbrace 1, \ldots, k \rbrace$,
 there exists $r \in \lbrace 1, 2 \rbrace$ such that both $\mathcal{P}_{i}^{(r)}$ and $\mathcal{Q}_{i}^{(r)}$ are used exactly once each
 and that both $\mathcal{P}_{i}^{(3-r)}$ and $\mathcal{Q}_{i}^{(3-r)}$ are never used.
