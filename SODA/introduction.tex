@@ -7,7 +7,7 @@ linear conditionals has been extensively studied over the last decade.
 This has led to the development of powerful techniques to
 prove termination via synthesis of linear ranking
 functions~\cite{Ben-AmramG13,BradleyMS05,ChenFM12,ColonS01,PodelskiR04},
-many of which have been implemented in software-verification tools, such as
+many of which have been implemented in software verification tools, such as
 Microsoft's \textsc{Terminator}~\cite{CookPR06}.
 
 A very simple form of imperative programs is \emph{simple linear
@@ -19,7 +19,7 @@ $\myvector{x}\leftarrow A\myvector{x}+\myvector{a}$,}
 \end{gather*}
 where $\myvector{x}$ is vector of variables, $\myvector{u}$,
 $\myvector{a}$, and $\myvector{c}$ are integer vectors, and $A$
-and $B$ are integer matrices of the appropriate dimensions.  Here the
+and $B$ are integer matrices of appropriate dimensions.  Here the
 loop guard is a conjunction of linear inequalities and the loop body
 consists of a simultaneous affine assignment to $\myvector{x}$.  If
 the vectors $\myvector{a}$ and $\myvector{c}$ are both zero then
@@ -84,11 +84,13 @@ While our algorithm for deciding termination requires exponential
 space, it should be noted that the procedure actually solves a more
 general problem than merely determining the existence of a
 non-terminating integer point (or, equivalently, the existence of an
-eventually non-terminating integer point).  In fact the algorithm
-computes a representation of the set of all eventually non-terminating
+eventually non-terminating integer point).  In fact, up to technicalities,
+our algorithm computes a representation of the set of all eventually non-terminating
 integer points.  For reference, the closely related problem of
 deciding termination on the integer points in a given convex polytope is
-\EXPSPACE{}-hard~\cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06}, deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced to a problem in $\exists \Reals$, which is within \PSPACE{}.
+\EXPSPACE{}-hard~\cite{BGM12}. By contrast, even though not stated explicitly in~\cite{Tiw04} and~\cite{Bra06},
+deciding termination on $\Reals^{d}$ and $\Rationals^{d}$ can be reduced in polynomial time
+to a problem in $\exists \Reals$, which is within \PSPACE{}.
 
 As well as making extensive use of algorithms in real algebraic
 geometry, the soundness of our decision procedure relies on powerful
