@@ -141,8 +141,20 @@ $\min\lbrace n > 0 : \zeta^{n} = 1 \rbrace$.
 
 Given an arbitrary matrix $A$, let $L$ be the least common multiple of
 all orders of quotients of distinct eigenvalues of $A$ which are roots
-of unity. It is known that $L=2^{O(d\sqrt{\log d})}$~\cite{BOOK}.  The
-eigenvalues of the matrix $A^L$ have the form $\lambda^L$ for
+of unity. It is known that $L=2^{O(d\sqrt{\log d})}$~\cite{BOOK}.
+The looser bound $L = 2^{O(d^{3} \sqrt{\log(d))}}$, which would suffice
+for our purposes, can be derived as follows.
+Let $g(n)$ be the largest least common multiple of any partition of $n$;
+the function $g(n)$ is named after Landau, who showed that
+\[ \lim\limits_{n \rightarrow \infty} \ln(g(n)) = (1+o(1)) \sqrt{n \ln(n)} . \]
+The number of quotients of eigenvalues of $A$ that are roots of unity is
+trivially upper bounded by $d^{2}$, and the order of each of them is
+loosely upper bounded by $2d^{4}$, due to~\cref{lem:totient}, yielding
+a $2d^{6}$ bound on the sums of the orders of all quotients of eigenvalues
+of $A$ that are roots of unity, which entails the upper bound
+$L \leq g(2d^{6}) = 2^{O(d^{3} \sqrt{\log(d)})}$.
+
+The eigenvalues of the matrix $A^L$ have the form $\lambda^L$ for
 $\lambda$ an eigenvalue of $A$, by the spectral mapping theorem.  It follows that
 $A^L$ is non-degenerate, since if $\lambda_1,\lambda_2$ are
 eigenvalues of $A$ such that $\lambda^L_1/\lambda^L_2$ is a root of
