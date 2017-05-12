@@ -52,12 +52,7 @@ $\mathit{ENT}$ contains an integer point.
 Recall that a subset of $\Reals^{d}$ is said to be
 \emph{semi-algebraic} if it is a Boolean combination of sets of the
 form $\lbrace \myvector{x} \in \Reals^{d} : p(\myvector{x})\geq 0\rbrace$,
-where $p$ is a polynomial with integer coefficients.  Equivalently the
-semi-algebraic sets are those definable by quantifier-free first-order
-formulas over the structure $(\Reals,<,+,\cdot,0,1)$.  In fact,
-since the first-order theory of the reals admits quantifier
-elimination~\cite{Tar51}, the semi-algebraic sets are precisely the
-first-order definable sets.
+where $p$ is a polynomial with integer coefficients.
 
 Define $W \subseteq \Reals^{d}$ to be a
 \emph{non-termination witness set} (or simply a witness set) if it
@@ -176,8 +171,8 @@ Consider a homogeneous simple linear loop
 \mathsf{P4:}\ \mbox{$\myvector{x}\gets \myvector{u}$;
 \textit{while} $\myvector{b}^T\myvector{x} \geq 0$ \textit{do} $\myvector{x}\leftarrow A\myvector{x}$,}
 \end{gather*}
-such that $A$ is non-degenerate. If $A$ has dimension at most $5$, we can compute a witness set for \textsf{P4} using polynomial space.
-In the case where all complex eigenvalues of $A$ are simple, we can compute a witness set for \textsf{P4} using exponential space.
+such that $A$ is non-degenerate. If $A$ has dimension at most $5$, we can compute a witness set for \textsf{P4} in polynomial space.
+In the case where all complex eigenvalues of $A$ are simple, we can compute a witness set for \textsf{P4} in exponential space.
 \end{restatable}
 
 Bearing in mind that the transformation from $\mathsf{P1}$ to
