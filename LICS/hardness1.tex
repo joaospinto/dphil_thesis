@@ -215,13 +215,20 @@ matrix of this form can be expressed as an exponential.  Indeed we can
 write the above equation as a matrix-exponential product
 \[ e^{B_1z} e^{B_2y'} e^{B_3x} e^{B_4y} e^{B_5x'} = \begin{bmatrix}1&x-x'&z-xy\\0&1&y-y'\\0&0&1\end{bmatrix} \]
 for matrices
-\[\begin{array}{r@{}cp{.1cm}r@{}cp{.1cm}r@{}c}
-B_1=&\begin{bmatrix}0&0&-1\\0&0&0\\0&0&0\end{bmatrix} &&
-B_3=&\begin{bmatrix}0&1&0\\0&0&0\\0&0&0\end{bmatrix} &&
-    B_5=&\begin{bmatrix}0&-1&0\\0&0&0\\0&0&0\end{bmatrix} \\
-B_2=&\begin{bmatrix}0&0&0\\0&0&-1\\0&0&0\end{bmatrix} &&
-B_4=&\begin{bmatrix}0&0&0\\0&0&1\\0&0&0\end{bmatrix} \\
-\end{array}\]
+%\[\begin{array}{r@{}cp{.1cm}r@{}cp{.1cm}r@{}c}
+%B_1=&\begin{bmatrix}0&0&-1\\0&0&0\\0&0&0\end{bmatrix} &&
+%B_3=&\begin{bmatrix}0&1&0\\0&0&0\\0&0&0\end{bmatrix} &&
+%B_5=&\begin{bmatrix}0&-1&0\\0&0&0\\0&0&0\end{bmatrix} \\[10pt]
+%B_2=&\begin{bmatrix}0&0&0\\0&0&-1\\0&0&0\end{bmatrix} &&
+%B_4=&\begin{bmatrix}0&0&0\\0&0&1\\0&0&0\end{bmatrix} \\
+%\end{array}\]
+\begin{align*}
+&B_1=\begin{bmatrix}0&0&-1\\0&0&0\\0&0&0\end{bmatrix} &&
+&B_3=\begin{bmatrix}0&1&0\\0&0&0\\0&0&0\end{bmatrix} &&
+B_5=\begin{bmatrix}0&-1&0\\0&0&0\\0&0&0\end{bmatrix} \\[10pt]
+&B_2=\begin{bmatrix}0&0&0\\0&0&-1\\0&0&0\end{bmatrix} &&
+&B_4=\begin{bmatrix}0&0&0\\0&0&1\\0&0&0\end{bmatrix} \\
+\end{align*}
 Thus the constraint $xy=z$ can be expressed as
 \begin{gather}
 e^{B_1z} e^{B_2y'} e^{B_3x} e^{B_4y} e^{B_5x'} = I \, .
@@ -230,7 +237,7 @@ e^{B_1z} e^{B_2y'} e^{B_3x} e^{B_4y} e^{B_5x'} = I \, .
 
 Again, we can apply \cref{prop:combine} to combine the
 equation (\ref{eq:fresh}) with the matrix equation from the original
-problem instance and thus encode the constraint $x=yz$.
+problem instance and thus encode the constraint $z=xy$.
 
 % as the example below illustrates:
 % \[\exp\left(\begin{bmatrix}0&1&0\\0&0&0\\0&0&0\end{bmatrix}x\right)=\begin{bmatrix}1&x&0\\0&1&0\\0&0&1\end{bmatrix}.\]

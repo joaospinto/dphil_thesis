@@ -59,7 +59,7 @@ It is well known that arithmetic operations and equality testing on these canino
 \end{itemize}
 
 Moreover, we need to know how to decide whether a given canonically represented algebraic number $\alpha$ is a root of unity, that is, whether $\alpha^r=1$ for some $r$. If that is the case, then its defining polynomial will be the $r$-th cyclotomic polynomial, which has degree $\phi(r)$, if $r$ is taken to be minimal, that is, if $\alpha$ is a primitive $r$-th root of unity. The following (crude) lower bound on $\phi(r)$ allows us to decide this problem in polynomial time, assuming that the
-degree of $\alpha$ is given in unary. It follows from the obvious fact that $\phi(r) \geq \pi(r)$, where $\pi(r)$ denotes the number of prime numbers in the set $\lbrace 1, \ldots, r \rbrace$, and from the fact that $\pi(r) > r / \log(r) > sqrt{r/2}$ for $r \geq 17$~\cite[Corollary 1]{RS62}. It can be readily verified that the result below also holds for $1 \leq r \leq 16$. Note that much better bounds are known; for example, $\phi(r) = \Omega(r / \log\log(r))$~\cite[Theorem 15]{RS62}.
+degree of $\alpha$ is given in unary. It follows from the obvious fact that $\phi(r) \geq \pi(r)$, where $\pi(r)$ denotes the number of prime numbers in the set $\lbrace 1, \ldots, r \rbrace$, and from the fact that $\pi(r) > r / \log(r) > \sqrt{r/2}$ for $r \geq 17$~\cite[Corollary 1]{RS62}. It can be readily verified that the result below also holds for $1 \leq r \leq 16$. Note that much better bounds are known; for example, $\phi(r) = \Omega(r / \log\log(r))$~\cite[Theorem 15]{RS62}.
 
 \begin{lemma}
 \label{lem:totient}
