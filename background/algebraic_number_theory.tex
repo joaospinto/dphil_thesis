@@ -3,7 +3,8 @@
 
 In this subsection, we introduce the main concepts in algebraic number theory necessary for understanding the hypothesis of the $S$-units theorem, stated below. In a later subsection, we shall justify the application of the aforementioned result in lower-bounding the dominant terms of linear recurrence sequences. We also briefly explain how one can effectively manipulate algebraic numbers. Should the reader be seeking an in-depth course in computational algebraic number theory, they can consult~\cite{Cohen}.
 
-A complex number $\alpha$ is said to be \emph{algebraic} if it is the root of some non-zero polynomial with integer coefficients. Among those polynomials, there exists a unique one of minimal degree whose coefficients have no common factor and whose leading coefficient is positive, and it is said to be the \emph{defining polynomial} of $\alpha$, denoted by $p_{\alpha}$, and it is always an irreducible polynomial. Moreover, if $p_{\alpha}$ is monic, $\alpha$ is said to be an \emph{algebraic integer}. The degree of an algebraic number is defined as the degree of $p_{\alpha}$, and its height as the maximum absolute value of the coefficients of $p_{\alpha}$ (also said to be the height of that polynomial). The roots of $p_{\alpha}$ are said to be the \emph{Galois conjugates} of $\alpha$. Note that the complex conjugate of $\alpha$ is always a Galois conjugate of $\alpha$.
+A complex number $\alpha$ is said to be \emph{algebraic} if it is a zero of some non-zero polynomial with integer coefficients. Among those polynomials, there exists a unique one of minimal degree whose coefficients have no common factor and whose leading coefficient is positive, and it is said to be the \emph{defining polynomial} of $\alpha$, denoted by $p_{\alpha}$, and it is always an irreducible polynomial. Moreover, if $p_{\alpha}$ is monic, $\alpha$ is said to be an \emph{algebraic
+integer}. The degree of an algebraic number is defined as the degree of $p_{\alpha}$, and its height as the maximum absolute value of the coefficients of $p_{\alpha}$ (also said to be the height of that polynomial). The zeros of $p_{\alpha}$ are said to be the \emph{Galois conjugates} of $\alpha$. Note that the complex conjugate of $\alpha$ is always a Galois conjugate of $\alpha$.
 We denote the set of algebraic numbers by $\Algebraics$, and the set of algebraic integers by $\mathcal{O}$. For all $\alpha \in \Algebraics$, there exists some $n\in\Naturals$ such that $n \alpha \in \mathcal{O}$. It is well known that $\Algebraics$ is a field and that $\mathcal{O}$ is a ring. A complex number that is not algebraic is said to be \emph{transcendental}.
 
 A \emph{number field} of dimension $d$ is a field extension $K$ of $\Rationals$ whose degree as a vector-space over $\Rationals$ is $d$. In particular, $K\subseteq\Algebraics$ must hold.
@@ -40,7 +41,7 @@ where $Y=\max\lbrace \lvert x_j\rvert : 1\leq j\leq s \rbrace$ and $Z=\max\lbrac
 \subsubsection{Manipulating algebraic numbers}
 \label{sec:alg_num_rep}
 
-The following separation bound allows us to effectively represent an arbitrary algebraic number by keeping its defining polynomial, a sufficiently accurate estimate for the root we want to represent, and an upper bound on the error. We call this its \emph{standard/canonical representation}.
+The following separation bound allows us to effectively represent an arbitrary algebraic number by keeping its defining polynomial, a sufficiently accurate estimate for the zero we want to represent, and an upper bound on the error. We call this its \emph{standard/canonical representation}.
 
 \begin{lemma}[Mignotte]
 Let $f\in\Integers[x]$. Then
@@ -52,7 +53,7 @@ where $d$ and $H$ are respectively the degree and height of $f$.
 
 It is well known that arithmetic operations and equality testing on these caninocal representations can be done in time polynomial on their size, since one can
 \begin{itemize}
-\item compute polynomially many bits of the roots of any polynomial $p\in\Rationals[x]$ in polynomial time, due to the work of Pan in~\cite{Pan97};
+\item compute polynomially many bits of the zeros of any polynomial $p\in\Rationals[x]$ in polynomial time, due to the work of Pan in~\cite{Pan97};
 \item find the defining polynomial of an algebraic number by factoring the polynomial in its description in polynomial time using the LLL algorithm~\cite{LenstraLenstraLovasz1982};
 \item use the sub-resultant algorithm (see Algorithm 3.3.7 in~\cite{Cohen}) and the two aforementioned procedures to compute canonical representations of sums, differences, multiplications, and divisions of canonically represented algebraic numbers.
 \end{itemize}
